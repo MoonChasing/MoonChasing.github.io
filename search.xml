@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[2018 Multi-University Training Contest 1 记录]]></title>
+    <url>%2F2018%2F07%2F24%2F2018-Multi-University-Training-Contest-1-%E8%AE%B0%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[1001 Maximum MultipleProblem DescriptionGiven an integer n, Chiaki would like to find three positive integers x, y and z such that: $n=x+y+z$, $x\mid n$, $y \mid n$, $z \mid n$ and $xyz$ is maximum. InputThere are multiple test cases. The first line of input contains an integer $T$ ($1 \le T \le 10^6$), indicating the number of test cases. For each test case:The first line contains an integer $n$ ($1 \le n \le 10^{6}$). OutputFor each test case, output an integer denoting the maximum $xyz$. If there no such integers, output $-1$ instead. Sample Input 3 1 2 3 Sample Output -1 -1 1 思路对 $n$ 是否是3，4的倍数进行讨论。 如果是 3 的倍数， 则 $ x = y = z = {n \over 3} $； 如果是 4 的倍数， 则 $ x = {n \over 2}, y = z = {n \over 4} $。 若 $n$ 为 3 和 4 的公倍数，则按 3 的倍数处理。 AC代码（队友）12345678910111213141516171819202122232425262728#include&lt;bits/stdc++.h&gt;using namespace std;#define LL long longint n;int main() &#123; int _; scanf( "%d", &amp;_ ); while( _-- ) &#123; scanf( "%d", &amp;n ); if( n % 3 == 0 ) &#123; LL ans = 1; ans = ( ans * n/3 * n/3 * n/3 ); printf( "%lld\n", ans ); &#125; else if( n%4 == 0 ) &#123; LL ans = 1; ans = ( ans * n/2 * n/4 * n/4 ); printf( "%lld\n", ans ); &#125; else &#123; puts( "-1" ); &#125; &#125; return 0;&#125; 1011 Time ZoneProblem DescriptionChiaki often participates in international competitive programming contests. The time zone becomes a big problem. Given a time in Beijing time (UTC +8), Chiaki would like to know the time in another time zone s. InputThere are multiple test cases. The first line of input contains an integer $T$ ($1 \le T \le 10^6$), indicating the number of test cases. For each test case:The first line contains two integers $a$, $b$ ($0 \le a \le 23, 0 \le b \le 59$) and a string $s$ in the format of &quot;UTC+X’’, &quot;UTC-X’’, &quot;UTC+X.Y’’, or &quot;UTC-X.Y’’ ($0 \le X, X.Y \le 14, 0 \le Y \le 9$). OutputFor each test, output the time in the format of $hh:mm$ (24-hour clock). Sample Input 3 11 11 UTC+8 11 12 UTC+9 11 23 UTC+0 Sample Output 11:11 12:12 03:23 思路水题，时区转换，模拟即可。 如果让自己写可能会以分钟计数，应该可以省去进位的麻烦。 AC代码（队友）1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556#include&lt;bits/stdc++.h&gt;using namespace std;#define LL long longint h, m;double change;char str[100];int main() &#123; int _; scanf( "%d", &amp;_ ); while( _-- ) &#123; scanf( "%d%d", &amp;h, &amp;m ); getchar(); getchar(); getchar(); getchar(); scanf( "%lf", &amp;change ); if( (int)change == change ) &#123; h += change-8; if( h &lt; 0 ) &#123; h += 24; &#125; else if( h &gt;= 24 ) &#123; h -= 24; &#125; &#125; else &#123; int _h = (int)change; double _m = change-_h; //cout&lt;&lt;m&lt;&lt;endl; if( _m &lt; 0 ) &#123; _m = (int)( _m * 10 +- 0.5 ) / 10.0; &#125; else &#123; _m = (int)( _m * 10 + 0.5 ) / 10.0; &#125;// cout&lt;&lt;_m&lt;&lt;endl; h += _h-8; m += (int)(_m*60);// cout&lt;&lt;m&lt;&lt;endl; if( m &lt; 0 ) &#123; m += 60; h -= 1; &#125; else if( m &gt;= 60 ) &#123; m -= 60; h += 1; &#125; if( h &lt; 0 ) &#123; h += 24; &#125; else if( h &gt;= 24 ) &#123; h -= 24; &#125; &#125; printf( "%02d:%02d\n", h, m ); &#125;&#125; 1003 Triangle PartitionTime Limit: 2000/1000 MS (Java/Others) Memory Limit: 132768/132768 K (Java/Others) Special Judge Problem DescriptionChiaki has 3n points p1,p2,…,p3n. It is guaranteed that no three points are collinear. Chiaki would like to construct n disjoint triangles where each vertex comes from the 3n points. InputThere are multiple test cases. The first line of input contains an integer $T$, indicating the number of test cases. For each test case:The first line contains an integer $n$ ($1 \le n \le 1000$) – the number of triangle to construct.Each of the next $3n$ lines contains two integers $x_i$ and $y_i$ ($-10^9 \le x_i, y_i \le 10^9$).It is guaranteed that the sum of all $n$ does not exceed $10000$. OutputFor each test case, output $n$ lines contain three integers $a_i,b_i,c_i$ ($1 \le a_i,b_i,c_i \le 3n$) each denoting the indices of points the $i$-th triangle use. If there are multiple solutions, you can output any of them. Sample Input 1 1 1 2 2 3 3 5 Sample Output 1 2 3 思路把顶点按 x, y 坐标排序，依次构成三角形。 AC代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162#include &lt;cstdio&gt;#include &lt;cstring&gt;#include &lt;cstdlib&gt;#include &lt;iostream&gt;#include &lt;set&gt;#include &lt;map&gt;#include &lt;queue&gt;#include &lt;vector&gt;#include &lt;utility&gt;#include &lt;algorithm&gt;#define MAXN 3005#define INF 0x3f3f3f3f#define DEBUG#define DataIntypedef long long LL;using namespace std;int n;struct point&#123; int id, x, y; bool operator &lt; (point p) &#123; if(x &lt; p.x) return true; else if(x == p.x) &#123; if(y &lt; p.y) return true; else return false; &#125; else return false; &#125;&#125;P[MAXN];int main()&#123; int T; scanf("%d", &amp;T); while(T--) &#123; scanf("%d", &amp;n); for(int i=0; i&lt;3*n; i++) &#123; scanf("%d%d", &amp;P[i].x, &amp;P[i].y); P[i].id = i+1; &#125; sort(P, P+3*n); for(int i=0; i&lt;3*n; i++) &#123; printf("%d ", P[i].id); if(i+1%3==0) putchar(10); &#125; &#125; return 0;&#125; 1004 Distinct ValuesTime Limit: 4000/2000 MS (Java/Others) Memory Limit: 32768/32768 K (Java/Others) Problem DescriptionChiaki has an array of $n$ positive integers. You are told some facts about the array: for every two elements $a_i$ and $a_j$ in the subarray $a_{l..r}$ ($l \le i \lt j \le r$), $a_i \ne a_j$ holds.Chiaki would like to find a lexicographically minimal array which meets the facts. InputThere are multiple test cases. The first line of input contains an integer $T$, indicating the number of test cases. For each test case:The first line contains two integers $n$ and $m$ ($1 \le n, m \le 10^5$) – the length of the array and the number of facts. Each of the next $m$ lines contains two integers $l_i$ and $r_i$ ($1 \le l_i \le r_i \le n$).It is guaranteed that neither the sum of all $n$ nor the sum of all $m$ exceeds $10^6$. OutputFor each test case, output $n$ integers denoting the lexicographically minimal array. Integers should be separated by a single space, and no extra spaces are allowed at the end of lines. Sample Input 3 2 1 1 2 4 2 1 2 3 4 5 2 1 3 2 4 Samplt output 1 2 1 2 1 2 1 2 3 1 1]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>综合比赛</category>
+        <category>思维</category>
+        <category>构造</category>
+        <category>数论</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HDOJ 5573 Binary Tree]]></title>
+    <url>%2F2018%2F07%2F13%2FHDOJ-5573-Binary-Tree%2F</url>
+    <content type="text"><![CDATA[题目链接 题意&emsp;&emsp;在一棵以 1 为根的满二叉树上，然后从根节点到第k层的某一个结点，你可以以一些途径到达，然后经过的节点编号需要加加减减，问你怎么凑出n，特判数据。 思路&emsp;&emsp;一开始想到的是 dfs 深搜， 可没能想出可行的剪枝函数，之后转向了新的思路。若每层都取 + 号，到达第 K 层时，其和为 $2^k-1$ 到 $2^{k-1}-n-2$ 之间， 也就是如果我们一直走左边， 得到的最大值为 $2^k-1$，如果我们只最后一步走右边（下边的思路所说的路径都是除最后一步外只往左走），则为 $2^k$ ，由题目数据范围可知， $N\le2^k$ ，即我们如果一直走左边的话是可以取到最大值的。最左边一枝的编号为 $2^k$ ，联想到数的二进制表示，即我们可以取路径上边的部分或全部节点构成任意 1 ~ $2^k$ 的数字。题意可知，我们必须要走 K 层，如果选取部分节点，那剩下的结点怎么办呢。思路一下僵结住，不知道该如何向下进行。后来灵光一闪，想到可以反过来用 $2^k$ 减去某个数得到我们想要的 $N$ ，这题便出来了。 解法 $diff = \frac{2^k-n}{2}$ N 若为奇数，则最后一步向左走；若为偶数，则向右走。将符号全部初始为 + 。 求出 $diff$ 的二进制，其二进制位若为1，则将其对应位的符号改为 - 。 代码123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657#include &lt;cstdio&gt;#include &lt;cstring&gt;#include &lt;cstdlib&gt;#include &lt;iostream&gt;#include &lt;set&gt;#include &lt;map&gt;#include &lt;queue&gt;#include &lt;vector&gt;#include &lt;utility&gt;#include &lt;algorithm&gt;#define MAXN 65#define INF 0x3f3f3f3f#define DEBUG#define DataIntypedef long long LL;using namespace std;int T, k;LL n;LL maxx;LL tar;bool sub[MAXN];int main()&#123; scanf("%d", &amp;T); for(int kiss = 1; kiss &lt;= T; kiss++) &#123; scanf("%lld%d", &amp;n, &amp;k); memset(sub, false, sizeof(sub)); maxx = 1LL &lt;&lt; k; tar = (maxx - n) &gt;&gt; 1; int cnt = 1; while(tar) &#123; if(tar &amp; 1) &#123; sub[cnt] = true; &#125; tar &gt;&gt;= 1; cnt++; &#125; printf("Case #%d:\n", kiss); for(int i=1; i&lt;=k-1; i++) &#123; printf("%lld %c\n", 1LL&lt;&lt;(i-1), sub[i] ? '-' : '+'); &#125; if(n &amp; 1) printf("%lld %c\n", 1LL&lt;&lt;(k-1), sub[k] ? '-' : '+'); else printf("%lld %c\n", (1LL&lt;&lt;(k-1))+1, sub[k] ? '-' : '+'); &#125;&#125; 心得&emsp;&emsp;刷题时要仔细看题目给的数据范围，这题因为没有注意 $N\le2^k$ 纠结了很久，注意到后突然醒悟可以只走左边构成该值。 &emsp;&emsp;要多思考，当得出思路，一次 AC 的时候真的很喜悦，很有成就感！]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>思维</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Spring MVC笔记]]></title>
+    <url>%2F2018%2F07%2F13%2FSpring-MVC%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[MVC 的核心思想是业务数据抽取同业务数据呈现相分离。 Model: 业务数据的信息表示，关注支撑业务的信息构成，通常是多个业务实体的组合。View: 为用户提供UI，重点关注数据的呈现。Controller: 调用业务逻辑产生合适的数据(Model)。 ViewResolver: Help DispatcherServlet to resolve the right view to render page.]]></content>
+      <categories>
+        <category>Java</category>
+        <category>Spring MVC</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo 一篇文章多个 categories]]></title>
+    <url>%2F2018%2F07%2F03%2FHexo-%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%A4%9A%E4%B8%AA-categories%2F</url>
+    <content type="text"><![CDATA[前言&emsp;&emsp;在很多情况下，我们希望在 Hexo 中写的一篇文章能够同时属于多个分类，例如我写一篇 《Servlet笔记》，我既想将它放在 Java 这个分类中，又想将它放入 Servlet 这个分类。 &emsp;&emsp;按照官方的解释，categories 这个选项有两种配置方法（其实有三种）。那我们就来讲讲这三种配置方法。 子分类下面的分类会将该分章放到 Java/Servlet这个分类下。 123categories: - Java - Servlet 同样的作用我们也可以这样写。 1categories: [Java, Servlet] 上面两种方法最终效果一样，都是将文章放在了一个子分类的目录下，效果如图。 多个分类如果我们的要求是将文章同时分到多个不同的分类中呢，我们应该这样： 123categories: -[Java] -[Servlet] 这样，就可以将上面的文章分类到 Java 和 Servlet 这两个不同的目录中了。 扩展一下，如果我们将其分类到 Java/Servlet 和 Programming 两个不同的目录下，我们应该如下写： 123categories: -[Java, Servlet] -[Programming]]]></content>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[IntelliJ Idea 创建第一个 Servlet 项目]]></title>
+    <url>%2F2018%2F07%2F02%2FIntelliJ-Idea%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AAServlet%E9%A1%B9%E7%9B%AE%2F</url>
+    <content type="text"><![CDATA[&emsp;&emsp;本文主要根据Intellij Idea 创建Web项目并部署servlet，JavaWeb开发 - 使用IDEA创建Servlet程序两篇文章。 &emsp;&emsp;一开始入手 JavaWeb、Tomcat 还是有一点点迷茫的，因为自己还没有太多的接触过有关的网络编程，不过学习编程早已习惯了一开始的无从下手，不用怕，找路就是了。本文记录的是使用 IntelliJ Idea 2017.3.2编写第一个 JavaWeb 项目，并部署Servlet，用到了 Tomcat。（一开始学习还不知道这个具体来做什么的） 1. 创建一个web项目 我们创建好后文件工程结构目标如下：（图片来源于网络）&emsp;&emsp;但我使用IntelliJ Idea 2017.3.2创建好后，却没有 WEB-INF 文件夹和 web.xml 文件，这时就要自己配置添加web.xml。步骤：1. 打开 Project Structure， ( File -&gt; Project Structure, 快捷键 Ctrl+Shift+Alt+S. 也可以右击项目，有个 Open Module Settings, 快捷键 F4. )2. 在 Facets 中选中次级的 Web 或者在 Modules 中选中Web，在 Deployment Descriptors 面板里，点击 + 号选择 web.xml 以及版本号。然后在弹出的对话框中修改 xml 默认的目录，加上 web 就可以了。 3. 完成。(classes和lib是后边设置的)## 2. Web工程设置### 创建classes、lib目录1. 在WEB-INF 目录下点击右键，New –&gt; Directory，创建 classes 和 lib 两个目录 。classes目录用于存放编译后的class文件，lib用于存放依赖的jar包2. classes目录配置File –&gt; Project Structure，进入 Project Structure窗口，点击 Modules –&gt; 选中项目“JavaWeb” –&gt; 切换到 Paths 选项卡 –&gt; 勾选 “Use module compile output path”，将 “Output path” 和 “Test output path” 都改为之前创建的 classes 目录。即将后面编译的class文件默认生成到classes目录下3. lib目录配置还是在这个Project Structure这个窗口。点击 Modules –&gt; 选中项目“JavaWeb” –&gt; 切换到 Dependencies 选项卡 –&gt; 点击右边的“+”，选择 “JARs or directories…”，选择创建的lib目录。### 配置打包方式Artifacts&emsp;&emsp;点击 Artifacts选项卡，IDEA会为该项目自动创建一个名为“JavaWeb:war exploded”的打包方式，表示 打包成war包，并且是文件展开性的，输出路径为当前项目下的 out 文件夹，保持默认即可。另外勾选下“Build on make”“Include in project build”(虽然不知道是干啥用的，但按照他的意思勾上吧)，表示编译的时候就打包部署，勾选“Show content of elements”，表示显示详细的内容列表。## 3. Tomcat 配置### 创建 Tomcat 容器1. 打开菜单Run -&gt; 选择Edit Configuration 2. 点击“+”号 -&gt; 选择“Tomcat Server” -&gt; 选择“Local” 3. 点击 “Application server” 后面的 “Configure…”, 弹出Tomcat Servers 窗口，选择本地安装的 Tomcat 目录， 比如我的是”G:\Tomcat\apache-tomcat-9.0.10”, 即 bin 文件夹所在的目录。 点击OK。4. 在”Run/Debug Configurations” 窗口的”Server” 选项板中，取消勾选”After launch”，设置”HTTP port” 和”JMX port”（默认值即可），点击 Apply -&gt; OK， 至此 Tomcat 配置完成。5. 点击Deployment -&gt; 选择刚刚建立的 Tomcat 容器 -&gt; 选择 Deployment -&gt; 点击右边的 “+” 号 -&gt; 选择 Artifact-&gt; 选择 web 项目 -&gt; Application context 可以填 “/HelloWorld”(其实也可以不填的~) -&gt; OK .## 4. 编辑 index.jsp文件## 5. 运行 Tomcat， 在浏览器中查看结果&emsp;&emsp;点击绿色按钮，在浏览器地址栏软入 localhost:8080/HelloWorld (HelloWorld为刚刚设置的地址)，查看结果。## 6. Servlet简单实现### 编写Servlet源文件&emsp;&emsp;在 src 目录下新建 HelloWorld.java，并编写一下代码并进行编译：1234567891011121314151617181920212223242526import javax.servlet.ServletException;import javax.servlet.http.HttpServlet;import javax.servlet.http.HttpServletRequest;import javax.servlet.http.HttpServletResponse;import java.io.IOException;import java.io.PrintWriter;public class HelloWorld extends HttpServlet &#123; @Override public void init() throws ServletException &#123; &#125; @Override protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123; resp.setContentType("text/html"); PrintWriter out = resp.getWriter(); out.println("&lt;h1&gt;Hello,world!&lt;/h1&gt;"); &#125; @Override public void destroy() &#123; super.destroy(); &#125;&#125; &emsp;&emsp;因为是第一次编写 Servlet 代码，没有过经验，所以可能要导入下 J2EE 库， Idea 蛮智能的，跟着它的引导走就好了。 &emsp;&emsp;编译后会发现在 classes 目录下生成了 HelloWorld.class 文件。 7. 部署 Servlet方法一：在 WEB-INF 目录下 web.xml 文件的 &lt;web-app&gt;标签中添加如下内容： 123456789&lt;servlet&gt; &lt;servlet-name&gt;HelloWorld&lt;/servlet-name&gt; &lt;servlet-class&gt;HelloWorld&lt;/servlet-class&gt; &lt;/servlet&gt; &lt;servlet-mapping&gt; &lt;servlet-name&gt;HelloWorld&lt;/servlet-name&gt; &lt;url-pattern&gt;/HelloWorld&lt;/url-pattern&gt; &lt;/servlet-mapping&gt; 其中 &lt;url-pattern&gt;为访问网址的地址。 方法二：在 HelloWorld 文件的类前面加上： 1@WebServlet(name = "HelloWorld", urlPatterns = "/my") 运行 Servlet &emsp;&emsp;点击运行， 控制台出现 successfully 则 tomcat 服务启动成功！打开浏览器输入：localhost:8080/HelloWorld/HelloWorld 即可查看 servlet 运行状态了。 更新后点击运行四个按钮四个按钮的区别待更新。 2018年7月2日]]></content>
+      <categories>
+        <category>Java</category>
+        <category>Servlet</category>
+      </categories>
+      <tags>
+        <tag>Servlet</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Servlet笔记]]></title>
+    <url>%2F2018%2F06%2F29%2FServlet%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[编写 Java 方法签名的惯例是， 对于与包含该方法类型不处于同一个包中的类型，要使用全类名。如 void service(ServletRequest request, ServletResponse response) throws ServletException, java.io.IOException 中 javax.servlet.ServletException 的签名中(与 Servlet 位于同一个包中)是没有包信息的，而 java.io.IOException同是编写完整的名称。]]></content>
+      <categories>
+        <category>Java</category>
+        <category>Servlet</category>
+      </categories>
+      <tags>
+        <tag>Servlet</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[软件工程考试试题及总结]]></title>
+    <url>%2F2018%2F06%2F25%2F%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%80%83%E8%AF%95%E8%AF%95%E9%A2%98%E5%8F%8A%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[试题简答题（8*10’） 软件过程框架的普适性活动有哪些。列举其中一项并描述。 敏捷软件开发是什么？写出其四条宣言。 需求分析的任务有哪些。需求规格说明书一般包括什么内容。 用例图、类图、时序图、部署图……中任选两个画出样例图。 软件体系结构是什么？任选一个体系结构说明其基本（元素？具体忘了是啥了）。 测试有哪四类，分别叙述其目标。 运用实例列举出三个以上的用户界面设计原则。 基本路径测试问题（画流图，计算环复杂度，设计测试路径） 叙述题(20’) 近50年中软件开发模型历程？及其原因情况。结合实例阐述。]]></content>
+      <categories>
+        <category>大学</category>
+      </categories>
+      <tags>
+        <tag>软件工程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[要做的事]]></title>
+    <url>%2F2018%2F06%2F13%2F%E8%A6%81%E5%81%9A%E7%9A%84%E4%BA%8B%2F</url>
+    <content type="text"><![CDATA[期末复习，先不BB。 暑假开公众号，写一定文章后，知识星球推广。 暑假学机器学习。更改：因为加入了易班，改为JavaWeb，学习Spring框架，MyBatis，MySQL, 设计模式。 暑假ACM集训好好对待！写解题博客。]]></content>
+      <tags>
+        <tag>计划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[几句话]]></title>
+    <url>%2F2018%2F06%2F13%2F%E5%87%A0%E5%8F%A5%E8%AF%9D%2F</url>
+    <content type="text"><![CDATA[持志如心痛，一心在痛上，岂有功夫说闲话，管闲事。——~王阳明 薛侃 &emsp;&emsp;今日读《传习录》，恰遇此句，为薛侃录首，惊其为薛侃问阳明之句，乃知世人谓持志如心痛为阳明言皆谬尔！故学者不可轻信盲从，应据于典。原文下： 侃问：“持志如心痛，一心在痛上，安有功夫说闲话，管闲事？” 先生曰：“初学功夫如此用亦好，但要使知 ‘出入无时，莫知其乡’。心之神明原是如此，功夫方有着落。若只死死守著，恐于功夫上又发病。“ &emsp;&emsp; 【译文】 &emsp;&emsp;薛侃问：”操守志向犹如心痛一般，一心只在痛上，哪里有时间说闲话，管闲事？“ &emsp;&emsp;先生说：“开始学时，如此下功夫也行，但须明白天理的神明原来就是 ‘进出没有时间，不知它要到哪里’。这样功夫方有着落。若只死守志向，在功夫上大概又会发生问题。” 没有天花板。——陈志老师 不会所以去学。——陈志老师 给你任务不是让你跟我们讨论怎么做，而是你把方案写好，我们再来看可不可行，有没有改善的地方。——陈文凯学姐 恐惧就是这样一个懦夫，当你触及它的底线，接受事情最坏的结果，然后开始准备和它大干一场的时候，它早就不知躲到哪里去了。——古典 《拆掉思维里的墙》 满地都是六便士,，只有他选择了月亮。——《月亮与六便士》书评 若他不在山上， 不会有这漫天的雪花。——《剪刀手爱德华》 执者失之。——顾城 如果你爱上了一朵生长在一颗星星上的花， 那么夜间， 你看着天空就感到甜蜜愉快。 所有的星星上都好像开着花。——《小王子》]]></content>
+      <categories>
+        <category>杂记</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[一些句子]]></title>
+    <url>%2F2018%2F06%2F05%2F%E4%B8%80%E4%BA%9B%E5%8F%A5%E5%AD%90%2F</url>
+    <content type="text"><![CDATA[你背单词时，阿拉斯加的鳕鱼正跃也水面；你算数学时，太平洋彼岸的海鸥振翅掠过城市上空；你晚自习时，极圈上的夜空散漫了五彩斑斓。但是，少年，你别着急，在你为自己未来踏踏实实地努力时，那些你感觉从来不会看到的风景，那些你觉得终身不会遇到的人，正一步步向你走来。 我走过山的时候山不说话，我路过海的时候海不说话；我坐着的毛驴一步一步滴滴答答，我带着的倚天喑哑。大家说我因为爱着杨过大侠，找不到所以在峨嵋安家；其实我只是喜欢峨嵋的云和霞，像十六岁那年绽放的烟花。 少年就是少年。他们看春风不喜，看夏蝉不烦，看秋风不悲，看冬雪不叹，看满身富贵懒察觉，看不公不允敢面对。]]></content>
+      <categories>
+        <category>文学</category>
+      </categories>
+      <tags>
+        <tag>励志</tag>
+        <tag>感情</tag>
+        <tag>句子</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[何当共剪西窗烛]]></title>
+    <url>%2F2018%2F05%2F18%2F%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA%E8%A5%BF%E7%AA%97%E7%83%9B%2F</url>
+    <content type="text"><![CDATA[时光：“你说你以前为什么没有女朋友。” 我：“因为你没有出现呀“ 时光：”那你以后为什么没有。“ 时光：”emmm…因为我不让她出现。” &emsp;&emsp;时光来了南京，今晚接她下班的时候，我们在路上买了两份面回去，一份鸡腿面，一份呢，是青菜的。在夫子庙地铁站旁上海商业储蓄银行旧址拐角的地方发现一只喵，猫很乖，我们路过的时候它乖兮兮地向我们咪咪叫，眼睛看着我们。我和时光都觉得它是饿了，刚好我们手里拿着打包的面，想喂它鸡腿。猫也闻到了味道，一直意欲走向我们的面。打包的袋子还没打开，它就想往上边蹭。我们便一人挡着猫咪，一人去开袋子，银行墙上有许多的窗子，我们便在一个个窗子上与猫做游击战，它跳过来，我们就换个窗户开袋子。两人一猫，交相流转，好不笑闹。费了好大的功夫，我们终于打开了饭盒，用筷子夹了鸡腿放在窗台上给猫主子。结果猫主子闻了闻，走在了一边，没有吃。当时我就慌了，妈耶，这可是我俩唯一的鸡腿呀，没有吃喂给主子了主子却不待见，我俩只有青菜了，TAT。我和时光用手指指着鸡腿，想告诉猫咪来这里吃鸡腿，它闻了闻，还是没有次。我们猜可能是整个鸡腿太大又有些烫，它不好下嘴，时光又特意用窗台上的签子给它分开。时光欺负起我来的时候凶巴巴，这时候却是温柔的要死，我站在一旁注视着她。晚风刚好，时间像是暂停了，满心的幸福。这曾是异地时幻想多少次的场景呀，晚上接她下班，回家的路上牵着手，想着一天的生活。一霎时，突然想写篇文章来记录和时光在一起的生活，记录下生活中那些触动心灵的点点滴滴。 &emsp;&emsp;像我这样的起名困难综合征来说给文章、角色、账号起名字实是困扰，每次都想着能够起一个好些的名字，文艺悠雅一些，说起来的时候也要好听一些，当想起几个题目时又开始纠结选这个还是选那个好。给这篇文章起题目的时候又是一番纠结，从喂猫回来的路上就开始想，有着“雪沫乳花浮午盏 ，人间有味是清欢”，也有着“矮纸斜行闲作草，晴窗细乳戏分茶 ”，总之是些清快欢愉的诗词。回到家中吃过晚饭，说起这件事，时光说：“我觉得不如叫做‘何当共剪西窗烛’呢 ”。一语说出，我的心灵和脑海像读到自己最心爱的文字，那般欢畅。 &emsp;&emsp;恰到好处。君问归期未有期，巴山夜雨涨秋池。何当共剪西窗烛，却话巴山夜雨时。好美好有意境的一首诗，归期的希望与未有期的失望交融在一起，当下离别的不舍又与期望日后相逢的美好交融在一起，不知诗人霎那的感情变化与多少离人的心意相汇相通。“何当共剪西窗烛” 一句，不知给了异地时期的自己多少期望与力量，恰好，李商隐是自己最喜欢的诗人，时光所在的QQ好友分栏的名字，也恰好是“何当共剪西窗烛”。一切像是天意注定的缘分。文章本天成，妙手偶得之，这句诗或许便是天意所成吧。一段时间，自己社交网络的名字喜欢叫之伊，不曾向别人解释它的意思，其实之取文言“到……去”之意，之伊两个字的意思便是“到你身边”。这是异地时所朝思暮想的愿望，遂以此为名，非常感谢时光，用着巨大的勇气跨越山水，人海茫茫中来到一个陌生的城市，让一个男孩子的梦想变成现实。 2018年5月18日 今天有学妹公众号写文章的时候写到了我们两个，这样描述： 2018年5月21日 和青青聊起了和时光的生活，小姐姐做饭吃，我刷锅洗碗，青青说她发现有点甜（洛天依）那首歌，特别特别适合我们两个，歌词都适配。我听了一下，好像我们两个，嗯，有点甜。六月我就开始实习工作哎呀怎么这样我有好多话没对你说 算了算了只有每天晚上电话告诉我那你千万要开机我一个也不错过因为我想和你一起生活请你少打游戏早点睡觉按时去上课你也认真工作注意身体要劳逸结合周围漂亮姑娘多可我经得住诱惑你不老实我就找小帅哥下班早一点回家不要在大街上漂泊想起从前你载着我变身摩的大镖客天黑有坏人出没那就你来保护我生活最佳伴侣非你不可是你让我的世界在那刻变成粉红色是你让我的生活从此都只要你配合青椒肉丝我来做饭后洗碗交给我因为想要和你一起生活因为想要和你一起生活——洛天依、言和 《有点甜》有点甜链接： 您的浏览器不支持该音乐播放控件。 2018年5月25日 今天是学骑车的时光和教时光骑车的崔明浩。2018年5月27日 “时光，快看，这里有只捉住的小老鼠。” “你加个‘小’字是想说它可爱吗？她们说仓鼠白白的可爱，而且没有尾巴，我觉得这种老鼠有尾巴，灰色的，不可爱。” “OK，我懂你的意思，我这就养一只老鼠。” “那你就跟老鼠睡。” “那我养只小猪。” “那你就跟猪睡去，反正你养啥就跟啥睡。” “那我当然要养你啦。” “你(和谐)现在还花着劳资的养老钱。” 早上送时光的时候过马路，转弯的地方来了一辆并不是很快的摩托，时光在我前边些，要过马路，摩托越来越近，我想牵着时光，给她说“你看着摩托些”。刚说“你看….”看刚出口，还没说一半的时候，就见时光biu地一下已经跑到了马路对面，（没办法呀，人家大长腿）骑摩托的小哥一脸懵比，我站在原地也是一脸懵比，大脑像是停滞呆住了那么一两秒，转过头来对小哥不好意思的说“你看着些”。等小哥开过后，我才走了过去，和时光说起这件事，两个人在大街上笑得像两个傻子。时光视角： 不得不承认我果真不会写记事，每写起来句子总会很冗余，时光写起来就很精简而有趣，好生羡慕。她又想炫一下文技，以我的视角写了篇： 2018年5月30日 童年已逝，童心不老。无论生活什么滋味，都要童心不老。时光节日快乐。( •̀ .̫ •́ )✧ 2018年6月1日 送时光上班的路上给时光背着包，提着饭盒，苦笑着自己是苦力。时光说：“我要努力工作多赚些钱。”春心萌动，心弦撩拨 “买个好的包让你背，这样你就是一个倍儿有面子的苦力了。”我… 今天是第一次烧厨房的崔明浩。老干妈真好吃。嘻嘻嘻。2018年6月2日 “咱俩老了怎么办，广场舞看起来好难呀。”从地铁口出来的日常 这几天没有在地铁口看到跳广场舞的阿姨，但两个人还是会向往常一样感慨“广场舞看起来好难呀。” “咱家地上好多头发。”“知道了吧，有女生的地方就会有头发。”“尼姑庵。” 虽然今天因为坑比“房东”闹得很生气， 但刚刚刷锅的时候小姐姐看抖音看到情侣背着过雨天地上积水， 说：“你当时都是抱着我过的。” 一下想起去年暑假的时候公主抱着过雨水比较深的地方，突然觉得超甜。 开心。 2018年6月19日 “哇，逆水寒今天开了好多服呀，有浮生若梦…..（以下服务器读一遍）”“我们去巴山夜雨吧，巴山夜雨涨秋池”“只有我喜欢吹梦西洲吗，吹梦到西洲，诶，上一句是啥来着”“南风知我意”“哦对对，应该有个服叫南风我意”“666,情侣服”“厉害了，异地恋”“异服恋异服恋” 2018年6月22日 夏天，接她下班，走在路上，右手边是她，左边的裤兜是钥匙和手机。 地铁闸机前，提着饭盒，挎着包包，我笨拙滑稽地掏着地铁卡，时光则一身轻松地刷卡进去，一脸催促地给我说：“车来了！”，我慌张仓促地刷卡、下楼梯，跑到地铁门前，回头望，时光却在悠闲地下着楼梯，不紧不慢，“你快点，车来啦！”我像她一样地催促着。她依旧从容自若，泰然迈步。哼，给我说车来的是你，不上车的也是你。 (๑¯ิε ¯ิ๑) 2018年6月28日 千万不要让女票拿到你手机，尤其是装作你和你妈聊天。 打开前置摄像头，“啊~我怎么这么丑，你快救救我”，边走边嚎着。“救不了救不了，只能回炉重造了”2018年7月1日 2018年7月11日 火车晚点了，时光打了电话来。火车晚了很久，但我一点也不难过。2018年7月17日 “我要秃顶啦” “秃顶哪有那么容易” “哪不容易” “人们以后就说秃顶秃得跟蒋泽萍一样。” “你是不是活得不耐烦了” （过了片刻） “以后人们就说作死作得跟崔明浩一样。” 2018年7月17日 “你转过头来，我看看。（片刻）我觉得你没那么丑了，甚至还有些小帅。” 内心：啊哈哈，开心，终于不被嫌弃了。 “你终于开始反思你以前的审美并为之忏悔了。” 简直实力作死，啊哈哈。 2018年7月18日 暑假集训的第一天，是多校的题目，脑袋又痛了起来。晚上趴在小姐姐腿上卖乖，小姐姐给我揉脑袋。天呐，幸福到爆炸。小姐姐超好呀~ 2018年7月23日]]></content>
+      <categories>
+        <category>与时光</category>
+      </categories>
+      <tags>
+        <tag>感情</tag>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[算法模板]]></title>
+    <url>%2F2018%2F05%2F11%2F%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF%2F</url>
+    <content type="text"><![CDATA[数据结构并查集 1234567891011121314151617181920212223242526272829303132333435363738394041#define MAXN 1000int par[MAXN];int u_rank[MAXN];int n = 500;void init()&#123; for(int i=0; i&lt;n; i++) &#123; par[i] = i; u_rank[i] = 0; &#125;&#125;int u_find(int x)&#123; if(par[x] == x) return x; else return par[x] = u_find(par[x]);&#125;void unite(int x, int y)&#123; x = u_find(x); y = u_find(y); if(x == y) return; if(u_rank[x] &lt; u_rank[y]) par[x] = y; else &#123; par[y] = x; u_rank[x]++; &#125;&#125;bool same(int x, int y)&#123; return u_find(x) == u_find(y);&#125; BIT(树状数组)12345678910111213141516171819202122232425/* 计算前i项和需要从i开始，不断把当前位置i的值加入到结果中，并从i中减去i的二进制最低非0位对应的幂，直到i变为0为止。i的二进制最后一个1可以通过 i&amp;-i 得到。*/int sum(int i)&#123; int s = 0; while(i&gt;0) &#123; s += BIT[i]; i -= i&amp;-i; &#125; return s;&#125;/* 使第i项的值增加x需要从i开始，不断把当前位置i的值增加x，并把i的二进制最低非0位对应的幂加到i上。*/void add(int i, int x)&#123; while(i&lt;=n) &#123; BIT[i] += x; i += i&amp;-i; &#125;&#125; 线段树单点的更新维护敌军布阵 题目：求区间和 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110#include&lt;cstdio&gt;#include&lt;iostream&gt;#include&lt;cstring&gt;//#define LOCAL//#define DEBUG#define MAXN 50005using namespace std;int T, n;int kiss = 1;int a[MAXN];char ope[10];int op1, op2;struct Tree&#123; int val;&#125;SegTree[MAXN&lt;&lt;2];void init()&#123; memset(a, 0, sizeof a); memset(SegTree, 0, sizeof SegTree);&#125;void PushUp(int root)&#123; SegTree[root].val = SegTree[root&lt;&lt;1].val + SegTree[root&lt;&lt;1|1].val;&#125;void build(int root, int l, int r)&#123; if(l==r) &#123; scanf("%d", &amp;a[l]); SegTree[root].val = a[l]; &#125; else &#123; int mid = l+r&gt;&gt;1; build(root&lt;&lt;1, l, mid); build(root&lt;&lt;1|1, mid+1, r); PushUp(root); &#125;&#125;int query(int root, int l, int r, int a, int b)&#123; if(a&gt;r || b&lt;l) return 0; if(a&lt;=l &amp;&amp; b&gt;=r) return SegTree[root].val; int mid = l+r&gt;&gt;1; return query(root&lt;&lt;1, l, mid, a, b)+query(root&lt;&lt;1|1, mid+1, r, a, b);&#125;void update(int root, int l, int r, int ind, int modifyVal)&#123; if(l==r) &#123; SegTree[root].val += modifyVal; return; &#125; int mid = l+r&gt;&gt;1; if(ind &lt;= mid) update(root&lt;&lt;1, l, mid, ind, modifyVal); else update(root&lt;&lt;1|1, mid+1, r, ind, modifyVal); PushUp(root);&#125;int main()&#123; #ifdef LOCAL freopen("C:\\Users\\Administrator\\Desktop\\in.txt", "r", stdin); #endif scanf("%d", &amp;T); while(T--) &#123; init(); scanf("%d", &amp;n); build(1, 1, n); printf("Case %d:\n", kiss++); while(scanf("%s",ope)) &#123; if(ope[0] =='E') break; scanf("%d%d",&amp;op1, &amp;op2); if(ope[0] == 'Q') printf("%d\n", query(1,1,n,op1,op2)); else if(ope[0] == 'A') update(1, 1, n, op1, op2); else if(ope[0] == 'S') update(1, 1, n, op1, -op2); &#125; #ifdef DEBUG for(int i=1; i&lt;=40; i++) printf("%2d:%5d\n", i, SegTree[i].val); for(int i=1; i&lt;=n; i++) printf("%d: %d\n",i, a[i]); int ans = query(1,1,n,1,8); printf("%d", ans); #endif &#125; return 0;&#125; 区间的更新维护Train Seats Reservation 题目：求区间最大值 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120#include &lt;cstdio&gt;#include &lt;cstring&gt;#include &lt;cstdlib&gt;#include &lt;iostream&gt;#include &lt;set&gt;#include &lt;map&gt;#include &lt;queue&gt;#include &lt;vector&gt;#include &lt;utility&gt;#include &lt;algorithm&gt;#define MAXN 100010#define INF 0x3f3f3f3f//#define DEBUG#define DataIntypedef long long LL;using namespace std;int n;int start, endd, num;struct Tree&#123; int val; int modify;&#125; SegTree[MAXN&lt;&lt;2];void PushUp(int root)&#123; SegTree[root].val = max(SegTree[root&lt;&lt;1].val, SegTree[root&lt;&lt;1|1].val);&#125;void PushDown(int root, int l, int r)&#123; if(SegTree[root].modify) &#123; SegTree[root&lt;&lt;1].val += SegTree[root].modify; SegTree[root&lt;&lt;1|1].val += SegTree[root].modify; SegTree[root&lt;&lt;1].modify += SegTree[root].modify; SegTree[root&lt;&lt;1|1].modify += SegTree[root].modify; SegTree[root].modify = 0; &#125;&#125;void build(int root, int l, int r)&#123; if(l==r) SegTree[root].val = SegTree[root].modify = 0; else &#123; int mid = l+r&gt;&gt;1; build(root&lt;&lt;1, l, mid); build(root&lt;&lt;1|1, mid+1, r); PushUp(root); &#125;&#125;void update(int root, int l, int r, int a, int b, int modify)&#123; if(a&gt;r || b&lt;l) return; if(a&lt;=l &amp;&amp; b&gt;=r) &#123; SegTree[root].val += modify; SegTree[root].modify += modify; return; &#125; PushDown(root, l, r); int mid = l+r&gt;&gt;1; update(root&lt;&lt;1, l, mid, a, b, modify); update(root&lt;&lt;1|1, mid+1, r, a, b, modify); PushUp(root);&#125;int query(int root, int l, int r, int a, int b)&#123; if(a&gt;r || b&lt;l) return 0; if(a&lt;=l &amp;&amp; b&gt;=r) return SegTree[root].val; PushDown(root, l, r); int mid = l+r&gt;&gt;1; return max(query(root&lt;&lt;1, l, mid, a, b), query(root&lt;&lt;1|1, mid+1, r, a, b));&#125;void init()&#123; memset(SegTree, 0, sizeof(SegTree));&#125;int main()&#123;#ifdef DataIn freopen("C:\\Users\\Administrator\\Desktop\\in.txt", "r", stdin);#endif while(scanf("%d", &amp;n) == 1 &amp;&amp; n) &#123; init(); //build(1, 1, 100); for(int i=1; i&lt;=n; i++) &#123; scanf("%d%d%d",&amp;start, &amp;endd, &amp;num); update(1, 1, 100, start, endd-1, num);#ifdef DEBUG for(int i = 1; i&lt;=100; i++) &#123; printf("%-4d", SegTree[i].val); &#125;#endif // DEBUG &#125; printf("%d\n", SegTree[1].val); &#125; puts("*"); return 0;&#125; 数论矩阵快速冪取模(数组实现)1234567891011121314151617181920212223242526272829303132333435const int MOD = 998244353;typedef struct&#123; long long m[2][2];&#125;matrix;matrix I=&#123;1,0,0,1&#125;;matrix P=&#123;0,1,1,1&#125;;matrix mul(matrix a,matrix b)&#123; int i,j,k; matrix c; for(i=0;i&lt;2;i++) for(j=0;j&lt;2;j++) &#123; c.m[i][j]=0; for(k=0;k&lt;2;k++) c.m[i][j]+=(a.m[i][k]*b.m[k][j])%MOD; c.m[i][j]%=MOD; &#125; return c;&#125;matrix qpow_MOD(int n)&#123; matrix a=P,b=I; while(n&gt;0) &#123; if(n&amp;1) b=mul(b,a); n=n&gt;&gt;1; a=mul(a,a); &#125; return b;&#125; 不取模(Vector实现)123456789101112131415161718192021222324252627282930313233typedef vector&lt;int&gt; vec;typedef vector&lt;vec&gt; mat;const int MOD = 1e9+7;mat mul(mat &amp;A, mat &amp;B)&#123; mat C( A.size(), vec( B[0].size() ) ); for(int i=0; i&lt;A.size(); i++) for(int k=0; k&lt;B.size(); k++) for(int j=0; j&lt;B[0].size(); j++) C[i][j] = (C[i][j] + A[i][k] * B[k][j]) % MOD; return C;&#125;mat qpowmod(mat A, LL n)&#123; mat C( A.size(), vec( A.size() ) ); for(int i=0; i&lt;A.size(); i++) B[i][i] = 1; while(n) &#123; if(n &amp; 1) B = mul(B, A); A = mul(A, A); n &gt;&gt;= 1; &#125; return B;&#125; Lucas定理代码未曾用过，正确性与否待测试 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657#include &lt;iostream&gt;#include &lt;string.h&gt;#include &lt;stdio.h&gt;using namespace std;typedef long long LL;LL n,m,p=1e9+7;LL quick_mod(LL a, LL b)&#123; LL ans = 1; a %= p; while(b) &#123; if(b &amp; 1) &#123; ans = ans * a % p; b--; &#125; b &gt;&gt;= 1; a = a * a % p; &#125; return ans;&#125;LL C(LL n, LL m)&#123; if(m &gt; n) return 0; LL ans = 1; for(int i=1; i&lt;=m; i++) &#123; LL a = (n + i - m) % p; LL b = i % p; ans = ans * (a * quick_mod(b, p-2) % p) % p; &#125; return ans;&#125;LL Lucas(LL n, LL m)&#123; if(m == 0) return 1; return C(n % p, m % p) * Lucas(n / p, m / p) % p;&#125;int main()&#123; int T; scanf("%d", &amp;T); while(T--) &#123; scanf("%I64d%I64d", &amp;n, &amp;m); printf("%I64d\n", 2*Lucas(n-1,m)%p); &#125; return 0;&#125;//Lucas定理，解决C(n,m)%p问题 图论Dijkstra算法使用优先权队列优化12345678910111213141516171819202122232425262728293031323334353637383940struct edge&#123; int to, cost;&#125;;int V;int d[MAXN];vector&lt;edge&gt; G[MAXN];typedef pair&lt;int, int&gt; P;void Dijkstra()&#123; fill(d, d+V, INF); priority_queue&lt;P, vector&lt;P&gt;, greater&lt;P&gt; &gt; que; d[s] = 0; que.push( P(0, s) ); while(!que.empty()) &#123; P p = que.top(); que.pop(); int v = p.second; if(d[v] &lt; p.first) continue; for(int i=0; i&lt;G[v].size(); i++) &#123; edge e = G[v][i]; if(d[e.to] &gt; d[v] + e.cost) &#123; d[e.to] = d[v]+e.cost; que.push( P(d[e.to], e.to)); &#125; &#125; &#125;&#125; Prim算法12345678910111213141516171819202122232425262728293031323334353637int cost[MAX_V][MAX_V];int mincost[MAX_V];bool used[MAX_V];int V;int prim()&#123; for(int i=0; i&lt;V; i++) &#123; mincost[i] = INF; used[i] = false; &#125; mincost[0] = 0; int res = 0; while(true) &#123; int v = -1; //从不属于X的顶点中选取从X到其权值最小的点 for(int u=0; u&lt;V; u++) &#123; if( !used[u] &amp;&amp; (v==-1 || mincost[u] &lt; mincost[v]) ) v = u; &#125; if(v == -1) break; used[v] = true; res += mincost[v]; for(int u=0; u&lt;V; u++) mincoust[u] = min(mincost[u], cost[v][u]); &#125; return res;&#125; Kruskal算法123456789101112131415161718192021222324252627282930struct edge&#123; int u, v, cost;&#125;bool cmp(const edge&amp; e1, const edge&amp; e2)&#123; return e1.cost &lt; e2.cost;&#125;edge es[MAX_E];int V, E;int kruskal()&#123; sort(es, es+E, cmp); init_ufs(V); int res = 0; for(int i=0; i&lt;E; i++) &#123; edge e = es[i]; if( !same(e.u, e.v) ) &#123; unite(e.u, e.v); res += e.cost; &#125; &#125; return res;&#125;]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>线段树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[好用的软件及工具]]></title>
+    <url>%2F2018%2F05%2F11%2F%E5%A5%BD%E7%94%A8%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%8F%8A%E5%B7%A5%E5%85%B7%2F</url>
+    <content type="text"><![CDATA[Everything Wox tool.lu Todoist WindowTabs Open Hardware Monitor、Aida Typora、MarkdownPad Brook、SS、SSR Dism++、CCleaner SumatraPDF Chrome Plug-ins Infinity Gitzip for github LastPass StayFocusd SimpRead TamperMonkey 谷歌上网助手]]></content>
+      <tags>
+        <tag>安利</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[鸡汤]]></title>
+    <url>%2F2018%2F05%2F11%2F%E9%B8%A1%E6%B1%A4%2F</url>
+    <content type="text"><![CDATA[马云的一些经验]]></content>
+      <tags>
+        <tag>鸡汤</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[一些文章(非文学)]]></title>
+    <url>%2F2018%2F05%2F11%2F%E4%B8%80%E4%BA%9B%E6%96%87%E7%AB%A0-%E9%9D%9E%E6%96%87%E5%AD%A6%2F</url>
+    <content type="text"><![CDATA[更有高度的人，都如何思考 教育改变命运(吴军博士演讲整理) 精致的利己主义者，你为什么走不远]]></content>
+      <tags>
+        <tag>思想</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Gym-101606F Flipping Coins]]></title>
+    <url>%2F2018%2F05%2F08%2FGym-101606F-Flipping-Coins%2F</url>
+    <content type="text"><![CDATA[题意：给你一些硬币，硬币的初始状态都是正面向下，反面向上，现在你可以每次任取一个硬币把它抛向空中，你可以进行k次操作，问你k次操作之后硬币正面向上的最大数学期望。 思路：一共进行k次操作，每次我们都可以任取一个硬币把它抛一次，由于题目中说是让求最大的数学期望，那么我们抛的时候取正面向下的可以得到最大的数学期望，我们定义一个状态dp[i][j]，表示抛i次其中有j个硬币正面向上的概率。 那么我们可以得到转移方程： dp[i+1][j]+=dp[i][j]*0.5; dp[i+1][j+1]+=dp[i][j]*0.5; 当j=n时 dp[i+1][n]+=dp[i][n]*0.5; dp[i+1][n-1]+=dp[i][n]*0.5; 注意dp[0][0]=1; AC代码： 123456789101112131415161718192021222324252627282930313233343536373839404142434445#include &lt;cstdio&gt;#include &lt;cstring&gt;#include &lt;cstdlib&gt;#include &lt;iostream&gt;#include &lt;set&gt;#include &lt;map&gt;#include &lt;queue&gt;#include &lt;vector&gt;#include &lt;utility&gt;#include &lt;algorithm&gt;#define MAXN 410#define INF 0x3f3f3f3f#define DEBUG#define DataIntypedef long long LL;using namespace std;double dp[MAXN][MAXN];int main()&#123; int n,k; scanf("%d%d", &amp;n, &amp;k); memset(dp, 0, sizeof(dp)); dp[0][0] = 1; for(int i=0; i&lt;k; i++) &#123; for(int j=0; j&lt;n; j++) &#123; dp[i+1][j] += dp[i][j]*0.5; dp[i+1][j+1] += dp[i][j]*0.5; &#125; dp[i+1][n] += dp[i][n]*0.5; dp[i+1][n-1] += dp[i][n]*0.5; &#125; double ans = 0; for(int i=1; i&lt;=n; i++) &#123; ans += dp[k][i] * i; &#125; printf("%f\n",ans);&#125;]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>dp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LCS算法]]></title>
+    <url>%2F2018%2F05%2F08%2FLCS%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051#include &lt;bits/stdc++.h&gt;#define MAXN 105using namespace std;int main()&#123; char str1[MAXN], str2[MAXN]; int dp[MAXN][MAXN]; int path[MAXN][MAXN]; puts("Please input the first string:"); gets(str1); puts("Please input the second string:"); gets(str2); int len1 = strlen(str1), len2 = strlen(str2); memset(dp, 0, sizeof(dp)); for(int i=0; i&lt;len1; i++) for(int j = 0; j&lt;len2; j++) &#123; if(str1[i] == str2[j]) &#123; dp[i+1][j+1] = dp[i][j] + 1; path[i+1][j+1] = 1; &#125; else &#123; dp[i+1][j+1] = max(dp[i+1][j], dp[i][j+1]); path[i+1][j+1] = dp[i+1][j] &gt; dp[i][j+1] ? 2 : 3; &#125; &#125; int ans = dp[len1][len2]; printf("The length of LCS is %d\n", ans); int cnt = ans-1; char LCS[MAXN]; int i=len1, j=len2; while(i&gt;0 &amp;&amp; j&gt;0) &#123; if(path[i][j] == 1) &#123; LCS[cnt--] = str1[i-1]; i--, j--; &#125; else if(path[i][j] == 2) j--; else i--; &#125; puts(LCS);&#125; &emsp;&emsp;可以说，这是自己第一次写程序来保存路径，之前自己总觉得在数组中保存路径是保存确定的位置，经过编码自己了解，其实是要保存转移的方向，再根据方向来回溯。 &emsp;&emsp;编程真的要细心呀，这个程序自己在程序课上敲码5分钟，Debug 两节课。原因竟是else if(path[i][j] == 2)中的==写错，少打了一个等号，弱智错误呀，调试了两节课才找到。不过找到的时候蛮玄学的，是自己用常用的#ifdef DEBUG大法时，再判等时想起应该是两个等号， 忽地一想，自己不会是之前判等写错了吧，眼光向下一移，果然….解决。事迹已加入脑残系列，可以与上次离散实验中的if(ischuandi());相并列了。]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[编程资料]]></title>
+    <url>%2F2018%2F05%2F06%2F%E7%BC%96%E7%A8%8B%E8%B5%84%E6%96%99%2F</url>
+    <content type="text"><![CDATA[资源网站 Love2介绍：Android, 前端， IOS， 后端， 人工智能， 云计算， 数据库， 大数据，设计， 其它（里边有区块链，目前在看，下边一些区块链的链接来源于此） 后端架构师技术图谱 掘金翻译计划 Programming Notes for Professionals books 分享 GitHub 上 有趣、入门级的开源项目 区块链 比特币源码解读 人工智能 Google官方速成课程 机器学习系列 吴恩达deeplearning.ai专项课程历史文章汇总 林轩田《机器学习基石》资源汇总 林轩田《机器学习基石》资源汇总(Github) Android Google官方教程该网页是课程其中一节，网页中含有其他节课程。 Google官方指导 Google官方手册 Python Python3爬虫视频, 密码571x python全栈 密码: u55f Python全栈 密码：ck51 Python资料 + 经典练手项目 Python爬取公众号文章并制作为PDF 一些项目 Java 黑马Java后端 密码: 14d6 Java学科链接 密码：82lk 数据库 Mysql 密码：e37d Oracle 密码：hk6p HTML5 + CSS3 HTML5+CSS3 密码：gdyw JavaScript JavaScript视频教程 密码：ku5k JQuery 密码：twcp PHP ThinkPHP 密码：7p5h PHP视频教程 密码：xc4q NodeJs NodeJs 密码：fux1 微信开发 密码:jrwb 面试 [译] Google Interview University 一套完整的学习手册帮助自己准备 Google 的面试 我的春招求职经验分享（已拿阿里京东网易等 5 个 offer） 我的面试之路(上) 我的面试之路(下) 面试笔记]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>资源</tag>
+        <tag>编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[闲情记趣]]></title>
+    <url>%2F2018%2F05%2F01%2F%E9%97%B2%E6%83%85%E8%AE%B0%E8%B6%A3%2F</url>
+    <content type="text"><![CDATA[浮生若梦，为欢几何。 准备中午去吃，龚逸舟说老崔，你中午是不是去吃香锅，balabala，吃的时候带上我，你是不是要吃50的，分我点呗。我没说话，老龚说老崔不理我一看就是不愿意（当然是开玩笑的那种语气），我冷漠地说了一句在和小姐姐聊天，他说我重要还是小姐姐重要，我说当然是小姐姐重要，他说放屁，当然是我重要。我默默说了一句：“你重。” 2018-4-29 今天和铭毓、青青一起吃饭，聊天时我说了jiān菜，青青说：“原来你们也会说jiān菜呀”，后来聊起来才知道，铭毓那边也会这么说，而青青那边一般说夹菜。本以为这个话题到这也就为止了，结果重点来了，铭毓出人意料地说出了“蒹葭苍苍”，（捂脸哭），三人大笑。我：“原来苍苍是道菜呀”。哄笑不止。估计之后再也无法正视这首诗了。 2018-5-7]]></content>
+      <categories>
+        <category>大学</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[更新日志]]></title>
+    <url>%2F2018%2F05%2F01%2F%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97%2F</url>
+    <content type="text"><![CDATA[2018-4-28 搭建博客， 详情请看 建站记 2018-4-29 优化社交工具图标显示 增添阅读次数显示功能，未成功，阅读次数不能显示。 实现分享功能 增加动态背景 2018-5-1 修复了阅读次数不显示Bug，发现是因为自己复制时将代码中的app_id, app_key不小心覆盖成了appid,appkey。学会使用浏览器Console真的很有用。 2018-5-2 优化菜单栏图标 添加了说说功能，又多了个矫情的地方。 2018-5-3 实现了相册功能。 2018-5-8 修改分享时网址为yoursite.com的Bug。 2018-5-9 优化了文章排序。 2018-5-27 谷歌收录网站。 2018-6-21 百度收录网站。]]></content>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[建站记]]></title>
+    <url>%2F2018%2F04%2F27%2F%E5%BB%BA%E7%AB%99%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[如果明天没课该多好，这样五一就有五天假了。崔明浩 &emsp;&emsp;每个人都要为自己的冲动付出代价，这句话是没错的。就像今天早上醒来时，突发奇想说想要搭个博客，便再忍不住心性，想要立刻完成。博客这种东西之前还要有想搞过的，最初是去年吧，在CSDN上开通过一个，打算记录下算法呀学习呀什么的，不过嘛，草草没了下文，开通那一天后再也没更新过，甚至几乎没进过自己的博客。今天搭博客呢，想着自己能不信赖于像CSDN这种网站博客的固定样式，把博客做出自己喜欢的样式。（不只是博客，好像很多事情自己都不愿执拗于别人已有的固定的，想做出自己喜欢的样子，哈哈哈）这带来的后果呢，就是自己动手要多一些，不过嘛，自己醒来想搭博客也是想今天一天要做什么的结果。 &emsp;&emsp;博客采用的是Github + hexo搭建的。从很早开始呢，自己就想有一个属于自己的域名，大概是内心的归属感和光鲜感在作怪吧。开头为什么说要为自己冲动作出代价呢，就是因为搭博客一念起，就买了个域名。（/拍桌）一开始想买moonchasing.com域名的，可是发现这个域名已经被外国人注册。（/拍桌）想当年，我注册谷歌帐号时一开始也想采用moonchasing， 发现同样被人采用了， 无奈改成了moonchasing1999。 别让我知道是谁，要是同一个人的话，我……我…..我好像也不能咋滴他。看了一下，moonchasing.com 有效期是2014-6-5 到 2018-6-5， 差不多还有一个月也就到期了， 当时心里有些犯嘀咕， 要不要等他到期了看看他会不会续费再决定呢。顺便也去这个网站看了一下，发现只有几张照片，但照片应该蛮有分量的，心想觉得应该不会续费吧，要不等等再搭博客？可是一时心起呀，怎么会等得了这一个月，又开始急切地去找别的网址。换之伊来命名 zhiyi.com，zhiyi.cn呢，也被注册了，O（=自己真的很想要个com后缀的域名呀=）O，之后找到个 mooncika.com，一年55， 想买下来时发现还要填自己身份信息模板之类的，就暂缓了下，因为其实吧，这个域名自己也并不是特别喜欢，虽然自己 Google 帐号填的名字是 Moon Cika， 但还是偏 MoonChasing 和 Cika 一些， 可是 Cika 域名太贵了，后来在之伊中选择时， 发现 zhiyi.live 不错，还蛮便宜的， 一年的话只要25，便买下了它，也算是缘分吧。（不过还想6月5号看下 moonchasing.com 有没有续费，没有的话还是想买下来， QAQ）（闲说两句，想域名的时候脑突然想起“昨夜闲潭梦落花”一句，欲以“闲潭”二字取域名） &emsp;&emsp;第一次搭博客当然遇到蛮多困难的，搭建的时候想着写这篇文章时可以详细地记录下来，不过 11:00 就要断网了，明天还有着随堂测试（/拍桌， 一开始本来想着今天能看下概率论的，结果搭了一天博客），现在也没太多心思去记录了。如果以后还能想起，那就再更吧。其实也就是设置网址的时候信息没能与身份证同步、 网络延迟让自己以为自己设置有错、Github本地库地址选用的不是ssh连接导致无法推送（这个卡了挺长时间的），下午呢也算是顺风顺水，优化着博客的界面及增加些功能，社交网络图标一直加载不好（还未解决），晚上遇到两点，因为一开始采用的是英语，后来想到其他人看的原因想换成简体中文，更换语言包后却死活更改不过来，最后无奈， 直接交换两个语言包的名字，问题解决（哈哈哈，我可真是个小机灵鬼呢），还有一个现在还未解决，那就是分享设置。一开始成功了的，可是想在分享渠道中能多加些社交网络，便在addthis中更新自己设置的分享栏，设置好后却发现调用不出来….这个问题折腾了很久，一直到现在都没能解决。（这个以后一定要解决的，毕竟之前搞好了又搞丢了对一个强迫症来说超心塞）（博客的背景还没设置） &emsp;&emsp; 想想比起无聊地虚度一天今天还是蛮有意义的，（如果不算花了25块钱买了个域名的话），期间呢，还去了两次学校手球场那看了通院办的传统文化活动，用之前的兑奖券换了糖人，香囊，布艺和小灯笼（/拍桌，我能说实物和样图严重不符吗， /哭， 本来想好看的话寄给小姐姐的。）哈哈哈，突然想起今天是12点断网，不用麻烦地连热点再发这篇文章啦，开心。 &emsp;&emsp;零零散散，闲言碎语，这篇建站记就写到这里吧。再不睡觉小姐姐要打我惹，晚安~ 2018年4月27日 23:21:44 于宿舍 之伊丶]]></content>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HelloWorld]]></title>
+    <url>%2F2018%2F04%2F27%2FHelloWorld%2F</url>
+    <content type="text"><![CDATA[程序员的第一篇博客文章，当然是 Hello, world! 啦~1234567#include &lt;stdio.h&gt;int main()&#123; printf("Hello, world!"); return 0;&#125;]]></content>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+</search>
