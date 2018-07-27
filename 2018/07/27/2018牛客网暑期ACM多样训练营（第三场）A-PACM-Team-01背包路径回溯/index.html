@@ -85,7 +85,7 @@
 
 
 
-  <meta name="keywords" content="计划," />
+  <meta name="keywords" content="算法,dp,01背包," />
 
 
 
@@ -96,18 +96,24 @@
 
 
 
-<meta name="description" content="期末复习，先不BB。 暑假开公众号，写一定文章后，知识星球推广。 暑假学机器学习。更改：因为加入了易班，改为JavaWeb，学习Spring框架，MyBatis，MySQL, 设计模式。 暑假ACM集训好好对待！写解题博客。">
-<meta name="keywords" content="计划">
+<meta name="description" content="传送门：https://www.nowcoder.com/acm/contest/141/A 题目描述Eddy was a contestant participating in ACM ICPC contests. ACM is short for Algorithm, Coding, Math. Since in the ACM contest, the most important know">
+<meta name="keywords" content="算法,dp,01背包">
 <meta property="og:type" content="article">
-<meta property="og:title" content="要做的事">
-<meta property="og:url" content="http://zhiyi.live/2018/06/13/要做的事/index.html">
+<meta property="og:title" content="2018牛客网暑期ACM多样训练营（第三场）A.PACM Team 01背包路径回溯">
+<meta property="og:url" content="http://zhiyi.live/2018/07/27/2018牛客网暑期ACM多样训练营（第三场）A-PACM-Team-01背包路径回溯/index.html">
 <meta property="og:site_name" content="MoonChasing">
-<meta property="og:description" content="期末复习，先不BB。 暑假开公众号，写一定文章后，知识星球推广。 暑假学机器学习。更改：因为加入了易班，改为JavaWeb，学习Spring框架，MyBatis，MySQL, 设计模式。 暑假ACM集训好好对待！写解题博客。">
+<meta property="og:description" content="传送门：https://www.nowcoder.com/acm/contest/141/A 题目描述Eddy was a contestant participating in ACM ICPC contests. ACM is short for Algorithm, Coding, Math. Since in the ACM contest, the most important know">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-29T02:33:44.616Z">
+<meta property="og:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180727/CCHc2381Bf.png">
+<meta property="og:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180727/HK7D3JgCkm.png">
+<meta property="og:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180727/6b4181A4iI.png">
+<meta property="og:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180727/8mhgA2j7aB.png">
+<meta property="og:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180727/98EkC2jI58.png">
+<meta property="og:updated_time" content="2018-07-27T14:21:58.632Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="要做的事">
-<meta name="twitter:description" content="期末复习，先不BB。 暑假开公众号，写一定文章后，知识星球推广。 暑假学机器学习。更改：因为加入了易班，改为JavaWeb，学习Spring框架，MyBatis，MySQL, 设计模式。 暑假ACM集训好好对待！写解题博客。">
+<meta name="twitter:title" content="2018牛客网暑期ACM多样训练营（第三场）A.PACM Team 01背包路径回溯">
+<meta name="twitter:description" content="传送门：https://www.nowcoder.com/acm/contest/141/A 题目描述Eddy was a contestant participating in ACM ICPC contests. ACM is short for Algorithm, Coding, Math. Since in the ACM contest, the most important know">
+<meta name="twitter:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180727/CCHc2381Bf.png">
 
 
 
@@ -137,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://zhiyi.live/2018/06/13/要做的事/"/>
+  <link rel="canonical" href="http://zhiyi.live/2018/07/27/2018牛客网暑期ACM多样训练营（第三场）A-PACM-Team-01背包路径回溯/"/>
 
 
 
 
 
-  <title>要做的事 | MoonChasing</title>
+  <title>2018牛客网暑期ACM多样训练营（第三场）A.PACM Team 01背包路径回溯 | MoonChasing</title>
   
 
 
@@ -335,7 +341,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/06/13/要做的事/">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/07/27/2018牛客网暑期ACM多样训练营（第三场）A-PACM-Team-01背包路径回溯/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="之伊丶">
@@ -352,7 +358,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">要做的事</h1>
+          <h1 class="post-title" itemprop="name headline">2018牛客网暑期ACM多样训练营（第三场）A.PACM Team 01背包路径回溯</h1>
         
 
         <div class="post-meta">
@@ -364,8 +370,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-13T07:55:40+08:00">
-                2018-06-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-27T21:12:12+08:00">
+                2018-07-27
               </time>
             
 
@@ -380,13 +386,46 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-29T10:33:44+08:00">
-                2018-06-29
+              <time title="更新于" itemprop="dateModified" datetime="2018-07-27T22:21:58+08:00">
+                2018-07-27
               </time>
             
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/DP/" itemprop="url" rel="index">
+                    <span itemprop="name">DP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -394,7 +433,7 @@
 
           
           
-             <span id="/2018/06/13/要做的事/" class="leancloud_visitors" data-flag-title="要做的事">
+             <span id="/2018/07/27/2018牛客网暑期ACM多样训练营（第三场）A-PACM-Team-01背包路径回溯/" class="leancloud_visitors" data-flag-title="2018牛客网暑期ACM多样训练营（第三场）A.PACM Team 01背包路径回溯">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -419,7 +458,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  69
+                  1,751
                 </span>
               
 
@@ -435,7 +474,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  10
                 </span>
               
             </div>
@@ -458,12 +497,32 @@
       
 
       
-        <ul>
-<li><del>期末复习，先不BB。</del></li>
-<li>暑假开公众号，写一定文章后，知识星球推广。</li>
-<li><del>暑假学机器学习。</del>更改：因为加入了易班，改为JavaWeb，学习Spring框架，MyBatis，MySQL, 设计模式。</li>
-<li>暑假ACM集训好好对待！写解题博客。 <a id="more"></a></li>
-</ul>
+        <p>传送门：<a href="https://www.nowcoder.com/acm/contest/141/A" target="_blank" rel="noopener">https://www.nowcoder.com/acm/contest/141/A</a></p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Eddy was a contestant participating in ACM ICPC contests. ACM is short for Algorithm, Coding, Math. Since in the ACM contest, the most important knowledge is about algorithm, followed by coding(implementation ability), then math. However, in the ACM ICPC World Finals 2018, Eddy failed to solve a physics equation, which pushed him away from a potential medal.<br> Since then on, Eddy found that physics is actually the most important thing in the contest. Thus, he wants to form a team to guide the following contestants to conquer the PACM contests(PACM is short for Physics, Algorithm, Coding, Math).<br> There are N candidate groups each composed of pi physics experts, ai algorithm experts, ci coding experts, mi math experts. For each group, Eddy can either invite all of them or none of them. If i-th team is invited, they will bring gi knowledge points which is calculated by Eddy’s magic formula. Eddy believes that the higher the total knowledge points is, the better a team could place in a contest. But, Eddy doesn’t want too many experts in the same area in the invited groups. Thus, the number of invited physics experts should not exceed P, and A for algorithm experts, C for coding experts, M for math experts.<br> Eddy is still busy in studying Physics. You come to help him to figure out which groups should be invited such that they doesn’t exceed the constraint and will bring the most knowledge points in total.</p>
+<h2 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a>输入描述:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">The first line contains a positive integer N indicating the number of candidate groups.</span><br><span class="line">Each of following N lines contains five space-separated integer pi, ai, ci, mi, gi indicating that i-th team consists of pi physics experts, ai algorithm experts, ci coding experts, mi math experts, and will bring gi knowledge points.</span><br><span class="line">The last line contains four space-separated integer P, A, C, M indicating the maximum possible number of physics experts, algorithm experts, coding experts, and math experts, respectively.</span><br><span class="line"></span><br><span class="line"> 1 ≤ N ≤ 36</span><br><span class="line"> 0 ≤ pi,ai,ci,mi,gi ≤ 36</span><br><span class="line"> 0 ≤ P, A, C, M ≤ 36</span><br></pre></td></tr></table></figure>
+<h2 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述:"></a>输出描述:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">The first line should contain a non-negative integer K indicating the number of invited groups.</span><br><span class="line">The second line should contain K space-separated integer indicating the index of invited groups(groups are indexed from 0).</span><br><span class="line"></span><br><span class="line">You can output index in any order as long as each index appears at most once. If there are multiple way to reach the most total knowledge points, you can output any one of them. If none of the groups will be invited, you could either output one line or output a blank line in the second line.</span><br></pre></td></tr></table></figure>
+<h3 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h3><h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">1 0 2 1 10</span><br><span class="line">1 0 2 1 21</span><br><span class="line">1 0 2 1</span><br></pre></td></tr></table></figure>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<h3 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h3><h2 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2 1 1 0 31</span><br><span class="line">1 0 2 1</span><br></pre></td></tr></table></figure>
+<h2 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></table></figure>
+<h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>其实就是01背包问题，只是背包的容量从一维变成了四维，并要求输出最优解方案。</p>
+<h2 id="AC代码-1"><a href="#AC代码-1" class="headerlink" title="AC代码(1)"></a>AC代码(1)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">37</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, p[MAXN], a[MAXN], c[MAXN], m[MAXN], g[MAXN];</span><br><span class="line"><span class="keyword">short</span> dp[MAXN][MAXN][MAXN][MAXN][MAXN];</span><br><span class="line"><span class="keyword">bool</span> path[MAXN][MAXN][MAXN][MAXN][MAXN];</span><br><span class="line"><span class="keyword">int</span> P, A, C, M;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d%d"</span>, p+i, a+i, c+i, m+i, g+i);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, &amp;P, &amp;A, &amp;C, &amp;M);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> ip=<span class="number">0</span>; ip&lt;=P; ip++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> ia=<span class="number">0</span>; ia&lt;=A; ia++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> ic=<span class="number">0</span>; ic&lt;=C; ic++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> im=<span class="number">0</span>; im&lt;=M; im++)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">if</span>(ip&lt;p[i] || ia&lt;a[i] || ic&lt;c[i] || im&lt;m[i])</span><br><span class="line">                            dp[i][ip][ia][ic][im] = dp[i+<span class="number">1</span>][ip][ia][ic][im];</span><br><span class="line">                        <span class="keyword">else</span></span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="keyword">if</span>( dp[i+<span class="number">1</span>][ip][ia][ic][im] &lt; dp[i+<span class="number">1</span>][ip-p[i]][ia-a[i]][ic-c[i]][im-m[i]] + g[i] )</span><br><span class="line">                            &#123;</span><br><span class="line">                                dp[i][ip][ia][ic][im] = dp[i+<span class="number">1</span>][ip-p[i]][ia-a[i]][ic-c[i]][im-m[i]] + g[i];</span><br><span class="line">                                path[i][ip][ia][ic][im] = <span class="literal">true</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">else</span></span><br><span class="line">                                dp[i][ip][ia][ic][im] = dp[i+<span class="number">1</span>][ip][ia][ic][im];</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>, ip=P, ia=A, ic=C, im=M; i&lt;n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(path[i][ip][ia][ic][im])</span><br><span class="line">            &#123;</span><br><span class="line">                ans.push_back(i);</span><br><span class="line">                ip -= p[i];</span><br><span class="line">                ia -= a[i];</span><br><span class="line">                ic -= c[i];</span><br><span class="line">                im -= m[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> sz = ans.size();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sz);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;sz; i++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d%c"</span>, ans[i], <span class="string">" \n"</span>[i+<span class="number">1</span>==sz]);</span><br><span class="line">        <span class="keyword">if</span>(sz==<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">putchar</span>(<span class="number">10</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="AC代码-2"><a href="#AC代码-2" class="headerlink" title="AC代码(2)"></a>AC代码(2)</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">37</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, p[MAXN], a[MAXN], c[MAXN], m[MAXN], g[MAXN];</span><br><span class="line"><span class="keyword">short</span> dp[MAXN][MAXN][MAXN][MAXN][MAXN];</span><br><span class="line"><span class="keyword">bool</span> path[MAXN][MAXN][MAXN][MAXN][MAXN];</span><br><span class="line"><span class="keyword">int</span> P, A, C, M;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d%d"</span>, p+i, a+i, c+i, m+i, g+i);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, &amp;P, &amp;A, &amp;C, &amp;M);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> ip=<span class="number">0</span>; ip&lt;=P; ip++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> ia=<span class="number">0</span>; ia&lt;=A; ia++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> ic=<span class="number">0</span>; ic&lt;=C; ic++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> im=<span class="number">0</span>; im&lt;=M; im++)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="comment">//if(ip&lt;p[i] || ia&lt;a[i] || ic&lt;c[i] || im&lt;m[i])</span></span><br><span class="line">                            dp[i][ip][ia][ic][im] = dp[i+<span class="number">1</span>][ip][ia][ic][im];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> ip=P; ip&gt;=p[i]; ip--)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> ia=A; ia&gt;=a[i]; ia--)</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> ic=C; ic&gt;=c[i]; ic--)</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> im=M; im&gt;=m[i]; im--)</span><br><span class="line">                    &#123;</span><br><span class="line">                            <span class="keyword">if</span>(dp[i+<span class="number">1</span>][ip-p[i]][ia-a[i]][ic-c[i]][im-m[i]]+g[i] &gt; dp[i+<span class="number">1</span>][ip][ia][ic][im])</span><br><span class="line">                            &#123;</span><br><span class="line">                                dp[i][ip][ia][ic][im] = dp[i+<span class="number">1</span>][ip-p[i]][ia-a[i]][ic-c[i]][im-m[i]]+g[i];</span><br><span class="line">                                path[i][ip][ia][ic][im] = <span class="literal">true</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="built_in">fprintf</span>(<span class="built_in">stderr</span>, <span class="string">"%d\n"</span>, dp[<span class="number">0</span>][P][A][C][M]);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>, ip=P, ia=A, ic=C, im=M; i&lt;n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//if(dp[i][ip][ia][ic][im] == dp[i+1][ip-p[i]][ia-a[i]][ic-c[i]][im-m[i]]+g[i])</span></span><br><span class="line">        <span class="keyword">if</span>(path[i][ip][ia][ic][im])</span><br><span class="line">        &#123;</span><br><span class="line">            ans.push_back(i);</span><br><span class="line">            ip -= p[i];</span><br><span class="line">            ia -= a[i];</span><br><span class="line">            ic -= c[i];</span><br><span class="line">            im -= m[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> sz = ans.size();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sz);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;sz; i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d%c"</span>, ans[i], <span class="string">" \n"</span>[i+<span class="number">1</span>==sz]);</span><br><span class="line">    <span class="keyword">if</span>(sz==<span class="number">0</span>)</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="number">10</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上两个代码主要思想是一样的，只要在细节上的实现不一样。</p>
+<p>这个题因为是四维的背包，再加上一维，空间耗费极大。而所维护的数值范围很小，所以使用 short 类型的数组。（骚呀，第一次遇到这样的，比赛时卡了空间）<img src="http://p8b6ie37m.bkt.clouddn.com/blog/180727/CCHc2381Bf.png" alt="mark"></p>
+<p>因为要回溯路径，所以要用五维的数组，四维的数组保存不了路径，会被破坏。<img src="http://p8b6ie37m.bkt.clouddn.com/blog/180727/HK7D3JgCkm.png" alt="mark"></p>
+<p>（不过 lyy 说通过压位可以）</p>
+<p>自己用的白书上的模板</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=n<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;=W; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(j &lt; w[i])</span><br><span class="line">            dp[i][j] = dp[i+<span class="number">1</span>][j];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            dp[i][j] = max(dp[i+<span class="number">1</span>][j], dp[i+<span class="number">1</span>][j-w[i]]+v[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于需要回溯路径， 所以 <code>dp[i][j] = max(dp[i+1][j], dp[i+1][j-w[i]]+v[i]);</code>一行不再适用，需要分开判断。而在比赛时自己就在这里犯了错。自己只写了</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(dp[i+<span class="number">1</span>][j-w[i]]+v[i] &gt; dp[i+<span class="number">1</span>][j])</span><br><span class="line">    dp[i][j] = dp[i+<span class="number">1</span>][j-w[i]]+v[i];</span><br></pre></td></tr></table></figure>
+<p>而没写</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span></span><br><span class="line">    dp[i][j] = dp[i+<span class="number">1</span>][j];</span><br></pre></td></tr></table></figure>
+<p>这个点卡了自己很久，用了几乎两个晚上找到！</p>
+<p>还有一点就是路径的回溯， 要用一个 bool 类型的 path 数组来记录在此位置是否进行更改。自己之前是用的记录跳跃的位置，耗费了很多的空间。</p>
+<p>这题可以说是到目前为止自己耗时最多的题目了，现在对于01背包清楚了许多！以后不怕了，记录下解题的曲折路程。</p>
+<p><img src="http://p8b6ie37m.bkt.clouddn.com/blog/180727/6b4181A4iI.png" alt="mark"><img src="http://p8b6ie37m.bkt.clouddn.com/blog/180727/8mhgA2j7aB.png" alt="mark"><img src="http://p8b6ie37m.bkt.clouddn.com/blog/180727/98EkC2jI58.png" alt="mark"></p>
+<p>（中间一次过掉是用了标程）</p>
 
       
     </div>
@@ -494,7 +553,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/计划/" rel="tag"><i class="fa fa-tag"></i> 计划</a>
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          
+            <a href="/tags/dp/" rel="tag"><i class="fa fa-tag"></i> dp</a>
+          
+            <a href="/tags/01背包/" rel="tag"><i class="fa fa-tag"></i> 01背包</a>
           
         </div>
       
@@ -507,8 +570,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/13/几句话/" rel="next" title="几句话">
-                <i class="fa fa-chevron-left"></i> 几句话
+              <a href="/2018/07/25/集合的整数表示/" rel="next" title="集合的整数表示">
+                <i class="fa fa-chevron-left"></i> 集合的整数表示
               </a>
             
           </div>
@@ -516,10 +579,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/25/软件工程考试试题及总结/" rel="prev" title="软件工程考试试题及总结">
-                软件工程考试试题及总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -582,8 +641,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -675,6 +743,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入描述"><span class="nav-number">2.</span> <span class="nav-text">输入描述:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出描述"><span class="nav-number">3.</span> <span class="nav-text">输出描述:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例1"><span class="nav-number">3.1.</span> <span class="nav-text">示例1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入"><span class="nav-number">4.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出"><span class="nav-number">5.</span> <span class="nav-text">输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例2"><span class="nav-number">5.1.</span> <span class="nav-text">示例2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入-1"><span class="nav-number">6.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出-1"><span class="nav-number">7.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法"><span class="nav-number">8.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AC代码-1"><span class="nav-number">9.</span> <span class="nav-text">AC代码(1)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AC代码-2"><span class="nav-number">10.</span> <span class="nav-text">AC代码(2)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">11.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
