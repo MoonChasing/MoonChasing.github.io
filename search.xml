@@ -3,13 +3,13 @@
   <entry>
     <title><![CDATA[求逆序数对个数(归并排序法)]]></title>
     <url>%2F2018%2F07%2F28%2F%E6%B1%82%E9%80%86%E5%BA%8F%E6%95%B0%E5%AF%B9%E4%B8%AA%E6%95%B0-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%B3%95%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[求逆序对数有多种方法，如归并排序法、线段树\树状数组法、离散化。 归并排序法几乎就是归并排序。 白书讲解 紫书代码123456789101112131415161718192021222324252627282930313233int A[MAXN]= &#123;3, 6, 2, 1, 4, 5, 13, 7, 12, 10&#125;, T[MAXN];int merge_cnt(int l, int r) //统计区间为[l, r)&#123; int cnt = 0; if(r - l &gt; 1) &#123; int mid = l+r&gt;&gt;1; cnt += merge_cnt(l, mid); cnt += merge_cnt(mid, r); int p=l, q=mid, i=l; while(p&lt;mid || q&lt;r) &#123; if(q&gt;=r || (p&lt;mid &amp;&amp; A[p]&lt;=A[q])) &#123; T[i++] = A[p++]; &#125; else &#123; T[i++] = A[q++]; cnt += mid - p; &#125; &#125; for(i=l; i&lt;r; i++) A[i] = T[i]; &#125; return cnt;&#125; 白书代码123456789101112131415161718192021222324252627282930int merge_count(vector&lt;int&gt; &amp;a)&#123; int n = a.size(); if(n&lt;=1) return 0; int cnt = 0; vector&lt;int&gt; b(a.begin(), a.begin()+n/2); vector&lt;int&gt; c(a.begin()+n/2, a.end()); cnt += merge_count(b); cnt += merge_count(c); int ai=0, bi=0, ci=0; while(ai &lt; n) &#123; if(bi &lt; b.size() &amp;&amp; (ci==c.size() || b[bi]&lt;=c[ci]) ) &#123; a[ai++] = b[bi++]; &#125; else &#123; cnt += n/2-bi; a[ai++] = c[ci++]; &#125; &#125; return cnt;&#125; 一点建议敲完数组实现的紫书代码和白书的vector实现的代码， 第一反应就是每次对vector的构造及初始化应该会费时间，于是测试了下。果不其然，在 $10^6$ 数据量下， 代码运行效果如图： 经过多次实验，用时稳定在本次用时左右。可以看书，用数组实验的效率远远高于vector实现。故推荐数组实现。]]></content>
       <categories>
         <category>ACM</category>
         <category>算法</category>
       </categories>
       <tags>
-        <tag>算法</tag>
+        <tag>算法， 分治法</tag>
       </tags>
   </entry>
   <entry>
@@ -22,7 +22,7 @@
       </categories>
       <tags>
         <tag>算法</tag>
-        <tag>排序</tag>
+        <tag>排序， 分治法</tag>
       </tags>
   </entry>
   <entry>

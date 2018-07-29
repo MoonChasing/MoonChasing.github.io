@@ -4,14 +4,16 @@
 
     
   <url>
-    <loc>http://zhiyi.live/2018/07/28/%E6%B1%82%E9%80%86%E5%BA%8F%E6%95%B0%E5%AF%B9%E4%B8%AA%E6%95%B0-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%B3%95/</loc>
-    <lastmod>2018-07-28T03:46:05.200Z</lastmod>
+    <loc>http://zhiyi.live/2018/07/28/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</loc>
+    <lastmod>2018-07-28T15:36:02.883Z</lastmod>
     <data>
         <display>
-        <title>求逆序数对个数(归并排序法)</title>
-        <pubTime>2018-07-28T03:45:06.000Z</pubTime>
+        <title>归并排序</title>
+        <pubTime>2018-07-28T02:39:00.000Z</pubTime>
         
         <tag>算法</tag>
+         
+        <tag>排序， 分治法</tag>
          
          
            
@@ -27,16 +29,14 @@
 
     
   <url>
-    <loc>http://zhiyi.live/2018/07/28/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</loc>
-    <lastmod>2018-07-28T03:01:15.535Z</lastmod>
+    <loc>http://zhiyi.live/2018/07/28/%E6%B1%82%E9%80%86%E5%BA%8F%E6%95%B0%E5%AF%B9%E4%B8%AA%E6%95%B0-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E6%B3%95/</loc>
+    <lastmod>2018-07-28T14:35:49.657Z</lastmod>
     <data>
         <display>
-        <title>归并排序</title>
-        <pubTime>2018-07-28T02:39:00.000Z</pubTime>
+        <title>求逆序数对个数(归并排序法)</title>
+        <pubTime>2018-07-28T03:45:06.000Z</pubTime>
         
-        <tag>算法</tag>
-         
-        <tag>排序</tag>
+        <tag>算法， 分治法</tag>
          
          
            
