@@ -1,3 +1,4 @@
+http://zhiyi.live/2018/07/29/2018-Multi-University-Training-Contest-2-1007-Naive-Operations-线段树/
 http://zhiyi.live/2018/07/28/求逆序数对个数-归并排序法/
 http://zhiyi.live/2018/07/28/归并排序/
 http://zhiyi.live/2018/07/27/2018牛客网暑期ACM多样训练营（第三场）H-Diff-prime-Pairs-脑洞/
