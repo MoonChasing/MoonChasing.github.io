@@ -105,7 +105,7 @@
 <meta property="og:description" content="前言&amp;emsp;&amp;emsp;在很多情况下，我们希望在 Hexo 中写的一篇文章能够同时属于多个分类，例如我写一篇 《Servlet笔记》，我既想将它放在 Java 这个分类中，又想将它放入 Servlet 这个分类。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180703/9eJKE7b4Il.png">
-<meta property="og:updated_time" content="2018-07-24T08:31:15.034Z">
+<meta property="og:updated_time" content="2018-07-29T11:02:09.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 一篇文章多个 categories">
 <meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;在很多情况下，我们希望在 Hexo 中写的一篇文章能够同时属于多个分类，例如我写一篇 《Servlet笔记》，我既想将它放在 Java 这个分类中，又想将它放入 Servlet 这个分类。">
@@ -382,8 +382,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-24T16:31:15+08:00">
-                2018-07-24
+              <time title="更新于" itemprop="dateModified" datetime="2018-07-29T19:02:09+08:00">
+                2018-07-29
               </time>
             
           </span>
@@ -468,10 +468,10 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">categories:</span> <span class="string">[Java,</span> <span class="string">Servlet]</span></span><br></pre></td></tr></table></figure>
 <p>上面两种方法最终效果一样，都是将文章放在了一个子分类的目录下，效果如图。<img src="http://p8b6ie37m.bkt.clouddn.com/blog/180703/9eJKE7b4Il.png" alt="mark"></p>
 <h2 id="多个分类"><a href="#多个分类" class="headerlink" title="多个分类"></a>多个分类</h2><p>如果我们的要求是将文章同时分到多个不同的分类中呢，我们应该这样：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">categories:</span></span><br><span class="line"><span class="bullet">  -</span><span class="string">[Java]</span></span><br><span class="line"><span class="bullet">  -</span><span class="string">[Servlet]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">categories:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">[Java]</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">[Servlet]</span></span><br></pre></td></tr></table></figure>
 <p>这样，就可以将上面的文章分类到 <code>Java</code> 和 <code>Servlet</code> 这两个不同的目录中了。</p>
 <p>扩展一下，如果我们将其分类到 <code>Java/Servlet</code> 和 <code>Programming</code> 两个不同的目录下，我们应该如下写：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">categories:</span></span><br><span class="line"><span class="bullet">  -</span><span class="string">[Java,</span> <span class="string">Servlet]</span></span><br><span class="line"><span class="bullet">  -</span><span class="string">[Programming]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">categories:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">[Java,</span> <span class="string">Servlet]</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">[Programming]</span></span><br></pre></td></tr></table></figure>
 
       
     </div>

@@ -99,7 +99,7 @@
   <entry>
     <title><![CDATA[Hexo 一篇文章多个 categories]]></title>
     <url>%2F2018%2F07%2F03%2FHexo-%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E5%A4%9A%E4%B8%AA-categories%2F</url>
-    <content type="text"><![CDATA[前言&emsp;&emsp;在很多情况下，我们希望在 Hexo 中写的一篇文章能够同时属于多个分类，例如我写一篇 《Servlet笔记》，我既想将它放在 Java 这个分类中，又想将它放入 Servlet 这个分类。 &emsp;&emsp;按照官方的解释，categories 这个选项有两种配置方法（其实有三种）。那我们就来讲讲这三种配置方法。 子分类下面的分类会将该分章放到 Java/Servlet这个分类下。 123categories: - Java - Servlet 同样的作用我们也可以这样写。 1categories: [Java, Servlet] 上面两种方法最终效果一样，都是将文章放在了一个子分类的目录下，效果如图。 多个分类如果我们的要求是将文章同时分到多个不同的分类中呢，我们应该这样： 123categories: -[Java] -[Servlet] 这样，就可以将上面的文章分类到 Java 和 Servlet 这两个不同的目录中了。 扩展一下，如果我们将其分类到 Java/Servlet 和 Programming 两个不同的目录下，我们应该如下写： 123categories: -[Java, Servlet] -[Programming]]]></content>
+    <content type="text"><![CDATA[前言&emsp;&emsp;在很多情况下，我们希望在 Hexo 中写的一篇文章能够同时属于多个分类，例如我写一篇 《Servlet笔记》，我既想将它放在 Java 这个分类中，又想将它放入 Servlet 这个分类。 &emsp;&emsp;按照官方的解释，categories 这个选项有两种配置方法（其实有三种）。那我们就来讲讲这三种配置方法。 子分类下面的分类会将该分章放到 Java/Servlet这个分类下。 123categories: - Java - Servlet 同样的作用我们也可以这样写。 1categories: [Java, Servlet] 上面两种方法最终效果一样，都是将文章放在了一个子分类的目录下，效果如图。 多个分类如果我们的要求是将文章同时分到多个不同的分类中呢，我们应该这样： 123categories: - [Java] - [Servlet] 这样，就可以将上面的文章分类到 Java 和 Servlet 这两个不同的目录中了。 扩展一下，如果我们将其分类到 Java/Servlet 和 Programming 两个不同的目录下，我们应该如下写： 123categories: - [Java, Servlet] - [Programming]]]></content>
       <tags>
         <tag>博客</tag>
       </tags>
