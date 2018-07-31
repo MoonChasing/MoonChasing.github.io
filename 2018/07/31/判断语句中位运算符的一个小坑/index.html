@@ -96,16 +96,17 @@
 
 
 
-<meta name="description" content="每从细笔惊新悟，重向高山愧旧琴。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MoonChasing">
-<meta property="og:url" content="http://zhiyi.live/tags/算法，-分治法/index.html">
+<meta name="description" content="最近训练时敲代码总爱在if语句中有位算符时踩坑， 比如 if(i&amp;amp;1==0) 或 if(i&amp;amp;i-1 == 0)，本意是想判 i 是否为偶数和 i 是否为 2 的幂，但这么写都是错误的，导致程序不能输出正确结果。每次 debug 时又不明所以，耗了很长时间才找到。在这里记录下。 错误的原因是 == 运算符优先级要高于&amp;amp; | ^这三个位运算符，故导致上面代码的判断顺序实际为if">
+<meta property="og:type" content="article">
+<meta property="og:title" content="判断语句中位运算符的一个小坑">
+<meta property="og:url" content="http://zhiyi.live/2018/07/31/判断语句中位运算符的一个小坑/index.html">
 <meta property="og:site_name" content="MoonChasing">
-<meta property="og:description" content="每从细笔惊新悟，重向高山愧旧琴。">
+<meta property="og:description" content="最近训练时敲代码总爱在if语句中有位算符时踩坑， 比如 if(i&amp;amp;1==0) 或 if(i&amp;amp;i-1 == 0)，本意是想判 i 是否为偶数和 i 是否为 2 的幂，但这么写都是错误的，导致程序不能输出正确结果。每次 debug 时又不明所以，耗了很长时间才找到。在这里记录下。 错误的原因是 == 运算符优先级要高于&amp;amp; | ^这三个位运算符，故导致上面代码的判断顺序实际为if">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-31T05:16:54.645Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MoonChasing">
-<meta name="twitter:description" content="每从细笔惊新悟，重向高山愧旧琴。">
+<meta name="twitter:title" content="判断语句中位运算符的一个小坑">
+<meta name="twitter:description" content="最近训练时敲代码总爱在if语句中有位算符时踩坑， 比如 if(i&amp;amp;1==0) 或 if(i&amp;amp;i-1 == 0)，本意是想判 i 是否为偶数和 i 是否为 2 的幂，但这么写都是错误的，导致程序不能输出正确结果。每次 debug 时又不明所以，耗了很长时间才找到。在这里记录下。 错误的原因是 == 运算符优先级要高于&amp;amp; | ^这三个位运算符，故导致上面代码的判断顺序实际为if">
 
 
 
@@ -135,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://zhiyi.live/tags/算法，-分治法/"/>
+  <link rel="canonical" href="http://zhiyi.live/2018/07/31/判断语句中位运算符的一个小坑/"/>
 
 
 
 
 
-  <title>标签: 算法， 分治法 | MoonChasing</title>
+  <title>判断语句中位运算符的一个小坑 | MoonChasing</title>
   
 
 
@@ -171,7 +172,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -319,54 +320,244 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>算法， 分治法<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/07/31/判断语句中位运算符的一个小坑/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/07/28/求逆序数对个数-归并排序法/" itemprop="url">
-              
-                <span itemprop="name">求逆序数对个数(归并排序法)</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">判断语句中位运算符的一个小坑</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-28T11:45:06+08:00"
-              content="2018-07-28" >
-          07-28
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-31T13:01:27+08:00">
+                2018-07-31
+              </time>
+            
 
-    </header>
-  </article>
+            
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-07-31T13:16:54+08:00">
+                2018-07-31
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/07/31/判断语句中位运算符的一个小坑/" class="leancloud_visitors" data-flag-title="判断语句中位运算符的一个小坑">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  261
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近训练时敲代码总爱在if语句中有位算符时踩坑， 比如 <code>if(i&amp;1==0)</code> 或 <code>if(i&amp;i-1 == 0)</code>，本意是想判 i 是否为偶数和 i 是否为 2 的幂，但这么写都是错误的，导致程序不能输出正确结果。每次 debug 时又不明所以，耗了很长时间才找到。在这里记录下。</p>
+<p>错误的原因是 <code>==</code> 运算符优先级要高于<code>&amp;</code> <code>|</code> <code>^</code>这三个位运算符，故导致上面代码的判断顺序实际为<code>if(i &amp; (1==0))</code> 和 <code>if(i &amp; (i-1 == 0))</code>。 很痛苦呀，有没有。</p>
+<p><strong>建议：</strong></p>
+<ul>
+<li>判断式中如果同时存在<strong>位运算符</strong>和<strong>小于等于大于</strong>时，将位运算符表达式加上括号</li>
+<li>判等时，如果一边是常数一边是变量，将常数放于判等左边。 （TAT，当时听郝斌老师讲这条时还不以为意，心想判等自己肯定不会写成 = , 现在想来，真是内牛满面呀，这条规则实在太好了）</li>
+</ul>
 
       
     </div>
 
+    
+    
+    
+    
+    
+    
+      <div>
+       <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">❤采之欲遗谁，所思在远道。❤</div>
+    
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/30/臨江仙-送錢穆父/" rel="next" title="臨江仙  送錢穆父">
+                <i class="fa fa-chevron-left"></i> 臨江仙  送錢穆父
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ae3314da8ad64a3" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -374,6 +565,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjA3MC8xMjYwNQ=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -414,7 +614,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -660,6 +860,12 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/photoswipe.min.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/photoswipe-ui-default.min.js?v=5.1.4"></script>
+
+
 
   
 
@@ -688,6 +894,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 

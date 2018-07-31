@@ -1,3 +1,4 @@
+http://zhiyi.live/2018/07/31/判断语句中位运算符的一个小坑/
 http://zhiyi.live/2018/07/30/臨江仙-送錢穆父/
 http://zhiyi.live/2018/07/29/2018-Multi-University-Training-Contest-2-1007-Naive-Operations-线段树/
 http://zhiyi.live/2018/07/28/求逆序数对个数-归并排序法/
