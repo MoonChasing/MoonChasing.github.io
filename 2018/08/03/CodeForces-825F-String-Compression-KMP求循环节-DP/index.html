@@ -105,7 +105,7 @@
 <meta property="og:description" content="F. String Compression    time limit per test: 2 secondsmemory limit per test: 512 megabytesinput: standard inputoutput: standard output  DescriptionIvan wants to write a letter to his friend. The lett">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180803/DHJIgDCe8b.png">
-<meta property="og:updated_time" content="2018-08-03T05:58:37.762Z">
+<meta property="og:updated_time" content="2018-08-03T06:10:47.189Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CodeForces 825F String Compression(KMP求循环节+DP)">
 <meta name="twitter:description" content="F. String Compression    time limit per test: 2 secondsmemory limit per test: 512 megabytesinput: standard inputoutput: standard output  DescriptionIvan wants to write a letter to his friend. The lett">
@@ -382,7 +382,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-03T13:58:37+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-03T14:10:47+08:00">
                 2018-08-03
               </time>
             
@@ -520,7 +520,7 @@
 <div aling="center">time limit per test: 2 seconds<br>memory limit per test: 512 megabytes<br>input: standard input<br>output: standard output</div>
 
 <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Ivan wants to write a letter to his friend. The letter is a string <em>s</em> consisting of lowercase Latin letters.</p>
-<p>Unfortunately, when Ivan started writing the letter, he realised that it is very long and writing the whole letter may take extremely long time. So he wants to write the compressed version of string <em>s</em> instead of the string itself.</p>
+<p>Unfortunately, when Ivan started writing the letter, he realised that it is very long and writing the whole letter may take extremely long time. So he wants to write the compressed version of string <em>s</em> instead of the string itself.<a id="more"></a></p>
 <p>The compressed version of string <em>s</em> is a sequence of strings <em>c</em>1, <em>s</em>1, <em>c</em>2, <em>s</em>2, …, <em>c**k</em>, <em>s**k</em>, where <em>c**i</em> is the decimal representation of number <em>a**i</em>(without any leading zeroes) and <em>s**i</em> is some string consisting of lowercase Latin letters. If Ivan writes string <em>s</em>1 exactly <em>a</em>1 times, then string <em>s</em>2 exactly <em>a</em>2 times, and so on, the result will be string <em>s</em>.</p>
 <p>The length of a compressed version is |<em>c</em>1| + |<em>s</em>1| + |<em>c</em>2| + |<em>s</em>2|… |<em>c**k</em>| + |<em>s**k</em>|. Among all compressed versions Ivan wants to choose a version such that its length is minimum possible. Help Ivan to determine minimum possible length.</p>
 <h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The only line of input contains one string <em>s</em> consisting of lowercase Latin letters (1 ≤ |<em>s</em>| ≤ 8000).</p>
