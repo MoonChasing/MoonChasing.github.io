@@ -942,6 +942,564 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/08/03/CodeForces-471D-MUH-and-Cube-Walls-KMP-差分/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/03/CodeForces-471D-MUH-and-Cube-Walls-KMP-差分/" itemprop="url">CodeForces 471D MUH and Cube Walls(KMP+差分)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-03T14:00:59+08:00">
+                2018-08-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-03T14:09:00+08:00">
+                2018-08-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/字符串/" itemprop="url" rel="index">
+                    <span itemprop="name">字符串</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/字符串/KMP/" itemprop="url" rel="index">
+                    <span itemprop="name">KMP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/03/CodeForces-471D-MUH-and-Cube-Walls-KMP-差分/" class="leancloud_visitors" data-flag-title="CodeForces 471D MUH and Cube Walls(KMP+差分)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  806
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 align="center">D. MUH and Cube Walls </h2>
+
+<div align="center">time limit per test: 2 seconds<br>memory limit per test: 256 megabytes <br>input: standard input<br>output: standard output</div>
+
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Polar bears Menshykov and Uslada from the zoo of St. Petersburg and elephant Horace from the zoo of Kiev got hold of lots of wooden cubes somewhere. They started making cube towers by placing the cubes one on top of the other. They defined multiple towers standing in a line as a wall. A wall can consist of towers of different heights.</p>
+<p>Horace was the first to finish making his wall. He called his wall an elephant. The wall consists of <em>w</em> towers. The bears also finished making their wall but they didn’t give it a name. Their wall consists of <em>n</em> towers. Horace looked at the bears’ tower and wondered: in how many parts of the wall can he “see an elephant”? He can “see an elephant” on a segment of <em>w</em> contiguous towers if the heights of the towers on the segment match as a sequence the heights of the towers in Horace’s wall. In order to see as many elephants as possible, Horace can raise and lower his wall. He even can lower the wall below the ground level (see the pictures to the samples for clarification).</p>
+<p>Your task is to count the number of segments where Horace can “see an elephant”.</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The first line contains two integers <em>n</em> and <em>w</em> (1 ≤ <em>n</em>, <em>w</em> ≤ 2·105) — the number of towers in the bears’ and the elephant’s walls correspondingly. The second line contains <em>n</em> integers <em>a**i</em> (1 ≤ <em>a**i</em> ≤ 109) — the heights of the towers in the bears’ wall. The third line contains <em>w</em> integers <em>b**i</em> (1 ≤ <em>b**i</em> ≤ 109) — the heights of the towers in the elephant’s wall.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Print the number of segments in the bears’ wall where Horace can “see an elephant”.</p>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><h4 id="input"><a href="#input" class="headerlink" title="input"></a>input</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">13 5</span><br><span class="line">2 4 5 5 4 3 2 2 2 3 3 2 1</span><br><span class="line">3 4 4 3 2</span><br></pre></td></tr></table></figure>
+<h4 id="output"><a href="#output" class="headerlink" title="output"></a>output</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+<h4 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h4><p>The picture to the left shows Horace’s wall from the sample, the picture to the right shows the bears’ wall. The segments where Horace can “see an elephant” are in gray.</p>
+<p><img src="http://p8b6ie37m.bkt.clouddn.com/blog/180803/3jljc9If7d.png" alt="mark"></p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先差分，计算出主串和模式串中相邻数字的差分数组。(去掉首位的)</p>
+<p>之后就是KMP匹配这两个差分数组了了。</p>
+<h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;cstdlib&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">#include &lt;map&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;utility&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#define MAXN 200005</span><br><span class="line">#define INF 0x3f3f3f3f</span><br><span class="line">#define DEBUG</span><br><span class="line">#define DataIn</span><br><span class="line">typedef long long LL;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">inline int read()</span><br><span class="line">&#123;</span><br><span class="line">    int x=0,f=1;char ch=getchar();</span><br><span class="line">    while(!isdigit(ch)) &#123;if(ch==&apos;-&apos;) f=-1;ch=getchar();&#125;</span><br><span class="line">    while(isdigit(ch)) &#123;x=x*10+ch-&apos;0&apos;;ch=getchar();&#125;</span><br><span class="line">    return x*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int n, w;</span><br><span class="line">int a[MAXN], b[MAXN];</span><br><span class="line">int next[MAXN];</span><br><span class="line"></span><br><span class="line">void prekmp()</span><br><span class="line">&#123;</span><br><span class="line">    int i=0, j=-1;</span><br><span class="line">    next[0] = -1;</span><br><span class="line">    while(i&lt;w)</span><br><span class="line">    &#123;</span><br><span class="line">        while(~j &amp;&amp; b[i]!=b[j])</span><br><span class="line">            j = next[j];</span><br><span class="line">        next[++i] = ++j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int kmpcnt()</span><br><span class="line">&#123;</span><br><span class="line">    int i=0, j=0;</span><br><span class="line">    int cnt = 0;</span><br><span class="line">    prekmp();</span><br><span class="line">    while(i&lt;n)</span><br><span class="line">    &#123;</span><br><span class="line">        while(~j &amp;&amp; a[i]!=b[j])</span><br><span class="line">            j = next[j];</span><br><span class="line">        i++; j++;</span><br><span class="line">        if(j &gt;= w)</span><br><span class="line">        &#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return cnt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    n = read(), w = read();</span><br><span class="line">    for(int i=0; i&lt;n; i++)</span><br><span class="line">        a[i] = read();</span><br><span class="line">    for(int i=n-1; i&gt;0; i--)</span><br><span class="line">        a[i] -= a[i-1];</span><br><span class="line">    for(int i=0; i&lt;n-1; i++)</span><br><span class="line">        a[i] = a[i+1];</span><br><span class="line">//    for(int i=0; i&lt;n-1; i++)</span><br><span class="line">//        printf(&quot;%d &quot;, a[i])</span><br><span class="line">//    putchar(10);</span><br><span class="line">    n--;</span><br><span class="line"></span><br><span class="line">    for(int i=0; i&lt;w; i++)</span><br><span class="line">        b[i] = read();</span><br><span class="line">    for(int i=w-1; i&gt;0; i--)</span><br><span class="line">        b[i] -= b[i-1];</span><br><span class="line">    for(int i=0; i&lt;w-1; i++)</span><br><span class="line">        b[i] = b[i+1];</span><br><span class="line">    w--;</span><br><span class="line">    if(w==0)//子中长度为1时要特判</span><br><span class="line">        printf(&quot;%d\n&quot;, n+1);</span><br><span class="line">    else</span><br><span class="line">        printf(&quot;%d\n&quot;, kmpcnt());</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://p8b6ie37m.bkt.clouddn.com/blog/180803/9JEEEBaKGF.png" alt="mark"></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>When</th>
+<th>Who</th>
+<th>Problem</th>
+<th>Lang</th>
+<th>Verdict</th>
+<th>Time</th>
+<th>Memor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://codeforces.com/contest/471/submission/41132718" target="_blank" rel="noopener">41132718</a></td>
+<td>2018-08-02 21:26:50</td>
+<td><a href="http://codeforces.com/profile/MoonChasing" target="_blank" rel="noopener">MoonChasing</a></td>
+<td><a href="http://codeforces.com/contest/471/problem/D" target="_blank" rel="noopener">D - MUH and Cube Walls</a></td>
+<td>GNU C++</td>
+<td>Accepted</td>
+<td>31 ms</td>
+<td>2400 KB</td>
+</tr>
+<tr>
+<td><a href="http://codeforces.com/contest/471/submission/41132612" target="_blank" rel="noopener">41132612</a></td>
+<td>2018-08-02 21:23:05</td>
+<td><a href="http://codeforces.com/profile/MoonChasing" target="_blank" rel="noopener">MoonChasing</a></td>
+<td><a href="http://codeforces.com/contest/471/problem/D" target="_blank" rel="noopener">D - MUH and Cube Walls</a></td>
+<td>GNU C++</td>
+<td>Wrong answer on test 2</td>
+<td>30 ms</td>
+<td>2400 KB</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/08/03/CodeForces-825F-String-Compression-KMP求循环节-DP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/03/CodeForces-825F-String-Compression-KMP求循环节-DP/" itemprop="url">CodeForces 825F String Compression(KMP求循环节+DP)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-03T13:40:34+08:00">
+                2018-08-03
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-03T13:58:37+08:00">
+                2018-08-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/字符串/" itemprop="url" rel="index">
+                    <span itemprop="name">字符串</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/DP/" itemprop="url" rel="index">
+                    <span itemprop="name">DP</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/字符串/KMP/" itemprop="url" rel="index">
+                    <span itemprop="name">KMP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/03/CodeForces-825F-String-Compression-KMP求循环节-DP/" class="leancloud_visitors" data-flag-title="CodeForces 825F String Compression(KMP求循环节+DP)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  641
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 align="center">F. String Compression  </h2>
+
+<div aling="center">time limit per test: 2 seconds<br>memory limit per test: 512 megabytes<br>input: standard input<br>output: standard output</div>
+
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Ivan wants to write a letter to his friend. The letter is a string <em>s</em> consisting of lowercase Latin letters.</p>
+<p>Unfortunately, when Ivan started writing the letter, he realised that it is very long and writing the whole letter may take extremely long time. So he wants to write the compressed version of string <em>s</em> instead of the string itself.</p>
+<p>The compressed version of string <em>s</em> is a sequence of strings <em>c</em>1, <em>s</em>1, <em>c</em>2, <em>s</em>2, …, <em>c**k</em>, <em>s**k</em>, where <em>c**i</em> is the decimal representation of number <em>a**i</em>(without any leading zeroes) and <em>s**i</em> is some string consisting of lowercase Latin letters. If Ivan writes string <em>s</em>1 exactly <em>a</em>1 times, then string <em>s</em>2 exactly <em>a</em>2 times, and so on, the result will be string <em>s</em>.</p>
+<p>The length of a compressed version is |<em>c</em>1| + |<em>s</em>1| + |<em>c</em>2| + |<em>s</em>2|… |<em>c**k</em>| + |<em>s**k</em>|. Among all compressed versions Ivan wants to choose a version such that its length is minimum possible. Help Ivan to determine minimum possible length.</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The only line of input contains one string <em>s</em> consisting of lowercase Latin letters (1 ≤ |<em>s</em>| ≤ 8000).</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Output one integer number — the minimum possible length of a compressed version of <em>s</em>.</p>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><h4 id="input"><a href="#input" class="headerlink" title="input"></a>input</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aaaaaaaaaa</span><br></pre></td></tr></table></figure>
+<h4 id="output"><a href="#output" class="headerlink" title="output"></a>output</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+<h4 id="input-1"><a href="#input-1" class="headerlink" title="input"></a>input</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abcab</span><br></pre></td></tr></table></figure>
+<h4 id="output-1"><a href="#output-1" class="headerlink" title="output"></a>output</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure>
+<h4 id="input-2"><a href="#input-2" class="headerlink" title="input"></a>input</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cczabababab</span><br></pre></td></tr></table></figure>
+<h4 id="output-2"><a href="#output-2" class="headerlink" title="output"></a>output</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7</span><br></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>KMP求循环节：如果 $len \% (len-next[len] == 0)$, 则字符串由循环节组成，循环节长度为 $len - next[len]$，循环 $len \over {len-next[len]}$次；否则字符串并无循环节。</p>
+<p>$a[i][j]$表示子字符串$s[i,i+1, ….j]$循环节长度 + 循环次数的位数。</p>
+<p>$dp[i]$表示字符串前 $i$ 个字符压缩后的长度。</p>
+<p>$dp[i] = min(dp[i], dp[j]+a[j+1][i])$</p>
+<h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;utility&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 8005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DataIn</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> next[MAXN];</span><br><span class="line"><span class="keyword">char</span> s[MAXN];</span><br><span class="line"><span class="keyword">int</span> len;</span><br><span class="line"><span class="keyword">int</span> dp[MAXN];</span><br><span class="line"><span class="keyword">int</span> a[MAXN][MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">prekmp</span><span class="params">(<span class="keyword">char</span> x[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">-1</span>;</span><br><span class="line">    next[<span class="number">0</span>] = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; len)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(j!=<span class="number">-1</span> &amp;&amp; x[i]!=x[j])</span><br><span class="line">            j = next[j];</span><br><span class="line">        next[++i] = ++j;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">digitcnt</span><span class="params">(<span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(k)</span><br><span class="line">    &#123;</span><br><span class="line">        k /= <span class="number">10</span>;</span><br><span class="line">        cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cnt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        prekmp(s + i);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &lt; len; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(j == i)</span><br><span class="line">            &#123;</span><br><span class="line">                a[i][j] = <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> t1 = j - i + <span class="number">1</span>, t2 = t1 - next[t1];</span><br><span class="line">            a[i][j] = t1 % t2 == <span class="number">0</span> ? t2 + digitcnt(t1/t2) : t1 + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s);</span><br><span class="line">    len = <span class="built_in">strlen</span>(s);</span><br><span class="line">    fill(dp, dp+len, INF);</span><br><span class="line">    init();</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; len;i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        dp[i] = a[<span class="number">0</span>][i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j ++)</span><br><span class="line">            dp[i] = min(dp[i],dp[j] + a[j + <span class="number">1</span>][i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[len<span class="number">-1</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://p8b6ie37m.bkt.clouddn.com/blog/180803/DHJIgDCe8b.png" alt="mark"></p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>When</th>
+<th>Who</th>
+<th>Problem</th>
+<th>Lang</th>
+<th>Verdict</th>
+<th>Time</th>
+<th>Memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://codeforces.com/contest/825/submission/41132032" target="_blank" rel="noopener">41132032</a></td>
+<td>2018-08-02 21:00:29</td>
+<td><a href="http://codeforces.com/profile/MoonChasing" target="_blank" rel="noopener">MoonChasing</a></td>
+<td><a href="http://codeforces.com/contest/825/problem/F" target="_blank" rel="noopener">F - String Compression</a></td>
+<td>GNU C++</td>
+<td>Accepted</td>
+<td>810 ms</td>
+<td>250900 KB</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/08/03/CodeForces-731C-Socks-并查集/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2203,420 +2761,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/07/31/判断语句中位运算符的一个小坑/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/31/判断语句中位运算符的一个小坑/" itemprop="url">判断语句中位运算符的一个小坑</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-31T13:01:27+08:00">
-                2018-07-31
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-31T13:16:54+08:00">
-                2018-07-31
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/07/31/判断语句中位运算符的一个小坑/" class="leancloud_visitors" data-flag-title="判断语句中位运算符的一个小坑">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  261
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近训练时敲代码总爱在if语句中有位算符时踩坑， 比如 <code>if(i&amp;1==0)</code> 或 <code>if(i&amp;i-1 == 0)</code>，本意是想判 i 是否为偶数和 i 是否为 2 的幂，但这么写都是错误的，导致程序不能输出正确结果。每次 debug 时又不明所以，耗了很长时间才找到。在这里记录下。</p>
-<p>错误的原因是 <code>==</code> 运算符优先级要高于<code>&amp;</code> <code>|</code> <code>^</code>这三个位运算符，故导致上面代码的判断顺序实际为<code>if(i &amp; (1==0))</code> 和 <code>if(i &amp; (i-1 == 0))</code>。 很痛苦呀，有没有。</p>
-<p><strong>建议：</strong></p>
-<ul>
-<li>判断式中如果同时存在<strong>位运算符</strong>和<strong>小于等于大于</strong>时，将位运算符表达式加上括号</li>
-<li>判等时，如果一边是常数一边是变量，将常数放于判等左边。 （TAT，当时听郝斌老师讲这条时还不以为意，心想判等自己肯定不会写成 = , 现在想来，真是内牛满面呀，这条规则实在太好了）</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/07/30/臨江仙-送錢穆父/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/30/臨江仙-送錢穆父/" itemprop="url">臨江仙  送錢穆父</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-30T11:55:35+08:00">
-                2018-07-30
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-01T20:15:11+08:00">
-                2018-08-01
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/文学/" itemprop="url" rel="index">
-                    <span itemprop="name">文学</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/07/30/臨江仙-送錢穆父/" class="leancloud_visitors" data-flag-title="臨江仙  送錢穆父">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  69
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 align="center">臨江仙  送錢穆父</h2>
-
-<h3 align="center">蘇軾</h3>
-
-<p>一別都門三改火，天涯踏盡紅塵。依然一笑作春溫。無波真古井，有節是秋筠。<br>惆悵孤帆連夜發，送行淡月微雲。樽前不用翠眉顰。人生如逆旅，我亦是行人。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2671,7 +2815,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2682,7 +2826,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

@@ -1,3 +1,5 @@
+http://zhiyi.live/2018/08/03/CodeForces-471D-MUH-and-Cube-Walls-KMP-差分/
+http://zhiyi.live/2018/08/03/CodeForces-825F-String-Compression-KMP求循环节-DP/
 http://zhiyi.live/2018/08/03/CodeForces-731C-Socks-并查集/
 http://zhiyi.live/2018/08/03/CodeForces-911D-Inversion-Counting-思维/
 http://zhiyi.live/2018/08/03/CodeForces-920F-SUM-and-REPLACE-线段树/
