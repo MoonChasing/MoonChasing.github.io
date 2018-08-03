@@ -1,3 +1,7 @@
+http://zhiyi.live/2018/08/03/CodeForces-731C-Socks-并查集/
+http://zhiyi.live/2018/08/03/CodeForces-911D-Inversion-Counting-思维/
+http://zhiyi.live/2018/08/03/CodeForces-920F-SUM-and-REPLACE-线段树/
+http://zhiyi.live/2018/08/03/CodeForces-703D-Mishka-and-Interesting-sum-树状数组/
 http://zhiyi.live/2018/08/01/夜雨寄北/
 http://zhiyi.live/2018/07/31/判断语句中位运算符的一个小坑/
 http://zhiyi.live/2018/07/30/臨江仙-送錢穆父/
