@@ -1,3 +1,4 @@
+http://zhiyi.live/2018/08/03/2018牛客网暑期ACM多样训练营（第五场）A-gpa-01分数划分/
 http://zhiyi.live/2018/08/03/CodeForces-471D-MUH-and-Cube-Walls-KMP-差分/
 http://zhiyi.live/2018/08/03/CodeForces-825F-String-Compression-KMP求循环节-DP/
 http://zhiyi.live/2018/08/03/CodeForces-731C-Socks-并查集/
