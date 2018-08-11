@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>http://zhiyi.live/2018/08/11/POJ-3278-Catch-That-Cow-BFS-%E5%89%AA%E6%9E%9D/</loc>
+    <lastmod>2018-08-11T03:59:36.892Z</lastmod>
+    <data>
+        <display>
+        <title>POJ 3278 Catch That Cow(BFS+剪枝)</title>
+        <pubTime>2018-08-11T03:47:30.000Z</pubTime>
+        
+        <tag>kuangbin带你飞</tag>
+         
+         
+           
+             
+              <breadCrumb title="ACM" url="http://zhiyi.live/categories/ACM/"/>
+          
+             
+              <breadCrumb title="BFS" url="http://zhiyi.live/categories/ACM/BFS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhiyi.live/2018/08/11/lower-bound-%E5%92%8Cupper-bound-%E5%9C%A8%E4%BB%8E%E5%A4%A7%E5%88%B0%E5%B0%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2018-08-11T03:48:05.568Z</lastmod>
+    <data>
+        <display>
+        <title>lower_bound()和upper_bound()在从大到小数组中的使用</title>
+        <pubTime>2018-08-11T03:04:03.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="C++" url="http://zhiyi.live/categories/C/"/>
+          
+             
+              <breadCrumb title="STL" url="http://zhiyi.live/categories/C/STL/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhiyi.live/2018/08/10/POJ-1321-%E6%A3%8B%E7%9B%98%E9%97%AE%E9%A2%98-DFS-%E5%9B%9E%E6%BA%AF/</loc>
     <lastmod>2018-08-10T12:04:53.936Z</lastmod>
     <data>
@@ -381,9 +425,9 @@
         
         <tag>算法</tag>
          
-        <tag>排序</tag>
-         
         <tag>分治法</tag>
+         
+        <tag>排序</tag>
          
          
            

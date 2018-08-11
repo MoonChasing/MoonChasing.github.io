@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[POJ 3278 Catch That Cow(BFS+剪枝)]]></title>
+    <url>%2F2018%2F08%2F11%2FPOJ-3278-Catch-That-Cow-BFS-%E5%89%AA%E6%9E%9D%2F</url>
+    <content type="text"><![CDATA[传送门：POJ 3278 Catch That Cow ProblemDescriptionFarmer John has been informed of the location of a fugitive cow and wants to catch her immediately. He starts at a point N (0 ≤ N ≤ 100,000) on a number line and the cow is at a point K (0 ≤ K ≤ 100,000) on the same number line. Farmer John has two modes of transportation: walking and teleporting. * Walking: FJ can move from any point X to the points X - 1 or X + 1 in a single minute* Teleporting: FJ can move from any point X to the point 2 × X in a single minute. If the cow, unaware of its pursuit, does not move at all, how long does it take for Farmer John to retrieve it? InputLine 1: Two space-separated integers: N and K OutputLine 1: The least amount of time, in minutes, it takes for Farmer John to catch the fugitive cow. Sample Input15 17 Sample Output14 HintThe fastest way for Farmer John to reach the fugitive cow is to move along the following path: 5-10-9-18-17, which takes 4 minutes. SolutionAC代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364#define MAXN 100010int n, k;typedef struct point&#123; int pos, step;&#125; P;int minn = INF;int ans = INF;bool vis[MAXN];void bfs()&#123; queue&lt;P&gt; que; que.push(P &#123;n, 0&#125;); vis[n] = true; P cur; while(!que.empty()) &#123; cur = que.front(); que.pop(); if(cur.pos &lt; k) &#123; if(cur.pos-1&gt;=0 &amp;&amp; !vis[cur.pos-1]) &#123; que.push(P &#123;cur.pos-1, cur.step+1&#125;); vis[cur.pos-1] = true; &#125; if(cur.pos+1&lt;MAXN &amp;&amp; !vis[cur.pos+1]) que.push(P &#123;cur.pos+1, cur.step+1&#125;), vis[cur.pos+1] = true; if(cur.pos * 2 &lt; MAXN &amp;&amp; !vis[cur.pos &lt;&lt; 1]) &#123; if(cur.pos * 2 &lt;= k) que.push(P &#123;cur.pos&lt;&lt;1, cur.step+1&#125;); else &#123; if(cur.step + 1 + cur.pos * 2 - k &lt;= ans) ans = cur.step + 1 + cur.pos * 2 - k; &#125; vis[cur.pos &lt;&lt; 1] = true; &#125; &#125; else if(cur.pos == k) &#123; ans = min(ans, cur.step); &#125; else if(cur.pos &gt; k) &#123; ans = min(ans, cur.step+cur.pos-k); &#125; &#125;&#125;int main()&#123; scanf("%d%d", &amp;n, &amp;k); if(k &lt;= n) ans = n-k; else bfs(); printf("%d\n",ans); return 0;&#125; Note这个地球真太小了，在地铁上看小米的面经写到了一个算法题，心想挺有意思的，回去写写。回家继续写 kuangbin带你飞 的题目，结果发现第三道刚好是面经中看到的。太小了太小了。简单题目。哈哈哈，看到 Teleporting 的时候第一反应是 TP。]]></content>
+      <categories>
+        <category>ACM</category>
+        <category>BFS</category>
+      </categories>
+      <tags>
+        <tag>kuangbin带你飞</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[lower_bound()和upper_bound()在从大到小数组中的使用]]></title>
+    <url>%2F2018%2F08%2F11%2Flower-bound-%E5%92%8Cupper-bound-%E5%9C%A8%E4%BB%8E%E5%A4%A7%E5%88%B0%E5%B0%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[今天突发奇想，想知道 lower_bound() 和 upper_bound() 函数在从大到小的数组中怎么使用，猜想 C++ 中应该会有重载， 果不其然， 正确打开姿势是酱紫。 1lower_bound(begin, end, val, greater&lt;T&gt;())]]></content>
+      <categories>
+        <category>C++</category>
+        <category>STL</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[发现了一个好玩的东东]]></title>
     <url>%2F2018%2F08%2F10%2F%E5%8F%91%E7%8E%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%8E%A9%E7%9A%84%E4%B8%9C%E4%B8%9C%2F</url>
     <content type="text"><![CDATA[发现了一个好玩的东东]]></content>
@@ -179,8 +200,8 @@
       </categories>
       <tags>
         <tag>算法</tag>
-        <tag>排序</tag>
         <tag>分治法</tag>
+        <tag>排序</tag>
       </tags>
   </entry>
   <entry>
