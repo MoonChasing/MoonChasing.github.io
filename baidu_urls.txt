@@ -1,3 +1,4 @@
+http://zhiyi.live/2018/08/13/POJ-3279-Fliptile-爆搜-一点点状压的知识/
 http://zhiyi.live/2018/08/11/POJ-3278-Catch-That-Cow-BFS-剪枝/
 http://zhiyi.live/2018/08/11/lower-bound-和upper-bound-在从大到小数组中的使用/
 http://zhiyi.live/2018/08/10/发现了一个好玩的东东/
