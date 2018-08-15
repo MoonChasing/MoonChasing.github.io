@@ -1,3 +1,7 @@
+http://zhiyi.live/2018/08/15/POJ-3414-Pots-BFS-记录路径/
+http://zhiyi.live/2018/08/15/POJ-3087-Shuffle-m-Up-模拟/
+http://zhiyi.live/2018/08/15/POJ-3126-Prime-Path-素数表-BFS/
+http://zhiyi.live/2018/08/15/POJ-1426-Find-The-Multiple-BFS/
 http://zhiyi.live/2018/08/13/POJ-3279-Fliptile-爆搜-一点点状压的知识/
 http://zhiyi.live/2018/08/11/POJ-3278-Catch-That-Cow-BFS-剪枝/
 http://zhiyi.live/2018/08/11/lower-bound-和upper-bound-在从大到小数组中的使用/
