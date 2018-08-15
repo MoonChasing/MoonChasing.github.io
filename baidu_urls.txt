@@ -1,3 +1,4 @@
+http://zhiyi.live/2018/08/15/FZU-2150-Fire-Game-BFS/
 http://zhiyi.live/2018/08/15/POJ-3414-Pots-BFS-记录路径/
 http://zhiyi.live/2018/08/15/POJ-3087-Shuffle-m-Up-模拟/
 http://zhiyi.live/2018/08/15/POJ-3126-Prime-Path-素数表-BFS/
