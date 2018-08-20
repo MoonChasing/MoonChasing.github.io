@@ -4,6 +4,21 @@
 
     
   <url>
+    <loc>http://zhiyi.live/2018/08/20/LeetCode-41-First-Missing-Positive/</loc>
+    <lastmod>2018-08-20T02:28:39.591Z</lastmod>
+    <data>
+        <display>
+        <title>LeetCode 41. First Missing Positive</title>
+        <pubTime>2018-08-20T01:55:24.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhiyi.live/2018/05/01/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/</loc>
     <lastmod>2018-08-18T05:45:54.849Z</lastmod>
     <data>
@@ -464,7 +479,7 @@
               <breadCrumb title="字符串" url="http://zhiyi.live/categories/ACM/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
           
              
-              <breadCrumb title="DP" url="http://zhiyi.live/categories/ACM/DP/"/>
+              <breadCrumb title="KMP" url="http://zhiyi.live/categories/ACM/%E5%AD%97%E7%AC%A6%E4%B8%B2/KMP/"/>
           
              
         </display>
@@ -628,9 +643,9 @@
         
         <tag>算法</tag>
          
-        <tag>排序</tag>
-         
         <tag>分治法</tag>
+         
+        <tag>排序</tag>
          
          
            
