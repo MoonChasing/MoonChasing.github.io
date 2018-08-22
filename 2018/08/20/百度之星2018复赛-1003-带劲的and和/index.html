@@ -105,7 +105,7 @@
 <meta property="og:description" content="Accepts: 791 Submissions: 2435Time Limit: 2000/1000 MS (Java/Others)Memory Limit: 65536/65536 K (Java/Others)  ProblemDescription度度熊专门研究过“动态传递闭包问题”，他有一万种让大家爆蛋的方法；但此刻，他只想出一道简简单单的题——至繁，归于至简。 度度熊有一张n个点m条">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://cdn.pixabay.com/photo/2018/08/08/05/12/cat-3591348_960_720.jpg">
-<meta property="og:updated_time" content="2018-08-20T08:30:56.311Z">
+<meta property="og:updated_time" content="2018-08-22T06:32:03.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="百度之星2018复赛 1003.带劲的and和">
 <meta name="twitter:description" content="Accepts: 791 Submissions: 2435Time Limit: 2000/1000 MS (Java/Others)Memory Limit: 65536/65536 K (Java/Others)  ProblemDescription度度熊专门研究过“动态传递闭包问题”，他有一万种让大家爆蛋的方法；但此刻，他只想出一道简简单单的题——至繁，归于至简。 度度熊有一张n个点m条">
@@ -382,8 +382,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-20T16:30:56+08:00">
-                2018-08-20
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-22T14:32:03+08:00">
+                2018-08-22
               </time>
             
           </span>
@@ -421,7 +421,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,043
+                  1,042
                 </span>
               
 
@@ -463,21 +463,21 @@
         <p align="center">Accepts: 791 Submissions: 2435<br>Time Limit: 2000/1000 MS (Java/Others)<br>Memory Limit: 65536/65536 K (Java/Others)</p>
 
 <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>度度熊专门研究过“动态传递闭包问题”，他有一万种让大家爆蛋的方法；但此刻，他只想出一道简简单单的题——至繁，归于至简。</p>
-<p>度度熊有一张n个点m条边的<strong>无向图</strong>，第ii个点的点权为v_ivi。</p>
-<p>如果图上存在一条<strong>路径</strong>使得点ii可以走到点jj，则称i,ji,j是<strong>带劲</strong>的，记$f(i,j)=1$；否则$f(i,j)=0$。显然有$f(i,j) = f(j,i)$。</p>
+<p>度度熊有一张n个点m条边的<strong>无向图</strong>，第$i$个点的点权为$v_i$。</p>
+<p>如果图上存在一条<strong>路径</strong>使得点i可以走到点j，则称i,j是<strong>带劲</strong>的，记$f(i,j)=1$；否则$f(i,j)=0$。显然有$f(i,j) = f(j,i)$。</p>
 <p>度度熊想知道求出：$\sum ^{n-1}<em>{i=1} \sum^{n}</em>{j=i+1} f(i, j) \times \max(v_i, v_j) \times (v_i \&amp; v_j)$ </p>
 <p><img src="https://cdn.pixabay.com/photo/2018/08/08/05/12/cat-3591348_960_720.jpg" alt="这里是只喵QAQ"></p>
  <a id="more"></a>
 <p>其中$\&amp;$是C++中的and位运算符，如$1 \&amp; {3}=1, 2 \&amp; 3=2$。</p>
 <p>请将答案对$10^9+7$取模后输出。</p>
 <h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>第一行一个数，表示数据组数TT。    </p>
-<p>每组数据第一行两个整数n,mn,m；第二行nn个数表示v_ivi；接下来mm行，每行两个数u,vu,v，表示点uu和点vv之间有一条无向边。<strong>可能有重边或自环。</strong></p>
+<p>每组数据第一行两个整数n,m；第二行n个数表示$v_i​$；接下来mm行，每行两个数u,v，表示点u和点v之间有一条无向边。<strong>可能有重边或自环。</strong></p>
 <p>数据组数T=50，满足：</p>
 <ul>
 <li>$1 \le n,m \le 100000$</li>
 <li>$1 \le v_i \le 10^9$</li>
 </ul>
-<p>其中90%的数据满足$n,m \le 1000n$</p>
+<p>其中90%的数据满足$n,m \le 1000$</p>
 <h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>每组数据输出一行，每行仅包含一个数，表示带劲的and和。</p>
 <h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">5 5</span><br><span class="line">3 9 4 8 9 </span><br><span class="line">2 1</span><br><span class="line">1 3</span><br><span class="line">2 1</span><br><span class="line">1 2</span><br><span class="line">5 2</span><br></pre></td></tr></table></figure>
 <h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">99</span><br></pre></td></tr></table></figure>
@@ -545,6 +545,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/21/2018牛客网暑期ACM多校训练营-第五场-F-take-树状树组求期望/" rel="prev" title="2018牛客网暑期ACM多校训练营(第五场) F.take (树状树组求期望)">
+                2018牛客网暑期ACM多校训练营(第五场) F.take (树状树组求期望) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -636,7 +640,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
