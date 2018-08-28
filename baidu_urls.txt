@@ -1,3 +1,6 @@
+http://zhiyi.live/2018/08/28/两道数论题-素数筛/
+http://zhiyi.live/2018/08/23/Gym-100085E-Eve-并查集-Northeastern-European-Regional-Contest-2011/
+http://zhiyi.live/2018/08/22/LightOJ-1269-Consecutive-Sum-01字典树/
 http://zhiyi.live/2018/08/21/2018牛客网暑期ACM多校训练营-第五场-F-take-树状树组求期望/
 http://zhiyi.live/2018/08/20/百度之星2018复赛-1003-带劲的and和/
 http://zhiyi.live/2018/08/20/LeetCode-41-First-Missing-Positive/
