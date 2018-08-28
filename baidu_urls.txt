@@ -1,3 +1,4 @@
+http://zhiyi.live/2018/08/28/两道单调队列题目-初识单调队列/
 http://zhiyi.live/2018/08/28/两道数论题-素数筛/
 http://zhiyi.live/2018/08/23/Gym-100085E-Eve-并查集-Northeastern-European-Regional-Contest-2011/
 http://zhiyi.live/2018/08/22/LightOJ-1269-Consecutive-Sum-01字典树/
