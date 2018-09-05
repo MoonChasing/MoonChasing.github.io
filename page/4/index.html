@@ -498,7 +498,7 @@
 <h2 id="白书讲解"><a href="#白书讲解" class="headerlink" title="白书讲解"></a>白书讲解</h2><p><img src="http://p8b6ie37m.bkt.clouddn.com/blog/180728/6E29jfkieH.png" alt="mark">
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/28/求逆序数对个数-归并排序法/#espandi" rel="contents">
+            <a class="btn" href="/2018/07/28/求逆序数对个数-归并排序法/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -715,7 +715,7 @@
           <p>归并排序思路很简单， 但自己一直不会敲， 也没敲过。 大学算法课本上的代码丑得不行， 嫌弃得要死。 所以自己只知道它的思想。 这几天打高校遇到了求逆序数对的问题，用树状数组来写会爆内存，需要用到归并的思想。于是自己打算好好看一下归并排序，发现紫书上的代码非常简洁，心喜，很快就记住了这段代码，并用自己喜欢的风格敲了一遍。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/28/归并排序/#espandi" rel="contents">
+            <a class="btn" href="/2018/07/28/归并排序/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -933,7 +933,7 @@
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Eddy has solved lots of problem involving calculating the number of coprime pairs within some range. This problem can be solved with inclusion-exclusion method. Eddy has implemented it lots of times. Someday, when he encounters another coprime pairs problem, he comes up with diff-prime pairs problem.
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/27/2018牛客网暑期ACM多样训练营（第三场）H-Diff-prime-Pairs-脑洞/#espandi" rel="contents">
+            <a class="btn" href="/2018/07/27/2018牛客网暑期ACM多样训练营（第三场）H-Diff-prime-Pairs-脑洞/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1151,7 +1151,7 @@
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Eddy was a contestant participating in ACM ICPC contests. ACM is short for Algorithm, Coding, Math. Since in the ACM contest, the most important knowledge is about algorithm, followed by coding(implementation ability), then math. However, in the ACM ICPC World Finals 2018, Eddy failed to solve a physics equation, which pushed him away from a potential medal.
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/27/2018牛客网暑期ACM多样训练营（第三场）A-PACM-Team-01背包路径回溯/#espandi" rel="contents">
+            <a class="btn" href="/2018/07/27/2018牛客网暑期ACM多样训练营（第三场）A-PACM-Team-01背包路径回溯/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1253,8 +1253,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-25T16:39:47+08:00">
-                2018-07-25
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-05T16:41:24+08:00">
+                2018-09-05
               </time>
             
           </span>
@@ -1325,7 +1325,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  224
+                  279
                 </span>
               
 
@@ -1372,11 +1372,14 @@
 <li>空集$\phi$——0</li>
 <li>只含有第 $i$ 个元素的集合 ${i}$——$1&lt;&lt;i$</li>
 <li>含有全部$n$个元素的集合——$(1&lt;&lt;n)-1$</li>
-<li>判断第$i$个元素是否属于集合$S$—— <code>if( S&gt;&gt;i&amp;1 )</code></li>
-<li>向集合$S$加入第$i$个元素——<code>S|1&lt;&lt;i</code></li>
+<li>判断第$i$个元素是否属于集合$S$—— <code>if( S&gt;&gt;i&amp;1 )</code> 或 <code>if(S &amp; (1&lt;&lt;i))</code></li>
+<li>向集合$S$加入第$i$个元素——<code>S |= 1&lt;&lt;i</code></li>
 <li>从集合$S$中去除第$i$个元素——<code>S&amp;~(1&lt;&lt;i)</code></li>
 <li>集合$S​$和集合$T​$的交集——<code>S&amp;T</code></li>
 <li>集合$S$和集合$T$的并集——<code>S|T</code></li>
+<li>切换第<code>i</code>位——<code>S ^= 1&lt;&lt;i</code></li>
+<li>判断某状态是否有相邻的两者相同——<code>if( S &amp; S&lt;&lt;1 )</code></li>
+<li>把一个数字二进制下最靠右的第一个1去掉——<code>S = S&amp;(S-1)</code></li>
 </ul>
 <p>此外，想要将集合{0,1,….,n-1}所有子集枚举出来的话，可以像下面这样写</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> S=<span class="number">0</span>; S &lt; <span class="number">1</span>&lt;&lt;n; S++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//对子集的操作    </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1509,8 +1512,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/思维/" itemprop="url" rel="index">
-                    <span itemprop="name">思维</span>
+                  <a href="/categories/ACM/综合比赛/" itemprop="url" rel="index">
+                    <span itemprop="name">综合比赛</span>
                   </a>
                 </span>
 
@@ -1520,8 +1523,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/综合比赛/" itemprop="url" rel="index">
-                    <span itemprop="name">综合比赛</span>
+                  <a href="/categories/ACM/思维/" itemprop="url" rel="index">
+                    <span itemprop="name">思维</span>
                   </a>
                 </span>
 
@@ -1629,7 +1632,7 @@
 <h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>For each test case, output an integer denoting the maximum $xyz$. If there no such integers, output $-1$ instead.
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/24/2018-Multi-University-Training-Contest-1-记录/#espandi" rel="contents">
+            <a class="btn" href="/2018/07/24/2018-Multi-University-Training-Contest-1-记录/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1847,7 +1850,7 @@
 <p><img src="http://p8b6ie37m.bkt.clouddn.com/18-7-13/45119042.jpg" alt="HDU 5573">
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/13/HDOJ-5573-Binary-Tree/#espandi" rel="contents">
+            <a class="btn" href="/2018/07/13/HDOJ-5573-Binary-Tree/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2067,7 +2070,7 @@
 <li>Model: 业务数据的信息表示，关注支撑业务的信息构成，通常是多个业务实体的组合。<br>View: 为用户提供UI，重点关注数据的呈现。<br>Controller: 调用业务逻辑产生合适的数据(Model)。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/13/Spring-MVC笔记/#espandi" rel="contents">
+            <a class="btn" href="/2018/07/13/Spring-MVC笔记/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2251,7 +2254,7 @@
           <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;在很多情况下，我们希望在 Hexo 中写的一篇文章能够同时属于多个分类，例如我写一篇 <a href="http://zhiyi.live/2018/06/29/Servlet%E7%AC%94%E8%AE%B0/">《Servlet笔记》</a>，我既想将它放在 <a href="http://zhiyi.live/categories/Java/">Java</a> 这个分类中，又想将它放入 <a href="http://zhiyi.live/categories/Java/Servlet/">Servlet</a> 这个分类。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/03/Hexo-一篇文章多个-categories/#espandi" rel="contents">
+            <a class="btn" href="/2018/07/03/Hexo-一篇文章多个-categories/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2470,7 +2473,7 @@
 <h2 id="1-创建一个web项目"><a href="#1-创建一个web项目" class="headerlink" title="1. 创建一个web项目"></a>1. 创建一个web项目</h2><p><img src="http://p8b6ie37m.bkt.clouddn.com/blog/180702/FlHI8ljLE4.png" alt="创建项目"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/02/IntelliJ-Idea创建第一个Servlet项目/#espandi" rel="contents">
+            <a class="btn" href="/2018/07/02/IntelliJ-Idea创建第一个Servlet项目/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

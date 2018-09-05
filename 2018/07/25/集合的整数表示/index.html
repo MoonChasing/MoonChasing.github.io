@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="MoonChasing">
 <meta property="og:description" content="当元素较少时，可以使用二进制码来表示集合。集合${0， 1， 2， \ldots，n-1}$ 的子集可以用如下方式编码成整数。$$f(S) = \sum_{i \in S}2^i$$ 像这样表示之后，一些集合运算可以对应地写成如下方式。  空集$\phi$——0 只含有第 $i$ 个元素的集合 ${i}$——$1&amp;lt;&amp;lt;i$ 含有全部$n$个元素的集合——$(1&amp;lt;&amp;lt;n)-1$">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-25T08:39:47.321Z">
+<meta property="og:updated_time" content="2018-09-05T08:41:24.272Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="集合的整数表示">
 <meta name="twitter:description" content="当元素较少时，可以使用二进制码来表示集合。集合${0， 1， 2， \ldots，n-1}$ 的子集可以用如下方式编码成整数。$$f(S) = \sum_{i \in S}2^i$$ 像这样表示之后，一些集合运算可以对应地写成如下方式。  空集$\phi$——0 只含有第 $i$ 个元素的集合 ${i}$——$1&amp;lt;&amp;lt;i$ 含有全部$n$个元素的集合——$(1&amp;lt;&amp;lt;n)-1$">
@@ -380,8 +380,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-25T16:39:47+08:00">
-                2018-07-25
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-05T16:41:24+08:00">
+                2018-09-05
               </time>
             
           </span>
@@ -452,7 +452,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  224
+                  279
                 </span>
               
 
@@ -497,11 +497,14 @@
 <li>空集$\phi$——0</li>
 <li>只含有第 $i$ 个元素的集合 ${i}$——$1&lt;&lt;i$</li>
 <li>含有全部$n$个元素的集合——$(1&lt;&lt;n)-1$</li>
-<li>判断第$i$个元素是否属于集合$S$—— <code>if( S&gt;&gt;i&amp;1 )</code></li>
-<li>向集合$S$加入第$i$个元素——<code>S|1&lt;&lt;i</code></li>
+<li>判断第$i$个元素是否属于集合$S$—— <code>if( S&gt;&gt;i&amp;1 )</code> 或 <code>if(S &amp; (1&lt;&lt;i))</code></li>
+<li>向集合$S$加入第$i$个元素——<code>S |= 1&lt;&lt;i</code></li>
 <li>从集合$S$中去除第$i$个元素——<code>S&amp;~(1&lt;&lt;i)</code></li>
 <li>集合$S​$和集合$T​$的交集——<code>S&amp;T</code></li>
 <li>集合$S$和集合$T$的并集——<code>S|T</code></li>
+<li>切换第<code>i</code>位——<code>S ^= 1&lt;&lt;i</code></li>
+<li>判断某状态是否有相邻的两者相同——<code>if( S &amp; S&lt;&lt;1 )</code></li>
+<li>把一个数字二进制下最靠右的第一个1去掉——<code>S = S&amp;(S-1)</code></li>
 </ul>
 <p>此外，想要将集合{0,1,….,n-1}所有子集枚举出来的话，可以像下面这样写</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> S=<span class="number">0</span>; S &lt; <span class="number">1</span>&lt;&lt;n; S++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//对子集的操作    </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
