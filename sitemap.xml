@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://zhiyi.live/photo/data.json</loc>
+    <loc>http://zhiyi.live/2018/09/22/%E8%87%B4%E7%96%AF%E7%8B%82%E7%9A%84%E4%BA%BA/</loc>
     
-    <lastmod>2018-09-12T03:54:38.230Z</lastmod>
+    <lastmod>2018-09-22T09:16:48.275Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://zhiyi.live/2018/09/11/%E4%B8%A4%E9%81%93%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</loc>
     
-    <lastmod>2018-09-11T13:14:05.146Z</lastmod>
+    <lastmod>2018-09-21T00:57:18.277Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhiyi.live/photo/data.json</loc>
+    
+    <lastmod>2018-09-12T03:54:38.230Z</lastmod>
     
   </url>
   

@@ -3,10 +3,26 @@
 
 
     
+  <url>
+    <loc>http://zhiyi.live/2018/09/22/%E8%87%B4%E7%96%AF%E7%8B%82%E7%9A%84%E4%BA%BA/</loc>
+    <lastmod>2018-09-22T09:16:48.275Z</lastmod>
+    <data>
+        <display>
+        <title>致疯狂的人</title>
+        <pubTime>2018-09-22T09:11:53.000Z</pubTime>
+        
+        <tag>乔布斯</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>http://zhiyi.live/2018/09/11/%E4%B8%A4%E9%81%93%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</loc>
-    <lastmod>2018-09-11T13:14:05.146Z</lastmod>
+    <lastmod>2018-09-21T00:57:18.277Z</lastmod>
     <data>
         <display>
         <title>两道树状数组</title>
@@ -30,6 +46,7 @@
     </url>
 
     
+    
   <url>
     <loc>http://zhiyi.live/2018/05/18/%E4%BD%95%E5%BD%93%E5%85%B1%E5%89%AA%E8%A5%BF%E7%AA%97%E7%83%9B/</loc>
     <lastmod>2018-09-09T14:12:26.521Z</lastmod>
@@ -38,9 +55,9 @@
         <title>何当共剪西窗烛</title>
         <pubTime>2018-05-18T15:04:17.000Z</pubTime>
         
-        <tag>感情</tag>
-         
         <tag>生活</tag>
+         
+        <tag>感情</tag>
          
          
            
@@ -731,10 +748,10 @@
               <breadCrumb title="ACM" url="http://zhiyi.live/categories/ACM/"/>
           
              
-              <breadCrumb title="DP" url="http://zhiyi.live/categories/ACM/DP/"/>
+              <breadCrumb title="字符串" url="http://zhiyi.live/categories/ACM/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
           
              
-              <breadCrumb title="字符串" url="http://zhiyi.live/categories/ACM/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+              <breadCrumb title="DP" url="http://zhiyi.live/categories/ACM/DP/"/>
           
              
         </display>
@@ -846,9 +863,9 @@
         
         <tag>算法</tag>
          
-        <tag>分治法</tag>
-         
         <tag>排序</tag>
+         
+        <tag>分治法</tag>
          
          
            
@@ -1101,9 +1118,9 @@
         <title>一些句子</title>
         <pubTime>2018-06-05T08:23:22.000Z</pubTime>
         
-        <tag>励志</tag>
-         
         <tag>感情</tag>
+         
+        <tag>励志</tag>
          
         <tag>句子</tag>
          
