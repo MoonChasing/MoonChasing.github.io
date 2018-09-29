@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://zhiyi.live/2018/09/29/2018CCPC%E7%A7%A6%E7%9A%87%E5%B2%9B%E7%AB%99%E8%AE%B0%E5%BD%95%E5%8F%8A%E6%9A%91%E5%81%87%E9%9B%86%E8%AE%AD%E6%84%9F%E5%8F%97/</loc>
+    <lastmod>2018-09-29T13:26:44.373Z</lastmod>
+    <data>
+        <display>
+        <title>2018CCPC秦皇岛站记录及暑假集训感受</title>
+        <pubTime>2018-09-29T09:28:40.000Z</pubTime>
+        
+        <tag>比赛记录</tag>
+         
+         
+           
+             
+              <breadCrumb title="综合比赛" url="http://zhiyi.live/categories/%E7%BB%BC%E5%90%88%E6%AF%94%E8%B5%9B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhiyi.live/2018/05/11/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/</loc>
     <lastmod>2018-09-25T08:29:45.000Z</lastmod>
     <data>
@@ -748,10 +768,10 @@
               <breadCrumb title="ACM" url="http://zhiyi.live/categories/ACM/"/>
           
              
-              <breadCrumb title="DP" url="http://zhiyi.live/categories/ACM/DP/"/>
+              <breadCrumb title="字符串" url="http://zhiyi.live/categories/ACM/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
           
              
-              <breadCrumb title="字符串" url="http://zhiyi.live/categories/ACM/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+              <breadCrumb title="DP" url="http://zhiyi.live/categories/ACM/DP/"/>
           
              
         </display>
@@ -863,9 +883,9 @@
         
         <tag>算法</tag>
          
-        <tag>分治法</tag>
-         
         <tag>排序</tag>
+         
+        <tag>分治法</tag>
          
          
            
