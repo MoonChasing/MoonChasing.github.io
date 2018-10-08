@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[记得吗，你的名字叫炎黄]]></title>
+    <url>%2F2018%2F10%2F08%2F%E8%AE%B0%E5%BE%97%E5%90%97%EF%BC%8C%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97%E5%8F%AB%E7%82%8E%E9%BB%84%2F</url>
+    <content type="text"><![CDATA[当我登上那古老的城墙，当我抚摸着腐朽的柱梁，当我兴奋的倚栏远望，总会有一丝酸涩冲上喉头，总听到有一个声音大声的说：记得吗？你的祖先名叫炎黄。书上说有一条大鱼，生活在北冥那个地方，它化作一只巨鸟，在天地之间翱翔。巨鸟有如垂天之云般的翅膀，虽九万里亦可扶摇直上。圣贤赋予我们可以囊括天宇的胸襟，为我们塑造一个博大恢弘的殿堂。那时候，有个怪异的青年名叫嵇康，他临刑前，弹奏了一曲绝响，那宽袍博带在风中飞扬，他用了最优雅的姿态面对死亡。几千年过去，依旧有余音绕梁，只是他不知道，真正断绝的不是曲谱，而是他的傲骨，乃至他身上的衣裳。我也曾梦回大唐，和一个叫李白的诗人云游四方，他用来下酒的是剑锋上的寒光，他的情人是空中的月亮。我曾见他在月下徘徊、高歌吟唱，长风吹开他的发带，长袍飘逸宛如仙人模样。可是后来换了帝王，他用一杯酒捧起了文人，摒弃了武将。他的子孙最终躲进人间天堂，把大片的土地拱手相让。然而在寒冷的北方，正有一支军队征战沙场，敌人都说，有岳家军在，我们打不了胜仗。可叹英雄遭忌，谗士高张，一缕忠魂终于消散在西湖之傍，一个民族的精神就这么无可逆转的消亡。然而血色夕阳中，我依稀见到，有人把它插进土壤，那是将军用过的，一支宁折不弯的缨枪。时间的车轮悠悠荡荡，终于在甲申那里失了方向。于是瘦西湖畔，梅花岭上，为纪念这个悲剧建起一座祠堂。那个叫史可法的文弱书生，他不愿散开高束的发髻，更不能脱去祖先留给他的衣裳，于是他决定与城共存共亡，丢了性命，护了信仰。残酷的杀戮，如山的尸骨，并不能把民族的精神埋葬，有人相信，终有一天，它还会在中华大地上熠熠发光。几百年后，我坐进麦当劳的厅堂，我穿起古奇牌的时装，我随口唱着my heart will go on，却莫名其妙的心伤，因为我听到一个声音大声的说：忘了吗？你的祖先名叫炎黄。我记得了，一群褐发篮眼的豺狼，带着坚船利炮，拆了我们的庙宇，毁了我们的殿堂。于是在历经无数灾难之后的今天——我们懂得民主自由，却忘了伦理纲常，我们拥有音乐神童，却不识角徵宫商，我们能建起高楼大厦，却容不下一块公德牌坊，我们穿着西服革履，却没了自己的衣裳。在哪里，那个礼仪之邦？在哪里，我的汉家儿郎？为什么我穿起最美丽的衣衫，你却说我行为异常？为什么我倍加珍惜的汉装，你竟说它属于扶桑？为什么我真诚的告白，你总当它是笑话一场？为什么我淌下的热泪，丝毫都打动不了你的铁石心肠？在哪里，那个信义之乡？在哪里，我的汉家儿郎？我不愿为此痛断肝肠，不愿祖先的智慧无人叹赏，更不愿我华夏衣冠留落异邦。所以心中总有一个渴望，梦想有一天，我们可以拾起自己的文化，撑起民族的脊梁。 记住吧，记住吧，有一个时代叫汉唐，有一条河流叫长江，有一对图腾叫龙凤，有一件羽衣——名叫霓裳！]]></content>
+      <categories>
+        <category>文学</category>
+      </categories>
+      <tags>
+        <tag>汉服，朗诵</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[南鄉子 自述]]></title>
     <url>%2F2018%2F10%2F08%2F%E5%8D%97%E9%84%89%E5%AD%90-%E8%87%AA%E8%BF%B0%2F</url>
     <content type="text"><![CDATA[南鄉子 自述 蘇軾 凉簟碧紗廚。一枕清風晝睡餘。睡聽晚衙無一事，徐徐，讀盡牀頭幾卷書。搔首賦歸歟。自覺功名懶更疏。若問使君才與術，何如，占得人間一味愚。]]></content>
@@ -254,8 +265,8 @@
     <content type="text"><![CDATA[F. String Compression time limit per test: 2 secondsmemory limit per test: 512 megabytesinput: standard inputoutput: standard output DescriptionIvan wants to write a letter to his friend. The letter is a string s consisting of lowercase Latin letters. Unfortunately, when Ivan started writing the letter, he realised that it is very long and writing the whole letter may take extremely long time. So he wants to write the compressed version of string s instead of the string itself. The compressed version of string s is a sequence of strings c1, s1, c2, s2, …, c**k, s**k, where c**i is the decimal representation of number a**i(without any leading zeroes) and s**i is some string consisting of lowercase Latin letters. If Ivan writes string s1 exactly a1 times, then string s2 exactly a2 times, and so on, the result will be string s. The length of a compressed version is |c1| + |s1| + |c2| + |s2|… |c**k| + |s**k|. Among all compressed versions Ivan wants to choose a version such that its length is minimum possible. Help Ivan to determine minimum possible length. InputThe only line of input contains one string s consisting of lowercase Latin letters (1 ≤ |s| ≤ 8000). OutputOutput one integer number — the minimum possible length of a compressed version of s. Examplesinput1aaaaaaaaaa output13 input1abcab output16 input1cczabababab output17 Solution思路KMP求循环节：如果 $len \% (len-next[len] == 0)$, 则字符串由循环节组成，循环节长度为 $len - next[len]$，循环 $len \over {len-next[len]}$次；否则字符串并无循环节。 $a[i][j]$表示子字符串$s[i,i+1, ….j]$循环节长度 + 循环次数的位数。 $dp[i]$表示字符串前 $i$ 个字符压缩后的长度。 $dp[i] = min(dp[i], dp[j]+a[j+1][i])$ AC代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182#include &lt;cstdio&gt;#include &lt;cstring&gt;#include &lt;cstdlib&gt;#include &lt;iostream&gt;#include &lt;set&gt;#include &lt;map&gt;#include &lt;queue&gt;#include &lt;vector&gt;#include &lt;utility&gt;#include &lt;algorithm&gt;#define MAXN 8005#define INF 0x3f3f3f3f#define DEBUG#define DataIntypedef long long LL;using namespace std;int next[MAXN];char s[MAXN];int len;int dp[MAXN];int a[MAXN][MAXN];void prekmp(char x[])&#123; int i = 0, j = -1; next[0] = -1; while(i &lt; len) &#123; while(j!=-1 &amp;&amp; x[i]!=x[j]) j = next[j]; next[++i] = ++j; &#125;&#125;int digitcnt(int k)&#123; int cnt = 0; while(k) &#123; k /= 10; cnt++; &#125; return cnt;&#125;void init()&#123; for(int i = 0; i &lt; len; i++) &#123; prekmp(s + i); for(int j = i; j &lt; len; j++) &#123; if(j == i) &#123; a[i][j] = 2; continue; &#125; int t1 = j - i + 1, t2 = t1 - next[t1]; a[i][j] = t1 % t2 == 0 ? t2 + digitcnt(t1/t2) : t1 + 1; &#125; &#125;&#125;int main()&#123; scanf("%s", s); len = strlen(s); fill(dp, dp+len, INF); init(); dp[0] = 2; for(int i = 1; i &lt; len;i ++) &#123; dp[i] = a[0][i]; for(int j = 0; j &lt; i; j ++) dp[i] = min(dp[i],dp[j] + a[j + 1][i]); &#125; printf("%d\n",dp[len-1]); return 0;&#125; # When Who Problem Lang Verdict Time Memory 41132032 2018-08-02 21:00:29 MoonChasing F - String Compression GNU C++ Accepted 810 ms 250900 KB]]></content>
       <categories>
         <category>ACM</category>
-        <category>字符串</category>
         <category>DP</category>
+        <category>字符串</category>
         <category>KMP</category>
       </categories>
       <tags>
@@ -312,8 +323,8 @@
       </categories>
       <tags>
         <tag>詩詞</tag>
-        <tag>別離</tag>
         <tag>李商隱</tag>
+        <tag>別離</tag>
         <tag>思念</tag>
       </tags>
   </entry>
@@ -335,8 +346,8 @@
       <tags>
         <tag>詩詞</tag>
         <tag>蘇軾</tag>
-        <tag>曠達</tag>
         <tag>別離</tag>
+        <tag>曠達</tag>
       </tags>
   </entry>
   <entry>
@@ -423,8 +434,8 @@
         <category>ACM</category>
         <category>综合比赛</category>
         <category>思维</category>
-        <category>构造</category>
         <category>数论</category>
+        <category>构造</category>
       </categories>
       <tags>
         <tag>算法</tag>
