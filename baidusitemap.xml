@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://zhiyi.live/2018/10/09/%E5%8D%9C%E7%AE%97%E5%AD%90-%E7%AD%94%E6%96%BD/</loc>
-    <lastmod>2018-10-09T07:53:07.164Z</lastmod>
+    <lastmod>2018-10-09T07:58:51.173Z</lastmod>
     <data>
         <display>
         <title>卜算子 答施</title>
@@ -202,9 +202,9 @@
         
         <tag>詩詞</tag>
          
-        <tag>別離</tag>
-         
         <tag>蘇軾</tag>
+         
+        <tag>別離</tag>
          
         <tag>曠達</tag>
          
@@ -832,10 +832,10 @@
               <breadCrumb title="ACM" url="http://zhiyi.live/categories/ACM/"/>
           
              
-              <breadCrumb title="字符串" url="http://zhiyi.live/categories/ACM/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+              <breadCrumb title="DP" url="http://zhiyi.live/categories/ACM/DP/"/>
           
              
-              <breadCrumb title="KMP" url="http://zhiyi.live/categories/ACM/%E5%AD%97%E7%AC%A6%E4%B8%B2/KMP/"/>
+              <breadCrumb title="字符串" url="http://zhiyi.live/categories/ACM/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
           
              
         </display>
@@ -947,9 +947,9 @@
         
         <tag>算法</tag>
          
-        <tag>分治法</tag>
-         
         <tag>排序</tag>
+         
+        <tag>分治法</tag>
          
          
            
