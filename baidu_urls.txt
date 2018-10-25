@@ -1,3 +1,4 @@
+http://zhiyi.live/2018/10/25/Java-GUI组件动态变化问题及Thread的run-与start-区别/
 http://zhiyi.live/2018/10/09/卜算子-答施/
 http://zhiyi.live/2018/10/08/记得吗，你的名字叫炎黄/
 http://zhiyi.live/2018/10/08/南鄉子-自述/
