@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zhiyi.live/photo/data.json</loc>
+    
+    <lastmod>2018-10-26T07:00:45.130Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zhiyi.live/2018/10/25/Java-GUI%E7%BB%84%E4%BB%B6%E5%8A%A8%E6%80%81%E5%8F%98%E5%8C%96%E9%97%AE%E9%A2%98%E5%8F%8AThread%E7%9A%84run-%E4%B8%8Estart-%E5%8C%BA%E5%88%AB/</loc>
     
     <lastmod>2018-10-25T05:26:49.287Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>http://zhiyi.live/2018/09/11/%E4%B8%A4%E9%81%93%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</loc>
     
     <lastmod>2018-09-21T00:57:18.277Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhiyi.live/photo/data.json</loc>
-    
-    <lastmod>2018-09-12T03:54:38.230Z</lastmod>
     
   </url>
   
