@@ -290,8 +290,8 @@
     <content type="text"><![CDATA[F. String Compression time limit per test: 2 secondsmemory limit per test: 512 megabytesinput: standard inputoutput: standard output DescriptionIvan wants to write a letter to his friend. The letter is a string s consisting of lowercase Latin letters. Unfortunately, when Ivan started writing the letter, he realised that it is very long and writing the whole letter may take extremely long time. So he wants to write the compressed version of string s instead of the string itself. The compressed version of string s is a sequence of strings c1, s1, c2, s2, …, c**k, s**k, where c**i is the decimal representation of number a**i(without any leading zeroes) and s**i is some string consisting of lowercase Latin letters. If Ivan writes string s1 exactly a1 times, then string s2 exactly a2 times, and so on, the result will be string s. The length of a compressed version is |c1| + |s1| + |c2| + |s2|… |c**k| + |s**k|. Among all compressed versions Ivan wants to choose a version such that its length is minimum possible. Help Ivan to determine minimum possible length. InputThe only line of input contains one string s consisting of lowercase Latin letters (1 ≤ |s| ≤ 8000). OutputOutput one integer number — the minimum possible length of a compressed version of s. Examplesinput1aaaaaaaaaa output13 input1abcab output16 input1cczabababab output17 Solution思路KMP求循环节：如果 $len \% (len-next[len] == 0)$, 则字符串由循环节组成，循环节长度为 $len - next[len]$，循环 $len \over {len-next[len]}$次；否则字符串并无循环节。 $a[i][j]$表示子字符串$s[i,i+1, ….j]$循环节长度 + 循环次数的位数。 $dp[i]$表示字符串前 $i$ 个字符压缩后的长度。 $dp[i] = min(dp[i], dp[j]+a[j+1][i])$ AC代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182#include &lt;cstdio&gt;#include &lt;cstring&gt;#include &lt;cstdlib&gt;#include &lt;iostream&gt;#include &lt;set&gt;#include &lt;map&gt;#include &lt;queue&gt;#include &lt;vector&gt;#include &lt;utility&gt;#include &lt;algorithm&gt;#define MAXN 8005#define INF 0x3f3f3f3f#define DEBUG#define DataIntypedef long long LL;using namespace std;int next[MAXN];char s[MAXN];int len;int dp[MAXN];int a[MAXN][MAXN];void prekmp(char x[])&#123; int i = 0, j = -1; next[0] = -1; while(i &lt; len) &#123; while(j!=-1 &amp;&amp; x[i]!=x[j]) j = next[j]; next[++i] = ++j; &#125;&#125;int digitcnt(int k)&#123; int cnt = 0; while(k) &#123; k /= 10; cnt++; &#125; return cnt;&#125;void init()&#123; for(int i = 0; i &lt; len; i++) &#123; prekmp(s + i); for(int j = i; j &lt; len; j++) &#123; if(j == i) &#123; a[i][j] = 2; continue; &#125; int t1 = j - i + 1, t2 = t1 - next[t1]; a[i][j] = t1 % t2 == 0 ? t2 + digitcnt(t1/t2) : t1 + 1; &#125; &#125;&#125;int main()&#123; scanf("%s", s); len = strlen(s); fill(dp, dp+len, INF); init(); dp[0] = 2; for(int i = 1; i &lt; len;i ++) &#123; dp[i] = a[0][i]; for(int j = 0; j &lt; i; j ++) dp[i] = min(dp[i],dp[j] + a[j + 1][i]); &#125; printf("%d\n",dp[len-1]); return 0;&#125; # When Who Problem Lang Verdict Time Memory 41132032 2018-08-02 21:00:29 MoonChasing F - String Compression GNU C++ Accepted 810 ms 250900 KB]]></content>
       <categories>
         <category>ACM</category>
-        <category>字符串</category>
         <category>DP</category>
+        <category>字符串</category>
         <category>KMP</category>
       </categories>
       <tags>
@@ -412,8 +412,8 @@
       </categories>
       <tags>
         <tag>算法</tag>
-        <tag>分治法</tag>
         <tag>排序</tag>
+        <tag>分治法</tag>
       </tags>
   </entry>
   <entry>
@@ -554,8 +554,8 @@
         <category>文学</category>
       </categories>
       <tags>
-        <tag>感情</tag>
         <tag>励志</tag>
+        <tag>感情</tag>
         <tag>句子</tag>
       </tags>
   </entry>
@@ -567,8 +567,8 @@
         <category>与时光</category>
       </categories>
       <tags>
-        <tag>生活</tag>
         <tag>感情</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
