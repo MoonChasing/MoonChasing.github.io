@@ -104,19 +104,19 @@
 <meta property="og:site_name" content="MoonChasing">
 <meta property="og:description" content="男儿何不带吴钩收取关山五十州 流水账，记录下一些大事的时间   时间 事务     9月26日  9：30——14：30 南京南——秦皇岛   9月27日  14：00——15：00 比赛开幕式   9月27日  15：00——17：00 热身赛   9月28日 9：10——14：10 正式比赛   9月28日 15：00——16：00 颁奖仪式暨闭幕式   9月29日 8：02——12：15 秦">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180929/E4Ak59I4i5.png">
-<meta property="og:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180929/A5klDjaBK4.png">
-<meta property="og:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180929/JhKFAIacD6.png">
-<meta property="og:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180929/hhkAdmcgFH.jpg">
-<meta property="og:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180929/K1jh34jIFb.jpg">
-<meta property="og:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180929/46H6gA560k.png">
-<meta property="og:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180929/6ChI8J8dm4.png">
-<meta property="og:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180929/32HC1iB19L.png">
-<meta property="og:updated_time" content="2018-09-30T02:47:18.527Z">
+<meta property="og:image" content="http://cmhblog.cfzhao.com/blog/180929/E4Ak59I4i5.png">
+<meta property="og:image" content="http://cmhblog.cfzhao.com/blog/180929/A5klDjaBK4.png">
+<meta property="og:image" content="http://cmhblog.cfzhao.com/blog/180929/JhKFAIacD6.png">
+<meta property="og:image" content="http://cmhblog.cfzhao.com/blog/180929/hhkAdmcgFH.jpg">
+<meta property="og:image" content="http://cmhblog.cfzhao.com/blog/180929/K1jh34jIFb.jpg">
+<meta property="og:image" content="http://cmhblog.cfzhao.com/blog/180929/46H6gA560k.png">
+<meta property="og:image" content="http://cmhblog.cfzhao.com/blog/180929/6ChI8J8dm4.png">
+<meta property="og:image" content="http://cmhblog.cfzhao.com/blog/180929/32HC1iB19L.png">
+<meta property="og:updated_time" content="2018-11-09T12:49:33.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2018CCPC秦皇岛站记录及暑假集训感受">
 <meta name="twitter:description" content="男儿何不带吴钩收取关山五十州 流水账，记录下一些大事的时间   时间 事务     9月26日  9：30——14：30 南京南——秦皇岛   9月27日  14：00——15：00 比赛开幕式   9月27日  15：00——17：00 热身赛   9月28日 9：10——14：10 正式比赛   9月28日 15：00——16：00 颁奖仪式暨闭幕式   9月29日 8：02——12：15 秦">
-<meta name="twitter:image" content="http://p8b6ie37m.bkt.clouddn.com/blog/180929/E4Ak59I4i5.png">
+<meta name="twitter:image" content="http://cmhblog.cfzhao.com/blog/180929/E4Ak59I4i5.png">
 
 
 
@@ -389,8 +389,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-30T10:47:18+08:00">
-                2018-09-30
+              <time title="更新于" itemprop="dateModified" datetime="2018-11-09T20:49:33+08:00">
+                2018-11-09
               </time>
             
           </span>
@@ -558,14 +558,14 @@
 <p>我们便去rush G。G题题目是给你一棵无根树，问你他是不是一棵K叉满树。如果是，输出最小的K。虽然写B的时候我和 wade 没有想G，但现在回来看竟然有了一致的思路。我给 wade 说起了思路，我们把点分为根结点，叶子结点，和中间结点。如果他是一棵K叉满树，那个根结点度为K，叶子结点度为1， 中间结点度为K+1。我们统计这三个度数的个数，一般情况下，找到数量为1的，就是根结点，那么我们获得了K，已经知道了它是K叉树，然后获取度为1的结点的数量，其必有 K的n次方， 这样我们就可以获得树的层数，为n+1，然后我们可以算出理论上度为K+1结点的个数，再和实际的比较，如果相等，那么它就是K叉满树。这是一般情况，其它特殊情况判断下就好。 wade 让我去指引 Bule_Zst 敲代码， = =， 真的，太痛苦了，看Bule_Zst的代码命名和花括号居然不换行，我有想打队友的冲动=w=，我指引写代码坎坎坷坷，wade 看我俩费劲忍不住亲自来敲。敲好后我们测了自己的样例，通过，这时我更改了下出的3叉满树的样例，将一个叶子结点连到了根结点下，结果程序还是输出 3。成功Hack！我发现这组样例根结点变了，由1变成了4，这时提出了想法，将树根换为4重整树！我和 wade 很快的发现了问题，我们这样判断的，是它是不是一棵K叉树！并不能判断其满树情况。于是 wade 开始敲验证满树代码，G题我们用了很多时间，Submit， 红红的WA震惊了三人。我们一直有个疑问，就是结点数为1时，我们输出 -1 还是1， 这也是出题人被喷得最惨的地方，下面会详述。。我们用了很长时间检查了代码，觉得思路没问题，唯一的问题就是结点数为1，又是一番纠结，改为1后， Submit， TLE！一阵心惊，三人很快互相鼓气，说没事，稳住。我们分析了数据范围和算法的时间复杂度，觉得可以过，将问题移向了vector的使用和一些初始化操作(clear及memset操作的耗时)，将树由 <code>vector</code>保存转为了 前向星写法，将<code>memset</code>改为<code>for</code>循环来清空。submit， 心中默默祈祷，AC！三人长舒一口气。</p>
 <p>看了下榜，I过题人数比较多，我们开始rush I题。我和 wade 有了不同的想法，wade 觉得是满流的最大流问题，但是要求求出多解的方案数，不会，我们先让 Bule_Zst 敲Dinic算法的模板， 我的想法是状态压缩+暴力搜索。后来大家觉得我的做法比较可靠，便放弃了最大流，转为状压和部分和搜索。 Bule_Zst的撸代码能力着实让我吃惊，在我还构思的时候他已经在很快地敲上，感觉一气呵成。虽然思路还不明确，但着实让我震惊。I题我们没有很明确的思路，所以只能试着碰碰运气， Bule_Zst最后代码结构也乱了，能感觉出来，这里改改，那里改改，很容易失去结构。我们只能靠着样例来判断，可程序会爆segment fault， 改改，过了第一个样例跑第二个，最终终是无能为力。。（晚上 Bule_Zst 说在最后半小时的压力真的让他承受不住，要崩溃了。）</p>
 <p>比赛结束。</p>
-<p>我觉得三题拿铜没问题，而且我们错误的提交比较少，封榜前是95名，离铁牌区还有着50多名的距离。再说如果后边的人真的厉害，早就过题了。但 wade 蛊惑人心说可能铁，想想自己在红牛上看到的 Fe（比赛结束也告诉了他们），自己也有些虚。<img src="http://p8b6ie37m.bkt.clouddn.com/blog/180929/E4Ak59I4i5.png" alt="mark">（写着Fe的红牛= =）</p>
+<p>我觉得三题拿铜没问题，而且我们错误的提交比较少，封榜前是95名，离铁牌区还有着50多名的距离。再说如果后边的人真的厉害，早就过题了。但 wade 蛊惑人心说可能铁，想想自己在红牛上看到的 Fe（比赛结束也告诉了他们），自己也有些虚。<img src="http://cmhblog.cfzhao.com/blog/180929/E4Ak59I4i5.png" alt="mark">（写着Fe的红牛= =）</p>
 <p>赛后问了后面队伍的小姐姐他们I 题怎么过的，小姐姐告诉我说是个很复杂的 dp， 他们用了好像三四层for循环。一瞬间有些后悔，因为自己一开始也想了状压dp，但后来改向了更暴力的搜索。自己有些内疚的，因为队伍里dp的话一般是由我来想状态转移，这次没能 rush 出来。三个人的心情也有些坦然，没过多地去后悔代码没能写出，因为写出来等待我们的也可能是T。 </p>
 <p>比赛时状态还是会受周围一些影响的。比赛时向右看了下，突然发现了jls居然在我们这一排。jls有些可爱= =，瞅他了很多次，有次他敲代码时还是会敲指甲，和 World Final 直播里看到的他简直一模一样。偶尔凑巧看到前边队伍笑得很开心，自己好像也有动力去想题目。最后的时候复旦的拉格朗过了D，看到AC的时候他们队沸腾了，全场都在看他们，其中一人跳着说 夺冠了！而当前我们还在写 I 题，压力让我有点羡慕他们。</p>
 <h2 id="颁奖前的小等待"><a href="#颁奖前的小等待" class="headerlink" title="颁奖前的小等待"></a>颁奖前的小等待</h2><p>比赛结束到颁奖仪式有 50 分钟的时间，我就在赛场晃悠，有时找朱兄去玩，有时去看看别的队伍。找朱兄的时候队友QQ告诉我打铁了，心中寒了下，很快地回到自己座位，原来是在逗我，志愿者通知过了，我们是铜。一瞬间压力释放了些，但却没有开心，更多的是有着很多的不甘。这些等写下面总结的时候写吧。</p>
-<p>震惊！女朋友居然会看榜！！女票说她看我们95名时我简直惊了个呆，这货居然快成行内人，会看榜了！<img src="http://p8b6ie37m.bkt.clouddn.com/blog/180929/A5klDjaBK4.png" alt="mark"> 热身赛后举办方采访我们，让我们比手势说 “CCPC， 耶！”， 采访的时候我就有些不详的预感，果然。。。结束后放视频居然有我们。。放到的时候我捂着 wade 低下头想不被人发现我们。过去后后面队伍的小姐姐对我说：“我看到你了。”？？？？嘤嘤嘤。然后= =，女票， = =居然看到了这视频的照片，嘤嘤嘤嘤嘤嘤嘤嘤！<img src="http://p8b6ie37m.bkt.clouddn.com/blog/180929/JhKFAIacD6.png" alt="mark"></p>
-<h2 id="颁奖"><a href="#颁奖" class="headerlink" title="颁奖"></a>颁奖</h2><p>嘻嘻嘻，队友简直是天选之人，铜奖最后一批上去，站在了最中间。从两边向中间开始发奖牌，到队友那里刚好没有了。队友在上面一脸懵比，看着他的表情，我笑得不行。也不知道要不要拍照，哈哈哈，上台了没有奖。队友：虽然我没有牌子，但也要努力地笑出来，尴尬而不失礼貌。<img src="http://p8b6ie37m.bkt.clouddn.com/blog/180929/hhkAdmcgFH.jpg" alt="mark"> <img src="http://p8b6ie37m.bkt.clouddn.com/blog/180929/K1jh34jIFb.jpg" alt="mark"></p>
+<p>震惊！女朋友居然会看榜！！女票说她看我们95名时我简直惊了个呆，这货居然快成行内人，会看榜了！<img src="http://cmhblog.cfzhao.com/blog/180929/A5klDjaBK4.png" alt="mark"> 热身赛后举办方采访我们，让我们比手势说 “CCPC， 耶！”， 采访的时候我就有些不详的预感，果然。。。结束后放视频居然有我们。。放到的时候我捂着 wade 低下头想不被人发现我们。过去后后面队伍的小姐姐对我说：“我看到你了。”？？？？嘤嘤嘤。然后= =，女票， = =居然看到了这视频的照片，嘤嘤嘤嘤嘤嘤嘤嘤！<img src="http://cmhblog.cfzhao.com/blog/180929/JhKFAIacD6.png" alt="mark"></p>
+<h2 id="颁奖"><a href="#颁奖" class="headerlink" title="颁奖"></a>颁奖</h2><p>嘻嘻嘻，队友简直是天选之人，铜奖最后一批上去，站在了最中间。从两边向中间开始发奖牌，到队友那里刚好没有了。队友在上面一脸懵比，看着他的表情，我笑得不行。也不知道要不要拍照，哈哈哈，上台了没有奖。队友：虽然我没有牌子，但也要努力地笑出来，尴尬而不失礼貌。<img src="http://cmhblog.cfzhao.com/blog/180929/hhkAdmcgFH.jpg" alt="mark"> <img src="http://cmhblog.cfzhao.com/blog/180929/K1jh34jIFb.jpg" alt="mark"></p>
 <h2 id="如何看待-2018-CCPC-秦皇岛站"><a href="#如何看待-2018-CCPC-秦皇岛站" class="headerlink" title="如何看待 2018 CCPC 秦皇岛站"></a>如何看待 2018 CCPC 秦皇岛站</h2><p>赛前王和兴老师会在群里问大家需要的 IDE 和 编辑器，觉得还是蛮好的。</p>
-<p>出题人是真的垃圾，出题题意说明不清让人来猜是真的该被喷，热身赛的C真的让我恶心到了，后来好像还rejudge fst了， -27， 呵呵。<img src="http://p8b6ie37m.bkt.clouddn.com/blog/180929/46H6gA560k.png" alt="mark"> <img src="http://p8b6ie37m.bkt.clouddn.com/blog/180929/6ChI8J8dm4.png" alt="mark"> <img src="http://p8b6ie37m.bkt.clouddn.com/blog/180929/32HC1iB19L.png" alt="mark"></p>
+<p>出题人是真的垃圾，出题题意说明不清让人来猜是真的该被喷，热身赛的C真的让我恶心到了，后来好像还rejudge fst了， -27， 呵呵。<img src="http://cmhblog.cfzhao.com/blog/180929/46H6gA560k.png" alt="mark"> <img src="http://cmhblog.cfzhao.com/blog/180929/6ChI8J8dm4.png" alt="mark"> <img src="http://cmhblog.cfzhao.com/blog/180929/32HC1iB19L.png" alt="mark"></p>
 <p>暂时写到这吧，一些感想等下更。未完待续……</p>
 <p align="right"> 2018年9月29日 </p><br><p align="right"> 于高铁上 </p>
       
