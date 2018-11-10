@@ -334,6 +334,236 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/09/11/两道树状数组/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/11/两道树状数组/" itemprop="url">两道树状数组</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-11T11:17:46+08:00">
+                2018-09-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-21T08:57:18+08:00">
+                2018-09-21
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/数据结构/树状数组/" itemprop="url" rel="index">
+                    <span itemprop="name">树状数组</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/11/两道树状数组/" class="leancloud_visitors" data-flag-title="两道树状数组">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,190
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>最近又好颓废呀，暑假想写的两道树状数组的题解拖到了今天。</p>
+<h1 id="Movie-Collection-NWERC-2011"><a href="#Movie-Collection-NWERC-2011" class="headerlink" title="Movie Collection(NWERC 2011)"></a>Movie Collection(NWERC 2011)</h1><p>传送门： <a href="http://codeforces.com/gym/100729/attachments" target="_blank" rel="noopener">Gym - 100729C</a></p>
+<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>Mr. K. I. has a very big movie collection. He has organized his collection in a big stack.<br>Whenever he wants to watch one of the movies, he locates the movie in this stack and removes<br>it carefully, ensuring that the stack doesn’t fall over. After he finishes watching the movie, he<br>places it at the top of the stack.<br>Since the stack of movies is so big, he needs to keep track of the position of each movie.<br>It is sufficient to know for each movie how many movies are placed above it, since, with this<br>information, its position in the stack can be calculated. Each movie is identified by a number<br>printed on the movie box.<br>Your task is to implement a program which will keep track of the position of each movie.<br>In particular, each time Mr. K. I. removes a movie box from the stack, your program should<br>print the number of movies that were placed above it before it was removed.
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/11/两道树状数组/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/07/30/臨江仙-送錢穆父/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1163,7 +1393,7 @@
 </blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/08/28/两道单调队列题目-初识单调队列/#espandi" rel="contents">
+            <a class="btn" href="/2018/08/28/两道单调队列题目-初识单调队列/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1392,7 +1622,7 @@
 <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p></p><p align="center">Input file: eve.in<br>Output file: eve.out</p><br>Mitochondrial DNA is the Deoxyribonucleic acid molecule that is contained in mitochondria within cellsof an organism.<br>Mitochondrial DNA is normally passed to a child exclusively from its mother. Because of this fact, it is<br>possible to speak of “Mitochondrial Eve” which refers to the most recent common matrilineal ancestor<br>of the entire population. Matrilineal ancestry is traced through female line: mother, grandmother, etc.<br>Mitochondrial Eve of the Earth’s human population is estimated to have lived around 200 000 years ago,<br>most likely in the East Africa.<img src="https://www.lifeofpix.com/wp-content/uploads/2018/04/IMG_4475-1600x900.jpg" alt="">
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/08/23/Gym-100085E-Eve-并查集-Northeastern-European-Regional-Contest-2011/#espandi" rel="contents">
+            <a class="btn" href="/2018/08/23/Gym-100085E-Eve-并查集-Northeastern-European-Regional-Contest-2011/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1609,7 +1839,7 @@
           <p><img src="https://www.lifeofpix.com/wp-content/uploads/2018/04/IMG_0025-1600x900.jpg" alt="插图">
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/08/28/两道数论题-素数筛/#espandi" rel="contents">
+            <a class="btn" href="/2018/08/28/两道数论题-素数筛/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2072,7 +2302,7 @@
 <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>Fat brother and Maze are playing a kind of special (hentai) game on an N*M board (N rows, M columns). At the beginning, each grid of this board is consisting of grass or just empty and then they start to fire all the grass. Firstly they choose two grids which are consisting of grass and set fire. As we all know, the fire can spread among the grass. If the grid (x, y) is firing at time t, the grid which is adjacent to this grid will fire at time t+1 which refers to the grid (x+1, y), (x-1, y), (x, y+1), (x, y-1). This process ends when no new grid get fire. If then all the grid which are consisting of grass is get fired, Fat brother and Maze will stand in the middle of the grid and playing a MORE special (hentai) game. (Maybe it’s the OOXX game which decrypted in the last problem, who knows.)<img src="https://www.lifeofpix.com/wp-content/uploads/2018/07/pink-mountains-1600x1067.jpg" alt="">
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/08/15/FZU-2150-Fire-Game-BFS/#espandi" rel="contents">
+            <a class="btn" href="/2018/08/15/FZU-2150-Fire-Game-BFS/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2262,239 +2492,7 @@
 <p><img src="https://cdn.pixabay.com/photo/2018/08/08/05/12/cat-3591348_960_720.jpg" alt="这里是只喵QAQ"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/08/20/百度之星2018复赛-1003-带劲的and和/#espandi" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/08/21/2018牛客网暑期ACM多校训练营-第五场-F-take-树状树组求期望/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/21/2018牛客网暑期ACM多校训练营-第五场-F-take-树状树组求期望/" itemprop="url">2018牛客网暑期ACM多校训练营(第五场) F.take (树状树组求期望)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-21T22:22:06+08:00">
-                2018-08-21
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-21T22:59:15+08:00">
-                2018-08-21
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/数据结构/树状数组/" itemprop="url" rel="index">
-                    <span itemprop="name">树状数组</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/21/2018牛客网暑期ACM多校训练营-第五场-F-take-树状树组求期望/" class="leancloud_visitors" data-flag-title="2018牛客网暑期ACM多校训练营(第五场) F.take (树状树组求期望)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  610
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>传送门: <a href="https://www.nowcoder.com/acm/contest/143/F" target="_blank" rel="noopener">2018牛客网暑期ACM多校训练营(第五场) F.take</a></p>
-<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>Kanade has n boxes , the i-th box has p[i] probability to have an diamond of d[i] size.  </p>
-<p>At the beginning , Kanade has a diamond of 0 size. She will open the boxes from 1-st to n-th. When she open a box,if there is a diamond in it and it’s bigger than the diamond of her , she will replace it with her diamond.  </p>
-<p>Now you need to calculate the expect number of replacements.  </p>
-<p>You only need to output the answer module 998244353.  <img src="https://cdn.pixabay.com/photo/2018/05/10/22/42/ice-cream-3389010_960_720.jpg" alt="take">
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/21/2018牛客网暑期ACM多校训练营-第五场-F-take-树状树组求期望/#espandi" rel="contents">
+            <a class="btn" href="/2018/08/20/百度之星2018复赛-1003-带劲的and和/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2590,7 +2588,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2601,7 +2599,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2612,7 +2610,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
