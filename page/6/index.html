@@ -334,6 +334,220 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/08/11/lower-bound-和upper-bound-在从大到小数组中的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/11/lower-bound-和upper-bound-在从大到小数组中的使用/" itemprop="url">lower_bound()和upper_bound()在从大到小数组中的使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-11T11:04:03+08:00">
+                2018-08-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-08-11T11:48:05+08:00">
+                2018-08-11
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C/STL/" itemprop="url" rel="index">
+                    <span itemprop="name">STL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/11/lower-bound-和upper-bound-在从大到小数组中的使用/" class="leancloud_visitors" data-flag-title="lower_bound()和upper_bound()在从大到小数组中的使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  57
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天突发奇想，想知道 <code>lower_bound()</code> 和 <code>upper_bound()</code> 函数在从大到小的数组中怎么使用，猜想 C++ 中应该会有重载， 果不其然， 正确打开姿势是酱紫。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lower_bound(begin, end, val, greater&lt;T&gt;())</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/08/10/POJ-1321-棋盘问题-DFS-回溯/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -499,7 +713,7 @@
 <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>在一个给定形状的棋盘（形状可能是不规则的）上面摆放棋子，棋子没有区别。要求摆放时任意的两个棋子不能放在棋盘中的同一行或者同一列，请编程求解对于给定形状和大小的棋盘，摆放k个棋子的所有可行的摆放方案C。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/08/10/POJ-1321-棋盘问题-DFS-回溯/#espandi" rel="contents">
+            <a class="btn" href="/2018/08/10/POJ-1321-棋盘问题-DFS-回溯/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -719,7 +933,7 @@
 <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>You are trapped in a 3D dungeon and need to find the quickest way out! The dungeon is composed of unit cubes which may or may not be filled with rock. It takes one minute to move one unit north, south, east, west, up or down. You cannot move diagonally and the maze is surrounded by solid rock on all sides.<br>Is an escape possible? If yes, how long will it take?
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/08/10/POJ-2251-Dungeon-Master-BFS/#espandi" rel="contents">
+            <a class="btn" href="/2018/08/10/POJ-2251-Dungeon-Master-BFS/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1131,7 +1345,7 @@
 <h3 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h3><p>In a galaxy far, far away, there are two integer sequence a and b of length n.<br>b is a static permutation of 1 to n. Initially a is filled with zeroes.<br>There are two kind of operations:<br>1. add l r: add one for $a_l,a_{l+1}…a_r$<br>2. query l r: query $\sum_{i=l}^r \lfloor a_i / b_i \rfloor$
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/29/2018-Multi-University-Training-Contest-2-1007-Naive-Operations-线段树/#espandi" rel="contents">
+            <a class="btn" href="/2018/07/29/2018-Multi-University-Training-Contest-2-1007-Naive-Operations-线段树/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1556,7 +1770,7 @@
           <p>归并排序思路很简单， 但自己一直不会敲， 也没敲过。 大学算法课本上的代码丑得不行， 嫌弃得要死。 所以自己只知道它的思想。 这几天打高校遇到了求逆序数对的问题，用树状数组来写会爆内存，需要用到归并的思想。于是自己打算好好看一下归并排序，发现紫书上的代码非常简洁，心喜，很快就记住了这段代码，并用自己喜欢的风格敲了一遍。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/28/归并排序/#espandi" rel="contents">
+            <a class="btn" href="/2018/07/28/归并排序/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1774,7 +1988,7 @@
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Eddy has solved lots of problem involving calculating the number of coprime pairs within some range. This problem can be solved with inclusion-exclusion method. Eddy has implemented it lots of times. Someday, when he encounters another coprime pairs problem, he comes up with diff-prime pairs problem.
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/27/2018牛客网暑期ACM多样训练营（第三场）H-Diff-prime-Pairs-脑洞/#espandi" rel="contents">
+            <a class="btn" href="/2018/07/27/2018牛客网暑期ACM多样训练营（第三场）H-Diff-prime-Pairs-脑洞/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1928,8 +2142,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/数论/" itemprop="url" rel="index">
-                    <span itemprop="name">数论</span>
+                  <a href="/categories/ACM/构造/" itemprop="url" rel="index">
+                    <span itemprop="name">构造</span>
                   </a>
                 </span>
 
@@ -1939,8 +2153,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/构造/" itemprop="url" rel="index">
-                    <span itemprop="name">构造</span>
+                  <a href="/categories/ACM/数论/" itemprop="url" rel="index">
+                    <span itemprop="name">数论</span>
                   </a>
                 </span>
 
@@ -2026,7 +2240,7 @@
 <h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>For each test case, output an integer denoting the maximum $xyz$. If there no such integers, output $-1$ instead.
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/24/2018-Multi-University-Training-Contest-1-记录/#espandi" rel="contents">
+            <a class="btn" href="/2018/07/24/2018-Multi-University-Training-Contest-1-记录/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2283,213 +2497,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/06/05/一些句子/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/05/一些句子/" itemprop="url">一些句子</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-05T16:23:22+08:00">
-                2018-06-05
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-06-29T10:35:44+08:00">
-                2018-06-29
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/文学/" itemprop="url" rel="index">
-                    <span itemprop="name">文学</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/06/05/一些句子/" class="leancloud_visitors" data-flag-title="一些句子">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  248
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ul>
-<li><p>你背单词时，阿拉斯加的鳕鱼正跃也水面；<br>你算数学时，太平洋彼岸的海鸥振翅掠过城市上空；<br>你晚自习时，极圈上的夜空散漫了五彩斑斓。<br>但是，<br>少年，<br>你别着急，<br>在你为自己未来踏踏实实地努力时，<br>那些你感觉从来不会看到的风景，<br>那些你觉得终身不会遇到的人，<br>正一步步向你走来。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/05/一些句子/#espandi" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2544,7 +2551,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2555,7 +2562,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2566,7 +2573,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
