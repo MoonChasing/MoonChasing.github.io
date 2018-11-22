@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Android手机安装谷歌服务框架]]></title>
+    <url>%2F2018%2F11%2F22%2FAndroid%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85%E8%B0%B7%E6%AD%8C%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%2F</url>
+    <content type="text"><![CDATA[程序员果真离开了自己的电脑就不会用电脑。新换了手机，还好小米有着一键换机，可以把一些数据转移过去，不然不知道自己要纠结多久才能适应新的手机。 当然一键换机并不能把全部的设置都配置过去，在谷歌服务框架上就出了些问题。新手机上并没有安装好谷歌服务框架，我怎么忍受得了。而且 Go 谷歌安装器好像在 Android 8 上并不能用。于是只好自己手动安装服务框架。 所谓的谷歌服务框架，其实就是谷歌三件套（Google Services Framework、Google Account Manager、Google Play services），和一个可选的 Google Play 商城。 自己像原来一样在网上分别下载了这些的 APK,不过打开 Google Play 商城的时候，要登录账号（这时候的 UI 非常之丑），一直说我无法与服务器建立可靠的数据连接。确保自己 SSR 能用的情况下，多次尝试还是不行，于是觉得是安装的 APK 的锅。 所以在这里说下我重新安装（下载 APK 的地方）的方法。 首先打开 www.apkmirror.com 在网页上搜索 com.google.android.gsf，这个是 Google Services Framework。（版本最好和自己 Android 相合，我猜的） com.google.android.gsf.login，这个是 Google Account Manager。 com.google.android.gms，这个是 Google Play services。 com.android.vending， 这个是 Google Play 商城。 安装好后打开 Google Play 商城，发现账号登录界面已经是新的了，很现代的 UI。当时心里就知道成了。果然。毫无问题的登录成功。 现在想来，应该是之前安装的一些 APK 版本太旧了吧。]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[fork()函数解析(只是放个链接)]]></title>
     <url>%2F2018%2F11%2F15%2Ffork-%E5%87%BD%E6%95%B0%E8%A7%A3%E6%9E%90-%E5%8F%AA%E6%98%AF%E6%94%BE%E4%B8%AA%E9%93%BE%E6%8E%A5%2F</url>
     <content type="text"><![CDATA[放一篇很棒的fork()函数解析：linux中fork（）函数详解 jason314]]></content>
@@ -325,8 +336,8 @@
     <content type="text"><![CDATA[F. String Compression time limit per test: 2 secondsmemory limit per test: 512 megabytesinput: standard inputoutput: standard output DescriptionIvan wants to write a letter to his friend. The letter is a string s consisting of lowercase Latin letters. Unfortunately, when Ivan started writing the letter, he realised that it is very long and writing the whole letter may take extremely long time. So he wants to write the compressed version of string s instead of the string itself. The compressed version of string s is a sequence of strings c1, s1, c2, s2, …, c**k, s**k, where c**i is the decimal representation of number a**i(without any leading zeroes) and s**i is some string consisting of lowercase Latin letters. If Ivan writes string s1 exactly a1 times, then string s2 exactly a2 times, and so on, the result will be string s. The length of a compressed version is |c1| + |s1| + |c2| + |s2|… |c**k| + |s**k|. Among all compressed versions Ivan wants to choose a version such that its length is minimum possible. Help Ivan to determine minimum possible length. InputThe only line of input contains one string s consisting of lowercase Latin letters (1 ≤ |s| ≤ 8000). OutputOutput one integer number — the minimum possible length of a compressed version of s. Examplesinput1aaaaaaaaaa output13 input1abcab output16 input1cczabababab output17 Solution思路KMP求循环节：如果 $len \% (len-next[len] == 0)$, 则字符串由循环节组成，循环节长度为 $len - next[len]$，循环 $len \over {len-next[len]}$次；否则字符串并无循环节。 $a[i][j]$表示子字符串$s[i,i+1, ….j]$循环节长度 + 循环次数的位数。 $dp[i]$表示字符串前 $i$ 个字符压缩后的长度。 $dp[i] = min(dp[i], dp[j]+a[j+1][i])$ AC代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182#include &lt;cstdio&gt;#include &lt;cstring&gt;#include &lt;cstdlib&gt;#include &lt;iostream&gt;#include &lt;set&gt;#include &lt;map&gt;#include &lt;queue&gt;#include &lt;vector&gt;#include &lt;utility&gt;#include &lt;algorithm&gt;#define MAXN 8005#define INF 0x3f3f3f3f#define DEBUG#define DataIntypedef long long LL;using namespace std;int next[MAXN];char s[MAXN];int len;int dp[MAXN];int a[MAXN][MAXN];void prekmp(char x[])&#123; int i = 0, j = -1; next[0] = -1; while(i &lt; len) &#123; while(j!=-1 &amp;&amp; x[i]!=x[j]) j = next[j]; next[++i] = ++j; &#125;&#125;int digitcnt(int k)&#123; int cnt = 0; while(k) &#123; k /= 10; cnt++; &#125; return cnt;&#125;void init()&#123; for(int i = 0; i &lt; len; i++) &#123; prekmp(s + i); for(int j = i; j &lt; len; j++) &#123; if(j == i) &#123; a[i][j] = 2; continue; &#125; int t1 = j - i + 1, t2 = t1 - next[t1]; a[i][j] = t1 % t2 == 0 ? t2 + digitcnt(t1/t2) : t1 + 1; &#125; &#125;&#125;int main()&#123; scanf("%s", s); len = strlen(s); fill(dp, dp+len, INF); init(); dp[0] = 2; for(int i = 1; i &lt; len;i ++) &#123; dp[i] = a[0][i]; for(int j = 0; j &lt; i; j ++) dp[i] = min(dp[i],dp[j] + a[j + 1][i]); &#125; printf("%d\n",dp[len-1]); return 0;&#125; # When Who Problem Lang Verdict Time Memory 41132032 2018-08-02 21:00:29 MoonChasing F - String Compression GNU C++ Accepted 810 ms 250900 KB]]></content>
       <categories>
         <category>ACM</category>
-        <category>字符串</category>
         <category>DP</category>
+        <category>字符串</category>
         <category>KMP</category>
       </categories>
       <tags>
@@ -589,8 +600,8 @@
         <category>文学</category>
       </categories>
       <tags>
-        <tag>感情</tag>
         <tag>励志</tag>
+        <tag>感情</tag>
         <tag>句子</tag>
       </tags>
   </entry>
@@ -602,8 +613,8 @@
         <category>与时光</category>
       </categories>
       <tags>
-        <tag>生活</tag>
         <tag>感情</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
