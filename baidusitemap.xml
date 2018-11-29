@@ -3,6 +3,26 @@
 
 
     
+  <url>
+    <loc>http://zhiyi.live/2018/11/29/%E5%86%99%E7%BB%99%E8%8D%B7/</loc>
+    <lastmod>2018-11-29T10:37:29.259Z</lastmod>
+    <data>
+        <display>
+        <title>写给荷</title>
+        <pubTime>2018-11-29T08:52:10.000Z</pubTime>
+        
+        <tag>荷</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="http://zhiyi.live/categories/%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://zhiyi.live/2018/06/05/%E4%B8%80%E4%BA%9B%E5%8F%A5%E5%AD%90/</loc>
@@ -500,10 +520,10 @@
               <breadCrumb title="ACM" url="http://zhiyi.live/categories/ACM/"/>
           
              
-              <breadCrumb title="字符串" url="http://zhiyi.live/categories/ACM/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+              <breadCrumb title="DP" url="http://zhiyi.live/categories/ACM/DP/"/>
           
              
-              <breadCrumb title="DP" url="http://zhiyi.live/categories/ACM/DP/"/>
+              <breadCrumb title="字符串" url="http://zhiyi.live/categories/ACM/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
           
              
         </display>
