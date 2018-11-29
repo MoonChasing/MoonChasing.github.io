@@ -3,6 +3,31 @@
 
 
     
+    
+  <url>
+    <loc>http://zhiyi.live/2018/06/05/%E4%B8%80%E4%BA%9B%E5%8F%A5%E5%AD%90/</loc>
+    <lastmod>2018-11-29T08:17:25.966Z</lastmod>
+    <data>
+        <display>
+        <title>一些句子</title>
+        <pubTime>2018-06-05T08:23:22.000Z</pubTime>
+        
+        <tag>励志</tag>
+         
+        <tag>感情</tag>
+         
+        <tag>句子</tag>
+         
+         
+           
+             
+              <breadCrumb title="文学" url="http://zhiyi.live/categories/%E6%96%87%E5%AD%A6/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
   <url>
     <loc>http://zhiyi.live/2018/11/22/Android%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85%E8%B0%B7%E6%AD%8C%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6/</loc>
     <lastmod>2018-11-22T07:47:31.999Z</lastmod>
@@ -570,7 +595,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>http://zhiyi.live/2018/10/25/Java-GUI%E7%BB%84%E4%BB%B6%E5%8A%A8%E6%80%81%E5%8F%98%E5%8C%96%E9%97%AE%E9%A2%98%E5%8F%8AThread%E7%9A%84run-%E4%B8%8Estart-%E5%8C%BA%E5%88%AB/</loc>
@@ -1327,30 +1351,6 @@
           
              
               <breadCrumb title="Servlet" url="http://zhiyi.live/categories/Java/Servlet/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhiyi.live/2018/06/05/%E4%B8%80%E4%BA%9B%E5%8F%A5%E5%AD%90/</loc>
-    <lastmod>2018-06-29T02:35:44.389Z</lastmod>
-    <data>
-        <display>
-        <title>一些句子</title>
-        <pubTime>2018-06-05T08:23:22.000Z</pubTime>
-        
-        <tag>励志</tag>
-         
-        <tag>感情</tag>
-         
-        <tag>句子</tag>
-         
-         
-           
-             
-              <breadCrumb title="文学" url="http://zhiyi.live/categories/%E6%96%87%E5%AD%A6/"/>
           
         </display>
     </data>
