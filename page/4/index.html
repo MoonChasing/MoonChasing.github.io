@@ -334,6 +334,226 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/10/25/Java-GUI组件动态变化问题及Thread的run-与start-区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/25/Java-GUI组件动态变化问题及Thread的run-与start-区别/" itemprop="url">Java GUI组件动态变化问题及Thread的run()与start()区别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-25T13:15:50+08:00">
+                2018-10-25
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-25T13:26:49+08:00">
+                2018-10-25
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/多线程/" itemprop="url" rel="index">
+                    <span itemprop="name">多线程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/10/25/Java-GUI组件动态变化问题及Thread的run-与start-区别/" class="leancloud_visitors" data-flag-title="Java GUI组件动态变化问题及Thread的run()与start()区别">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  630
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>近来，用 Java Swing 做一个抽奖的程序，为了观赏性高一些，抽奖时 JLabel 上的号码会一直变化。当我实现好功能测试时却发现，当我按下按钮后，界面卡住了，并没有出现预期的效果，JLabel 上的数字并不变化， 只是在最终显示出最终的结果。</p>
+<p>原来，因为 <code>JavaSwing</code> 中，界面刷新是线程同步的，同一时间只有一个线程能执行刷新界面的代码，上例中，多次调用 <code>setText()</code> 方法，均是在主线程中调用，造成线程阻塞，线程并没有退出，所以界面刷新线程不能获得执行刷新的机会，而最后一次 <code>setText()</code> 后，线程退出，界面才能执行刷新，只能看到最后一次的值，如果多次不断地刷新，必须把代码放到一个单独的线程中，从而刷新界面。</p>
+<p><strong>Code</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(newRunnable()&#123;</span><br><span class="line">    </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//代码放在单独的线程中</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=<span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=<span class="number">6</span>; j++) &#123;</span><br><span class="line">                jl.setText(<span class="string">""</span> + j);</span><br><span class="line">                Thread.Sleep(<span class="number">10</span>);	<span class="comment">//省略了异常的处理</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
+<p>一开始，我把 <code>start()</code> 写成了 <code>run()</code> ，发现程序还是没有变化，不是预期的结果，= w =，不太熟悉 Java 的我抱着试一试的态度换成了 <code>start()</code>， 没想到居然成功了！</p>
+<p>于是引出了下一个问题， 在 Thread 中两个方法有什么区别。</p>
+<p>1.start（）方法来启动线程，真正实现了多线程运行，这时无需等待run方法体代码执行完毕而直接继续执行下面的代码： 通过调用Thread类的start()方法来启动一个线程， 这时此线程是处于就绪状态， 并没有运行。 然后通过此Thread类调用方法run()来完成其运行操作的， 这里方法run()称为线程体， 它包含了要执行的这个线程的内容， Run方法运行结束， 此线程终止， 而CPU再运行其它线程。</p>
+<p>2.run（）方法当作普通方法的方式调用，程序还是要顺序执行，还是要等待run方法体执行完毕后才可继续执行下面的代码： 而如果直接用Run方法， 这只是调用一个方法而已， 程序中依然只有主线程–这一个线程， 其程序执行路径还是只有一条， 这样就没有达到写线程的目的。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/10/09/卜算子-答施/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1098,7 +1318,7 @@
           <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/05/11/算法模板/#espandi" rel="contents">
+            <a class="btn" href="/2018/05/11/算法模板/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1508,7 +1728,7 @@
 <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>Mr. K. I. has a very big movie collection. He has organized his collection in a big stack.<br>Whenever he wants to watch one of the movies, he locates the movie in this stack and removes<br>it carefully, ensuring that the stack doesn’t fall over. After he finishes watching the movie, he<br>places it at the top of the stack.<br>Since the stack of movies is so big, he needs to keep track of the position of each movie.<br>It is sufficient to know for each movie how many movies are placed above it, since, with this<br>information, its position in the stack can be calculated. Each movie is identified by a number<br>printed on the movie box.<br>Your task is to implement a program which will keep track of the position of each movie.<br>In particular, each time Mr. K. I. removes a movie box from the stack, your program should<br>print the number of movies that were placed above it before it was removed.
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/09/11/两道树状数组/#espandi" rel="contents">
+            <a class="btn" href="/2018/09/11/两道树状数组/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2194,246 +2414,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/08/28/两道单调队列题目-初识单调队列/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/28/两道单调队列题目-初识单调队列/" itemprop="url">两道单调队列题目(初识单调队列)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-28T22:41:56+08:00">
-                2018-08-28
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-28T23:42:30+08:00">
-                2018-08-28
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/数据结构/单调队列/" itemprop="url" rel="index">
-                    <span itemprop="name">单调队列</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/28/两道单调队列题目-初识单调队列/" class="leancloud_visitors" data-flag-title="两道单调队列题目(初识单调队列)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,624
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  8
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>尺取法、单调队列、滑动窗口一直傻傻分不清。以前觉得尺取法就是滑动窗口，现在又觉得单调队列和滑动窗口是一回事。</p>
-<p>算法的美妙之处就在于当你明了一个算法时，会发自内心惊叹它的美。我于树状数组如此，学习单调队列后亦如此。</p>
-<p>关于单调队列的用法主要看了下<a href="https://www.cnblogs.com/neverforget/archive/2011/10/13/ll.html" target="_blank" rel="noopener">单调队列及其应用</a>中的内容， 以下引用一些内容。</p>
-<blockquote>
-<p>   单调队列及其应用</p>
-<pre><code>单调队列，望文生义，就是指队列中的元素是单调的。如：{a1,a2,a3,a4……an}满足a1&lt;=a2&lt;=a3……&lt;=an,a序列便是单调递增序列。同理递减队列也是存在的。
-
-单调队列的出现可以简化问题，队首元素便是最大（小）值，这样，选取最大（小）值的复杂度便为o（1），由于队列的性质，每个元素入队一次，出队一次，维护队列的复杂度均摊下来便是o（1）。
-</code></pre><p>如何维护单调队列呢，以单调递增序列为例：</p>
-<p>1、如果队列的长度一定，先判断队首元素是否在规定范围内，如果超范围则增长队首。</p>
-<p>2、每次加入元素时和队尾比较，如果当前元素小于队尾且队列非空，则减小尾指针，队尾元素依次出队，直到满足队列的调性为止</p>
-<p>要特别注意头指针和尾指针的应用。</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/28/两道单调队列题目-初识单调队列/#espandi" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2488,7 +2468,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2510,7 +2490,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
