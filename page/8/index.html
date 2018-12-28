@@ -334,6 +334,211 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/05/08/LCS算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/08/LCS算法/" itemprop="url">LCS算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-08T10:33:27+08:00">
+                2018-05-08
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-09T14:05:49+08:00">
+                2018-06-09
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/05/08/LCS算法/" class="leancloud_visitors" data-flag-title="LCS算法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  442
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 105</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str1[MAXN], str2[MAXN];</span><br><span class="line">    <span class="keyword">int</span> dp[MAXN][MAXN];</span><br><span class="line">    <span class="keyword">int</span> path[MAXN][MAXN];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Please input the first string:"</span>);</span><br><span class="line">    gets(str1);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Please input the second string:"</span>);</span><br><span class="line">    gets(str2);</span><br><span class="line">    <span class="keyword">int</span> len1 = <span class="built_in">strlen</span>(str1), len2 = <span class="built_in">strlen</span>(str2);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len1; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j&lt;len2; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(str1[i] == str2[j])</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = dp[i][j] + <span class="number">1</span>;</span><br><span class="line">                path[i+<span class="number">1</span>][j+<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = max(dp[i+<span class="number">1</span>][j], dp[i][j+<span class="number">1</span>]);</span><br><span class="line">                path[i+<span class="number">1</span>][j+<span class="number">1</span>] = dp[i+<span class="number">1</span>][j] &gt; dp[i][j+<span class="number">1</span>] ? <span class="number">2</span> : <span class="number">3</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ans = dp[len1][len2];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The length of LCS is %d\n"</span>, ans);</span><br><span class="line">    <span class="keyword">int</span> cnt = ans<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">char</span> LCS[MAXN];</span><br><span class="line">    <span class="keyword">int</span> i=len1, j=len2;</span><br><span class="line">    <span class="keyword">while</span>(i&gt;<span class="number">0</span> &amp;&amp; j&gt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(path[i][j] == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            LCS[cnt--] = str1[i<span class="number">-1</span>];</span><br><span class="line">            i--, j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(path[i][j] == <span class="number">2</span>)</span><br><span class="line">            j--;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            i--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(LCS);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;可以说，这是自己第一次写程序来保存路径，之前自己总觉得在数组中保存路径是保存确定的位置，经过编码自己了解，其实是要保存转移的方向，再根据方向来回溯。</p>
+<p>&emsp;&emsp;编程真的要细心呀，这个程序自己在程序课上敲码5分钟，Debug 两节课。原因竟是<code>else if(path[i][j] == 2)</code>中的==写错，少打了一个等号，弱智错误呀，调试了两节课才找到。不过找到的时候蛮玄学的，是自己用常用的<code>#ifdef DEBUG</code>大法时，再判等时想起应该是两个等号， 忽地一想，自己不会是之前判等写错了吧，眼光向下一移，果然….解决。事迹已加入脑残系列，可以与上次离散实验中的<code>if(ischuandi());</code>相并列了。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/05/01/闲情记趣/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -956,7 +1161,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">74</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -978,7 +1183,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
