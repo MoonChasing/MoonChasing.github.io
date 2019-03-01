@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://zhiyi.live/2019/03/01/C-lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%95%88%E7%8E%87/</loc>
+    <lastmod>2019-03-01T07:23:31.317Z</lastmod>
+    <data>
+        <display>
+        <title>C++ lambda表达式效率</title>
+        <pubTime>2019-03-01T07:16:19.000Z</pubTime>
+        
+        <tag>C++</tag>
+         
+        <tag>lambda</tag>
+         
+         
+           
+             
+              <breadCrumb title="C++" url="http://zhiyi.live/categories/C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhiyi.live/2019/02/26/Defense-Lines-ACM-ICPC-CERC-2010/</loc>
     <lastmod>2019-02-26T07:41:57.011Z</lastmod>
     <data>
@@ -702,10 +724,10 @@
               <breadCrumb title="ACM" url="http://zhiyi.live/categories/ACM/"/>
           
              
-              <breadCrumb title="字符串" url="http://zhiyi.live/categories/ACM/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+              <breadCrumb title="DP" url="http://zhiyi.live/categories/ACM/DP/"/>
           
              
-              <breadCrumb title="DP" url="http://zhiyi.live/categories/ACM/DP/"/>
+              <breadCrumb title="字符串" url="http://zhiyi.live/categories/ACM/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
           
              
         </display>
@@ -1435,9 +1457,9 @@
         
         <tag>算法</tag>
          
-        <tag>分治法</tag>
-         
         <tag>排序</tag>
+         
+        <tag>分治法</tag>
          
          
            
@@ -1489,10 +1511,10 @@
               <breadCrumb title="ACM" url="http://zhiyi.live/categories/ACM/"/>
           
              
-              <breadCrumb title="综合比赛" url="http://zhiyi.live/categories/ACM/%E7%BB%BC%E5%90%88%E6%AF%94%E8%B5%9B/"/>
+              <breadCrumb title="思维" url="http://zhiyi.live/categories/ACM/%E6%80%9D%E7%BB%B4/"/>
           
              
-              <breadCrumb title="思维" url="http://zhiyi.live/categories/ACM/%E6%80%9D%E7%BB%B4/"/>
+              <breadCrumb title="综合比赛" url="http://zhiyi.live/categories/ACM/%E7%BB%BC%E5%90%88%E6%AF%94%E8%B5%9B/"/>
           
              
              
