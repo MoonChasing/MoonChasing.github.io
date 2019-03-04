@@ -334,6 +334,228 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/12/20/交换两个数据块/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/20/交换两个数据块/" itemprop="url">交换两个数据块位置（数组的连续移位）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-20T20:03:11+08:00">
+                2018-12-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-20T20:35:19+08:00">
+                2018-12-20
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/12/20/交换两个数据块/" class="leancloud_visitors" data-flag-title="交换两个数据块位置（数组的连续移位）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  374
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>连续的数据，如 <code>abcdefg</code> , 经过多次循环移位后，（如 <code>abcdefg</code> 经一次循环移位后变为  <code>bcdefga</code> ），该数据会变为什么。</p>
+<p>我们知道数组的移位是O(n)，很耗时间，如果连续移动 m 次的话时间消耗会很大。最近在读《编程珠玑》， 上边提供了两种算法。第一种称之为 “杂技算法”，即给定一些临时空间（设为可存放<code>k</code>个数据，需连续移动<code>m</code>次），先将前 <code>k</code> 个数据放入里面，之后将第 <code>m+1</code> 到第 <code>m+k</code> 个数据移入第 <code>1</code> 个到第 <code>k</code> 个中，其后依次移入其所在位置。（本文章并不想详细说此方法）。</p>
+<p>第二种方法则比较巧妙，使我想起了暑假集训时做到的一道题目。那道题目和本题很相似，不过是要做多次这种连续移位，更加复杂。但其解决方法的思想和第二种方法思想一致。若总共有 <code>n</code> 个数据，要连续移动 <code>m</code> 次，算法如下：</p>
+<ul>
+<li>Reserve(0, m-1)</li>
+<li>Reserve(m, n-1)</li>
+<li>Reserve(0, n-1)</li>
+</ul>
+<p>如 <code>abcdefg</code> ， 第一步翻转后变为 <code>cbadefg</code> , 第二步后变为 <code>cbagfed</code> , 第三步后变为 <code>defgabc</code>。 即为答案，十分巧妙！</p>
+<p>暑假那题因为需要多次进行连续移位，所以用到了 Splay树。还有巨巨们用了 rope（块状链表）。 也是我第一次听说这种数据结构。不过 Splay树效率更高些。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/12/18/C-子类中函数的重定义/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2206,193 +2428,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/11/09/感谢贴/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/09/感谢贴/" itemprop="url">感谢贴</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-09T21:06:43+08:00">
-                2018-11-09
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2018-11-09T21:29:58+08:00">
-                2018-11-09
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/11/09/感谢贴/" class="leancloud_visitors" data-flag-title="感谢贴">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  347
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>早在暑假末或者九月初，七牛云就告诉用户政策更换，测试域名会30天内回收，要用户自己绑定一个备案的域名。懊恼。因为自己用的测试域名里边放了很多图片，而自己也没有备案的域名。所以一直苟活着，时常惊喜地发现博客中的图片还能用。</p>
-<p>可今天，七牛云突然发邮件说测试域名将于七天后回收。想着如果回收的话里边的图片要一个个更换图床，再从原文中一个个更换外链，就觉得麻烦，很烦燥。于是心里有了邪恶的想法，借个别人备案的域名。于是发了个说说，想借个域名，本来也没抱多大希望，因为觉得这东西一般大家并不会再加个解析指向别人的网站，太麻烦别人了。</p>
-<p>没想到惊喜的是一个学长和一个学弟评论可以借我。惊喜万分。</p>
-<p>七牛云终于可以接着用了，原本的 markdown 文件也只是轻松地一键替换了外链的域名。（不过因为博客设置有按更新日期排序，所以这次更新后排序乱了。不过无伤大雅。）</p>
-<p>在此十分感谢 <a href="http://www.likent.cn/" target="_blank" rel="noopener">lcy</a> 学长， <a href="http://www.cfzhao.com" target="_blank" rel="noopener">zyw</a> 学弟！</p>
-<p align="right">2018 年 11 月 9 日</p>
-
-<p><img src="https://static.baydn.com/media/media_store/image/d645ebd19d7c25f737f8c43c5295bf46.jpeg" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2447,7 +2482,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">77</span>
+                  <span class="site-state-item-count">78</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2458,7 +2493,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2469,7 +2504,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
