@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://zhiyi.live/2019/03/20/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E6%9C%8D%E5%8A%A1%E5%99%A8Mysql%E7%9A%84%E5%9D%91/</loc>
+    <lastmod>2019-03-20T10:41:01.076Z</lastmod>
+    <data>
+        <display>
+        <title>远程连接阿里服务器Mysql的坑</title>
+        <pubTime>2019-03-20T10:20:03.000Z</pubTime>
+        
+        <tag>Mysql</tag>
+         
+         
+           
+             
+              <breadCrumb title="Mysql" url="http://zhiyi.live/categories/Mysql/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhiyi.live/2019/03/18/TCP%E5%8F%8AUDP%E5%AF%B9%E5%BA%94%E7%9A%84%E5%8D%8F%E8%AE%AE/</loc>
     <lastmod>2019-03-18T06:42:08.340Z</lastmod>
     <data>
@@ -1578,9 +1598,9 @@
         
         <tag>算法</tag>
          
-        <tag>排序</tag>
-         
         <tag>分治法</tag>
+         
+        <tag>排序</tag>
          
          
            
