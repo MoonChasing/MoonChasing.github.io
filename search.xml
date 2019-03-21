@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux 命令行 & ; && 的区别]]></title>
+    <url>%2F2019%2F03%2F21%2FLinux-%E5%91%BD%E4%BB%A4%E8%A1%8C-%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[command1 &amp; command2 &amp; command3 三个命令同时执行 command1; command2; command3不管前面命令执行成功没有，后面的命令继续执行 command1 &amp;&amp; command2只有前面命令执行成功，后面命令才继续执行]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[线程间通信方式]]></title>
+    <url>%2F2019%2F03%2F21%2F%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[事件(Event); 信号量(semaphore); 互斥量(mutex); 临界区(Critical section) 详细的介绍在这里]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Thread</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[远程连接阿里服务器Mysql的坑]]></title>
     <url>%2F2019%2F03%2F20%2F%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E6%9C%8D%E5%8A%A1%E5%99%A8Mysql%E7%9A%84%E5%9D%91%2F</url>
     <content type="text"><![CDATA[今天突发奇想，想在阿里的服务器上搭个数据库玩，结果按网上步骤搭完后远程一直连不上。用 Windows 连接时会报 10060 错误（未知错误），用阿里自己远程连的时候会报 110 错误。用命令行搞了一下午防火墙，开放端口一类的，又重置了一次系统，结果还是连不上。 最后，我默默在阿里服务器的控制台发现了这个，orz。 这里还有个总的防火墙，要在这里开下Mysql的端口。 顺便记录下在服务器上搭建 Mysql 数据库并远程连接的步骤吧。 安装 Mysql 123sudo apt-get install mysql-serversudo apt-get install mysql-clientsudo apt-get install libmysqlclient-dev 允许远程访问 Mysql 默认只允许本地访问，要修改下配置使之允许远程连接。 1sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf 把其中bind-address = 127.0.0.1注释掉 授权用户远程访问 使用root进入mysql命令行，执行如下2个命令，示例中mysql的root账号密码：root 12grant all on *.* to root@&apos;%&apos; identified by &apos;你的密码&apos; with grant option;flush privileges; 重启 Mysql 1# /etc/init.d/mysql restart 或者 #sudo service mysql start]]></content>
@@ -635,8 +655,8 @@
       </categories>
       <tags>
         <tag>算法</tag>
-        <tag>分治法</tag>
         <tag>排序</tag>
+        <tag>分治法</tag>
       </tags>
   </entry>
   <entry>
