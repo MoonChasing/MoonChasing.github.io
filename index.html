@@ -542,6 +542,243 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/03/31/阿里一面/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/31/阿里一面/" itemprop="url">阿里一面</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T21:21:27+08:00">
+                2019-03-31
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-31T23:23:21+08:00">
+                2019-03-31
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/31/阿里一面/" class="leancloud_visitors" data-flag-title="阿里一面">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,204
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>周五的时候突然收到了阿里面试预约的电话，毫无准备，因为自己还没投简历。问了下原来是学长内推的，和面试官预约了今天上午9:30面试。预约的时候能感觉到小哥哥是个极其温柔的人，所以很期待这场面试。虽然从预约到面试仅有两天，但全然没有准备谷歌时紧张，或者说没有紧张感。</p>
+<p>没想到面试持续了两个小时，自我感觉还算良好。面试整体分成三部分吧：</p>
+<ol>
+<li>围绕项目询问相关知识</li>
+<li>实现一个 vector</li>
+<li>算法</li>
+</ol>
+<h3 id="项目及询问相关知识"><a href="#项目及询问相关知识" class="headerlink" title="项目及询问相关知识"></a>项目及询问相关知识</h3><p>预约电话后我又发给了小哥哥一份较新的简历，上面写了自己新做的 HTTP 服务器项目，所以这次的面试一开始问了一些这个项目的事情，以及围绕这个项目问了一些相关知识，对印象比较深的问题做下纪录吧：</p>
+<ul>
+<li>简要介绍下项目（我照着我 Github 读了一遍）</li>
+<li>做了压力测试吗，“没有”（看来后面要用wenbench做下。。。）</li>
+<li><code>epoll</code>与<code>select</code> <code>poll</code>的区别， ET 模式与 LT 模式的区别</li>
+<li>什么是非阻塞模式，（我用买生日蛋糕打比方，非阻塞模式是不停的过来询问有没有做好，面试官小哥哥问为什么不是他做好来打电话通知你，这样不是更高效吗。。我记得这好像是一种实现方式，记不太清楚了，orz，明天问问老师吧，我这种速成学习果真只是应付应付，其实什么都不清晰）</li>
+<li>使用线程池提高并发度，并降低频繁创建线程的开销。怎么提高并发度的，为什么说创建线程的开销大。</li>
+<li>我是怎么给线程分配任务的，（RR策略）。有没有什么优化方式？我回答的是能够知道当前负担较少的线程，把新任务分给它。面试官告诉我换一个角度，建一个任务队列，每个线程做完当前任务后去这个队列中领任务。问如果这么做有没有要注意的，我的回答是如果两个线程同时完成去领任务的话要注意同步，对任务加锁。</li>
+<li>我的线程模型为分主线程、IO线程、worker线程。为什么要这么分，我回答是实现 Reactor 模式。面试官：什么是Reactor模式， 这种模式的优点是什么？orz，给跪了，这个不清楚。缺点是什么，或者说有没有什么情况这种线程切换是不能忍受的。如果问我缺点是什么我不知道，但后面这句提示了我，回答说如果worker线程耗时比较短，很快就能完成，这里线程切换时间比重较大，这种情况是不能忍受的。</li>
+<li>你说使用了 HTTP 长链接，什么是长连接，什么是短连接， 它们各自的使用场景是什么。orz，这个，我凭着之前扫过一眼的印象，觉得长连接就是能够保持连接，短连接就是发完报文直接关闭而不保持，当时心虚不知道对不对，但也就这么说了出来。看面试官的反应应该是对的吧。然后说应用场景，我就说如果双方一次会话信息交互频繁的话使用长连接，比较我们在网页上聊天，双方一直保持连接，避免频繁的建立关闭连接，而如果双方只发送短报文，交互次数不频繁的话就短连接。看面试官反应应该是对的？</li>
+<li>支持优雅关闭？什么是优雅关闭，为什么要这么做。我就把四次挥手迁了出来，用四次挥手来回答这个问题，说出了四次挥手的过程，以及 <code>time_wait</code> 和 <code>close_wait</code>状态，心里想着他肯定会问这两个状态相关的知识，果不其然问了 time_wait ，这也刚好是我准备的。回答了为什么要有 time_wait 状态，而不立即关闭客户端连接。（感觉面试的时候你可以引着面试官向你会的知识方向）</li>
+<li>零拷贝？什么是零拷贝，为什么零拷贝能提高性能，你是怎么实现零拷贝的。这也算是自己之前准备的吧，但其实自己也并不太清楚。就说比如 <code>socket</code> 读写的时候在用户空间和内核空间的数据需要拷贝，如果不拷贝的话就可以提高些性能。怎么实现，<code>splice()</code>函数和管道。</li>
+</ul>
+<p>这一方面印象较深的问题大概就这些吧，后面想起来的话再添加。对这方面做个总结，就是知识果真是积蓄而来的，速成只能知道表面皮毛而不可知其根本。自己网络、操作系统、Linux这些方面的知识还是太薄弱了，一个月地疯狂补习根本是不足够的，达不到自己心中的要求的。后面还需要静下以来深入地学习。（现在只能应付应付吧，对自己的评价是其实什么也不知道，需要深入地知道一项知识，知其根本。）</p>
+<h3 id="手写vector"><a href="#手写vector" class="headerlink" title="手写vector"></a>手写vector</h3><p>下面部分聊到了<code>STL</code>的容器知识，面试官让我说一些容器以及它的一些本质。自己比赛用的<code>STL</code>还算可以，于是就说了几个。vector是动态数组，list双向链表，set（集合，不允许重复）、map（键值对）红黑树，multiset, multimap（允许重复的，自己不太清楚是不是红黑树所以略过没说），deque（双端队列，好像是块状数组，不太了解，之前扫过一眼），stack栈，queue队列，priority_queue优先权队列、堆。unordered_map哈希、桶。问什么是哈希、这个为什么是桶。自己口糊了一波，但其实并不知道。。说了哈希以及哈希冲突的解决办法。unordered_set不了解。</p>
+<p>然后是手写实现一个 vector，这个暴露问题比较大。</p>
+<ul>
+<li><p>不会使用异常</p>
+</li>
+<li><p>不会使用模板，数据类型请求用int，所以其实写了个int动态数组。</p>
+</li>
+<li><p>其实不知道vector的内部实现。好像 <code>push_back()</code> 以及<code>resize()</code>是需要用<code>reserve()</code>函数的，自己不了解这点，所以在 <code>push_back()</code> 和 <code>resize()</code>中写的扩容，面试官说冗杂，设计不是很好。</p>
+</li>
+<li><p>不会写返回左值引用。</p>
+</li>
+<li><p>对函数重载中的<code>const</code>不了解</p>
+</li>
+<li><p>拷贝构造函数一般要在参数前加 <code>const</code></p>
+</li>
+<li><p><code>memcpy()</code>不会使用</p>
+</li>
+<li><p><code>new</code> <code>delete</code>不了解底部实现，自己使用了<code>delete</code>的一种错误用法。面试官给我讲了下，应该算是懂了</p>
+<p>对于运算符 [] 的重载，一开始是返回对应下标的值，我写了出来</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> <span class="keyword">operator</span> [] (<span class="keyword">int</span> i)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> pArr[i];    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>  之后是写返回左值引用，相当于我写a[i]=1，是对数组中这个数赋值操作，orz，不会了。面试官告诉我了如下代码</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> &amp; <span class="keyword">operator</span> [] (<span class="keyword">int</span> i)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> pArr[i];    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  orz,  这样就可以了。返回一个引用。</p>
+<p>  但面试官的问题显然是准备好的，在拷贝构造函数中让我用 <code>memcpy()</code>来拷贝。我不太会用这个函数，给面试官说了自己觉得这个函数应该需要目标数据首地址，源数据首地址，拷贝的长度。面试官说嗯，并给出了函数的原型。然后自己写下了 <code>memcpy((int *)pArr, (int *)vec.pArr, vec.size()*sizeof(int));</code>写的时候意识到<code>pArr</code>是私有的，不能通过对象来访问，于是打算回去写个<code>begin()</code>，面试官拦住了我，问他这么写可不可以<code>memcpy(pArr, &amp;vec[0], vec.size()*sizeof(int));</code> 我纠结了下，感觉 <code>&amp;vec[0]</code>不太对，不知道是返回一个立即数还是返回这个引用。于是面试官引出了刚才的重载出了问题，我说嗯，会发生歧义，不知道调用哪个。问我怎么修改，orz，C++语法我真的弱爆了，不会。</p>
+<p>  面试官小哥哥教了我</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>&amp; <span class="keyword">operator</span> [] (<span class="keyword">int</span> i) <span class="keyword">const</span>;</span><br><span class="line"><span class="keyword">int</span>&amp; <span class="keyword">operator</span> [] (<span class="keyword">int</span> i);</span><br></pre></td></tr></table></figure>
+<p>  然后告诉我第一个其实也可以换成</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> <span class="keyword">operator</span> [] (<span class="keyword">int</span> i) <span class="keyword">const</span>;</span><br></pre></td></tr></table></figure>
+<p>  相当于只加一个<code>const</code>， 而我们看比较正式的代码都会采用上面的写法，在前面加个 <code>const</code>， 为什么，orz，这个我也不知道。嘟嘟囔囔半天说不出来正确的。小哥哥告诉我说这样返回的是结果引用，如果采用下面方法的话会进行一次拷贝，性能不好。你这个数组用的int，性能下降不会太明显。如果是一个类的话，就会明显了。orz， <strong>这个真的学习了</strong>。很感谢面试官，真的学习了很多知识。</p>
+<p>  面试官说反应出我C++语法不是很熟练，但没太大关系。应该是理解我打ACM出身，用C++只是用来解决一些算法题目，对一些语法不了解。</p>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>  下面就是算法部分了，这部分比较顺利，第一题对我来说算是秒杀吧，经典题目，合并K个有序链表。直接写了出来，但后面改的时候脑袋一抽，尼玛写了个根本没必要的while循环，现在想来根本没必要，还会导致性能下降。</p>
+   <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListNode* <span class="title">merge</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;ListNode*&gt; &amp;lists)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span>(lists.empty())</span><br><span class="line">reutn <span class="literal">nullptr</span>;</span><br><span class="line"><span class="keyword">int</span> n = lists.size();</span><br><span class="line"><span class="keyword">while</span>(n &gt; <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> k = (n+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">	lists[i] = mergeTwo(lists[i], lists[i+k]);</span><br><span class="line">n = k;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> lists[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ListNode * <span class="title">mergeTwo</span><span class="params">(ListNode* list1, ListNode* list2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ListNode *pList = <span class="keyword">new</span> ListNode();</span><br><span class="line">	ListNode *cur = pList;</span><br><span class="line">	<span class="keyword">while</span>(list1 &amp;&amp; list2)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(list1-&gt;val &lt; list2-&gt;val)</span><br><span class="line">		&#123;</span><br><span class="line">			cur-&gt;pNext = list1;</span><br><span class="line">			list1 = list1-&gt;pNext;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">            cut-&gt;pNext = list2;</span><br><span class="line">            list2 = list2-&gt;pNext;</span><br><span class="line">        &#125;</span><br><span class="line">		cur = cur-&gt;pNext;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">while</span>(list1 != <span class="literal">nullptr</span> || list2 != <span class="literal">nullptr</span>)	<span class="comment">//根本没必要</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(list1)</span><br><span class="line">        &#123;</span><br><span class="line">            cur-&gt;pNext = list1;</span><br><span class="line">            list1 = list1-&gt;pNext;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(list2)</span><br><span class="line">        &#123;</span><br><span class="line">            cur-&gt;pNext = list2;</span><br><span class="line">            list2 = list2-&gt;pNext;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> pList-&gt;pNext;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>让我分析下复杂度，自己口糊了一个和链表长度有关， O(K longN)，面试官想了一会，好像觉得对。。聊了会说这是经典题，原来做过。orz，其实没做过，这种题我一般不愿去做，逃。。然后问我知不知道经典算法，我问了下。面试官说了一下，我没听太清楚，就问是不是优先权队列，面试官小哥哥说是。然后我口糊了一波实现，小哥哥说对的。然后我夸了一波这算法，清晰，balabala的。小哥哥看我秒了一道 算法，然后 又问了一道，说不用我写，说下思路就行。。woc，这太TM爽了，毕竟我就是口糊选手。。。敲代码不行，但口糊我可不怂。</p>
+<p>问n个元素，求最大最小值。我？？？这题肯定有玄机，不管了，先暴力？？遍历一遍不就好了？O（n），准备说比较多少次，2（n-1）。有没有什么优化。我寻思着这也不能优化到 O（log n）呀。小哥哥给了个提示，不是数量级上的优化，那我就放心了。。想了一会还是没想出来，小哥哥给了第二个提示，优化到 $O({3 \over 2}n)​$。想了不久，说每次取两个数先比较，小的和当前存的最小比，大的和最大比，这样每2个数由原来的比较4次优化到了3次。小哥哥说不错。应该是正解了。然后小哥哥说不错很好，后面应该也有同学会接着面。我没听明白什么意思，大概就理解成一面过了，后面有他同事接着面试我的意思？今天也挺长时间的，balabala，我说今天周日，和小哥哥面试刚好学习。然后问了他在阿里最大的收获或感受。小哥哥笑了笑，聊了一些。说起搜索推荐、机器学习的时候，小哥哥说：“哎呀，其实这个low爆了，很低端的。我们就是调调参，读读paper。”然后互道拜拜一面也就结束了。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>总结一下吧，自己的基础还是太薄弱了。C++语法， Linux知识以及网络、网络编程，这些还是要恶补。面试的算法题都比较基础，自己下面刷题不能眼高手低，不写这些比较基础的题？（orz，虽然还是觉得自己应该不愿意去写。。。）</p>
+<p align="right">2019.3.31<br>23:18</p>
+          
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/03/21/线程间通信方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2184,217 +2421,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/03/04/2018校招真题-拼多多-迷宫寻路/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/04/2018校招真题-拼多多-迷宫寻路/" itemprop="url">2018校招真题 拼多多 迷宫寻路</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T13:08:18+08:00">
-                2019-03-04
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-03-04T13:26:05+08:00">
-                2019-03-04
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/BFS/" itemprop="url" rel="index">
-                    <span itemprop="name">BFS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/03/04/2018校招真题-拼多多-迷宫寻路/" class="leancloud_visitors" data-flag-title="2018校招真题 拼多多 迷宫寻路">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  853
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.nowcoder.com/practice/e3fc4f8094964a589735d640424b6a47?tpId=90&amp;tqId=30779&amp;tPage=1&amp;rp=1&amp;ru=/ta/2018test&amp;qru=/ta/2018test/question-ranking" target="_blank" rel="noopener">题目链接</a></p>
-<p>因为在准备谷歌面试中，本来准备最近并不更新刷过的题，多刷些题。但由于这题对我来说意义很大，所以记载了下来。</p>
-<p>为了节省些时间，题目题意在这里不复制粘贴了，可以在上面的链接跳转过去。</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><p>题目是很直接的 BFS ， 相比较最简单的迷宫寻路问题，这题增加了钥匙和门，即如果我们想要通过一个门，必须在此之前获得它的钥匙。 注意题目中的数据范围，门和钥匙最多为 10. 故可以用状态压缩记录状态。</p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y, key, step;</span><br><span class="line">    point() &#123;&#125;</span><br><span class="line">    point(<span class="keyword">int</span> _x, <span class="keyword">int</span> _y, <span class="keyword">int</span> _key, <span class="keyword">int</span> _step) : x(_x), y(_y), key(_key), step(_step) &#123; &#125;</span><br><span class="line">&#125; P;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">char</span> maze[<span class="number">107</span>][<span class="number">107</span>];</span><br><span class="line"><span class="keyword">bool</span> vis[<span class="number">107</span>][<span class="number">107</span>][<span class="number">1050</span>];</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">-1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(vis, <span class="literal">false</span>, <span class="keyword">sizeof</span>(vis));</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">int</span> startX, startY;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            ch = getchar();</span><br><span class="line">            maze[i][j] = ch;</span><br><span class="line">            <span class="keyword">if</span>(ch == <span class="string">'2'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                startX = i;</span><br><span class="line">                startY = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">queue</span>&lt;P&gt; que;</span><br><span class="line">    que.push(P(startX, startY, <span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line">    <span class="keyword">int</span> curX, curY;</span><br><span class="line">    P p;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(!que.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        p = que.front();</span><br><span class="line">        que.pop();</span><br><span class="line">        <span class="keyword">if</span>(maze[p.x][p.y] == <span class="string">'3'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, p.step);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">4</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            curX = p.x + dx[i];</span><br><span class="line">            curY = p.y + dy[i];</span><br><span class="line">            <span class="keyword">if</span>(curX &lt; <span class="number">0</span> || curX&gt;=n || curY &lt; <span class="number">0</span> || curY &gt;= m || maze[curX][curY] == <span class="string">'0'</span> || vis[curX][curY][p.key])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            ch = maze[curX][curY];</span><br><span class="line">            <span class="keyword">if</span>(ch &gt;= <span class="string">'A'</span> &amp;&amp; ch &lt;= <span class="string">'Z'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>( p.key &amp; (<span class="number">1</span> &lt;&lt; (ch-<span class="string">'A'</span>) ) )</span><br><span class="line">                   &#123;</span><br><span class="line">                       que.push(P(curX, curY, p.key, p.step+<span class="number">1</span>));</span><br><span class="line">                       vis[curX][curY][p.key] = <span class="literal">true</span>;</span><br><span class="line">                   &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(ch &gt;= <span class="string">'a'</span> &amp;&amp; ch &lt;= <span class="string">'z'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                que.push( P(curX, curY, p.key | ( <span class="number">1</span> &lt;&lt; (ch-<span class="string">'a'</span>) ), p.step+<span class="number">1</span>) );</span><br><span class="line">                vis[curX][curY][p.key] = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                que.push(P(curX, curY, p.key, p.step+<span class="number">1</span>));</span><br><span class="line">                vis[curX][curY][p.key] = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="闲言"><a href="#闲言" class="headerlink" title="闲言"></a>闲言</h3><p>之所以说这题对我意义比较大，是因为在一次很久之前的训练时，有学长出了这道题。</p>
-<p>那时候我还是个小白，几乎啥都不会，连 dp 是什么都不知道。那时候做到这个题还是蛮受打击的。讲题目时这题是邓新议（应该是）学长讲的。学长又讲到状压，把拿到我钥匙压缩为一个状态，当时我的心里几乎是崩溃的，因为学长们说的名词我都没有听过， 有一种很无力的感觉。</p>
-<p>回去的时候，我一个人走在北操前的路上，有些流泪？因为深深地感受到了自己什么都不知道。于是回去查了 dp，状态压缩一些名词的意思， 这才知道原来 dp 是动态规划的意思。</p>
-<p>所以对这题印象蛮深的，过去后一直想再见见这题。昨天刷题时看到题目名字中有个迷宫寻路，心想，不会是有钥匙和门的那道吧。</p>
-<p>现在在看这道题，只感觉是一道很基础的题目了，很容易地就能够过掉。对比起来，自己还是学到了些知识的，进步了很多。 也算是给那晚独自一人的自己一个回答吧。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2449,7 +2475,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2471,7 +2497,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
