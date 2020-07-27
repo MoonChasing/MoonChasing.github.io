@@ -9,7 +9,7 @@ categories: C++
 
 读完条款 31 ，我也更加深刻的明白了 C 语言为什么头文件和实现文件分开。大一时老师说的结构更加清晰或许是更次要的作用。其主要作用是降低文件间的编译依存关系，加快编译速度。
 
-下面是我读的文章，[原文链接](<http://www.cnblogs.com/jerry19880126/p/3551836.html>)
+下面是我读的文章，[原文链接](http://www.cnblogs.com/jerry19880126/p/3551836.html)
 
 在说这一条款之前，先要了解一下C/C++的编译知识，假设有三个类ComplexClass, SimpleClass1和SimpleClass2，采用头文件将类的声明与类的实现分开，这样共对应于6个文件，分别是ComplexClass.h，ComplexClass.cpp，SimpleClass1.h，SimpleClass1.cpp，SimpleClass2.h，SimpleClass2.cpp。
 

@@ -1,0 +1,1 @@
+hexo s -p 5200 --debug
