@@ -3,6 +3,21 @@
 
 
     
+  <url>
+    <loc>http://zhiyi.live/2020/08/01/Mac-%E6%9C%BA%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2020-08-01T02:03:35.482Z</lastmod>
+    <data>
+        <display>
+        <title>Mac 机测试</title>
+        <pubTime>2020-08-01T02:01:11.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
     
     
     
@@ -514,6 +529,23 @@
 
     
   <url>
+    <loc>http://zhiyi.live/2020/01/06/%E5%BB%BF%E8%BD%BD%E8%AF%86%E5%91%B3/</loc>
+    <lastmod>2020-08-01T01:34:44.259Z</lastmod>
+    <data>
+        <display>
+        <title>廿载识味</title>
+        <pubTime>2020-01-06T12:26:22.000Z</pubTime>
+        
+        <tag>杂记</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhiyi.live/2018/07/28/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</loc>
     <lastmod>2020-08-01T01:34:44.259Z</lastmod>
     <data>
@@ -535,23 +567,6 @@
              
               <breadCrumb title="算法" url="http://zhiyi.live/categories/ACM/%E7%AE%97%E6%B3%95/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhiyi.live/2020/01/06/%E5%BB%BF%E8%BD%BD%E8%AF%86%E5%91%B3/</loc>
-    <lastmod>2020-08-01T01:34:44.259Z</lastmod>
-    <data>
-        <display>
-        <title>廿载识味</title>
-        <pubTime>2020-01-06T12:26:22.000Z</pubTime>
-        
-        <tag>杂记</tag>
-         
-         
-           
         </display>
     </data>
     </url>
@@ -1039,23 +1054,6 @@
 
     
   <url>
-    <loc>http://zhiyi.live/2019/04/15/%E4%B8%94%E6%8D%B1%E8%BF%87%E4%B8%89%E5%86%AC%E5%9B%9B%E5%A4%8F/</loc>
-    <lastmod>2020-08-01T01:34:44.254Z</lastmod>
-    <data>
-        <display>
-        <title>且捱过三冬四夏</title>
-        <pubTime>2019-04-15T07:21:40.000Z</pubTime>
-        
-        <tag>随笔</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://zhiyi.live/2019/10/13/%E4%B8%8D%E7%A0%B4%E6%A5%BC%E5%85%B0%E5%85%B0%E7%BB%88%E4%B8%8D%E8%BF%98%E2%80%94%E2%80%94%E7%A7%8B%E6%8B%9B%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%8F%E9%AA%8C/</loc>
     <lastmod>2020-08-01T01:34:44.254Z</lastmod>
     <data>
@@ -1072,6 +1070,23 @@
              
               <breadCrumb title="总结" url="http://zhiyi.live/categories/%E6%80%BB%E7%BB%93/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhiyi.live/2019/04/15/%E4%B8%94%E6%8D%B1%E8%BF%87%E4%B8%89%E5%86%AC%E5%9B%9B%E5%A4%8F/</loc>
+    <lastmod>2020-08-01T01:34:44.254Z</lastmod>
+    <data>
+        <display>
+        <title>且捱过三冬四夏</title>
+        <pubTime>2019-04-15T07:21:40.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+         
+           
         </display>
     </data>
     </url>
@@ -1673,6 +1688,23 @@
 
     
   <url>
+    <loc>http://zhiyi.live/2018/04/27/HelloWorld/</loc>
+    <lastmod>2020-08-01T01:34:44.247Z</lastmod>
+    <data>
+        <display>
+        <title>HelloWorld</title>
+        <pubTime>2018-04-27T05:15:52.000Z</pubTime>
+        
+        <tag>博客</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhiyi.live/2020/01/31/Hexo-NexT%E4%B8%BB%E9%A2%98%E5%8F%A4%E8%AF%97%E6%96%87%E6%8E%92%E7%89%88%E8%AE%BE%E8%AE%A1/</loc>
     <lastmod>2020-08-01T01:34:44.247Z</lastmod>
     <data>
@@ -1700,23 +1732,6 @@
         <display>
         <title>Hexo 一篇文章多个 categories</title>
         <pubTime>2018-07-03T02:25:52.000Z</pubTime>
-        
-        <tag>博客</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhiyi.live/2018/04/27/HelloWorld/</loc>
-    <lastmod>2020-08-01T01:34:44.247Z</lastmod>
-    <data>
-        <display>
-        <title>HelloWorld</title>
-        <pubTime>2018-04-27T05:15:52.000Z</pubTime>
         
         <tag>博客</tag>
          
@@ -2396,6 +2411,23 @@
 
     
   <url>
+    <loc>http://zhiyi.live/2019/06/28/AI%E5%A4%8D%E4%B9%A0/</loc>
+    <lastmod>2020-08-01T01:34:44.242Z</lastmod>
+    <data>
+        <display>
+        <title>AI复习</title>
+        <pubTime>2019-06-28T02:41:00.000Z</pubTime>
+        
+        <tag>课程</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhiyi.live/2018/11/22/Android%E6%89%8B%E6%9C%BA%E5%AE%89%E8%A3%85%E8%B0%B7%E6%AD%8C%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6/</loc>
     <lastmod>2020-08-01T01:34:44.242Z</lastmod>
     <data>
@@ -2410,23 +2442,6 @@
              
               <breadCrumb title="Android" url="http://zhiyi.live/categories/Android/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhiyi.live/2019/06/28/AI%E5%A4%8D%E4%B9%A0/</loc>
-    <lastmod>2020-08-01T01:34:44.242Z</lastmod>
-    <data>
-        <display>
-        <title>AI复习</title>
-        <pubTime>2019-06-28T02:41:00.000Z</pubTime>
-        
-        <tag>课程</tag>
-         
-         
-           
         </display>
     </data>
     </url>

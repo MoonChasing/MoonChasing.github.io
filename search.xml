@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Mac 机测试]]></title>
+    <url>%2F2020%2F08%2F01%2FMac-%E6%9C%BA%E6%B5%8B%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[如果你能看到这篇文章，说明我在 Mac 上配置博客成功了。]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo 多电脑协作]]></title>
     <url>%2F2020%2F07%2F27%2FHexo%E5%A4%9A%E7%94%B5%E8%84%91%E5%8D%8F%E4%BD%9C%2F</url>
     <content type="text"><![CDATA[今天，我尝试了 Hexo 多电脑协作，这是一篇测试文章。]]></content>
