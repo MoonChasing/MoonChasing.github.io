@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="UxiIdeNLRE" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="腾讯,记录," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="我发现勇气根本靠不住，只有完全的疯狂才有意义。写这篇文章时，九月画下句号，十月刚刚起笔。回忆这一个月，无数的片段涌上心头，诉说着它们的故事，有焦虑、有等待、有充实、有恐惧、有喜悦，但没有迷茫。从初中刚开始学编程的那一刻起，对大厂的渴望或许便铭刻在了我的心上。上大学以来，我越发觉得我接受不了小厂，剑指BAT，从没改变，（梦想当然是 Google），这个九月，我终于如愿了。">
+<meta name="keywords" content="腾讯,记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="黄沙百战穿金甲——腾讯秋招记录">
+<meta property="og:url" content="http://zhiyi.live/2019/09/30/黄沙百战穿金甲——腾讯秋招记录/index.html">
+<meta property="og:site_name" content="MoonChasing">
+<meta property="og:description" content="我发现勇气根本靠不住，只有完全的疯狂才有意义。写这篇文章时，九月画下句号，十月刚刚起笔。回忆这一个月，无数的片段涌上心头，诉说着它们的故事，有焦虑、有等待、有充实、有恐惧、有喜悦，但没有迷茫。从初中刚开始学编程的那一刻起，对大厂的渴望或许便铭刻在了我的心上。上大学以来，我越发觉得我接受不了小厂，剑指BAT，从没改变，（梦想当然是 Google），这个九月，我终于如愿了。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://cmhblog.cfzhao.com/blog/20191001/D9qTkRDoGMuh.jpg">
+<meta property="og:image" content="http://cmhblog.cfzhao.com/blog/20191001/J4lOPe8xBNgx.jpg">
+<meta property="og:image" content="http://cmhblog.cfzhao.com/blog/20191001/vf4wLcl8bKa2.jpg">
+<meta property="og:image" content="http://cmhblog.cfzhao.com/blog/20191001/8ftoS9GRvB1a.jpg">
+<meta property="og:updated_time" content="2020-08-01T01:34:44.264Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="黄沙百战穿金甲——腾讯秋招记录">
+<meta name="twitter:description" content="我发现勇气根本靠不住，只有完全的疯狂才有意义。写这篇文章时，九月画下句号，十月刚刚起笔。回忆这一个月，无数的片段涌上心头，诉说着它们的故事，有焦虑、有等待、有充实、有恐惧、有喜悦，但没有迷茫。从初中刚开始学编程的那一刻起，对大厂的渴望或许便铭刻在了我的心上。上大学以来，我越发觉得我接受不了小厂，剑指BAT，从没改变，（梦想当然是 Google），这个九月，我终于如愿了。">
+<meta name="twitter:image" content="http://cmhblog.cfzhao.com/blog/20191001/D9qTkRDoGMuh.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhiyi.live/2019/09/30/黄沙百战穿金甲——腾讯秋招记录/"/>
+
+
+
+
+
+  <title>黄沙百战穿金甲——腾讯秋招记录 | MoonChasing</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-118447996-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+<script src="/js/src/photoswipe.min.js?v=5.1.4"></script>
+<script src="/js/src/photoswipe-ui-default.min.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MoonChasing</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photo">
+          <a href="/photo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-shuoshuo">
+          <a href="/Shuoshuo/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            说说
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/09/30/黄沙百战穿金甲——腾讯秋招记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">黄沙百战穿金甲——腾讯秋招记录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-30T23:55:50+08:00">
+                2019-09-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
+                2020-08-01
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/09/30/黄沙百战穿金甲——腾讯秋招记录/" class="leancloud_visitors" data-flag-title="黄沙百战穿金甲——腾讯秋招记录">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4,917
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  17
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><blockquote class="blockquote-center"> 我发现勇气根本靠不住，只有完全的疯狂才有意义。</blockquote><br>写这篇文章时，九月画下句号，十月刚刚起笔。回忆这一个月，无数的片段涌上心头，诉说着它们的故事，有焦虑、有等待、有充实、有恐惧、有喜悦，但没有迷茫。从初中刚开始学编程的那一刻起，对大厂的渴望或许便铭刻在了我的心上。上大学以来，我越发觉得我接受不了小厂，剑指BAT，从没改变，（梦想当然是 Google），这个九月，我终于如愿了。<a id="more"></a></p>
+<p>春招的时候笔试后收到了性格测试的邮件，但由于无法说清的原因错过了性格测试，不知道是不是这个没能收到后面的面试，错失了进腾讯的机会。秋招是在 8 月 21 号晚上投递的简历，简历较春招添加了很多东西，不再像春招那般牛逼哄哄地只写上ACM和简要的技能，而是学会了列条。如春招时掌握技能写个数据结构，秋招时改成了掌握栈、队列、链表、树、图等….虽然高傲的我极不喜欢如此，但在效果上看来还是蛮有效的。8 月份的时候我还在华为实习，没有准备秋招，也便没有复习一些面试常问知识点等等，我寻思着我投个简历怎么也得冷漠我一两周，给我个笔试啥的再面试，可谁知投递简历的第二天中午就收到了腾讯的电话。（或许是简历比较优秀吧）电话并不算是面试，而是聊了下我的情况，比如能不能来深圳，接不接受学习 go 语言（我当然一顿舔，可以，接受！干啥都行！），然后说后面会面试。我从未想过会有如此迅速。从投递简历到接到电话不过十七八个小时吧。当时心里喜忧参半吧，又是开心又是焦虑，虽然不用笔试就直接面试了，可自己并没有开始复习面试知识。于是接下来便开始了复习，过了一两天收到了一面（周四），但结果并不是很理想，或者说非常不理想。有着很多很基础的知识都没有答好，比如三次握手，四次挥手，引用和指针区别，<code>select, poll, epoll</code> 区别。这些都不是因为不会，而是没有背标准答案吧~面试官小哥哥很nice，在面试中告诉我对我的感觉是似懂非懂，知识只了解到一半，没有过多地说什么。当时以为凉了吧，半夜做梦都是没通过直接被刷，忍不住地不停去官网查看状态。没想到在下一周周一收到了二面的电话（那天头疼吧，迷糊着听到电话突然起来接），自我感觉比一面好了些，但仍有很多不足吧，一些经典的知识没有说好。也没有问这两位小哥哥部门，所以对部门不太清楚，但感觉偏技术吧。</p>
+<p>后面又接到了一通电话，告诉我是 IEG，问了我一些情况和比较基础的知识点，这时候准备已经有些时间了，所以回答还算是可以。过后去官网查了状态，由原来的复试变成了初试，感觉应该是之前面的部门凉了吧，被 IEG 捞了起来。小哥哥问我玩不玩游戏啥的，这也便开始了我面试的吹逼之旅。后面二面是视频面，约好了时间却一直没收到面试链接，快到面试时间才知道要在微信上视频，原因是面试系统有 bug 还不能使用（笑）。二面有两个面试官，感觉有一个像是压力面的样子（也可能是我太菜了），就是我不会什么他问什么，我简历上写了熟悉栈、队列…..唯独没有写哈希表，然后他让我设计一个哈希表。简历上写了专业课程有balabala，没有写数据库（因为数据库实在太菜了），然后他问我数据库的知识。他问我时我一直磕磕绊绊，另一个面试官问我就投缘一些，他问的我差不多都会，秒回的那种。</p>
+<p>二面后第二天（周三）在地铁上收到了约周六现场面的电话，询问了下必须现场，不能远程。我深知我自己是肯定会去的。说实话感觉腾讯现场面的准备有些仓促，只告诉你周六有现场面，问你来不来，你回短信说去之后了无因信，不给你具体的时间地点，询问也没人回答。这让我内心想很多，我有没有听错时间，是不是这个周六，要不要买票，万一听错时间怎么办，过去了人家根本没举办面试，面试地点在哪，一点信息都没我到底要不要去……我终于还是去了，在过去的高铁上收到了面试的时间地址信息，那时已经是面试前一天下午的四五点。。。不得不说做得的确不够好，我从南京去深圳，不仅要操心面试题目，还是操心面试本身。</p>
+<p>面试在周六，我买的周五的高铁，早上6点多到晚上8点半，大概14个多小时。在南京站的时候拍了张车票的照片，那时候便想好了结束后要发的说说：</p>
+<p><blockquote class="blockquote-center"> 何当金络脑，快走踏清秋。</blockquote><br><img src="http://cmhblog.cfzhao.com/blog/20191001/D9qTkRDoGMuh.jpg" alt="mark"></p>
+<p>我带了几本C++的书在高铁上看，但最终也只看了一本《More Effective C++》，其他的几本翻都没翻。学习永远都不晚的，没想到我在高铁上看的知识，刚好第二天面试用到。一路上时而看看书籍，时而看看窗外的青山，感觉自己又是在故事中。（当然，下午就几乎全靠手机了）那天刚好是 LPL 夏季总决赛，RNG 对 FPX，皇杂的我似乎知道了结果，并没有抱很大的希望，高铁上网也不是很好，也便偶尔看些片段。最后 FPX 3 ： 1 RNG，Doinb拿到了冠军，自己其实也挺高兴的。</p>
+<p>9.1时候头条二面凉，RNG 赢了 TES 拿下 S9 门票，心里想着血赚不亏。<br>9.6 坐动车去深圳面试 RNG 没能拿到夏冠，心里想着这下该轮到我了吧。</p>
+<p>8 点半的时候到了深圳，天已经黑了。这算是我坐过时间最长的一次动车了吧。途经了很多地方，上海、杭州、台州、林少的家乡莆田、洪少家乡泉州、厦门，也算是开了下眼界吧。路上遇到的青山碧水也因为此时的心境有了不同的意义。到了深圳后便开始去美团上定的一家民宿。其实定住宿时还有点小插曲，一开始不知道面试地点，盲猜了一波滨海大厦，也就定了那旁边的一家，后来收到面试地点的短信发现并不是在那…结果定的那家宾馆告诉我那个房间水管炸了， 不能住宿。。。笑嘻嘻，于是退全款换了一家较一点的民宿。民宿整体还不错，客厅装修蛮好的，就是人很多……估计有很多常住民吧，我住的是一个八人间，那晚有四五个人的样子，其他房间也住着人。我有一个毛病，就是心里有事的时候是吃不下去饭的，（由于春招）吃下去也会不舒服吐出来。找到住宿后想出去觅点食，结果发现附近吃的并不多，有一家热干面也刚好关门，只好去了一家麦当劳买了份套餐。这算是一整天除了面包外全部吃的了。在一家杂货店买了一瓶可乐，在南京时候可乐瓶图案一般是南京上海北京杭州几座城市，没想到在这边遇到了新的城市图案。在深圳当然选了一瓶多元深圳图案的可乐。拿到可乐后突然觉得这会是我的幸运瓶，能够给我以勇气和安慰，便拍了张照片，把它放在书包的侧边。<img src="http://cmhblog.cfzhao.com/blog/20191001/J4lOPe8xBNgx.jpg" alt="mark"></p>
+<p>第二天面试在 10 ： 30 ，我也早早地去了科兴大厦，没有吃早餐。到了那发现了一些手办，蛮好看的，惊喜的是居然有QQ华夏的手办，和面试联系人不时撒娇卖萌联系了下。也很幸运之前有在 QQ 找到一个一起面试的小伙伴，在腾讯食堂面了下基，聊了些天。不时也会有些紧张，那时候我就会用手摸可乐瓶，它会带给我力量。腾讯现场面做的挺好的，约的是 10:30，面试的时间也刚好是 10:30，一分不耽误，不像某些公司给你说了1点半，3点多才排到你。我很喜欢这样的安排。现场面应该算是三面（我也不太清楚），好像是总监面？现场面意外得顺利，面试官炒鸡nice，我真的感觉是在和面试官聊天（谈笑风声），而不是你问我答的面试，比如问一个问题，我说一些知识点，面试官也会说些知识点，在某些情况下怎么做，像是彼此之间的一次技术交流（当然，我不配跟大佬交流的，只是感觉上像）。中间还有个小插曲，我们聊得正欢的时候下一位面试者敲门，本来预定的面试时长是 30 分钟，不知不觉已经 40 多分钟。看了下时间我们也便愉快地结束了面试。面试官还担心楼层门是关着的，要刷卡才能开，特意带我去刷卡。（真的炒鸡nice啊啊啊！！！）</p>
+<p>等了下一起面试的小伙伴，我们一起去次饭。途中收到了面试联系官的电话，下午 HR 面，没想到一轮现场技术面后直接就 HR 面了，有点欣喜。小伙伴也收到了技术面的通知。我们去了一家烤鹅店，一打开菜单吓一跳，三年老鹅，2888，五年老鹅，5888。当年，我们点的 39 的那种。和往常一样，没有胃口，也不敢吃太多，大概半碗都没能吃下。回科兴的路上突然很想小姐姐，这时候才意识到我已经到了离开一两天就会很想的地步，很想回家缠她下。</p>
+<p>没想到下午 HR 面的主要面试官就是我之前卖萌撒娇的小姐姐，我……. HR面还算是顺利，就是在问我阿里和腾讯之间如何选择犹豫了一会，在人家地盘当然是说选人家了。问了下小姐姐什么时候出结果通知，小姐姐说下周五前。感觉蛮快的样子，就有很强的期待感。HR小姐姐超温柔，不时会笑一下，声音也软软的~面试好后 HR 小姐姐给我来开门，我也趁机卖萌说了下“谢谢小姐姐，小姐姐再见~”。</p>
+<p>幸运瓶给了我很大的鼓励，于是想把它带回南京陪着我。</p>
+<p>面试流程结束后并没有直接走，因为一直听说咖啡机很好玩，就去熟悉的 11 层试了下，没想到刚好遇到小伙伴。喝完咖啡后去了滨海大厦那边玩，路上又吃了麦当劳，也算是一天的食物了。见到滨海大厦的一刻还是有些欣喜的，心中有些朝拜的感觉吧。但感觉周围有些压抑，都是高楼大厦，抬头看见的天空被大楼割裂开来。不知道有没有什么哲学家提出一种理论：“人类生活的幸福感和抬头看到的天空面积成正相关”。</p>
+<p>其间爸爸问我面试如何，我就直接说“如果他不要我那说明他压根不招人”，哈哈哈哈，当时还不知道后面要经历多么煎熬地等待。又拿起幸运瓶和滨海大厦合了张影。<img src="http://cmhblog.cfzhao.com/blog/20191001/vf4wLcl8bKa2.jpg" alt="mark"></p>
+<p>在滨海大厦玩到傍晚，才去找订的青旅。其实挺近的，也就两三分钟的路程吧，哈哈哈。后面又来了一个小姐姐我一脸懵比，心想我们这屋四个男生满了呀，后来才知道隔壁还一间屋子。后面又去了人才花园（？是叫这名字吗？记不太清楚了）路上遇到一群黄牛拦着我卖票，后来才知道原来这边在办篮球世界杯。后面有一段感觉是小资区？一堆十八线网红的感觉。不过建筑、装饰的确要有些精致。在人才湾（？）看到了海的一角，对面是高楼林立，给我一种很强的压迫感和快节奏感。回来后去找吃的，又没有找到，有家面馆也恰好关门。在旅馆里和老板聊了很多，问了下旅馆的经营模式、她的经历之类的。同宿的三个哥们看球回来了（从内蒙古过来看球也是真爱），发现旅店有蟑螂，一个直接站在床头不敢下来（笑cry）。</p>
+<p>熊猫老哥给我预约了周日下午去滨海大厦，感激。滨海大厦里面也超气派，在里面各种闲逛，各种喝咖啡（喝到难受，笑cry）。22楼是休闲娱乐区，有图书阅读、篮球馆、室内攀岩、健身房一类的东西，还算蛮棒的。刚好遇到有售卖周边产品的，可惜是周一卖，于是拜托熊猫老哥帮我买些寄过来，超开心，再次感激。在滨海大厦闲鱼到五六点的样子就出来吃饭返程了，在一家面馆吃了面，因为要去飞机站，对时间不太了解，有点紧张吧，又有些难受，吃完后在路边又吐了出来，感觉好多了。走着去了地铁站，发现到机场不过三四站的样子，很快的。地铁上坐我旁边的是对父子，儿子可能有些疾病，会不停地打自己，很用力的那种，声音也会很响，父亲一直想控制他。那时候有些感慨人生百味吧。到南京已是凌晨，绕着雨花台回到了家中，还是有点点害怕的。途中恰巧闻到了桂花，这才突然感受到秋天来了，又想起我对桂花的第一印象也是当年在雨花台吧。途中一直自己吓自己又来自己鼓励自己。回到家中吵醒了时光，抱了下时光。</p>
+<p>等待通知的日子很煎熬，很多次做梦都会梦到通知相关的事情，每天也总提心吊胆地一直带着手机，生怕错过。可是腾讯的通知却是迟迟不来，别的电话到是一个赛过一个。在谱哥群里找了两个同是等oc的哥们，于是抱团取暖，一起等待。通知并没有像 HR 说的那般在周五前如期到来，又是重新等一周，其间的煎熬不知如何诉说，反正做什么事情都生怕错过电话，无数次想象如果我在面试其他公司时来了电话怎么办，就是如此这般忧心忡忡。每天无聊又紧张地翻着牛客帖子，总想着能把握住一丝一毫的信息。每次刷牛客都会看到很多的许愿帖，期望着能够收到offer。听说牛客许愿很灵，我总在想自己要不要发一个求下好运。可我终是没有发，因为想要凭借自己的实力得到offer，发了许愿帖得到offer的话总觉得依靠了些什么，得到offer的时候不会像单凭自己拿到那样开心，所以最终也没有发许愿帖，我就是如此固执的一个人。一起抱团取暖的两个哥们在下周的同一天里都收到了 oc，而我的却还是迟迟不来，心里祈祷着 ieg 效率可以高一些。又是新的一周，已是接近九月末了，在我等待海康威视综合面的时候来了短信，一时间的激动亦是难与诉说，一直以来的梦想在一瞬间终于成真，在群里发了红包，也给谱哥发了个大红包。综合面表现就有点随意吧，面试官问我别人感觉我如何时，我想了半天说有点逗比吧，直接给面试官整笑了。面试结束回家的心情亦是格外的放松，回家买了瓶可乐庆祝。</p>
+<p>后面就是等正式的 oc 吧，虽然也有点煎熬，但心情总是没有之前紧张了。等 oc 还有点小插曲，HR 把我的 oc 打给了别人，之前一直笑谑孙 lei，没想到我也有成为孙 lei 的一天。HR 给我来了波出队操作，又来了波入队操作。导致我到了队尾，这一批的 oc 打完了，大家收到了意向书，而我还没有。离国庆假期越来越近了，我没有忍住，在 9.29 打了个电话问了下 HR 面的小姐姐，小姐姐的声音还是一样的温柔，一样的爱笑（感觉她全程憋笑），这才知道在系统里的我电话少了最后一位，补全了又短信问了下小姐姐，麻烦她提醒下同事，HR 小姐姐回复了我已通知，炒感激。</p>
+<p>室友在四川回来，我去接他，在返校的地铁上收到了 oc 电话，薪水比期望还要高，做梦都能笑醒了，没想到自己走运拿到了腾讯的 sp offer，好事多磨吧。瞎猫碰上死耗子，我是死耗子。只可惜接电话时没能在时光身边，没能和她一起分享这份快乐。接电话时对方把我学校不小心念错成了北邮，我的反应并未像往常听到北邮那样意难平了吧，那时候才感觉自己终于从没能考上北邮中走了出来。大一的时候看到学校周围的路牌总是会把南邮不小心看成北邮，大二的时候不小心看到北邮的校徽心中五味杂陈，大三ACM南京站看到自己排名在一些北邮队伍前面感到很欣慰，努力没有白费，大四收到了腾讯的offer终于能不再依靠当年想考北邮来自我介绍了。</p>
+<p>暂时先记载这么多吧，分享下在南京的幸运瓶。<img src="http://cmhblog.cfzhao.com/blog/20191001/8ftoS9GRvB1a.jpg" alt="mark"></p>
+<hr>
+
+<p>PS：说下好完的，在写这篇文章回忆面试场景时，突然感觉敲门的那个面试者和在群里认识的一个小姐姐微信头像有些像，问了下没想到真的是她。</p>
+
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+      <div>
+       <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">❤采之欲遗谁，所思在远道。❤</div>
+    
+</div>
+
+      </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/腾讯/" rel="tag"><i class="fa fa-tag"></i> 腾讯</a>
+          
+            <a href="/tags/记录/" rel="tag"><i class="fa fa-tag"></i> 记录</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/14/面试题目：为什么线程切换要比进程切换快/" rel="next" title="面试题目：为什么线程切换要比进程切换快">
+                <i class="fa fa-chevron-left"></i> 面试题目：为什么线程切换要比进程切换快
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/13/不破楼兰兰终不还——秋招的一些经验/" rel="prev" title="不破楼兰兰终不还——秋招的一些经验">
+                不破楼兰兰终不还——秋招的一些经验 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ae3314da8ad64a3" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNjA3MC8xMjYwNQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="之伊丶" />
+            
+              <p class="site-author-name" itemprop="name">之伊丶</p>
+              <p class="site-description motion-element" itemprop="description">每从细笔惊新悟，重向高山愧旧琴。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">127</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=825910928&site=qq&menu=yes" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/cui-ming-hao-61" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-puzzle-piece"></i>知乎</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/MoonChasing" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/7679023/moonchasing" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-gamepad"></i>
+                (ฅ´ω`ฅ)戳一戳
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/kuangbin" title="bin神" target="_blank">bin神</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://kuangbin.github.io/" title="每天%bin神" target="_blank">每天%bin神</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://coswindy.cn/" title="coswindy" target="_blank">coswindy</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cfzhao.com/" title="CFZhao" target="_blank">CFZhao</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.johnzhang.xyz" title="张老板" target="_blank">张老板</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.kimiye.xyz" title="Kehuaiiiiii" target="_blank">Kehuaiiiiii</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://0xfaner.top" title="0xfaner" target="_blank">0xfaner</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhiyi.live/2018/05/06/%E7%BC%96%E7%A8%8B%E8%B5%84%E6%96%99/" title="编程资料" target="_blank">编程资料</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhiyi.live/2018/06/13/%E8%A6%81%E5%81%9A%E7%9A%84%E4%BA%8B/" title="要做的事" target="_blank">要做的事</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-optin-monster"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">之伊丶</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+-->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/photoswipe.min.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/photoswipe-ui-default.min.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("YfY1c71wQlfh7yk7CzqKXMzU-gzGzoHsz", "S2WvxyRnxjmWsLTN2L5JwJDA");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+
+
+
+
+
+</body>
+</html>
