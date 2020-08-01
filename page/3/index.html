@@ -344,389 +344,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/09/14/线程共享哪些资源/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/14/线程共享哪些资源/" itemprop="url">线程共享哪些资源</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-14T19:41:00+08:00">
-                2019-09-14
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-14T19:46:18+08:00">
-                2019-09-14
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/09/14/线程共享哪些资源/" class="leancloud_visitors" data-flag-title="线程共享哪些资源">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  246
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>线程共享资源： </p>
-<blockquote>
-<p>a. 堆  由于堆是在进程空间中开辟出来的，所以它是理所当然地被共享的；因此new出来的都是共享的（16位平台上分全局堆和局部堆，局部堆是独享的）</p>
-<p>b. 全局变量 它是与具体某一函数无关的，所以也与特定线程无关；因此也是共享的</p>
-<p>c. 静态变量 虽然对于局部变量来说，它在代码中是“放”在某一函数中的，但是其存放位置和全局变量一样，存于堆中开辟的.bss和.data段，是共享的</p>
-<p>d. 文件等公用资源  这个是共享的，使用这些公共资源的线程必须同步。</p>
-<p>e. 地址空间</p>
-<p>f. 子进程、闹铃、信号及信号服务程序、记账信息</p>
-<p>g. 进程代码段</p>
-</blockquote>
-<p>线程独享资源</p>
-<blockquote>
-<p>栈</p>
-<p>寄存器</p>
-<p>程序计数器</p>
-<p>状态字</p>
-<p>线程优先级</p>
-<p>错误返回码</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/09/03/C-后台开发面试一些题目（只列举，无答案）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/03/C-后台开发面试一些题目（只列举，无答案）/" itemprop="url">C++后台开发面试一些题目（只列举，无答案）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-03T19:36:41+08:00">
-                2019-09-03
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-05T10:16:24+08:00">
-                2019-09-05
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/09/03/C-后台开发面试一些题目（只列举，无答案）/" class="leancloud_visitors" data-flag-title="C++后台开发面试一些题目（只列举，无答案）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  43
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>内核态、用户态区别，如何进入内核态</li>
-<li>为什么使用 B+ 树作为索引的数据结构。</li>
-<li>extern “C”</li>
-<li>自由存储区和堆的区别</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/08/24/C-动态绑定与静态绑定/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1703,7 +1320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/06/24/市场营销复习/">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/07/18/LiLin源码学习——offset与container-of宏/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="之伊丶">
@@ -1722,7 +1339,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/06/24/市场营销复习/" itemprop="url">市场营销复习</a></h1>
+                <a class="post-title-link" href="/2019/07/18/LiLin源码学习——offset与container-of宏/" itemprop="url">Linux源码学习——offsetof与container_of宏</a></h1>
         
 
         <div class="post-meta">
@@ -1734,8 +1351,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-24T12:29:38+08:00">
-                2019-06-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-18T23:29:59+08:00">
+                2019-07-18
               </time>
             
 
@@ -1750,13 +1367,46 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-21T17:32:04+08:00">
-                2019-07-21
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-18T23:34:30+08:00">
+                2019-07-18
               </time>
             
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Linux源码学习/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux源码学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1764,7 +1414,7 @@
 
           
           
-             <span id="/2019/06/24/市场营销复习/" class="leancloud_visitors" data-flag-title="市场营销复习">
+             <span id="/2019/07/18/LiLin源码学习——offset与container-of宏/" class="leancloud_visitors" data-flag-title="Linux源码学习——offsetof与container_of宏">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1789,7 +1439,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  6,364
+                  55
                 </span>
               
 
@@ -1805,7 +1455,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  22
+                  1
                 </span>
               
             </div>
@@ -1829,18 +1479,15 @@
 
       
         
-          <h2 id="导论"><a href="#导论" class="headerlink" title="导论"></a>导论</h2><ol>
-<li><h5 id="市场和市场营销定义"><a href="#市场和市场营销定义" class="headerlink" title="市场和市场营销定义"></a>市场和市场营销定义</h5><p>从市场营销的角度看，市场就是商品交换关系的总和</p>
-<p>营销学中的市场：指的是具有特定的需求或欲望，而且愿意并能够通过交换来满足这种需要和欲望的全部潜在顾客。</p>
-<p>一般意义的市场：是商品交易的场所，是显在和潜在买主的结合体，是买卖关系的总和。</p>
-<p>营销是通过创造和交换产品及价值，从而使个人或组织满足欲望和需要的社会和管理过程。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/06/24/市场营销复习/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <blockquote class="blockquote-center">Linux内核源码果真精髓，相见恨晚。</blockquote>
+
+<p><code>offsetof</code> 宏定义如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> offsetof(type, member) (size_t)&amp;(((type*)0)-&gt;member)</span></span><br></pre></td></tr></table></figure>
+<p><code>container_of</code> 宏定义如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> container_of(ptr, type, member) (&#123; \</span></span><br><span class="line">     const typeof( ((type *)0)-&gt;member ) *__mptr = (ptr); \</span><br><span class="line">     (type *)( (<span class="keyword">char</span> *)__mptr - offsetof(type,member) );&#125;)</span><br></pre></td></tr></table></figure>
+
+          
         
       
     </div>
@@ -2077,7 +1724,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/07/18/LiLin源码学习——offset与container-of宏/">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/06/24/市场营销复习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="之伊丶">
@@ -2096,7 +1743,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/18/LiLin源码学习——offset与container-of宏/" itemprop="url">Linux源码学习——offsetof与container_of宏</a></h1>
+                <a class="post-title-link" href="/2019/06/24/市场营销复习/" itemprop="url">市场营销复习</a></h1>
         
 
         <div class="post-meta">
@@ -2108,8 +1755,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-18T23:29:59+08:00">
-                2019-07-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-24T12:29:38+08:00">
+                2019-06-24
               </time>
             
 
@@ -2124,46 +1771,13 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-18T23:34:30+08:00">
-                2019-07-18
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-21T17:32:04+08:00">
+                2019-07-21
               </time>
             
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/Linux源码学习/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux源码学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -2171,7 +1785,7 @@
 
           
           
-             <span id="/2019/07/18/LiLin源码学习——offset与container-of宏/" class="leancloud_visitors" data-flag-title="Linux源码学习——offsetof与container_of宏">
+             <span id="/2019/06/24/市场营销复习/" class="leancloud_visitors" data-flag-title="市场营销复习">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2196,7 +1810,414 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  55
+                  6,364
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  22
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="导论"><a href="#导论" class="headerlink" title="导论"></a>导论</h2><ol>
+<li><h5 id="市场和市场营销定义"><a href="#市场和市场营销定义" class="headerlink" title="市场和市场营销定义"></a>市场和市场营销定义</h5><p>从市场营销的角度看，市场就是商品交换关系的总和</p>
+<p>营销学中的市场：指的是具有特定的需求或欲望，而且愿意并能够通过交换来满足这种需要和欲望的全部潜在顾客。</p>
+<p>一般意义的市场：是商品交易的场所，是显在和潜在买主的结合体，是买卖关系的总和。</p>
+<p>营销是通过创造和交换产品及价值，从而使个人或组织满足欲望和需要的社会和管理过程。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/24/市场营销复习/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/06/20/Servlet-JSP-复习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/20/Servlet-JSP-复习/" itemprop="url">Servlet JSP 复习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-20T18:10:32+08:00">
+                2019-06-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-26T09:43:10+08:00">
+                2019-06-26
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Servlet/" itemprop="url" rel="index">
+                    <span itemprop="name">Servlet</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/06/20/Servlet-JSP-复习/" class="leancloud_visitors" data-flag-title="Servlet JSP 复习">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  666
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol>
+<li><p>What is web container ?</p>
+<p>Web container is the component in J2EE which is responsible for handle request from client. Web Server application like tomcat is used to support basic service for web container, e.g., receive request and forward reply to client.
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/20/Servlet-JSP-复习/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/06/20/Vim一些常见操作技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/20/Vim一些常见操作技巧/" itemprop="url">Vim一些常见操作技巧</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-20T18:09:26+08:00">
+                2019-06-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-07-04T21:25:52+08:00">
+                2019-07-04
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/06/20/Vim一些常见操作技巧/" class="leancloud_visitors" data-flag-title="Vim一些常见操作技巧">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  285
                 </span>
               
 
@@ -2237,12 +2258,39 @@
       
         
           
-            <blockquote class="blockquote-center">Linux内核源码果真精髓，相见恨晚。</blockquote>
-
-<p><code>offsetof</code> 宏定义如下</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> offsetof(type, member) (size_t)&amp;(((type*)0)-&gt;member)</span></span><br></pre></td></tr></table></figure>
-<p><code>container_of</code> 宏定义如下</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> container_of(ptr, type, member) (&#123; \</span></span><br><span class="line">     const typeof( ((type *)0)-&gt;member ) *__mptr = (ptr); \</span><br><span class="line">     (type *)( (<span class="keyword">char</span> *)__mptr - offsetof(type,member) );&#125;)</span><br></pre></td></tr></table></figure>
+            <ul>
+<li><p>全选</p>
+<p>普通模式下， <code>gg</code>回到文件开始，<code>v</code> 进入可视模式， <code>G</code>将光标移到文件结束。</p>
+</li>
+<li><p>复制到系统粘贴板</p>
+<p>这个首先要看 <code>vim</code> 是否支持系统粘贴板 <code>vim --version | grep &quot;clipboard&quot;</code><img src="http://cmhblog.cfzhao.com/2019-06-18/161409/" alt="">我这里 <code>clipboard</code> 前是 + 号，表示支持。如果是<code>-</code>号，可以百度下方法。</p>
+<p>普通模式下，使用 <code>&quot;+y</code>复制到粘贴板。</p>
+</li>
+<li><p>交换相邻字符顺序</p>
+<p>我编程时有时因为输入太快而导致字符顺序错误。比如将 return 输入成 retrun, endl 输入成 ednl。这样子的话将光标移到出现错误的第一个字符。然后普通模式下 <code>xp</code>。</p>
+</li>
+<li><p>正常模式转到插入模式</p>
+<ul>
+<li><code>i</code> 当前光标前插入， <code>I</code> 当前行首</li>
+<li><code>a</code>当前光标后插入， <code>A</code>  当前行尾</li>
+<li><code>o</code>下一行插入， <code>O</code> 上一行插入 </li>
+</ul>
+</li>
+<li><p><code>D</code>： d$</p>
+</li>
+<li><p><code>?</code>：从下而上查找， <code>/</code>自上而下查找</p>
+</li>
+<li><p>保存新文件：<code>:w 路径+文件名</code></p>
+</li>
+<li><p><code>:!+bash命令</code>：运行终端命令</p>
+</li>
+<li><p><code>:s/old/new</code>：将旧的替换成新的，<strong>默认为当前行</strong></p>
+</li>
+<li><p><code>:3，5s/old/new</code>：从第3行到第5行替换</p>
+</li>
+<li><p><code>:s/old/new/g</code>：全局替换</p>
+</li>
+</ul>
 
           
         
