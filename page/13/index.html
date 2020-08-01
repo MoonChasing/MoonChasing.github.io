@@ -344,7 +344,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/03/04/2018校招真题-拼多多-迷宫寻路/">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/06/29/Servlet笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="之伊丶">
@@ -363,7 +363,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/04/2018校招真题-拼多多-迷宫寻路/" itemprop="url">2018校招真题 拼多多 迷宫寻路</a></h1>
+                <a class="post-title-link" href="/2018/06/29/Servlet笔记/" itemprop="url">Servlet笔记</a></h1>
         
 
         <div class="post-meta">
@@ -375,8 +375,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T13:08:18+08:00">
-                2019-03-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-29T15:58:13+08:00">
+                2018-06-29
               </time>
             
 
@@ -391,8 +391,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
-                2020-08-01
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-29T16:13:08+08:00">
+                2018-06-29
               </time>
             
           </span>
@@ -410,219 +410,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/BFS/" itemprop="url" rel="index">
-                    <span itemprop="name">BFS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/03/04/2018校招真题-拼多多-迷宫寻路/" class="leancloud_visitors" data-flag-title="2018校招真题 拼多多 迷宫寻路">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  853
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.nowcoder.com/practice/e3fc4f8094964a589735d640424b6a47?tpId=90&amp;tqId=30779&amp;tPage=1&amp;rp=1&amp;ru=/ta/2018test&amp;qru=/ta/2018test/question-ranking" target="_blank" rel="noopener">题目链接</a></p>
-<p>因为在准备谷歌面试中，本来准备最近并不更新刷过的题，多刷些题。但由于这题对我来说意义很大，所以记载了下来。</p>
-<p>为了节省些时间，题目题意在这里不复制粘贴了，可以在上面的链接跳转过去。</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><p>题目是很直接的 BFS ， 相比较最简单的迷宫寻路问题，这题增加了钥匙和门，即如果我们想要通过一个门，必须在此之前获得它的钥匙。 注意题目中的数据范围，门和钥匙最多为 10. 故可以用状态压缩记录状态。</p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">point</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y, key, step;</span><br><span class="line">    point() &#123;&#125;</span><br><span class="line">    point(<span class="keyword">int</span> _x, <span class="keyword">int</span> _y, <span class="keyword">int</span> _key, <span class="keyword">int</span> _step) : x(_x), y(_y), key(_key), step(_step) &#123; &#125;</span><br><span class="line">&#125; P;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">char</span> maze[<span class="number">107</span>][<span class="number">107</span>];</span><br><span class="line"><span class="keyword">bool</span> vis[<span class="number">107</span>][<span class="number">107</span>][<span class="number">1050</span>];</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">-1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(vis, <span class="literal">false</span>, <span class="keyword">sizeof</span>(vis));</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="keyword">int</span> startX, startY;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;m; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            ch = getchar();</span><br><span class="line">            maze[i][j] = ch;</span><br><span class="line">            <span class="keyword">if</span>(ch == <span class="string">'2'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                startX = i;</span><br><span class="line">                startY = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">queue</span>&lt;P&gt; que;</span><br><span class="line">    que.push(P(startX, startY, <span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line">    <span class="keyword">int</span> curX, curY;</span><br><span class="line">    P p;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(!que.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        p = que.front();</span><br><span class="line">        que.pop();</span><br><span class="line">        <span class="keyword">if</span>(maze[p.x][p.y] == <span class="string">'3'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, p.step);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">4</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            curX = p.x + dx[i];</span><br><span class="line">            curY = p.y + dy[i];</span><br><span class="line">            <span class="keyword">if</span>(curX &lt; <span class="number">0</span> || curX&gt;=n || curY &lt; <span class="number">0</span> || curY &gt;= m || maze[curX][curY] == <span class="string">'0'</span> || vis[curX][curY][p.key])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            ch = maze[curX][curY];</span><br><span class="line">            <span class="keyword">if</span>(ch &gt;= <span class="string">'A'</span> &amp;&amp; ch &lt;= <span class="string">'Z'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>( p.key &amp; (<span class="number">1</span> &lt;&lt; (ch-<span class="string">'A'</span>) ) )</span><br><span class="line">                   &#123;</span><br><span class="line">                       que.push(P(curX, curY, p.key, p.step+<span class="number">1</span>));</span><br><span class="line">                       vis[curX][curY][p.key] = <span class="literal">true</span>;</span><br><span class="line">                   &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(ch &gt;= <span class="string">'a'</span> &amp;&amp; ch &lt;= <span class="string">'z'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                que.push( P(curX, curY, p.key | ( <span class="number">1</span> &lt;&lt; (ch-<span class="string">'a'</span>) ), p.step+<span class="number">1</span>) );</span><br><span class="line">                vis[curX][curY][p.key] = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                que.push(P(curX, curY, p.key, p.step+<span class="number">1</span>));</span><br><span class="line">                vis[curX][curY][p.key] = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="闲言"><a href="#闲言" class="headerlink" title="闲言"></a>闲言</h3><p>之所以说这题对我意义比较大，是因为在一次很久之前的训练时，有学长出了这道题。</p>
-<p>那时候我还是个小白，几乎啥都不会，连 dp 是什么都不知道。那时候做到这个题还是蛮受打击的。讲题目时这题是邓新议（应该是）学长讲的。学长又讲到状压，把拿到我钥匙压缩为一个状态，当时我的心里几乎是崩溃的，因为学长们说的名词我都没有听过， 有一种很无力的感觉。</p>
-<p>回去的时候，我一个人走在北操前的路上，有些流泪？因为深深地感受到了自己什么都不知道。于是回去查了 dp，状态压缩一些名词的意思， 这才知道原来 dp 是动态规划的意思。</p>
-<p>所以对这题印象蛮深的，过去后一直想再见见这题。昨天刷题时看到题目名字中有个迷宫寻路，心想，不会是有钥匙和门的那道吧。</p>
-<p>现在在看这道题，只感觉是一道很基础的题目了，很容易地就能够过掉。对比起来，自己还是学到了些知识的，进步了很多。 也算是给那晚独自一人的自己一个回答吧。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/08/21/2018牛客网暑期ACM多校训练营-第五场-F-take-树状树组求期望/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/21/2018牛客网暑期ACM多校训练营-第五场-F-take-树状树组求期望/" itemprop="url">2018牛客网暑期ACM多校训练营(第五场) F.take (树状树组求期望)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-21T22:22:06+08:00">
-                2018-08-21
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
-                2020-08-01
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -632,19 +421,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/数据结构/树状数组/" itemprop="url" rel="index">
-                    <span itemprop="name">树状数组</span>
+                  <a href="/categories/Java/Servlet/" itemprop="url" rel="index">
+                    <span itemprop="name">Servlet</span>
                   </a>
                 </span>
 
@@ -660,7 +438,7 @@
 
           
           
-             <span id="/2018/08/21/2018牛客网暑期ACM多校训练营-第五场-F-take-树状树组求期望/" class="leancloud_visitors" data-flag-title="2018牛客网暑期ACM多校训练营(第五场) F.take (树状树组求期望)">
+             <span id="/2018/06/29/Servlet笔记/" class="leancloud_visitors" data-flag-title="Servlet笔记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -685,7 +463,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  610
+                  87
                 </span>
               
 
@@ -701,7 +479,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  1
                 </span>
               
             </div>
@@ -725,18 +503,12 @@
 
       
         
-          <p>传送门: <a href="https://www.nowcoder.com/acm/contest/143/F" target="_blank" rel="noopener">2018牛客网暑期ACM多校训练营(第五场) F.take</a></p>
-<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>Kanade has n boxes , the i-th box has p[i] probability to have an diamond of d[i] size.  </p>
-<p>At the beginning , Kanade has a diamond of 0 size. She will open the boxes from 1-st to n-th. When she open a box,if there is a diamond in it and it’s bigger than the diamond of her , she will replace it with her diamond.  </p>
-<p>Now you need to calculate the expect number of replacements.  </p>
-<p>You only need to output the answer module 998244353.  <img src="https://cdn.pixabay.com/photo/2018/05/10/22/42/ice-cream-3389010_960_720.jpg" alt="take">
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/21/2018牛客网暑期ACM多校训练营-第五场-F-take-树状树组求期望/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <ul>
+<li>编写 Java 方法签名的惯例是， 对于与包含该方法类型不处于同一个包中的类型，要使用全类名。<br>如 void service(ServletRequest request, ServletResponse response) throws ServletException, java.io.IOException 中 javax.servlet.ServletException 的签名中(与 Servlet 位于同一个包中)是没有包信息的，而 java.io.IOException同是编写完整的名称。</li>
+</ul>
+
+          
         
       
     </div>
@@ -787,7 +559,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/07/27/2018牛客网暑期ACM多样训练营（第三场）A-PACM-Team-01背包路径回溯/">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/04/27/HelloWorld/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="之伊丶">
@@ -806,7 +578,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/27/2018牛客网暑期ACM多样训练营（第三场）A-PACM-Team-01背包路径回溯/" itemprop="url">2018牛客网暑期ACM多样训练营（第三场）A.PACM Team 01背包路径回溯</a></h1>
+                <a class="post-title-link" href="/2018/04/27/HelloWorld/" itemprop="url">HelloWorld</a></h1>
         
 
         <div class="post-meta">
@@ -818,8 +590,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-27T21:12:12+08:00">
-                2018-07-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T13:15:52+08:00">
+                2018-04-27
               </time>
             
 
@@ -834,8 +606,188 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
-                2020-08-01
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-29T10:29:40+08:00">
+                2018-06-29
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/04/27/HelloWorld/" class="leancloud_visitors" data-flag-title="HelloWorld">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  34
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="程序员的第一篇博客文章，当然是-Hello-world-啦"><a href="#程序员的第一篇博客文章，当然是-Hello-world-啦" class="headerlink" title="程序员的第一篇博客文章，当然是 Hello, world! 啦~"></a>程序员的第一篇博客文章，当然是 Hello, world! 啦~</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello, world!"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/06/25/软件工程考试试题及总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/25/软件工程考试试题及总结/" itemprop="url">软件工程考试试题及总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-25T17:32:14+08:00">
+                2018-06-25
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-25T17:47:24+08:00">
+                2018-06-25
               </time>
             
           </span>
@@ -853,19 +805,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/DP/" itemprop="url" rel="index">
-                    <span itemprop="name">DP</span>
+                  <a href="/categories/大学/" itemprop="url" rel="index">
+                    <span itemprop="name">大学</span>
                   </a>
                 </span>
 
@@ -881,7 +822,7 @@
 
           
           
-             <span id="/2018/07/27/2018牛客网暑期ACM多样训练营（第三场）A-PACM-Team-01背包路径回溯/" class="leancloud_visitors" data-flag-title="2018牛客网暑期ACM多样训练营（第三场）A.PACM Team 01背包路径回溯">
+             <span id="/2018/06/25/软件工程考试试题及总结/" class="leancloud_visitors" data-flag-title="软件工程考试试题及总结">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -906,7 +847,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,751
+                  216
                 </span>
               
 
@@ -922,7 +863,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10
+                  1
                 </span>
               
             </div>
@@ -946,15 +887,22 @@
 
       
         
-          <p>传送门：<a href="https://www.nowcoder.com/acm/contest/141/A" target="_blank" rel="noopener">https://www.nowcoder.com/acm/contest/141/A</a></p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Eddy was a contestant participating in ACM ICPC contests. ACM is short for Algorithm, Coding, Math. Since in the ACM contest, the most important knowledge is about algorithm, followed by coding(implementation ability), then math. However, in the ACM ICPC World Finals 2018, Eddy failed to solve a physics equation, which pushed him away from a potential medal.
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/27/2018牛客网暑期ACM多样训练营（第三场）A-PACM-Team-01背包路径回溯/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h2 id="试题"><a href="#试题" class="headerlink" title="试题"></a>试题</h2><h3 id="简答题（8-10’）"><a href="#简答题（8-10’）" class="headerlink" title="简答题（8*10’）"></a>简答题（8*10’）</h3><ol>
+<li>软件过程框架的普适性活动有哪些。列举其中一项并描述。</li>
+<li>敏捷软件开发是什么？写出其四条宣言。</li>
+<li>需求分析的任务有哪些。需求规格说明书一般包括什么内容。</li>
+<li>用例图、类图、时序图、部署图……中任选两个画出样例图。</li>
+<li>软件体系结构是什么？任选一个体系结构说明其基本（元素？具体忘了是啥了）。</li>
+<li>测试有哪四类，分别叙述其目标。</li>
+<li>运用实例列举出三个以上的用户界面设计原则。</li>
+<li>基本路径测试问题（画流图，计算环复杂度，设计测试路径）</li>
+</ol>
+<h3 id="叙述题-20’"><a href="#叙述题-20’" class="headerlink" title="叙述题(20’)"></a>叙述题(20’)</h3><ul>
+<li>近50年中软件开发模型历程？及其原因情况。结合实例阐述。</li>
+</ul>
+
+          
         
       
     </div>
@@ -1005,7 +953,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/09/29/2018CCPC秦皇岛站记录及暑假集训感受/">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/05/08/LCS算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="之伊丶">
@@ -1024,7 +972,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/29/2018CCPC秦皇岛站记录及暑假集训感受/" itemprop="url">2018CCPC秦皇岛站记录及暑假集训感受</a></h1>
+                <a class="post-title-link" href="/2018/05/08/LCS算法/" itemprop="url">LCS算法</a></h1>
         
 
         <div class="post-meta">
@@ -1036,8 +984,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-29T17:28:40+08:00">
-                2018-09-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-08T10:33:27+08:00">
+                2018-05-08
               </time>
             
 
@@ -1052,257 +1000,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
-                2020-08-01
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/综合比赛/" itemprop="url" rel="index">
-                    <span itemprop="name">综合比赛</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/09/29/2018CCPC秦皇岛站记录及暑假集训感受/" class="leancloud_visitors" data-flag-title="2018CCPC秦皇岛站记录及暑假集训感受">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  6,132
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  21
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><blockquote class="blockquote-center">男儿何不带吴钩<br>收取关山五十州</blockquote></p>
-<h3 id="流水账，记录下一些大事的时间"><a href="#流水账，记录下一些大事的时间" class="headerlink" title="流水账，记录下一些大事的时间"></a>流水账，记录下一些大事的时间</h3><table>
-<thead>
-<tr>
-<th>时间</th>
-<th>事务</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>9月26日  9：30——14：30</td>
-<td>南京南——秦皇岛</td>
-</tr>
-<tr>
-<td>9月27日  14：00——15：00</td>
-<td>比赛开幕式</td>
-</tr>
-<tr>
-<td>9月27日  15：00——17：00</td>
-<td>热身赛</td>
-</tr>
-<tr>
-<td>9月28日 9：10——14：10</td>
-<td>正式比赛</td>
-</tr>
-<tr>
-<td>9月28日 15：00——16：00</td>
-<td>颁奖仪式暨闭幕式</td>
-</tr>
-<tr>
-<td>9月29日 8：02——12：15</td>
-<td>秦皇岛——北京</td>
-</tr>
-<tr>
-<td>9月29日 13：00——14：30</td>
-<td>游天坛</td>
-</tr>
-<tr>
-<td>9月29日  16：15——21：43</td>
-<td>北京南——南京南</td>
-</tr>
-</tbody>
-</table>
-<h1 id="启程"><a href="#启程" class="headerlink" title="启程"></a>启程</h1><h2 id="获得名额"><a href="#获得名额" class="headerlink" title="获得名额"></a>获得名额</h2><p>七场激烈的网络赛尘埃落定，team002 （到目前为止）获得了 1+1 场比赛机会。在比赛还未结束时，我们差不多已把握了 CCPC 秦皇岛赛区的名额。秦皇岛赛区是时间较早的一个赛区， 暑假完后不到一个月就已开始，我们队因为自己还未充分准备，想多补补题，做做题目，加之比赛需要我们请假四天，大三课程紧张，四天要旷课许多，我们队便有了想换赛区的想法，改为 CCPC 桂林站或者是两场 ICPC 比赛。但和老板沟通后，因为如果我们赛区改动，别的队伍将来不及安排，于是我们队选择大橘为重，擎南邮之帜，以“以上队伍成绩无效”之名，进军秦皇岛。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/29/2018CCPC秦皇岛站记录及暑假集训感受/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/07/29/2018-Multi-University-Training-Contest-2-1007-Naive-Operations-线段树/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/29/2018-Multi-University-Training-Contest-2-1007-Naive-Operations-线段树/" itemprop="url">2018 Multi-University Training Contest 2 1007 Naive Operations(线段树)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-29T22:26:07+08:00">
-                2018-07-29
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
-                2020-08-01
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-09T14:05:50+08:00">
+                2018-06-09
               </time>
             
           </span>
@@ -1327,28 +1026,6 @@
 
                 
                 
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/数据结构/线段树/" itemprop="url" rel="index">
-                    <span itemprop="name">线段树</span>
-                  </a>
-                </span>
-
-                
-                
               
             </span>
           
@@ -1359,7 +1036,7 @@
 
           
           
-             <span id="/2018/07/29/2018-Multi-University-Training-Contest-2-1007-Naive-Operations-线段树/" class="leancloud_visitors" data-flag-title="2018 Multi-University Training Contest 2 1007 Naive Operations(线段树)">
+             <span id="/2018/05/08/LCS算法/" class="leancloud_visitors" data-flag-title="LCS算法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1384,7 +1061,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,172
+                  442
                 </span>
               
 
@@ -1400,7 +1077,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  2
                 </span>
               
             </div>
@@ -1424,18 +1101,13 @@
 
       
         
-          <p>传送门： <a href="http://acm.hdu.edu.cn/showproblem.php?pid=6315" target="_blank" rel="noopener">2018 Multi-University Training Contest 2 1007 Naive Operations</a></p>
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h1 style="color:#1A5CC8;text-align:center">Naive Operations</h1>
+          
+            <a id="more"></a>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 105</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str1[MAXN], str2[MAXN];</span><br><span class="line">    <span class="keyword">int</span> dp[MAXN][MAXN];</span><br><span class="line">    <span class="keyword">int</span> path[MAXN][MAXN];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Please input the first string:"</span>);</span><br><span class="line">    gets(str1);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Please input the second string:"</span>);</span><br><span class="line">    gets(str2);</span><br><span class="line">    <span class="keyword">int</span> len1 = <span class="built_in">strlen</span>(str1), len2 = <span class="built_in">strlen</span>(str2);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="keyword">sizeof</span>(dp));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;len1; i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j&lt;len2; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(str1[i] == str2[j])</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = dp[i][j] + <span class="number">1</span>;</span><br><span class="line">                path[i+<span class="number">1</span>][j+<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                dp[i+<span class="number">1</span>][j+<span class="number">1</span>] = max(dp[i+<span class="number">1</span>][j], dp[i][j+<span class="number">1</span>]);</span><br><span class="line">                path[i+<span class="number">1</span>][j+<span class="number">1</span>] = dp[i+<span class="number">1</span>][j] &gt; dp[i][j+<span class="number">1</span>] ? <span class="number">2</span> : <span class="number">3</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ans = dp[len1][len2];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The length of LCS is %d\n"</span>, ans);</span><br><span class="line">    <span class="keyword">int</span> cnt = ans<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">char</span> LCS[MAXN];</span><br><span class="line">    <span class="keyword">int</span> i=len1, j=len2;</span><br><span class="line">    <span class="keyword">while</span>(i&gt;<span class="number">0</span> &amp;&amp; j&gt;<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(path[i][j] == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            LCS[cnt--] = str1[i<span class="number">-1</span>];</span><br><span class="line">            i--, j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(path[i][j] == <span class="number">2</span>)</span><br><span class="line">            j--;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            i--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">puts</span>(LCS);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;可以说，这是自己第一次写程序来保存路径，之前自己总觉得在数组中保存路径是保存确定的位置，经过编码自己了解，其实是要保存转移的方向，再根据方向来回溯。</p>
+<p>&emsp;&emsp;编程真的要细心呀，这个程序自己在程序课上敲码5分钟，Debug 两节课。原因竟是<code>else if(path[i][j] == 2)</code>中的==写错，少打了一个等号，弱智错误呀，调试了两节课才找到。不过找到的时候蛮玄学的，是自己用常用的<code>#ifdef DEBUG</code>大法时，再判等时想起应该是两个等号， 忽地一想，自己不会是之前判等写错了吧，眼光向下一移，果然….解决。事迹已加入脑残系列，可以与上次离散实验中的<code>if(ischuandi());</code>相并列了。</p>
 
-<p><strong>Time Limit: 6000/3000 MS (Java/Others)    Memory Limit: 502768/502768 K (Java/Others)</strong> </p>
-<h3 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h3><p>In a galaxy far, far away, there are two integer sequence a and b of length n.<br>b is a static permutation of 1 to n. Initially a is filled with zeroes.<br>There are two kind of operations:<br>1. add l r: add one for $a_l,a_{l+1}…a_r$<br>2. query l r: query $\sum_{i=l}^r \lfloor a_i / b_i \rfloor$
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/29/2018-Multi-University-Training-Contest-2-1007-Naive-Operations-线段树/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -1486,7 +1158,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/07/24/2018-Multi-University-Training-Contest-1-记录/">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/05/01/闲情记趣/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="之伊丶">
@@ -1505,7 +1177,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/24/2018-Multi-University-Training-Contest-1-记录/" itemprop="url">2018 Multi-University Training Contest 1 记录</a></h1>
+                <a class="post-title-link" href="/2018/05/01/闲情记趣/" itemprop="url">闲情记趣</a></h1>
         
 
         <div class="post-meta">
@@ -1517,8 +1189,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-24T10:09:42+08:00">
-                2018-07-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-01T22:15:59+08:00">
+                2018-05-01
               </time>
             
 
@@ -1533,8 +1205,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
-                2020-08-01
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-09T13:52:40+08:00">
+                2018-06-09
               </time>
             
           </span>
@@ -1552,52 +1224,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/思维/" itemprop="url" rel="index">
-                    <span itemprop="name">思维</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/综合比赛/" itemprop="url" rel="index">
-                    <span itemprop="name">综合比赛</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/构造/" itemprop="url" rel="index">
-                    <span itemprop="name">构造</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/数论/" itemprop="url" rel="index">
-                    <span itemprop="name">数论</span>
+                  <a href="/categories/大学/" itemprop="url" rel="index">
+                    <span itemprop="name">大学</span>
                   </a>
                 </span>
 
@@ -1613,7 +1241,7 @@
 
           
           
-             <span id="/2018/07/24/2018-Multi-University-Training-Contest-1-记录/" class="leancloud_visitors" data-flag-title="2018 Multi-University Training Contest 1 记录">
+             <span id="/2018/05/01/闲情记趣/" class="leancloud_visitors" data-flag-title="闲情记趣">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1638,7 +1266,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,625
+                  271
                 </span>
               
 
@@ -1654,7 +1282,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10
+                  1
                 </span>
               
             </div>
@@ -1678,12 +1306,14 @@
 
       
         
-          <h2 id="1001-Maximum-Multiple"><a href="#1001-Maximum-Multiple" class="headerlink" title="1001 Maximum Multiple"></a>1001 Maximum Multiple</h2><h3 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h3><p>Given an integer n, Chiaki would like to find three positive integers x, y and z such that: $n=x+y+z$, $x\mid n$, $y \mid n$, $z \mid n$ and $xyz$ is maximum. </p>
-<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>There are multiple test cases. The first line of input contains an integer $T$ ($1 \le T \le 10^6$), indicating the number of test cases. For each test case:<br>The first line contains an integer $n$ ($1 \le n \le 10^{6}$). </p>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>For each test case, output an integer denoting the maximum $xyz$. If there no such integers, output $-1$ instead.
+          <blockquote class="blockquote-center">浮生若梦，为欢几何。</blockquote>
+
+<ul>
+<li><p>准备中午去吃，龚逸舟说老崔，你中午是不是去吃香锅，balabala，吃的时候带上我，你是不是要吃50的，分我点呗。我没说话，老龚说老崔不理我一看就是不愿意（当然是开玩笑的那种语气），我冷漠地说了一句在和小姐姐聊天，他说我重要还是小姐姐重要，我说当然是小姐姐重要，他说放屁，当然是我重要。我默默说了一句：“你重。”</p>
+<p></p><p align="right">2018-4-29</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/07/24/2018-Multi-University-Training-Contest-1-记录/#more" rel="contents">
+            <a class="btn" href="/2018/05/01/闲情记趣/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1738,7 +1368,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/05/11/算法模板/">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/04/27/建站记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="之伊丶">
@@ -1757,7 +1387,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/11/算法模板/" itemprop="url">算法模板</a></h1>
+                <a class="post-title-link" href="/2018/04/27/建站记/" itemprop="url">建站记</a></h1>
         
 
         <div class="post-meta">
@@ -1769,7 +1399,193 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T16:06:42+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T22:25:14+08:00">
+                2018-04-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-06-09T13:52:28+08:00">
+                2018-06-09
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/04/27/建站记/" class="leancloud_visitors" data-flag-title="建站记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,406
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote class="blockquote-center">如果明天没课该多好，这样五一就有五天假了。<br>崔明浩</blockquote>
+
+<p>&emsp;&emsp;每个人都要为自己的冲动付出代价，这句话是没错的。就像今天早上醒来时，突发奇想说想要搭个博客，便再忍不住心性，想要立刻完成。博客这种东西之前还要有想搞过的，最初是去年吧，在CSDN上开通过一个，打算记录下算法呀学习呀什么的，不过嘛，草草没了下文，开通那一天后再也没更新过，甚至几乎没进过自己的博客。今天搭博客呢，想着自己能不信赖于像CSDN这种网站博客的固定样式，把博客做出自己喜欢的样式。（不只是博客，好像很多事情自己都不愿执拗于别人已有的固定的，想做出自己喜欢的样子，哈哈哈）这带来的后果呢，就是自己动手要多一些，不过嘛，自己醒来想搭博客也是想今天一天要做什么的结果。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/27/建站记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/05/11/一些文章-非文学/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/11/一些文章-非文学/" itemprop="url">一些文章(非文学)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T12:00:31+08:00">
                 2018-05-11
               </time>
             
@@ -1785,35 +1601,13 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-09-25T16:29:45+08:00">
-                2018-09-25
+              <time title="更新于" itemprop="dateModified" datetime="2018-05-11T15:45:52+08:00">
+                2018-05-11
               </time>
             
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -1821,7 +1615,7 @@
 
           
           
-             <span id="/2018/05/11/算法模板/" class="leancloud_visitors" data-flag-title="算法模板">
+             <span id="/2018/05/11/一些文章-非文学/" class="leancloud_visitors" data-flag-title="一些文章(非文学)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1846,7 +1640,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4,119
+                  40
                 </span>
               
 
@@ -1862,7 +1656,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  25
+                  1
                 </span>
               
             </div>
@@ -1886,14 +1680,15 @@
 
       
         
-          <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/11/算法模板/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzAxMDI5NjM5NA==&amp;mid=2656352283&amp;idx=1&amp;sn=30e014c68b85c3a3fd6aa1eec9a9eeab&amp;chksm=80f2953eb7851c286df42c958830578f5414f5ac850aea3d15f430ba5c588a7feb66f7c19f20&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">更有高度的人，都如何思考</a></li>
+<li><a href="https://mp.weixin.qq.com/s/OUA2RATANCRRnN-sTpmJzw" target="_blank" rel="noopener">教育改变命运(吴军博士演讲整理)</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzAxMDI5NjM5NA==&amp;mid=2656353586&amp;idx=1&amp;sn=49878e6d86b7f5f381a3c3df13dbc481&amp;chksm=80f29017b7851901e86847a8531da50fa9cdf4ecd2a3cea2d2b8d390e67c0ad6de683bc749f1&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">精致的利己主义者，你为什么走不远</a></li>
+</ul>
+<p><img src="http://mmbiz.qpic.cn/mmbiz_jpg/ASfs8YbrWic69eqjP05qEBlfkVGYGTvpwp5eNeUynzU4KQdicI3Ey0mOToJ8qg5vgs5ibO5gl5ibgocs4W8ONYfuhg/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="插图"></p>
+
+          
         
       
     </div>

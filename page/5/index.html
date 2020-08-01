@@ -344,7 +344,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/01/25/印度之旅对乔布斯的影响/">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/05/19/BZOJ-5486-Fine-Dining/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="之伊丶">
@@ -363,7 +363,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/25/印度之旅对乔布斯的影响/" itemprop="url">印度之旅对乔布斯的影响</a></h1>
+                <a class="post-title-link" href="/2019/05/19/BZOJ-5486-Fine-Dining/" itemprop="url">BZOJ 5486 Fine Dining</a></h1>
         
 
         <div class="post-meta">
@@ -375,8 +375,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-25T10:22:57+08:00">
-                2019-01-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-19T23:37:07+08:00">
+                2019-05-19
               </time>
             
 
@@ -391,8 +391,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
-                2020-08-01
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-20T00:05:14+08:00">
+                2019-05-20
               </time>
             
           </span>
@@ -405,7 +405,7 @@
 
           
           
-             <span id="/2019/01/25/印度之旅对乔布斯的影响/" class="leancloud_visitors" data-flag-title="印度之旅对乔布斯的影响">
+             <span id="/2019/05/19/BZOJ-5486-Fine-Dining/" class="leancloud_visitors" data-flag-title="BZOJ 5486 Fine Dining">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -430,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  455
+                  1,204
                 </span>
               
 
@@ -446,7 +446,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  5
                 </span>
               
             </div>
@@ -471,12 +471,393 @@
       
         
           
-            <p>我回到美国之后感受到的文化冲击，比我去印度时感受到的还要强烈。印度乡间的人与我们不同，我们运用思维，而他们运用直觉，他们的直觉比世界上其他地方的人要发达得多。直觉是非常强大的，在我看来比思维更加强大。直觉对我的工作有很大的影响。</p>
-<p>西方的理性思维并不是人类先天就具有的，而是通过学习获得的，它是西方文明的一项伟大成就。而在印度的村子里，人们从未学习过理性思维。他们学习的是其他的东西，在某些方面与理性思维同样有价值，那就是直观和经验智慧的力量。</p>
-<p>在印度的村庄待了7个月后再回美国，我看到了西方世界的疯狂以及理性思维的局限。如果你坐下来静静观察，你会发现自己的心灵有多焦躁，如果你想平静下来，那情况只会更更糟，但是时间久了之后总会平静下来，心看事情会更加透彻，也更能感受现实的环境。你的心灵逐渐平静下来，你的视界会极大地延伸。你能看到之前看不到的东西。这是一种修行，你必须不断练习。</p>
-<p>禅对我的生活一直有很深的影响。我曾经想过要去日本，到永平寺修行，但我的精神导师要我留在这儿。他说那里有的东西这里都有，他说得没错。我从禅中学到的真理就是，如果你愿意跋山涉水去见一个导师的话，往往你的身边就会出现一位。</p>
+            <p>传送门：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=5486" target="_blank" rel="noopener">BZOJ 5486 Fine Dining</a></p>
+<h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>漫长的一天结束了，饥困交加的奶牛们准备返回牛棚。农场由N片牧场组成（2≤N≤50,000），方便起见编号为1…</p>
+<p>N。所有奶牛都要前往位于牧场N的牛棚。其他N-1片牧场中每片有一头奶牛。奶牛们可以通过M条无向的小路在牧场之间移动（1≤M≤100,000）。第i条小路连接牧场ai和bi，通过需要时间ti。每头奶牛都可以经过一些小路回到牛棚。由于饥饿，奶牛们很乐于在他们回家的路上停留一段时间觅食。农场里有K个有美味的干草捆，第i个干草捆的美味值为yi。每头奶牛都想要在她回牛棚的路上在某一个干草捆处停留，但是她这样做仅当经过这个干草捆使她回牛棚的时间增加不超过这个干草捆的美味值。注意一头奶牛仅仅“正式地”在一个干草捆处因进食而停留，即使她的路径上经过其他放有干草捆的牧场；她会简单地无视其他的干草捆。</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>第一行包含三个空格分隔的整数N，M和K。</p>
+<p>以下M行每行包含三个整数ai，bi和ti，表示牧场ai和bi之间有一条需要ti时间通过的小路</p>
+<p>（ai不等于bi，ti为不超过104的正整数）。</p>
+<p>以下K行，每行以两个整数描述了一个干草捆：该干草捆所在牧场的编号，以及它的美味值（一个不超过10^9的正整数）。</p>
+<p>同一片牧场中可能会有多个干草捆。</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>输出包含N-1行。</p>
+<p>如果牧场i里的奶牛可以在回牛棚的路上前往某一个干草捆并且在此进食，则第i行为一个整数1，否则为一个整数0</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><p>4 5 1<br> 1 4 10<br> 2 1 20<br> 4 2 3<br> 2 3 5<br> 4 3 2<br> 2 7</p>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><p>1<br> 1<br> 1<br> 在这个例子中，牧场3里的奶牛可以停留进食，因为她回去的时间仅会增加6（从2增加到8），而这个增加量并没有<br> 超过干草捆的美味值7。牧场2里的奶牛显然可以吃掉牧场2里的干草，因为这并不会导致她的最佳路径发生变化。<br> 对于牧场1里的奶牛是一个有趣的情况，因为看起来她的最佳路径（10）可能会因为前去进食而有过大的增加量。<br> 然而，确实存在一条路径使得她可以前去干草捆处停留：先到牧场4，然后去牧场2（吃草），然后回到牧场4。 </p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h1 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h1><p>分层图最短路。两种状态，吃或未吃干草。$dis[i] [0]$表示未吃干草状态下到达i的最短时间，$dis[i][1]$则为吃干草状态下到达i的最短时间。</p>
+<p><strong>将牧场之间的距离看做为正，将干草看为负</strong>。如果$dis[n][1] &lt;= dis[n][0]$ ，则输出1.</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 50050</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXM 200050</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, k;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ed</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> to, next, cost;</span><br><span class="line">&#125;edge[MAXM];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> tot;</span><br><span class="line"><span class="keyword">int</span> head[MAXN];</span><br><span class="line"><span class="keyword">int</span> has[MAXN], dis[MAXN][<span class="number">2</span>];</span><br><span class="line"><span class="keyword">bool</span> vis[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> w)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    edge[tot].to = v;</span><br><span class="line">    edge[tot].next = head[u];</span><br><span class="line">    edge[tot].cost = w;</span><br><span class="line">    head[u] = tot++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">spfa</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(dis, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(dis));</span><br><span class="line">    dis[n][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; que;</span><br><span class="line">    que.push(n);</span><br><span class="line">    <span class="keyword">while</span>(!que.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> u = que.front();</span><br><span class="line">        <span class="keyword">int</span> v;</span><br><span class="line">        que.pop();</span><br><span class="line">        vis[u] = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = head[u]; ~i; i = edge[i].next)</span><br><span class="line">        &#123;</span><br><span class="line">            v = edge[i].to;</span><br><span class="line">            <span class="keyword">if</span>(dis[u][<span class="number">0</span>] + edge[i].cost &lt; dis[v][<span class="number">0</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                dis[v][<span class="number">0</span>] = dis[u][<span class="number">0</span>] + edge[i].cost;</span><br><span class="line">                <span class="keyword">if</span>(!vis[v])</span><br><span class="line">                &#123;</span><br><span class="line">                    que.push(v);</span><br><span class="line">                    vis[v] = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(has[v] &amp;&amp; dis[u][<span class="number">0</span>] + edge[i].cost - has[v] &lt; dis[v][<span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                dis[v][<span class="number">1</span>] = dis[u][<span class="number">0</span>] + edge[i].cost - has[v];</span><br><span class="line">                <span class="keyword">if</span>(!vis[v])</span><br><span class="line">                &#123;</span><br><span class="line">                    que.push(v);</span><br><span class="line">                    vis[v] = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(dis[u][<span class="number">1</span>] + edge[i].cost &lt; dis[v][<span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                dis[v][<span class="number">1</span>] = dis[u][<span class="number">1</span>] + edge[i].cost;</span><br><span class="line">                <span class="keyword">if</span>(!vis[v])</span><br><span class="line">                &#123;</span><br><span class="line">                    que.push(v);</span><br><span class="line">                    vis[v] = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    tot = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(head, <span class="number">-1</span>, <span class="keyword">sizeof</span>(head));</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;m, &amp;k);</span><br><span class="line">    <span class="keyword">int</span> u, v, w;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;u, &amp;v, &amp;w);</span><br><span class="line">        addedge(u, v, w);</span><br><span class="line">        addedge(v, u, w);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;k; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;u, &amp;w);</span><br><span class="line">        has[u] = max(has[u], w);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(has[n])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;n; i++)</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"1"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    spfa();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=n<span class="number">-1</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(dis[i][<span class="number">0</span>] &gt;= dis[i][<span class="number">1</span>])</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"1"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"0"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/05/19/BZOJ-5488-Teamwork/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/19/BZOJ-5488-Teamwork/" itemprop="url">BZOJ 5488 Teamwork</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-19T23:29:59+08:00">
+                2019-05-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-19T23:36:22+08:00">
+                2019-05-19
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/05/19/BZOJ-5488-Teamwork/" class="leancloud_visitors" data-flag-title="BZOJ 5488 Teamwork">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  696
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>题目链接：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=5488" target="_blank" rel="noopener">BZOJ 5488 Teamwork</a></p>
+<h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>在Farmer John最喜欢的节日里，他想要给他的朋友们赠送一些礼物。由于他并不擅长包装礼物，他想要获得他的奶牛们的帮助。你可能能够想到，奶牛们本身也不是很擅长包装礼物，而Farmer John即将得到这一教训。Farmer John的N头奶牛（1≤N≤104）排成一行，方便起见依次编号为1…N。奶牛i的包装礼物的技能水平为si。她们的技能水平可能参差不齐，所以FJ决定把她的奶牛们分成小组。每一组可以包含任意不超过K头的连续的奶牛（1≤K≤103），并且一头奶牛不能属于多于一个小组。由于奶牛们会互相学习，这一组中每一头奶牛的技能水平会变成这一组中水平最高的奶牛的技能水平。请帮助FJ求出，在他合理地安排分组的情况下，可以达到的技能水平之和的最大值。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/19/BZOJ-5488-Teamwork/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/05/19/BZOJ-1003-物流运输/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/19/BZOJ-1003-物流运输/" itemprop="url">BZOJ 1003 物流运输</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-19T23:14:41+08:00">
+                2019-05-19
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-19T23:31:08+08:00">
+                2019-05-19
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/05/19/BZOJ-1003-物流运输/" class="leancloud_visitors" data-flag-title="BZOJ 1003 物流运输">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,132
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>题目链接：<a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1003" target="_blank" rel="noopener">BZOJ 1003 物流运输</a> </p>
+<h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>　　物流公司要把一批货物从码头A运到码头B。由于货物量比较大，需要n天才能运完。货物运输过程中一般要转<br>停好几个码头。物流公司通常会设计一条固定的运输路线，以便对整个运输过程实施严格的管理和跟踪。由于各种<br>因素的存在，有的时候某个码头会无法装卸货物。这时候就必须修改运输路线，让货物能够按时到达目的地。但是<br>修改路线是一件十分麻烦的事情，会带来额外的成本。因此物流公司希望能够订一个n天的运输计划，使得总成本<br>尽可能地小。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/19/BZOJ-1003-物流运输/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -574,8 +955,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
-                2020-08-01
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-10T22:33:46+08:00">
+                2019-05-10
               </time>
             
           </span>
@@ -735,7 +1116,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/03/09/写在二十岁/">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/04/15/且捱过三冬四夏/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="之伊丶">
@@ -754,7 +1135,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/09/写在二十岁/" itemprop="url">写在二十岁</a></h1>
+                <a class="post-title-link" href="/2019/04/15/且捱过三冬四夏/" itemprop="url">且捱过三冬四夏</a></h1>
         
 
         <div class="post-meta">
@@ -766,8 +1147,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-09T14:39:47+08:00">
-                2019-03-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-15T15:21:40+08:00">
+                2019-04-15
               </time>
             
 
@@ -782,35 +1163,13 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
-                2020-08-01
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-15T15:22:34+08:00">
+                2019-04-15
               </time>
             
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/总结/" itemprop="url" rel="index">
-                    <span itemprop="name">总结</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -818,7 +1177,7 @@
 
           
           
-             <span id="/2019/03/09/写在二十岁/" class="leancloud_visitors" data-flag-title="写在二十岁">
+             <span id="/2019/04/15/且捱过三冬四夏/" class="leancloud_visitors" data-flag-title="且捱过三冬四夏">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -843,7 +1202,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5,118
+                  1,883
                 </span>
               
 
@@ -859,7 +1218,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  17
+                  6
                 </span>
               
             </div>
@@ -884,21 +1243,19 @@
       
         
           
-            <h1 align="center">写在二十岁</h1>
+            <p>现在想来，去年想写这个日志最终却只写了个题目有点有趣。其实挖这个坑的原因是这样的：去年四月的某个深夜突然骄情夜来非，想写些东西，但又觉得已是深夜，稍有困意，不知道要写多久，于是决定第二天醒来再写。结果醒来后又不骄情了，忘记了昨夜种种，正常人一个，于是写这篇的心也就不在了，给自己留下了一个未填的坑。</p>
+<p>虽然是一夜的骄情，但去年这个时候好像确实情绪有些崩溃，平日里听《Childhood Memory》《Snowdream》这样温柔的钢琴曲都忍不住落泪，几度觉得自己走在了抑郁症的边缘，所以在某个平静的夜晚听了几曲钢琴曲后变得骄情惆怅，想写些东西排遣下，于是写下了“且捱过三冬四夏”，其实它还有后半句”待春来再看梅花“，嗯， ”且捱过三冬四夏，待春来再看梅花“，那夜我念着这句入睡，好像从第二天开始情绪一点点好了起来。</p>
+<p>好像每年的三四月份都是我感情迸发的时候，（难道是因为春天？）今年的三四月份也有着不安与骄情，一些情绪极容易被触发。每一触发，总会想起好多事情，像是过往历历又回到眼前。看了遍《寻梦环游记》哭成了傻逼，（不愧是我一直想看的电影！强烈安利呀，剧情设计贼棒，欧享利式结局实在让人惊喜惊讶。没看时无数次想象它剧情会如何设计，观看后觉得是最棒的叙述！）faker春秀赛夺冠让我觉得李哥回来了，对他的采访更让我觉得faker实在是个很纯粹的人，眼泪又是夺眶而出。好像有点扯远了。其实三四月最大的忧虑是春招吧。自己终于还是到了招聘的时候，走到了能否触摸到自己大厂梦的时候。到如今依旧是0 offer。阿里一面后半月杳无音信，百度笔试时可能差一行代码能AC一道线段树，腾讯因为邮件错过了性格测试不知道有没有补救的机会，昨天的头条差两行代码做出C题。我也不知道自己在春招是时候能不能收到 offer 了。自己好像并没有为没有获得 offer 而垂头丧气如何如何，因为自己心里知道自己能力不够，没有拿到 offer 是很正常的事情。</p>
+<p>写着写着文章好像开始乱了，心里想许多事情，却不知道要说什么。直接写最想要说的吧。崔明浩不妨自信些。这是昨天字节跳动笔试后开始这么觉得的。字节跳动笔试很简单粗暴，开局给你5个算法题让你搞。这算是我最喜欢的形式，也算是我最害怕的形式。喜欢是因为自己大学差不多全部是在打ACM，这种算法题目可以说是本职。最害怕是因为如果自己最擅长的都没有做好，这种事情对我信心的摧毁力是可以想象的。个人感觉字节跳动蛮看重 ACM 等一些算法比赛的，看历年的题目感觉是存在有一定难度的，所以自己笔试前可以说是又期待又害怕。感觉这次笔试题目要简单些，或者说更适合自己一些。第一题很像大一时校赛的A题，秒了。第四题是TSP问题，状压dp，秒了。然后第三题，灵光一现，想起二分，觉得这题稳了，敲完后提交只过了 6% 的样例，调了很久后最高依然是6%。有点难受，就先跳过了。第二题感觉也遇到过，当时是两个队友做的，我没有参与，看了一眼感觉可以做，也算是用了很短的时间一次AC秒了。第五题脑糊了一个算法，过了11%的样例也再没有管他。再回来看第三题感觉自己思路肯定没有问题，却死活调不出，只能过6%。心态有点崩。可能是当局者迷吧，到最后也没有通过这道想出方法感觉稳了的题。笔试完后却又很快意识到中间过程会溢出，加两行判断就可以了。我没有办法去评估自己这场笔试是好是坏，因为我觉得我可以通过四题却只通过了三题。但这场笔试蛮增长自己信心的，因为在笔试前自己就做好了爆零的准备。没想到能顺利地过掉三题，C题虽然没有过掉，但自己坚信自己是可以过的。我可以接受自己差一丝，但不能接受自己完全没有思路。虽然两者最终都是没过，但给我的感觉是不一样的。差一点点会鼓励自己在后面做得更好，但完全没有思路却是打很打击人的一件事。笔试后，我突然觉得，崔明浩不妨自信些。我真的是好奇怪一人，每次遭遇一些失败或坎坷，内心中的火不但没有熄灭，好像又更旺盛了一些。</p>
+<p>如同那句话说的：我表面看起来有多自信，内心就有多自卑。（有人说如此的句子三观不正常，balabala，或许是每个人的经历不一样吧，我对这一句话始终是信奉的。）我表面或许看起来相信自己，甚至在人面前表现出自傲自大，但内心深知自己水平如何，有着许多人不能理解的自卑，从小学开始便如此。到大学后自卑好像有些放大，或许是见过了极多真正优秀的人（尤其是在ACM圈中），自卑在一点点地长大，有时候获一些奖也会去想自己配不配这个奖。人好像爱给自己设限，画地为牢，告诉自己做不成某些事情。突然觉得我给自己设限很多，不妨去忘记一些所谓的极限，去多尝试。有时不必担心结果如何，好好去做吧。</p>
+<p>有点懒了，本来以为会写很多东西，写到这里突然感觉没必要了。引用最近给小伙伴写信写到的一些句吧。</p>
+<blockquote>
+<p>万物之中，希望至美。前些天看到了杭州程序员逆行被拦之后崩溃的新闻，仿佛看到了后面几年的自己。虽知生活很苦，但我还是想去体验一番，苦中作乐，体验下红尘的酸甜苦辣，感觉这样才不负来世间一趟。“希望”一词本身就是世间最美的东西，愿自己心中的那份希望的火苗永不熄灭。</p>
+</blockquote>
+<p>希望自己四月能拿到好一些的实习 offer。</p>
+<p>恰如这篇的题目，且捱过三冬四夏，待春来再看梅花。</p>
+<p>（刚刚搜了下，好像是”且挨过三冬四夏,暂受些此痛苦,雪尽后再看梅花“，估计是自己后来自己杜撰了罢。）</p>
 
-<p>“男的是个很神奇的物种。给男孩一把玩具剑，他便成了男人；给男人一把玩具剑，他便成了男孩。”</p>
-<p>一次学习会上讨论时，学弟晨曦说自己即将二十，弱冠之年，是古人十分重视，学弟想好好总结自己的过去，二十年来的见闻、所读的书、所遇的人。当时我想，我也快到二十了吧，自己很早的时候也想写一篇文章好好总结。想了很长时间，思考自己过去的事情，去想自己过去的想法、收获与遗失。总结是件很难的事，因为总会有你当时很想记起如今却又忘记的事情。所以这篇总结，也不知道丢失了多少过去很想将来写下的东西。（这篇文章最初写在20岁生日那天，不过写的时候逐渐偏离初心，于是也便暂时停笔，后面又准备面试，久久没有继续。今日得闲将它补齐。）</p>
-<p>先说与自己专业、工作、前方的路相关的吧。对于编程，我心中有一团火，与生俱来。想了很长时间，我终于在最近几天想出了如此的描述。我觉得我生来便是要编程的吧。陈寅恪大师将爱情分为四境界，最伟大最纯洁的爱情应当是完全出于理想,“情之最上者,世无其人。悬空设想,而甘为之死,如《牡丹亭》之杜丽娘是也”。我觉得我对编程便是如此吧。我在没有遇上编程的时候便喜欢上了编程，希望以后自己也可以写程序。小时候在我第一眼看到电脑的时候，在我每次用电脑或者说玩电脑的时候，我都会想它是怎么运行的，所谓的代码应该是什么样子，它的逻辑是如何，应该怎么实现。玩游戏时我很好奇它是怎么实现的，猜测着它的实现方式。难道是把所有玩法的可能性都模拟一遍吗？不，想了好久，我得到的回答是否定的，觉得这样会很难。比如我打坐一分钟，编程者想到了，把打坐一分钟写了进去，那我如果打坐一分钟零一秒，那他也要写进去吗？那我打坐的时长是无穷可能的，他都要实现一遍吗？想到这些我就把模拟这种方法否定了，又开始想其它的办法。很多男孩子从小就有拆卸机器的爱好吧，要不是家里就一台电脑，拆坏了就会 game over，我不知道会把这台电脑拆成什么样子 = =。很幸运，这种编程的欲望一直还在，且愈来愈深。遇到C语言时，敲出第一个程序时，自己都超级幸福，直到现在，每当敲起代码时还会幸福感爆棚，每当敲起 hello world，心中总是有如清霖润洗一般。当然会有着不知多少倍受打击的时候，但想起过去的那个小男孩，想起高中时忍不住在纸上写链表的那个男孩，总会走下来，觉得自己不可辜负过去。有人问起我网名的意义，其实{}←enter↑→enter是自己编程时候的起手式，是自己敲花括号时一种习惯按键，大概是之前在用 VC++6.0 时候养成的吧，每次敲起 {}←enter↑→enter 序列时，自己会有一种名叫编程仪式感的东西，心里会很开心。之前队友说很享受我敲花括号的时候，当时听到这个超开心的。</p>
-<p>我很喜欢比尔盖茨的一句话：“每个人都有一颗世纪之眼，它能看到上个世纪人们看不到的东西。”我从小就很喜欢很酷的事情，满脑子想着一些美好的设计。遥控器这种东西真的吸引了我很久，那种从远处就能让电视换台的操作，在我眼中简直不啻魔术一般。我好奇了很久，直到初中时候老师告诉我们有红外线这种东西，之后我又开始好奇红外线为什么能够让电视换台，（逃）。我很小的时候就会想如果我们能在远处知道家里窗户有没有关，并能够操控他们开关，空调、暖水壶什么的亦如是，那应该多酷。那时候手机还是小灵通、翻盖等等，就会幻想着能在手机上操控着家里的电器。没想到当初天马行空般的幻想，如今已变成了眼前的东西。我想小时自己所想的，便是那颗世纪之眼才能看到的吧。自己身处物联网的时代，或许这些幻想的实现，恰是我们一代人要做的。所以如果有机会，我超想能做物联网，亲手去一点点实现小时那些幻想。有一个梦我至今依旧清晰，大概是初一初二的时候，我梦到在一个节目上比尔盖茨亲手送给我一个触屏的计算器，界面简约，功能强大，当自己触摸按钮时，喜悦而醒。当时心里觉得oh， 这实在是太酷了，在当时那个智能手机还没普及的年代，这样的东西如同宝物一般。如今看来，不过只是手机上计算器app，自己都懒得去写了（逃）。过去选编程这条路也是和家里有些许争执的，现在想来，或许是过去他们未曾看到我所看到的东西，未曾看到我心里那团火吧。</p>
-<p>说到和家里在职业上的争执，突然想到了大学前看到一篇文章，文章名<del>可能叫《我为什么（选择？留在？漂泊？）在北上广》，记不太清楚了</del>(更新，找了下，名为《我为什么不愿离开北上广》<a href="https://yuedu.baidu.com/ebook/afe2f03a80eb6294dc886cdf?pn=1&amp;rf=https%3A%2F%2Fwww.google.com%2F" target="_blank" rel="noopener">《我为什么不愿离开北上广》</a>)。里面一句话和我看法一样吧，“父母所谓的稳定，其实不过是一种变相的啃老”。或许和部分家长的想法一样，我家里想让我走医生、机关等一类的工作，在家附近，还能够稳定些。可我觉得自己从小开始，骨子里就有着对新事物、对外面世界永不停息的好奇与追索。小时的村子，村口的有一条较窄的路，两排种着树，连向村头，我那时觉得，到达那里，便是外面的世界。我从小觉得自己所处的环境很闭塞，像桃花源一般，与世隔绝，外面的信息进不来，里面的信息出不去，如同孤岛，每天的新闻都与自己的周围无关，在网上找不到一丝自己所在地的影子。我很厌倦这样的状态（连电脑上看到的零食广告都看不到，难过，当时好想吃的），对大城市愈加痴迷，一心想走出去，去外面看看。高三暑假晚上，我漫步在长安街上，看着华灯闪耀，看着川流不息，看着光影迷离，感觉自己像是握住了时代的脉搏，心告诉我：我应该属于这些。我厌恶所谓的人脉交际，信仰着美国梦中说的“只要经过努力不懈的奋斗便能获得更好的生活，亦即人们必须通过自己的工作勤奋、勇气、创意、和决心迈向富裕，而非依赖于特定的社会阶级和他人的援助。”我从未认真地对家人说起这些我自己内心的想法，我知道我小时候说这些他们肯定会不加思索地轻笑，说我还小，未经社会，年少无知等等。但我也深知，我自是年少，我有着年轻人所应有的年少轻狂，我有着改变世界的梦想，不惧一切，披荆向前。我懂或许拼搏一生，我仍一无所获，回到故乡，未能得到自己想要的，成为大众中庸庸一名，我也会觉得不负至此一程。我觉得年少时假若不狂一些、傲一些、梦想大一些，便是对年少的辜负。每个人老后都会归于茶水，但谁没有爱喝可乐的时候呢。一段时间前读过这样一个句子“少年就是少年。他们看春风不喜，看夏蝉不烦，看秋风不悲，看冬雪不叹，看满身富贵懒察觉，看不公不允敢面对”，初读时觉得很有意味，但后来一想，却又觉得“少年就应看春风而喜，听夏蝉而躁，闻秋风而悲，见冬雪而叹”，这样才能不负少年。年龄越大，越是信奉喜欢罗曼罗兰那句“Il n’ya qu’un héroïsme au monde : c’est de voir le monde tel qu’il est et de l’aimer.”（世上只有一种英雄主义，就是在认清生活真相之后依然热爱生活。）</p>
-<p>人生前二十年，避不开的便是高考和大学这一话题。没有考上自己想要的大学也是自己避不开要谈的。其实我之前一向觉得一个人的梦想是要在自己胸腔中，点燃自己的，而非去告诉别人、宣告天下的。我觉得自己未和很多人说起自己具体的梦想，具体要上的大学，只会和挚友说起。不太熟的人问起的时候也只是搪塞耸肩一笑，说“当然是想上个好些的大学，和编程有关”，点到而已。可奇怪的是好像所有的人都知道我想要上的大学。那个时候我很难受，因为和我心中对梦想的定义不相符，所谓的梦想后来渐渐成了一种压迫在身上的负担，而非是最初激励我前进的动力。我知道在高考失利面前没有借口，在得知成绩后我没有太大的失望（或许是很早的时候就想到了结果），更没有如同当年看的小文、视频一般嚎啕大哭，而是很快的平静了下来，想着以后要走的路，以后去抹平没考好要付出的努力。我从未在心里把大学当成一段享乐的时间，而是求知的地方，是做自己真正喜欢的事情的地方。得知自己最终去往南邮的时候，我便心知“假若我不是学校中的佼佼者，那我便没资格抱怨”。如今我依旧未能成为学校的佼佼者，所以也未曾抱怨学校配不上自己如何如何。记得自己来大学时发的动态是“希望我的大学，比我的高中更加努力”，让父亲刻了一枚章，为“殷鉴不远”，取《诗经》中“殷鉴不远，在夏后之世”之意，意为铭记高中失败之往事，以它为前车之鉴，吸取教训，以警未来。南邮有让我满意也有让我失望的地方，失望的地方还是在其教育体制以及学风，问及老师较为拓展的问题时，会感觉老师避而不谈，或是含糊其辞，亦或是直接说不需要掌握。满意的地方在于我很大地提高了自学能力，以及前些天说的“眼界始阔”，我觉得这才是大学更重要的，教人以智慧优于教人以知识。还有幸运的一点是遇到了一群伙伴，志同道合。没有考上理想大学的遗憾还是有的，我不知多少次将路边指示牌想错，看到“京邮电大学”就会想到北邮，恍惚过后才想起自己身处南京，任何和北邮有关的东西总会第一时间跑入我的眼帘，尽管自己逃避不想见到他们。或许是出于一点点的自命不凡的心理，在 ICPC 南京区域赛的时候看到有两个北邮的队伍在自己后面，突然有种两年没有虚度的安慰感。</p>
-<p>二十年间最满足最得意的事情，便是在大学中寻找到了自己一生的灵魂导师——王阳明。小时不懂王阴阳，因课本格竹一事误会了先生十年。大二时见先生言行，方知一生俯首拜阳明。其实选一个人作导师并不难，只要两人思想相契就好。我读先生时，便觉我的认知与先生有相似的地方，他人觉得怪异的思想于我看来是正常不过的，于是便认定先生为我灵魂导师。心明了了，理也便明了了。每次有困惑去读《传习录》时，都有大悟之感。无善无恶心之体，有善有恶意之动，知善知恶是良知，为善去恶是格物。阳明先生顿悟时在贵州栖霞山，而我开始追寻先生亦是在栖霞，虽非一处，但名字却是相同，也算是一种上天注定的缘分吧。</p>
-<p>我是个完美主义者，也是个极简主义者，觉得完美和简单的设计能给自己带来极大的满足。我的完美主义几于是病态的，在做任何事之前都会纠结很久，因为一件事对我来说，我要么将它做到极致，要么根本不去做它。我发现自己有着暴君的体质，当别人所做的达不到自己的预期时，就会忍不住对他的不满。为了避免如此，我一向更多地去自己做事，而大学里的团队作业实在是我最头疼的事情，因为最终的结果总是和自己的预期相差甚远。我追求完美主义，我逃避去做图片、视频、或者幻灯片，因为我不会用PS、AE、PowerPoint等工具，但我却想着各种整体或细节的处理。因为完美主义，我也在一些认知上和他人有着极大的分歧，后来我才明白，别人说的会做一件事是做出，而我理解的会是将其做好。周围总有人说什么计算机市场已经饱和不缺人一类的话，而我坚持觉得极度缺人，也是后来才明白，他说的人是人力人数，我说的人是人才。而我天生固执又倔犟，从不愿在这种事情上和他人妥协半分。完美主义让我十分苦恼，但我依旧愿意坚持。我的性格里有着偏激的一样，有着赌徒梭哈的孤注一掷，持精一之功，更喜欢 All in 的魄力。我认为大道至简，上帝是喜欢简单的。一条线、一个圆，在我眼里有时都是极美的，$e^{i\pi}+1=0$ 在我眼里不知胜过多少市井嘈杂， 程序中的“hello world”便是最美的情话。（最近看到爱因斯坦的一句话“万物应该简单，但不应过于简单”）</p>
-<p>思二十年间见闻，我觉得包容和谦虚两者最为重要。我见过太多为显自己博识而大放厥词滔滔不绝之人，看过太多持一家之见而抵斥他家之人，我总觉得他们很浅薄，可悲又可笑。我深知我所学的所知道的知识都是在它所在领域的皮毛，甚至皮毛也算不上，是这个领域最基础，最浅显的知识。真理无穷，进一步有一步的欢喜，亦有着向前一步所带来的恐惧。因为向前一步，你会看到更广阔的天空，更高峻的山峰。之前的时候我没能理解一句话，现在却是真真地感受到了。你的知识面是一个圆，你所知道的东西便是它的半径。你所知道的东西越多，那它半径也就越大，知识面也就越大，但在它圆周上，所接触到的新知识未知的知识也就越多，越会感觉到自己的渺小无知。所以我总觉得越有智慧的人他们越会觉得自己无知，因为他们能够看到真理无穷。而相反，那些较为浅薄之人越会自觉狂傲（不是外在表现出的狂傲，而是内心因无知而无所在乎敬畏的狂傲）。我一向喜欢空杯理论，也一向把自己自诩为空杯（其实实际上就是），学习或者处事的时候能够有所辨别地将他人的智慧放入进来，永不觉满。有人持一家之见或不知知识无穷而不愿将自己放空，便也无法吸收进新的知识。或许他们的容量也只是那些，只能够盛下一杯子的水，而谦虚者却是江海湖泊。前面所说的为谦虚，包容亦是如此。我很不习惯没有包容之心的一个人，他们看到与自己想法、立场不一样的人或事就开始开口成喷，遇到自己不能理解看不过的事也便不予包容。我亦是觉得他们可悲又可笑。有时一个人或一件事之所以成为如今的样子，往往与他的过去有着千丝万缕的联系。有人不去一丝丝分析便只就如今的模样去喷与怼，这不过是暴露智商的表现。学会了包容，天地也便开阔了。你不再拘于过去的一己之思、一家之见，而去往更广阔深入的思考，往往能够另有所得，能够明白这世上的人或事为什么会是现在的样子。如果一个人能够容纳两个相反相悖的理论，那这个人将会很可怕。我自觉自己是这样一个人，学习一家的思想后假若接受到与之相悖的事物，只要它不是本质为恶，并不会直接奋起反对，而是一点点将两者融为一体，将两者都放在自己的口袋中。</p>
-<p>最近也加了一些程序员的群，发现自己变得愈加喜欢程序员们，或者说愈加喜欢向上的人。他们能够意识到自己要学习的还有很多，一向保持着谦虚昂扬的姿态，保持着登高自卑的决心，每天和他们交谈，会觉得有着一身向上的动力。或许是程序员自黑惯了，只有他们自己知道这一行业的有趣。我一直觉得一个男人的魅力只有一小部分在颜值，更多的在于他的视野与能力。</p>
-<p>大学这几年也是自己责任意识苏醒的时期，无论是为家的责任、还是为国的责任。有时在行走或是骑车时会听一些曲子，如骆玉笙先生的《重整山河待后生》，不时落泪，那时候方知责任落在我们一辈的身上。重整山河待后生，我们便是后生。我一向很敬畏“先生”这个词，日常中也极少去用它。只有在说自己最为崇拜之人时，才会加上这两字。二十年来，看见了不知多少阴暗向下的世事言论与自暴自弃之人，方知先生当年灼见、文辞中的鞭笞。最后用先生的文字来结尾吧：</p>
-<p>愿中国青年都摆脱冷气，只是向上走，不必听自暴自弃者流的话。能做事的做事，能发声的发声。有一分热，发一分光，就令萤火一般，也可以在黑暗里发一点光，不必等候炬火。</p>
-<p align="right">2019 年 3 月 9 日</p>
           
         
       
@@ -950,7 +1307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/06/13/几句话/">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/03/31/阿里一面/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="之伊丶">
@@ -969,7 +1326,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/13/几句话/" itemprop="url">几句话</a></h1>
+                <a class="post-title-link" href="/2019/03/31/阿里一面/" itemprop="url">阿里一面</a></h1>
         
 
         <div class="post-meta">
@@ -981,8 +1338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-13T07:46:27+08:00">
-                2018-06-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T21:21:27+08:00">
+                2019-03-31
               </time>
             
 
@@ -997,35 +1354,13 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
-                2020-08-01
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-31T23:23:22+08:00">
+                2019-03-31
               </time>
             
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂记/" itemprop="url" rel="index">
-                    <span itemprop="name">杂记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -1033,7 +1368,7 @@
 
           
           
-             <span id="/2018/06/13/几句话/" class="leancloud_visitors" data-flag-title="几句话">
+             <span id="/2019/03/31/阿里一面/" class="leancloud_visitors" data-flag-title="阿里一面">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1058,7 +1393,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  958
+                  3,204
                 </span>
               
 
@@ -1074,7 +1409,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  12
                 </span>
               
             </div>
@@ -1098,30 +1433,67 @@
 
       
         
-          <blockquote>
-<p>持志如心痛，一心在痛上，岂有功夫说闲话，管闲事。——<del>~王阳明</del> 薛侃</p>
-</blockquote>
-<p>&emsp;&emsp;今日读《传习录》，恰遇此句，为薛侃录首，惊其为薛侃问阳明之句，乃知世人谓持志如心痛为阳明言皆谬尔！故学者不可轻信盲从，应据于典。原文下：</p>
-<blockquote>
-<p>侃问：“持志如心痛，一心在痛上，安有功夫说闲话，管闲事？”</p>
-<p>先生曰：“初学功夫如此用亦好，但要使知 ‘出入无时，莫知其乡’。心之神明原是如此，功夫方有着落。若只死死守著，恐于功夫上又发病。“</p>
-</blockquote>
-<p>&emsp;&emsp; 【译文】</p>
-<p>&emsp;&emsp;薛侃问：”操守志向犹如心痛一般，一心只在痛上，哪里有时间说闲话，管闲事？“</p>
-<p>&emsp;&emsp;先生说：“开始学时，如此下功夫也行，但须明白天理的神明原来就是 ‘进出没有时间，不知它要到哪里’。这样功夫方有着落。若只死守志向，在功夫上大概又会发生问题。”</p>
-<blockquote>
-<p>没有天花板。——陈志老师</p>
-</blockquote>
-<blockquote>
-<p>不会所以去学。——陈志老师</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/13/几句话/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>周五的时候突然收到了阿里面试预约的电话，毫无准备，因为自己还没投简历。问了下原来是学长内推的，和面试官预约了今天上午9:30面试。预约的时候能感觉到小哥哥是个极其温柔的人，所以很期待这场面试。虽然从预约到面试仅有两天，但全然没有准备谷歌时紧张，或者说没有紧张感。</p>
+<p>没想到面试持续了两个小时，自我感觉还算良好。面试整体分成三部分吧：</p>
+<ol>
+<li>围绕项目询问相关知识</li>
+<li>实现一个 vector</li>
+<li>算法</li>
+</ol>
+<h3 id="项目及询问相关知识"><a href="#项目及询问相关知识" class="headerlink" title="项目及询问相关知识"></a>项目及询问相关知识</h3><p>预约电话后我又发给了小哥哥一份较新的简历，上面写了自己新做的 HTTP 服务器项目，所以这次的面试一开始问了一些这个项目的事情，以及围绕这个项目问了一些相关知识，对印象比较深的问题做下纪录吧：</p>
+<ul>
+<li>简要介绍下项目（我照着我 Github 读了一遍）</li>
+<li>做了压力测试吗，“没有”（看来后面要用wenbench做下。。。）</li>
+<li><code>epoll</code>与<code>select</code> <code>poll</code>的区别， ET 模式与 LT 模式的区别</li>
+<li>什么是非阻塞模式，（我用买生日蛋糕打比方，非阻塞模式是不停的过来询问有没有做好，面试官小哥哥问为什么不是他做好来打电话通知你，这样不是更高效吗。。我记得这好像是一种实现方式，记不太清楚了，orz，明天问问老师吧，我这种速成学习果真只是应付应付，其实什么都不清晰）</li>
+<li>使用线程池提高并发度，并降低频繁创建线程的开销。怎么提高并发度的，为什么说创建线程的开销大。</li>
+<li>我是怎么给线程分配任务的，（RR策略）。有没有什么优化方式？我回答的是能够知道当前负担较少的线程，把新任务分给它。面试官告诉我换一个角度，建一个任务队列，每个线程做完当前任务后去这个队列中领任务。问如果这么做有没有要注意的，我的回答是如果两个线程同时完成去领任务的话要注意同步，对任务加锁。</li>
+<li>我的线程模型为分主线程、IO线程、worker线程。为什么要这么分，我回答是实现 Reactor 模式。面试官：什么是Reactor模式， 这种模式的优点是什么？orz，给跪了，这个不清楚。缺点是什么，或者说有没有什么情况这种线程切换是不能忍受的。如果问我缺点是什么我不知道，但后面这句提示了我，回答说如果worker线程耗时比较短，很快就能完成，这里线程切换时间比重较大，这种情况是不能忍受的。</li>
+<li>你说使用了 HTTP 长链接，什么是长连接，什么是短连接， 它们各自的使用场景是什么。orz，这个，我凭着之前扫过一眼的印象，觉得长连接就是能够保持连接，短连接就是发完报文直接关闭而不保持，当时心虚不知道对不对，但也就这么说了出来。看面试官的反应应该是对的吧。然后说应用场景，我就说如果双方一次会话信息交互频繁的话使用长连接，比较我们在网页上聊天，双方一直保持连接，避免频繁的建立关闭连接，而如果双方只发送短报文，交互次数不频繁的话就短连接。看面试官反应应该是对的？</li>
+<li>支持优雅关闭？什么是优雅关闭，为什么要这么做。我就把四次挥手迁了出来，用四次挥手来回答这个问题，说出了四次挥手的过程，以及 <code>time_wait</code> 和 <code>close_wait</code>状态，心里想着他肯定会问这两个状态相关的知识，果不其然问了 time_wait ，这也刚好是我准备的。回答了为什么要有 time_wait 状态，而不立即关闭客户端连接。（感觉面试的时候你可以引着面试官向你会的知识方向）</li>
+<li>零拷贝？什么是零拷贝，为什么零拷贝能提高性能，你是怎么实现零拷贝的。这也算是自己之前准备的吧，但其实自己也并不太清楚。就说比如 <code>socket</code> 读写的时候在用户空间和内核空间的数据需要拷贝，如果不拷贝的话就可以提高些性能。怎么实现，<code>splice()</code>函数和管道。</li>
+</ul>
+<p>这一方面印象较深的问题大概就这些吧，后面想起来的话再添加。对这方面做个总结，就是知识果真是积蓄而来的，速成只能知道表面皮毛而不可知其根本。自己网络、操作系统、Linux这些方面的知识还是太薄弱了，一个月地疯狂补习根本是不足够的，达不到自己心中的要求的。后面还需要静下以来深入地学习。（现在只能应付应付吧，对自己的评价是其实什么也不知道，需要深入地知道一项知识，知其根本。）</p>
+<h3 id="手写vector"><a href="#手写vector" class="headerlink" title="手写vector"></a>手写vector</h3><p>下面部分聊到了<code>STL</code>的容器知识，面试官让我说一些容器以及它的一些本质。自己比赛用的<code>STL</code>还算可以，于是就说了几个。vector是动态数组，list双向链表，set（集合，不允许重复）、map（键值对）红黑树，multiset, multimap（允许重复的，自己不太清楚是不是红黑树所以略过没说），deque（双端队列，好像是块状数组，不太了解，之前扫过一眼），stack栈，queue队列，priority_queue优先权队列、堆。unordered_map哈希、桶。问什么是哈希、这个为什么是桶。自己口糊了一波，但其实并不知道。。说了哈希以及哈希冲突的解决办法。unordered_set不了解。</p>
+<p>然后是手写实现一个 vector，这个暴露问题比较大。</p>
+<ul>
+<li><p>不会使用异常</p>
+</li>
+<li><p>不会使用模板，数据类型请求用int，所以其实写了个int动态数组。</p>
+</li>
+<li><p>其实不知道vector的内部实现。好像 <code>push_back()</code> 以及<code>resize()</code>是需要用<code>reserve()</code>函数的，自己不了解这点，所以在 <code>push_back()</code> 和 <code>resize()</code>中写的扩容，面试官说冗杂，设计不是很好。</p>
+</li>
+<li><p>不会写返回左值引用。</p>
+</li>
+<li><p>对函数重载中的<code>const</code>不了解</p>
+</li>
+<li><p>拷贝构造函数一般要在参数前加 <code>const</code></p>
+</li>
+<li><p><code>memcpy()</code>不会使用</p>
+</li>
+<li><p><code>new</code> <code>delete</code>不了解底部实现，自己使用了<code>delete</code>的一种错误用法。面试官给我讲了下，应该算是懂了</p>
+<p>对于运算符 [] 的重载，一开始是返回对应下标的值，我写了出来</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> <span class="keyword">operator</span> [] (<span class="keyword">int</span> i)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> pArr[i];    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>  之后是写返回左值引用，相当于我写a[i]=1，是对数组中这个数赋值操作，orz，不会了。面试官告诉我了如下代码</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> &amp; <span class="keyword">operator</span> [] (<span class="keyword">int</span> i)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> pArr[i];    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  orz,  这样就可以了。返回一个引用。</p>
+<p>  但面试官的问题显然是准备好的，在拷贝构造函数中让我用 <code>memcpy()</code>来拷贝。我不太会用这个函数，给面试官说了自己觉得这个函数应该需要目标数据首地址，源数据首地址，拷贝的长度。面试官说嗯，并给出了函数的原型。然后自己写下了 <code>memcpy((int *)pArr, (int *)vec.pArr, vec.size()*sizeof(int));</code>写的时候意识到<code>pArr</code>是私有的，不能通过对象来访问，于是打算回去写个<code>begin()</code>，面试官拦住了我，问他这么写可不可以<code>memcpy(pArr, &amp;vec[0], vec.size()*sizeof(int));</code> 我纠结了下，感觉 <code>&amp;vec[0]</code>不太对，不知道是返回一个立即数还是返回这个引用。于是面试官引出了刚才的重载出了问题，我说嗯，会发生歧义，不知道调用哪个。问我怎么修改，orz，C++语法我真的弱爆了，不会。</p>
+<p>  面试官小哥哥教了我</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>&amp; <span class="keyword">operator</span> [] (<span class="keyword">int</span> i) <span class="keyword">const</span>;</span><br><span class="line"><span class="keyword">int</span>&amp; <span class="keyword">operator</span> [] (<span class="keyword">int</span> i);</span><br></pre></td></tr></table></figure>
+<p>  然后告诉我第一个其实也可以换成</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> <span class="keyword">operator</span> [] (<span class="keyword">int</span> i) <span class="keyword">const</span>;</span><br></pre></td></tr></table></figure>
+<p>  相当于只加一个<code>const</code>， 而我们看比较正式的代码都会采用上面的写法，在前面加个 <code>const</code>， 为什么，orz，这个我也不知道。嘟嘟囔囔半天说不出来正确的。小哥哥告诉我说这样返回的是结果引用，如果采用下面方法的话会进行一次拷贝，性能不好。你这个数组用的int，性能下降不会太明显。如果是一个类的话，就会明显了。orz， <strong>这个真的学习了</strong>。很感谢面试官，真的学习了很多知识。</p>
+<p>  面试官说反应出我C++语法不是很熟练，但没太大关系。应该是理解我打ACM出身，用C++只是用来解决一些算法题目，对一些语法不了解。</p>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><p>  下面就是算法部分了，这部分比较顺利，第一题对我来说算是秒杀吧，经典题目，合并K个有序链表。直接写了出来，但后面改的时候脑袋一抽，尼玛写了个根本没必要的while循环，现在想来根本没必要，还会导致性能下降。</p>
+   <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListNode* <span class="title">merge</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;ListNode*&gt; &amp;lists)</span> </span>&#123;</span><br><span class="line"><span class="keyword">if</span>(lists.empty())</span><br><span class="line">reutn <span class="literal">nullptr</span>;</span><br><span class="line"><span class="keyword">int</span> n = lists.size();</span><br><span class="line"><span class="keyword">while</span>(n &gt; <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> k = (n+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">	lists[i] = mergeTwo(lists[i], lists[i+k]);</span><br><span class="line">n = k;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> lists[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ListNode * <span class="title">mergeTwo</span><span class="params">(ListNode* list1, ListNode* list2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ListNode *pList = <span class="keyword">new</span> ListNode();</span><br><span class="line">	ListNode *cur = pList;</span><br><span class="line">	<span class="keyword">while</span>(list1 &amp;&amp; list2)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(list1-&gt;val &lt; list2-&gt;val)</span><br><span class="line">		&#123;</span><br><span class="line">			cur-&gt;pNext = list1;</span><br><span class="line">			list1 = list1-&gt;pNext;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">            cut-&gt;pNext = list2;</span><br><span class="line">            list2 = list2-&gt;pNext;</span><br><span class="line">        &#125;</span><br><span class="line">		cur = cur-&gt;pNext;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">while</span>(list1 != <span class="literal">nullptr</span> || list2 != <span class="literal">nullptr</span>)	<span class="comment">//根本没必要</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(list1)</span><br><span class="line">        &#123;</span><br><span class="line">            cur-&gt;pNext = list1;</span><br><span class="line">            list1 = list1-&gt;pNext;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(list2)</span><br><span class="line">        &#123;</span><br><span class="line">            cur-&gt;pNext = list2;</span><br><span class="line">            list2 = list2-&gt;pNext;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> pList-&gt;pNext;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>让我分析下复杂度，自己口糊了一个和链表长度有关， O(K longN)，面试官想了一会，好像觉得对。。聊了会说这是经典题，原来做过。orz，其实没做过，这种题我一般不愿去做，逃。。然后问我知不知道经典算法，我问了下。面试官说了一下，我没听太清楚，就问是不是优先权队列，面试官小哥哥说是。然后我口糊了一波实现，小哥哥说对的。然后我夸了一波这算法，清晰，balabala的。小哥哥看我秒了一道 算法，然后 又问了一道，说不用我写，说下思路就行。。woc，这太TM爽了，毕竟我就是口糊选手。。。敲代码不行，但口糊我可不怂。</p>
+<p>问n个元素，求最大最小值。我？？？这题肯定有玄机，不管了，先暴力？？遍历一遍不就好了？O（n），准备说比较多少次，2（n-1）。有没有什么优化。我寻思着这也不能优化到 O（log n）呀。小哥哥给了个提示，不是数量级上的优化，那我就放心了。。想了一会还是没想出来，小哥哥给了第二个提示，优化到 $O({3 \over 2}n)​$。想了不久，说每次取两个数先比较，小的和当前存的最小比，大的和最大比，这样每2个数由原来的比较4次优化到了3次。小哥哥说不错。应该是正解了。然后小哥哥说不错很好，后面应该也有同学会接着面。我没听明白什么意思，大概就理解成一面过了，后面有他同事接着面试我的意思？今天也挺长时间的，balabala，我说今天周日，和小哥哥面试刚好学习。然后问了他在阿里最大的收获或感受。小哥哥笑了笑，聊了一些。说起搜索推荐、机器学习的时候，小哥哥说：“哎呀，其实这个low爆了，很低端的。我们就是调调参，读读paper。”然后互道拜拜一面也就结束了。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>总结一下吧，自己的基础还是太薄弱了。C++语法， Linux知识以及网络、网络编程，这些还是要恶补。面试的算法题都比较基础，自己下面刷题不能眼高手低，不写这些比较基础的题？（orz，虽然还是觉得自己应该不愿意去写。。。）</p>
+<p align="right">2019.3.31<br>23:18</p>
+          
         
       
     </div>
@@ -1172,7 +1544,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/11/29/写给荷/">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/03/21/线程间通信方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="之伊丶">
@@ -1191,7 +1563,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/29/写给荷/" itemprop="url">写给荷</a></h1>
+                <a class="post-title-link" href="/2019/03/21/线程间通信方式/" itemprop="url">线程间通信方式</a></h1>
         
 
         <div class="post-meta">
@@ -1203,8 +1575,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T16:52:10+08:00">
-                2018-11-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-21T10:01:08+08:00">
+                2019-03-21
               </time>
             
 
@@ -1219,8 +1591,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
-                2020-08-01
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-21T10:11:50+08:00">
+                2019-03-21
               </time>
             
           </span>
@@ -1238,8 +1610,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -1255,7 +1627,7 @@
 
           
           
-             <span id="/2018/11/29/写给荷/" class="leancloud_visitors" data-flag-title="写给荷">
+             <span id="/2019/03/21/线程间通信方式/" class="leancloud_visitors" data-flag-title="线程间通信方式">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1280,213 +1652,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,195
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>初遇荷是今年 6 月份时的初夏，那时候正在去往活动室复习数电的路上，南京略闷热的天气和备考复习课程的不适让我有些压抑。这样的行走，感觉每一步都踩着不甘。心惶惶，不知自己的内心是早些到 215 还是故意慢些，在路上散散心，逃避一刻的烦忧。可是恰在这时，在我路过鼎山后一塘小水沟时，邂逅了令我魂牵这一夏一秋的荷。不是答答的马蹄，而是一个柚子的脚步。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/29/写给荷/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/07/31/判断语句中位运算符的一个小坑/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/31/判断语句中位运算符的一个小坑/" itemprop="url">判断语句中位运算符的一个小坑</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-31T13:01:27+08:00">
-                2018-07-31
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
-                2020-08-01
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程/" itemprop="url" rel="index">
-                    <span itemprop="name">编程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/07/31/判断语句中位运算符的一个小坑/" class="leancloud_visitors" data-flag-title="判断语句中位运算符的一个小坑">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  261
+                  24
                 </span>
               
 
@@ -1527,13 +1693,13 @@
       
         
           
-            <p>最近训练时敲代码总爱在if语句中有位算符时踩坑， 比如 <code>if(i&amp;1==0)</code> 或 <code>if(i&amp;i-1 == 0)</code>，本意是想判 i 是否为偶数和 i 是否为 2 的幂，但这么写都是错误的，导致程序不能输出正确结果。每次 debug 时又不明所以，耗了很长时间才找到。在这里记录下。</p>
-<p>错误的原因是 <code>==</code> 运算符优先级要高于<code>&amp;</code> <code>|</code> <code>^</code>这三个位运算符，故导致上面代码的判断顺序实际为<code>if(i &amp; (1==0))</code> 和 <code>if(i &amp; (i-1 == 0))</code>。 很痛苦呀，有没有。</p>
-<p><strong>建议：</strong></p>
-<ul>
-<li>判断式中如果同时存在<strong>位运算符</strong>和<strong>小于等于大于</strong>时，将位运算符表达式加上括号</li>
-<li>判等时，如果一边是常数一边是变量，将常数放于判等左边。 （TAT，当时听郝斌老师讲这条时还不以为意，心想判等自己肯定不会写成 = , 现在想来，真是内牛满面呀，这条规则实在太好了）</li>
+            <ul>
+<li>事件(Event);</li>
+<li>信号量(semaphore);</li>
+<li>互斥量(mutex);</li>
+<li>临界区(Critical section)</li>
 </ul>
+<p>详细的介绍在<a href="https://blog.csdn.net/bao_qibiao/article/details/4516196" target="_blank" rel="noopener">这里</a></p>
 
           
         
@@ -1586,7 +1752,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/08/28/两道单调队列题目-初识单调队列/">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/03/21/Linux-命令行-的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="之伊丶">
@@ -1605,7 +1771,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/28/两道单调队列题目-初识单调队列/" itemprop="url">两道单调队列题目(初识单调队列)</a></h1>
+                <a class="post-title-link" href="/2019/03/21/Linux-命令行-的区别/" itemprop="url">Linux 命令行 & ; && 的区别</a></h1>
         
 
         <div class="post-meta">
@@ -1617,8 +1783,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-28T22:41:56+08:00">
-                2018-08-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-21T10:06:20+08:00">
+                2019-03-21
               </time>
             
 
@@ -1633,57 +1799,13 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
-                2020-08-01
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-21T10:07:32+08:00">
+                2019-03-21
               </time>
             
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/数据结构/单调队列/" itemprop="url" rel="index">
-                    <span itemprop="name">单调队列</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -1691,7 +1813,7 @@
 
           
           
-             <span id="/2018/08/28/两道单调队列题目-初识单调队列/" class="leancloud_visitors" data-flag-title="两道单调队列题目(初识单调队列)">
+             <span id="/2019/03/21/Linux-命令行-的区别/" class="leancloud_visitors" data-flag-title="Linux 命令行 & ; && 的区别">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1716,683 +1838,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,624
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  8
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>尺取法、单调队列、滑动窗口一直傻傻分不清。以前觉得尺取法就是滑动窗口，现在又觉得单调队列和滑动窗口是一回事。</p>
-<p>算法的美妙之处就在于当你明了一个算法时，会发自内心惊叹它的美。我于树状数组如此，学习单调队列后亦如此。</p>
-<p>关于单调队列的用法主要看了下<a href="https://www.cnblogs.com/neverforget/archive/2011/10/13/ll.html" target="_blank" rel="noopener">单调队列及其应用</a>中的内容， 以下引用一些内容。</p>
-<blockquote>
-<p>   单调队列及其应用</p>
-<pre><code>单调队列，望文生义，就是指队列中的元素是单调的。如：{a1,a2,a3,a4……an}满足a1&lt;=a2&lt;=a3……&lt;=an,a序列便是单调递增序列。同理递减队列也是存在的。
-
-单调队列的出现可以简化问题，队首元素便是最大（小）值，这样，选取最大（小）值的复杂度便为o（1），由于队列的性质，每个元素入队一次，出队一次，维护队列的复杂度均摊下来便是o（1）。
-</code></pre><p>如何维护单调队列呢，以单调递增序列为例：</p>
-<p>1、如果队列的长度一定，先判断队首元素是否在规定范围内，如果超范围则增长队首。</p>
-<p>2、每次加入元素时和队尾比较，如果当前元素小于队尾且队列非空，则减小尾指针，队尾元素依次出队，直到满足队列的调性为止</p>
-<p>要特别注意头指针和尾指针的应用。</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/28/两道单调队列题目-初识单调队列/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/08/28/两道数论题-素数筛/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/28/两道数论题-素数筛/" itemprop="url">两道数论题(素数筛)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-28T18:33:22+08:00">
-                2018-08-28
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
-                2020-08-01
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/数论/" itemprop="url" rel="index">
-                    <span itemprop="name">数论</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/28/两道数论题-素数筛/" class="leancloud_visitors" data-flag-title="两道数论题(素数筛)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,663
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  9
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="https://www.lifeofpix.com/wp-content/uploads/2018/04/IMG_0025-1600x900.jpg" alt="插图">
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/28/两道数论题-素数筛/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/09/11/两道树状数组/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/11/两道树状数组/" itemprop="url">两道树状数组</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-11T11:17:46+08:00">
-                2018-09-11
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
-                2020-08-01
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/数据结构/树状数组/" itemprop="url" rel="index">
-                    <span itemprop="name">树状数组</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/09/11/两道树状数组/" class="leancloud_visitors" data-flag-title="两道树状数组">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,190
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  7
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>最近又好颓废呀，暑假想写的两道树状数组的题解拖到了今天。</p>
-<h1 id="Movie-Collection-NWERC-2011"><a href="#Movie-Collection-NWERC-2011" class="headerlink" title="Movie Collection(NWERC 2011)"></a>Movie Collection(NWERC 2011)</h1><p>传送门： <a href="http://codeforces.com/gym/100729/attachments" target="_blank" rel="noopener">Gym - 100729C</a></p>
-<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>Mr. K. I. has a very big movie collection. He has organized his collection in a big stack.<br>Whenever he wants to watch one of the movies, he locates the movie in this stack and removes<br>it carefully, ensuring that the stack doesn’t fall over. After he finishes watching the movie, he<br>places it at the top of the stack.<br>Since the stack of movies is so big, he needs to keep track of the position of each movie.<br>It is sufficient to know for each movie how many movies are placed above it, since, with this<br>information, its position in the stack can be calculated. Each movie is identified by a number<br>printed on the movie box.<br>Your task is to implement a program which will keep track of the position of each movie.<br>In particular, each time Mr. K. I. removes a movie box from the stack, your program should<br>print the number of movies that were placed above it before it was removed.
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/11/两道树状数组/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2018/12/20/交换两个数据块/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/20/交换两个数据块/" itemprop="url">交换两个数据块位置（数组的连续移位）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-20T20:03:11+08:00">
-                2018-12-20
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2020-08-01T09:34:44+08:00">
-                2020-08-01
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/12/20/交换两个数据块/" class="leancloud_visitors" data-flag-title="交换两个数据块位置（数组的连续移位）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  374
+                  59
                 </span>
               
 
@@ -2433,16 +1879,436 @@
       
         
           
-            <p>连续的数据，如 <code>abcdefg</code> , 经过多次循环移位后，（如 <code>abcdefg</code> 经一次循环移位后变为  <code>bcdefga</code> ），该数据会变为什么。</p>
-<p>我们知道数组的移位是O(n)，很耗时间，如果连续移动 m 次的话时间消耗会很大。最近在读《编程珠玑》， 上边提供了两种算法。第一种称之为 “杂技算法”，即给定一些临时空间（设为可存放<code>k</code>个数据，需连续移动<code>m</code>次），先将前 <code>k</code> 个数据放入里面，之后将第 <code>m+1</code> 到第 <code>m+k</code> 个数据移入第 <code>1</code> 个到第 <code>k</code> 个中，其后依次移入其所在位置。（本文章并不想详细说此方法）。</p>
-<p>第二种方法则比较巧妙，使我想起了暑假集训时做到的一道题目。那道题目和本题很相似，不过是要做多次这种连续移位，更加复杂。但其解决方法的思想和第二种方法思想一致。若总共有 <code>n</code> 个数据，要连续移动 <code>m</code> 次，算法如下：</p>
-<ul>
-<li>Reserve(0, m-1)</li>
-<li>Reserve(m, n-1)</li>
-<li>Reserve(0, n-1)</li>
-</ul>
-<p>如 <code>abcdefg</code> ， 第一步翻转后变为 <code>cbadefg</code> , 第二步后变为 <code>cbagfed</code> , 第三步后变为 <code>defgabc</code>。 即为答案，十分巧妙！</p>
-<p>暑假那题因为需要多次进行连续移位，所以用到了 Splay树。还有巨巨们用了 rope（块状链表）。 也是我第一次听说这种数据结构。不过 Splay树效率更高些。</p>
+            <ol>
+<li><p>command1 &amp; command2 &amp; command3     </p>
+<p>三个命令同时执行 </p>
+</li>
+<li><p>command1; command2; command3<br>不管前面命令执行成功没有，后面的命令继续执行 </p>
+</li>
+<li><p>command1 &amp;&amp; command2<br>只有前面命令执行成功，后面命令才继续执行</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/03/20/远程连接阿里服务器Mysql的坑/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/20/远程连接阿里服务器Mysql的坑/" itemprop="url">远程连接阿里服务器Mysql的坑</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-20T18:20:03+08:00">
+                2019-03-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-20T18:41:02+08:00">
+                2019-03-20
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">Mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/20/远程连接阿里服务器Mysql的坑/" class="leancloud_visitors" data-flag-title="远程连接阿里服务器Mysql的坑">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  315
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>今天突发奇想，想在阿里的服务器上搭个数据库玩，结果按网上步骤搭完后远程一直连不上。用 Windows 连接时会报 10060 错误（未知错误），用阿里自己远程连的时候会报 110 错误。用命令行搞了一下午防火墙，开放端口一类的，又重置了一次系统，结果还是连不上。</p>
+<p>最后，我默默在阿里服务器的控制台发现了这个，orz。<img src="http://cmhblog.cfzhao.com/blog/20190320/MeJbwBxWVWOr.PNG" alt="mark"></p>
+<p>这里还有个总的防火墙，要在这里开下Mysql的端口。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/20/远程连接阿里服务器Mysql的坑/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/03/18/进程间通信方式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/18/进程间通信方式/" itemprop="url">进程间通信方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-18T14:29:30+08:00">
+                2019-03-18
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-03-18T14:33:02+08:00">
+                2019-03-18
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/18/进程间通信方式/" class="leancloud_visitors" data-flag-title="进程间通信方式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  91
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在做七牛云笔试题目中有一题是选出进程间通信方式，在这里记录下来。</p>
+<p><strong>进程间通信的7种方式</strong></p>
+<ol>
+<li>管道/匿名管道(pipe)</li>
+<li>有名管道(FIFO) …</li>
+<li>信号(Signal) …</li>
+<li>消息(Message)队列 …</li>
+<li>共享内存(share memory) …</li>
+<li>信号量(semaphore) …</li>
+<li>套接字(socket)</li>
+</ol>
+<p>较为详细的解释在<a href="https://www.jianshu.com/p/c1015f5ffa74" target="_blank" rel="noopener">这里</a>。</p>
 
           
         
