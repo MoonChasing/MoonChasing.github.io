@@ -344,6 +344,223 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/08/24/腾讯后台开发面经/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/24/腾讯后台开发面经/" itemprop="url">腾讯后台开发面经</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-24T12:00:37+08:00">
+                2019-08-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-03-08T10:35:32+08:00">
+                2020-03-08
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面经/" itemprop="url" rel="index">
+                    <span itemprop="name">面经</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/08/24/腾讯后台开发面经/" class="leancloud_visitors" data-flag-title="腾讯后台开发面经">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,465
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><blockquote class="blockquote-center">请带着批判的眼光看这篇文章。或许我的一些答案是不对的。如果您发现了错误，烦请指出。</blockquote></p>
+<ol>
+<li><p>C++对象模型</p>
+<p>这个要重点掌握， 要明白类里有什么，每个类的对象里又有什么。尤其是对虚函数表的了解。这块知识较多，不在这篇文章中详述。网上有着很多优秀的博客来介绍。</p>
+<p><a href="https://coolshell.cn/articles/12176.html" target="_blank" rel="noopener">https://coolshell.cn/articles/12176.html</a></p>
+<p><a href="https://www.jianshu.com/p/9fb37bb3094f" target="_blank" rel="noopener">https://www.jianshu.com/p/9fb37bb3094f</a></p>
+</li>
+<li><p><strong>C++多态机制的实现原理</strong></p>
+<p>主要就是上面问题中的虚函数表。</p>
+</li>
+<li><p><strong>如果一个类的指针为 <code>nullptr</code> ，那么调用他的成员函数会不会出错。出错的话是在哪一阶段出错。</strong></p>
+<p>也是对C++内存模型的一个考察以及动态绑定静态绑定。每个类的成员函数都在<code>.text</code>代码段，静态绑定的时候如果成员函数不访问成员变量的话那么这个函数不会出问题。如果说是虚函数或这个函数访问了成员变量，那么就会出错。虚函数出错是因为其动态绑定，因为是 <code>nullptr</code>， 无法确定其虚函数表。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/24/腾讯后台开发面经/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/08/24/C-动态绑定与静态绑定/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2118,218 +2335,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/06/20/Vim一些常见操作技巧/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/20/Vim一些常见操作技巧/" itemprop="url">Vim一些常见操作技巧</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-20T18:09:26+08:00">
-                2019-06-20
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-04T21:25:52+08:00">
-                2019-07-04
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/06/20/Vim一些常见操作技巧/" class="leancloud_visitors" data-flag-title="Vim一些常见操作技巧">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  285
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li><p>全选</p>
-<p>普通模式下， <code>gg</code>回到文件开始，<code>v</code> 进入可视模式， <code>G</code>将光标移到文件结束。</p>
-</li>
-<li><p>复制到系统粘贴板</p>
-<p>这个首先要看 <code>vim</code> 是否支持系统粘贴板 <code>vim --version | grep &quot;clipboard&quot;</code><img src="http://cmhblog.cfzhao.com/2019-06-18/161409/" alt="">我这里 <code>clipboard</code> 前是 + 号，表示支持。如果是<code>-</code>号，可以百度下方法。</p>
-<p>普通模式下，使用 <code>&quot;+y</code>复制到粘贴板。</p>
-</li>
-<li><p>交换相邻字符顺序</p>
-<p>我编程时有时因为输入太快而导致字符顺序错误。比如将 return 输入成 retrun, endl 输入成 ednl。这样子的话将光标移到出现错误的第一个字符。然后普通模式下 <code>xp</code>。</p>
-</li>
-<li><p>正常模式转到插入模式</p>
-<ul>
-<li><code>i</code> 当前光标前插入， <code>I</code> 当前行首</li>
-<li><code>a</code>当前光标后插入， <code>A</code>  当前行尾</li>
-<li><code>o</code>下一行插入， <code>O</code> 上一行插入 </li>
-</ul>
-</li>
-<li><p><code>D</code>： d$</p>
-</li>
-<li><p><code>?</code>：从下而上查找， <code>/</code>自上而下查找</p>
-</li>
-<li><p>保存新文件：<code>:w 路径+文件名</code></p>
-</li>
-<li><p><code>:!+bash命令</code>：运行终端命令</p>
-</li>
-<li><p><code>:s/old/new</code>：将旧的替换成新的，<strong>默认为当前行</strong></p>
-</li>
-<li><p><code>:3，5s/old/new</code>：从第3行到第5行替换</p>
-</li>
-<li><p><code>:s/old/new/g</code>：全局替换</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2384,7 +2389,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">127</span>
+                  <span class="site-state-item-count">128</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2406,7 +2411,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-count">88</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
