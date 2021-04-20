@@ -344,6 +344,204 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/09/14/线程共享哪些资源/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="之伊丶">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/14/线程共享哪些资源/" itemprop="url">线程共享哪些资源</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-14T19:41:00+08:00">
+                2019-09-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-09-14T19:46:18+08:00">
+                2019-09-14
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/09/14/线程共享哪些资源/" class="leancloud_visitors" data-flag-title="线程共享哪些资源">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  246
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>线程共享资源： </p>
+<blockquote>
+<p>a. 堆  由于堆是在进程空间中开辟出来的，所以它是理所当然地被共享的；因此new出来的都是共享的（16位平台上分全局堆和局部堆，局部堆是独享的）</p>
+<p>b. 全局变量 它是与具体某一函数无关的，所以也与特定线程无关；因此也是共享的</p>
+<p>c. 静态变量 虽然对于局部变量来说，它在代码中是“放”在某一函数中的，但是其存放位置和全局变量一样，存于堆中开辟的.bss和.data段，是共享的</p>
+<p>d. 文件等公用资源  这个是共享的，使用这些公共资源的线程必须同步。</p>
+<p>e. 地址空间</p>
+<p>f. 子进程、闹铃、信号及信号服务程序、记账信息</p>
+<p>g. 进程代码段</p>
+</blockquote>
+<p>线程独享资源</p>
+<blockquote>
+<p>栈</p>
+<p>寄存器</p>
+<p>程序计数器</p>
+<p>状态字</p>
+<p>线程优先级</p>
+<p>错误返回码</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/09/03/C-后台开发面试一些题目（只列举，无答案）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -691,7 +889,7 @@
 <p>也是对C++内存模型的一个考察以及动态绑定静态绑定。每个类的成员函数都在<code>.text</code>代码段，静态绑定的时候如果成员函数不访问成员变量的话那么这个函数不会出问题。如果说是虚函数或这个函数访问了成员变量，那么就会出错。虚函数出错是因为其动态绑定，因为是 <code>nullptr</code>， 无法确定其虚函数表。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/24/腾讯后台开发面经/#espandi" rel="contents">
+            <a class="btn" href="/2019/08/24/腾讯后台开发面经/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -900,7 +1098,7 @@
 <p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/08/24/C-动态绑定与静态绑定/#espandi" rel="contents">
+            <a class="btn" href="/2019/08/24/C-动态绑定与静态绑定/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1097,7 +1295,7 @@
 <p>很棒很惊艳的代码。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/21/Have-fun-with-unix/#espandi" rel="contents">
+            <a class="btn" href="/2019/07/21/Have-fun-with-unix/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1667,7 +1865,7 @@
 <p>You are also asked to answer multiple independent queries.
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/21/Educational-Codeforces-Round-68-B-Yet-Another-Crosses-Problem/#espandi" rel="contents">
+            <a class="btn" href="/2019/07/21/Educational-Codeforces-Round-68-B-Yet-Another-Crosses-Problem/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2071,195 +2269,7 @@
 <p>综合数据库、规则库、控制系统
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/06/28/AI复习/#espandi" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/06/24/市场营销复习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="之伊丶">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MoonChasing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/24/市场营销复习/" itemprop="url">市场营销复习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-24T12:29:38+08:00">
-                2019-06-24
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-21T17:32:04+08:00">
-                2019-07-21
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/06/24/市场营销复习/" class="leancloud_visitors" data-flag-title="市场营销复习">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  6,364
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  22
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="导论"><a href="#导论" class="headerlink" title="导论"></a>导论</h2><ol>
-<li><h5 id="市场和市场营销定义"><a href="#市场和市场营销定义" class="headerlink" title="市场和市场营销定义"></a>市场和市场营销定义</h5><p>从市场营销的角度看，市场就是商品交换关系的总和</p>
-<p>营销学中的市场：指的是具有特定的需求或欲望，而且愿意并能够通过交换来满足这种需要和欲望的全部潜在顾客。</p>
-<p>一般意义的市场：是商品交易的场所，是显在和潜在买主的结合体，是买卖关系的总和。</p>
-<p>营销是通过创造和交换产品及价值，从而使个人或组织满足欲望和需要的社会和管理过程。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/06/24/市场营销复习/#espandi" rel="contents">
+            <a class="btn" href="/2019/06/28/AI复习/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2355,7 +2365,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-count">130</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2377,7 +2387,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-count">89</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
