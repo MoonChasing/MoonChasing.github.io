@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="xSALNCd7e6-d6OjbNKdpk8bUbfMKnJYB4eNG232fwvc">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.31/dist/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhiyi.live","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="本文是我学习 C++ chrono 库时的学习、思考的临时笔记。很多地方可能存在谬误，请读者带着批判性的目光阅读。  学习 chrono 库重要点是了解其中三个重要概念及它们之间的联系：  时钟 (clock)  时间点 (time_point)  时间间隔 (duration)  上面三个重要概念是我依靠自己感觉总结出来的，名字也是自己起的，可能有失偏颇，但大体应该如此。个人觉得这三个名字也可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「小满」C++ chrono 库使用学习笔记">
+<meta property="og:url" content="http://zhiyi.live/2023/05/21/%E3%80%8C%E5%B0%8F%E6%BB%A1%E3%80%8DC-chrono-%E5%BA%93%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="MoonChasing">
+<meta property="og:description" content="本文是我学习 C++ chrono 库时的学习、思考的临时笔记。很多地方可能存在谬误，请读者带着批判性的目光阅读。  学习 chrono 库重要点是了解其中三个重要概念及它们之间的联系：  时钟 (clock)  时间点 (time_point)  时间间隔 (duration)  上面三个重要概念是我依靠自己感觉总结出来的，名字也是自己起的，可能有失偏颇，但大体应该如此。个人觉得这三个名字也可">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-21T18:44:22.000Z">
+<meta property="article:modified_time" content="2025-03-05T14:23:10.345Z">
+<meta property="article:author" content="之伊丶">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://zhiyi.live/2023/05/21/%E3%80%8C%E5%B0%8F%E6%BB%A1%E3%80%8DC-chrono-%E5%BA%93%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://zhiyi.live/2023/05/21/%E3%80%8C%E5%B0%8F%E6%BB%A1%E3%80%8DC-chrono-%E5%BA%93%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0/","path":"2023/05/21/「小满」C-chrono-库使用学习/","title":"「小满」C++ chrono 库使用学习笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>「小满」C++ chrono 库使用学习笔记 | MoonChasing</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118447996-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-118447996-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MoonChasing</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E9%92%9F-clock"><span class="nav-number">1.</span> <span class="nav-text">时钟 (clock)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E7%82%B9-time-point"><span class="nav-number">2.</span> <span class="nav-text">时间点 (time_point)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E9%97%B4%E9%9A%94-duration"><span class="nav-number">3.</span> <span class="nav-text">时间间隔 (duration)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E4%B8%AA%E6%A6%82%E5%BF%B5%E5%85%B3%E7%B3%BB"><span class="nav-number">4.</span> <span class="nav-text">三个概念关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-fmtlib-%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%97%B6%E9%97%B4"><span class="nav-number">5.</span> <span class="nav-text">使用 fmtlib 格式化时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B0%8F%E5%90%90%E6%A7%BD"><span class="nav-number">6.</span> <span class="nav-text">一些小吐槽</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%84%9F%E6%82%9F"><span class="nav-number">7.</span> <span class="nav-text">感悟</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="之伊丶"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">之伊丶</p>
+  <div class="site-description" itemprop="description">每从细笔惊新悟，重向高山愧旧琴。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=825910928&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;825910928&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener me" target="_blank"><i class="fa-brands fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/cui-ming-hao-61" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;cui-ming-hao-61" rel="noopener me" target="_blank"><i class="fas fa-puzzle-piece fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/MoonChasing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MoonChasing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/7679023/moonchasing" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;7679023&#x2F;moonchasing" rel="noopener me" target="_blank"><i class="fa-brands fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-gamepad fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://blog.0xfaner.site/" title="https:&#x2F;&#x2F;blog.0xfaner.site" rel="noopener" target="_blank">0xfaner</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://coswindy.cn/" title="https:&#x2F;&#x2F;coswindy.cn&#x2F;" rel="noopener" target="_blank">coswindy</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.cfzhao.com/" title="http:&#x2F;&#x2F;www.cfzhao.com&#x2F;" rel="noopener" target="_blank">CFZhao</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.kimiye.xyz/" title="https:&#x2F;&#x2F;www.kimiye.xyz" rel="noopener" target="_blank">Kehuaiiiiii</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2023/05/21/%E3%80%8C%E5%B0%8F%E6%BB%A1%E3%80%8DC-chrono-%E5%BA%93%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="之伊丶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+      <meta itemprop="description" content="每从细笔惊新悟，重向高山愧旧琴。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="「小满」C++ chrono 库使用学习笔记 | MoonChasing">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「小满」C++ chrono 库使用学习笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-21 18:44:22" itemprop="dateCreated datePublished" datetime="2023-05-21T18:44:22+00:00">2023-05-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-05 14:23:10" itemprop="dateModified" datetime="2025-03-05T14:23:10+00:00">2025-03-05</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>本文是我学习 C++ chrono 库时的学习、思考的临时笔记。很多地方可能存在谬误，请读者带着批判性的目光阅读。</p>
+</blockquote>
+<p>学习 <code>chrono</code> 库重要点是了解其中三个重要概念及它们之间的联系：</p>
+<ul>
+<li>时钟 (clock)</li>
+<li> 时间点 (time_point)</li>
+<li> 时间间隔 (duration)</li>
+</ul>
+<p>上面三个重要概念是我依靠自己感觉总结出来的，名字也是自己起的，可能有失偏颇，但大体应该如此。个人觉得这三个名字也可以很直观地来理解他们的意义。在 C++ 的 <code>chrono</code> 库中，他们相互之间的联系也很直觉，如时钟可以获得时间点，两个时间点的差为时间间隔，时间点加上一个时间间隔即是另外一个时间点。<span id="more"></span></p>
+<h2 id="时钟-clock"><a href="#时钟-clock" class="headerlink" title="时钟(clock)"></a>时钟 (clock)</h2><p>时钟的用途就是用来获取时间点。<code>chrono</code> 标准库中提供了三种（我目前知道的）时钟，分别为：</p>
+<ul>
+<li><code>std::chrono::system_clock</code> ：系统时钟，用于表示现实世界时间的时钟，如现在是几点等。该时钟不保证单调递增，受系统时间的影响，当系统时间发生调整时，<code>system_clock</code> 的读数可能会发生跳变 / 倒退。</li>
+<li><code>std::chrono::steady_clock</code>：单调递增时钟，主要用于测量时间间隔，如程序运行计时等。不受系统时间的影响。类似于 <code>clock_gettime</code> 中的  <code>CLOCK_MONOTONIC</code>。</li>
+<li><code>std::chrono::high_resolution_check</code>：最高精度时钟，拥有最高的时间精度，适合用于性能计时和测量时间间隔。<br>在某些实现中，<code>high_resolution_clock</code> 可能是 <code>system_clock</code> 或 <code>steady_clock</code> 的别名。因此，它可能具有 <code>system_clock</code> 或 <code>steady_clock</code> 的特点，具体取决于实现。</li>
+</ul>
+<p>这三种时钟类型的精度和特性可能因平台和实现而异。</p>
+<p>对于时钟来说，最常用的成员函数应该是 <code>now()</code>，即获取当前的时钟时间。</p>
+<p>对于 <code>system_clock</code>，还有两个较为常用的成员函数，为  <code>from_time_t</code> 和 <code>to_time_t</code>，即通过 C 风格下的 <code>time_t</code>（即以秒计的时间戳），来获取该时间戳下的时间点 (time_point)。或将时间点转换为 C 风格下的时间戳。</p>
+<h2 id="时间点-time-point"><a href="#时间点-time-point" class="headerlink" title="时间点(time_point)"></a>时间点 (time_point)</h2><p>时间点即为特定时钟下的某个时刻。也就是说，<code>chrono</code> 库中，如果要指定一个时间，需要确定三个元素。</p>
+<ol>
+<li>是哪种时钟下的时间点</li>
+<li>这种时钟下的纪元（即零点时间）是什么，（如我们熟知的 <code>UTC 1970-01-01 00:00:00</code>）</li>
+<li>该时间点距离纪元的时间间隔是多久。</li>
+</ol>
+<h2 id="时间间隔-duration"><a href="#时间间隔-duration" class="headerlink" title="时间间隔(duration)"></a>时间间隔 (duration)</h2><p>时间间隔即两个时间点相距多久。<code>chrono</code> 库中，要表示时间间隔，要确定以下两点：</p>
+<ul>
+<li>Rep：数据表示方式（存储类型），如 <code>int</code>，<code>float</code>，<code>uint64_t</code>。</li>
+<li>Period：时间间隔单位，如秒、毫秒、分钟。<br>在库内实现中，以 <code>std::ratio</code> 为表示，如 <code>std::ratio&lt;1, 1&gt;</code> （即 <code>1</code>），表示秒；<code>std::ratio&lt;1, 1000&gt;</code>，即 <code>0.001</code> ，表示毫秒；<code>std::ratio&lt;60, 1&gt;</code>，即 <code>60</code> ，表示分钟。</li>
+</ul>
+<p>对于常用的时间间隔类型，<code>chrono</code> 中已包装好，拿来即用就可，如 <code>std::chrono::seconds</code> 表示秒，<code>std::chrono::hours</code> 表示小时。 <code>std::chrono::seconds dur {5} </code>，这样，我们就定义了一个 5 秒的时间间隔变量。在 C++ 20 中，又加入了天（<code>days</code>）、月（<code>months</code>）、年（<code>years</code>）的类型。</p>
+<p>从 C++14 开始，<code>chrono</code> 加入了 <code>literals</code>，可以帮我们更方便地表达时间间隔，更符合人类的语义习惯。如 <code>auto dur = 3s</code>，就定义了一个 3 秒的时间间隔。（有些小吐槽，见后面的吐槽部分）</p>
+<p>不同时间间隔类型之间当然是可以相互转换的，它们通过 <code>std::chrono::duration_cast</code> 来进行转换，如，<code>auto dur = std::chrono::duration&lt;std::chrono::minutes&gt;(120s)</code>，这样，我们可以将 120 秒转换为 2 分钟。</p>
+<p>对一个时间间隔变量使用 <code>count</code> 成员函数，可以获得其单位下的间隔时间，如 <code>(120s).count()</code>，我们则可以获得到 120 。</p>
+<h2 id="三个概念关系"><a href="#三个概念关系" class="headerlink" title="三个概念关系"></a>三个概念关系</h2><p>时钟可获得时间点。</p>
+<p>时间点是特定时钟下距离时钟纪元一定时间间隔的时刻。</p>
+<p>时间点 加 / 减 时间间隔得到另一个时间点。时间间隔之间可以加减，得到新的时间间隔。时间间隔也可以乘除一个倍数，用于放大 / 倍缩该时间间隔。</p>
+<p>这些都很直觉。C++ <code>chrono</code> 中的类型设计还是很符合人类语义习惯的，这也是我很喜欢 C++ 的一个地方。</p>
+<h2 id="使用-fmtlib-格式化时间"><a href="#使用-fmtlib-格式化时间" class="headerlink" title="使用 fmtlib 格式化时间"></a>使用 fmtlib 格式化时间</h2><p><strong>TODO</strong></p>
+<h2 id="一些小吐槽"><a href="#一些小吐槽" class="headerlink" title="一些小吐槽"></a>一些小吐槽</h2><p>上面我们提到，C++11 中，就有了 <code>seconds</code> 、<code>minutes</code> 、<code>hours</code> 等类型的时间时间，但是对于天、月、年这个级别的时间间隔的支持，拖延到了 C++20 才进入标准。</p>
+<p>在 <code>chrono</code> 的  <code>literals</code> 支持上，C++14 中我们可以方便地使用 <code>60s</code>，<code>30min</code>，<code>12h</code> 来表示时间间隔，但却不支持天、月、年。C++ 20 中加入了 <code>d</code>, <code>y</code>，来表示天和年，但注意，这是日期上的日和年，而不是时间间隔上的！（如 <code>23d</code> 表示某一个月的 23 号，而非时间长度上的 23 天）年可以理解，毕竟不同年份的时间不一致，但没有加入天数上的字面词，在代码风格上不能与秒、分钟达成统一，（如，我表达 3 秒可以写作 <code>3s</code>，表达 10 天却要写成 <code>days {10}</code>）我感觉还是有些不完美、略有遗憾吧。</p>
+<p>我们可以通过 <code>24h * 10</code> 来表达 10 天，却不能够使用 <code>(10 * 24)h</code>，我觉得也是在语言设计上的一点缺陷，后者这明明是 <code>constexpr</code> 的，也有些遗憾吧。</p>
+<h2 id="感悟"><a href="#感悟" class="headerlink" title="感悟"></a>感悟</h2><p>我之所以写这篇学习笔记，是因为在新的工作中，我需要记录时间，用于计算特定时间内处理了多少条数据等，并打印出日志来进行方案评估。</p>
+<p>我自诩为看过一些 C++ 书的，了解一些 C++，却从未正式地写过 C++。于是知道有这种 <code>API</code>，却没有真实地使用过这个 <code>API</code>，没有实践的经历及由此而来的肌肉记忆。因此在写代码时，不能够很流畅地写出，感觉很生涩。真实地感受到了 <strong>“纸上得来终觉浅，绝知此事要躬行。”</strong></p>
+<p>我们总说，编程语言没那么重要，数据结构、算法、系统架构这些才是重要的。这句话我是认可的，但令一方面，我觉得对程序员来说，<strong>编码是我们表达我们思想的方式。语言决定者对语言底层思想的设计，我们对该语言的理解、应用能力，（一定程度上）决定了我们在写代码时表达我们思想的能力。</strong></p>
+<p>写这篇笔记时，刚好是小满（虽然写完不是了）。我很喜欢这个节气，万物至此，小得圆满，很有中国传统哲学的智慧。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">❤采之欲遗谁，所思在远道。❤</div>
+    
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/01/%E8%AF%91-C-Coroutines-Understanding-operator-co-await/" rel="prev" title="(译) C++ Coroutines: Understanding operator co_await">
+                  <i class="fa fa-angle-left"></i> (译) C++ Coroutines: Understanding operator co_await
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/06/19/%E8%B4%BA%E6%96%B0%E9%83%8E%C2%B7%E8%B4%BA%E9%93%AD%E6%AF%93%E7%94%9F%E8%BE%B0%E5%8F%8A%E8%8E%B7%E4%BC%98%E7%A7%80%E7%94%9F%E8%B5%84%E6%A0%BC%E6%AF%95%E4%B8%9A/" rel="next" title="贺新郎・贺铭毓生辰及获优秀生资格毕业">
+                  贺新郎・贺铭毓生辰及获优秀生资格毕业 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-brands fa-optin-monster"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">之伊丶</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">578k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">17:32</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.31/dist/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","cdn":"//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"MoonChasing","repo":"BlogComment","client_id":"945099f6f7642f8f9aa1","client_secret":"1bc2f1034e1f214eb596fabb02c71260b3400640","admin_user":"MoonChasing","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"6ef104991cca3c7768e23d2a55d0c12e"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

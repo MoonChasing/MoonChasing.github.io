@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="xSALNCd7e6-d6OjbNKdpk8bUbfMKnJYB4eNG232fwvc">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.31/dist/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhiyi.live","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="遇到问题最近使用 C++ 遇到了中文处理问题，今天下午想测试 C++ 宽字符使用时，发现如下程序并不能如愿输出汉字。 123456int main(){    std::wstring wstr(L&quot;你好&quot;);    std::wcout &lt;&lt; wstr &lt;&lt; std::endl;    return 0;}  在网上多处搜索处理方法后仍不能解决，于是自己探索了一波。收获蛮">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ std::wcout 输出乱码">
+<meta property="og:url" content="http://zhiyi.live/2020/02/16/std-wcout%E8%BE%93%E5%87%BA%E4%B9%B1%E7%A0%81/index.html">
+<meta property="og:site_name" content="MoonChasing">
+<meta property="og:description" content="遇到问题最近使用 C++ 遇到了中文处理问题，今天下午想测试 C++ 宽字符使用时，发现如下程序并不能如愿输出汉字。 123456int main(){    std::wstring wstr(L&quot;你好&quot;);    std::wcout &lt;&lt; wstr &lt;&lt; std::endl;    return 0;}  在网上多处搜索处理方法后仍不能解决，于是自己探索了一波。收获蛮">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-16T21:54:16.000Z">
+<meta property="article:modified_time" content="2025-03-05T14:23:10.345Z">
+<meta property="article:author" content="之伊丶">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://zhiyi.live/2020/02/16/std-wcout%E8%BE%93%E5%87%BA%E4%B9%B1%E7%A0%81/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://zhiyi.live/2020/02/16/std-wcout%E8%BE%93%E5%87%BA%E4%B9%B1%E7%A0%81/","path":"2020/02/16/std-wcout输出乱码/","title":"C++ std::wcout 输出乱码"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>C++ std::wcout 输出乱码 | MoonChasing</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118447996-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-118447996-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MoonChasing</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">遇到问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">2.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%94%B6%E8%8E%B7"><span class="nav-number">3.</span> <span class="nav-text">其他收获</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%A8%8B%E5%BA%8F"><span class="nav-number">4.</span> <span class="nav-text">测试程序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%90%AF-sync-with-stdio-%EF%BC%88%E9%BB%98%E8%AE%A4%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">开启 sync_with_stdio （默认）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E9%97%AD-sync-with-stdio"><span class="nav-number">4.2.</span> <span class="nav-text">关闭 sync_with_stdio</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="之伊丶"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">之伊丶</p>
+  <div class="site-description" itemprop="description">每从细笔惊新悟，重向高山愧旧琴。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=825910928&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;825910928&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener me" target="_blank"><i class="fa-brands fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/cui-ming-hao-61" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;cui-ming-hao-61" rel="noopener me" target="_blank"><i class="fas fa-puzzle-piece fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/MoonChasing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MoonChasing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/7679023/moonchasing" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;7679023&#x2F;moonchasing" rel="noopener me" target="_blank"><i class="fa-brands fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-gamepad fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://blog.0xfaner.site/" title="https:&#x2F;&#x2F;blog.0xfaner.site" rel="noopener" target="_blank">0xfaner</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://coswindy.cn/" title="https:&#x2F;&#x2F;coswindy.cn&#x2F;" rel="noopener" target="_blank">coswindy</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.cfzhao.com/" title="http:&#x2F;&#x2F;www.cfzhao.com&#x2F;" rel="noopener" target="_blank">CFZhao</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.kimiye.xyz/" title="https:&#x2F;&#x2F;www.kimiye.xyz" rel="noopener" target="_blank">Kehuaiiiiii</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2020/02/16/std-wcout%E8%BE%93%E5%87%BA%E4%B9%B1%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="之伊丶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+      <meta itemprop="description" content="每从细笔惊新悟，重向高山愧旧琴。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="C++ std::wcout 输出乱码 | MoonChasing">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C++ std::wcout 输出乱码
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-16 21:54:16" itemprop="dateCreated datePublished" datetime="2020-02-16T21:54:16+00:00">2020-02-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-05 14:23:10" itemprop="dateModified" datetime="2025-03-05T14:23:10+00:00">2025-03-05</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h3><p>最近使用 C++ 遇到了中文处理问题，今天下午想测试 C++ 宽字符使用时，发现如下程序并不能如愿输出汉字。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="function">std::wstring <span class="title">wstr</span><span class="params">(<span class="string">L"你好"</span>)</span></span>;</span><br><span class="line">    std::wcout &lt;&lt; wstr &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在网上多处搜索处理方法后仍不能解决，于是自己探索了一波。收获蛮大的，于是记录下。</p>
+<blockquote>
+<p>该文章程序及结果皆在 Linux 环境下。</p>
+</blockquote>
+<span id="more"></span>
+
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>结论是我在一些程序中总结出来的，其中若有错误，希望指正。</p>
+<ol>
+<li>Linux 下 <code>printf</code> 和 <code>wprintf</code> 不能混用，即同时使用。具体原因可自行搜索，网上有很多资料。</li>
+<li>C++ 中默认情况下 <code>std::cout</code> 与 <code>std::wcout</code> 分别与  <code>printf</code> 和 <code>wprintf</code>  同步，维护共同缓冲区。为方便理解，我们可以假设 <code>std::cout</code> 调用 <code>printf</code>，<code>std::wcout</code> 调用 <code>wprintf</code>（这里只是假设，方便我们理解）。</li>
+<li>综合上述 1、2 两条，可知在开启 <code>sync_with_stdio</code> 情况下 <code>std::cout</code> 及 <code>std::wcout</code> 不能混用。 先使用 <code>std::cout</code> 后使用 <code>std::wcout</code> 会造成 <code>std::wcout</code> 输出乱码，先使用 <code>std::wcout</code> 的话 <code>std::cout</code> 压根不能输出东西。 关闭情况下两者可混用。</li>
+<li>C 语言库中设置 <code>locale</code> 函数为 <code>setlocale()</code>， C++ 语言库中设置 <code>std::locale</code> 函数为 <code>std::locale::global()</code>。可认为 C 语言库和 C++ 库分别有不同的 <code>locale</code> 。<code>setlocale()</code> 函数仅设置 C 语言中的 <code>locale</code>，而 <code>std::locale::global()</code> 函数两者都会设置。</li>
+<li>开启 <code>sync_with_stdio</code> 情况下，可认为 <code>std::cout</code> 与 <code>std::wcout</code> 使用的是 C 语言中的 <code>locale</code>。而关闭情况下则使用 C++ 自己的 <code>std::locale</code>。</li>
+<li><code>std::wcout</code> 输出中文时依靠地区 <code>locale</code>，故我们在使用其输出中文之前要设置 <code>locale</code>。</li>
+<li>在开启 <code>sync_with_stdio</code> 情况下，想用 <code>std::wcout</code> 输出汉字要设置 C 语言中的 <code>locale</code>，使用两种方法都可以。而关闭情况下，只能使用 C++ 的方法，<strong>且要在关闭同步之前设置</strong>，也可以使用 <code>std::wcout.imbus( std::locale("") )</code> 单独设置。</li>
+</ol>
+<h3 id="其他收获"><a href="#其他收获" class="headerlink" title="其他收获"></a>其他收获</h3><ul>
+<li><code>std::cout</code> 中 c 表示字符， <code>std::wcout</code> 中 wc 表示宽字符。</li>
+</ul>
+<h3 id="测试程序"><a href="#测试程序" class="headerlink" title="测试程序"></a>测试程序</h3><p>这里展示部分测试程序及运行结果（Ubuntu 下），测试程序可根据结论中的几点自行结合测试。</p>
+<h4 id="开启-sync-with-stdio-（默认）"><a href="#开启-sync-with-stdio-（默认）" class="headerlink" title="开启 sync_with_stdio （默认）"></a>开启 sync_with_stdio （默认）</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    std::wstring wstr = <span class="string">L"你能输出中文"</span>;</span><br><span class="line">    std::wcout &lt;&lt; wstr &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>??????</p>
+</blockquote>
+<p>“你能输出中文” 共 6 个汉字，输出中共 6 个问号。 <code>wstr</code> 中有多少个汉字，输出中就多少个 ？</p>
+<hr>
+
+
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    std::locale::<span class="built_in">global</span>( std::<span class="built_in">locale</span>(<span class="string">""</span>) );</span><br><span class="line">    <span class="comment">//setlocale() 与上句相替换结果一样</span></span><br><span class="line">    std::wstring wstr = <span class="string">L"你能输出中文"</span>;</span><br><span class="line">    std::wcout &lt;&lt; wstr &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>你能输出中文</p>
+</blockquote>
+<hr>
+
+
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    std::cout &lt;&lt; <span class="string">"你好"</span> &lt;&lt; std::endl;</span><br><span class="line">    std::wstring wstr = <span class="string">L"你能输出中文？"</span>;</span><br><span class="line">    std::wcout &lt;&lt; wstr &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>你好</p>
+<p>wcout 输出乱码</p>
+</blockquote>
+<hr>
+
+
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    std::wstring wstr = <span class="string">L"你能输出中文？"</span>;</span><br><span class="line">    std::wcout &lt;&lt; wstr &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">"你好"</span> &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">"你好"</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>??????</p>
+</blockquote>
+<p><code>cout</code> 并不会输出</p>
+<hr>
+
+
+<h4 id="关闭-sync-with-stdio"><a href="#关闭-sync-with-stdio" class="headerlink" title="关闭 sync_with_stdio"></a>关闭 sync_with_stdio</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    std::ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    <span class="comment">// setlocale( LC_ALL, ""); //有没有这句输出都一样</span></span><br><span class="line">    std::wstring wstr = <span class="string">L"你能输出中文？"</span>;</span><br><span class="line">    std::wcout &lt;&lt; wstr &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>输出为空</p>
+</blockquote>
+<hr>
+
+
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    std::ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    std::locale::<span class="built_in">global</span>( std::<span class="built_in">local</span>(<span class="string">""</span>) );</span><br><span class="line">    std::wstring wstr = <span class="string">L"你能输出中文？"</span>;</span><br><span class="line">    std::wcout &lt;&lt; wstr &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>你能输出中文？</p>
+</blockquote>
+<hr>
+
+
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    std::ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    std::locale::<span class="built_in">global</span>( std::<span class="built_in">local</span>(<span class="string">""</span>) );		<span class="comment">//删除此句结果相同</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">"你好"</span> &lt;&lt; std::endl;</span><br><span class="line">    std::wstring wstr = <span class="string">L"你能输出中文？"</span>;</span><br><span class="line">    std::wcout &lt;&lt; wstr &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>你好</p>
+</blockquote>
+<hr>
+
+
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    std::ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    std::wcout.<span class="built_in">imbue</span>( std::<span class="built_in">locale</span>(<span class="string">""</span>) );</span><br><span class="line">    std::cout &lt;&lt; <span class="string">"你好"</span> &lt;&lt; std::endl;</span><br><span class="line">    std::wstring wstr = <span class="string">L"你能输出中文？"</span>;</span><br><span class="line">    std::wcout &lt;&lt; wstr &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>你好</p>
+<p>你能输出中文？</p>
+</blockquote>
+<hr>
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">❤采之欲遗谁，所思在远道。❤</div>
+    
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/02/07/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0%E4%B8%AD%E8%83%BD%E4%B8%8D%E8%83%BD%E4%BD%BF%E7%94%A8%E8%99%9A%E5%87%BD%E6%95%B0/" rel="prev" title="构造函数析构函数中能不能使用虚函数">
+                  <i class="fa fa-angle-left"></i> 构造函数析构函数中能不能使用虚函数
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/04/19/%E7%A2%8E%E7%A2%8E%E5%BF%B5%E4%B8%A4%E5%88%99%E2%80%94%E2%80%94%E6%B8%85%E6%98%8E%E8%AE%B0%E6%98%A5%E5%8F%8A%E6%AF%95%E4%B8%9A/" rel="next" title="碎碎念两则 —— 清明记春及毕业">
+                  碎碎念两则 —— 清明记春及毕业 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-brands fa-optin-monster"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">之伊丶</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">578k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">17:32</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.31/dist/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","cdn":"//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"MoonChasing","repo":"BlogComment","client_id":"945099f6f7642f8f9aa1","client_secret":"1bc2f1034e1f214eb596fabb02c71260b3400640","admin_user":"MoonChasing","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"d0356d9cee75fde3676b9e867034cc4c"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

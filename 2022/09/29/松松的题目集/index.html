@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="xSALNCd7e6-d6OjbNKdpk8bUbfMKnJYB4eNG232fwvc">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.31/dist/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhiyi.live","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="松松的题目集中有 $n$ 道题目 $a_1, a_2, \dots, a_n$，每道题目都只考查一个知识点。松松要按顺序做完其中的所有题目，他有两种做题方法：  无论当前题目考查什么知识点，都可以在 $c_0$ 时间内做完该道题目。 使用含有 $k$ 种知识点的小抄，可以在总共 $c_k$ 的时间内完成所有接下来可做的题目。即当遇到小抄中不包含的知识点题目或已经做完所有题目时，认为当前方法停止，此">
+<meta property="og:type" content="article">
+<meta property="og:title" content="松松的题目集">
+<meta property="og:url" content="http://zhiyi.live/2022/09/29/%E6%9D%BE%E6%9D%BE%E7%9A%84%E9%A2%98%E7%9B%AE%E9%9B%86/index.html">
+<meta property="og:site_name" content="MoonChasing">
+<meta property="og:description" content="松松的题目集中有 $n$ 道题目 $a_1, a_2, \dots, a_n$，每道题目都只考查一个知识点。松松要按顺序做完其中的所有题目，他有两种做题方法：  无论当前题目考查什么知识点，都可以在 $c_0$ 时间内做完该道题目。 使用含有 $k$ 种知识点的小抄，可以在总共 $c_k$ 的时间内完成所有接下来可做的题目。即当遇到小抄中不包含的知识点题目或已经做完所有题目时，认为当前方法停止，此">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-29T21:40:14.000Z">
+<meta property="article:modified_time" content="2025-03-05T14:23:10.348Z">
+<meta property="article:author" content="之伊丶">
+<meta property="article:tag" content="dp">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://zhiyi.live/2022/09/29/%E6%9D%BE%E6%9D%BE%E7%9A%84%E9%A2%98%E7%9B%AE%E9%9B%86/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://zhiyi.live/2022/09/29/%E6%9D%BE%E6%9D%BE%E7%9A%84%E9%A2%98%E7%9B%AE%E9%9B%86/","path":"2022/09/29/松松的题目集/","title":"松松的题目集"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>松松的题目集 | MoonChasing</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118447996-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-118447996-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MoonChasing</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%B7%E4%BE%8B"><span class="nav-number">2.1.</span> <span class="nav-text">输入样例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B"><span class="nav-number">2.2.</span> <span class="nav-text">输出样例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%A7%A3%E9%87%8A"><span class="nav-number">3.</span> <span class="nav-text">样例解释</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98"><span class="nav-number"></span> <span class="nav-text">解题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hint"><span class="nav-number">1.</span> <span class="nav-text">Hint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="之伊丶"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">之伊丶</p>
+  <div class="site-description" itemprop="description">每从细笔惊新悟，重向高山愧旧琴。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=825910928&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;825910928&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener me" target="_blank"><i class="fa-brands fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/cui-ming-hao-61" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;cui-ming-hao-61" rel="noopener me" target="_blank"><i class="fas fa-puzzle-piece fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/MoonChasing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MoonChasing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/7679023/moonchasing" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;7679023&#x2F;moonchasing" rel="noopener me" target="_blank"><i class="fa-brands fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-gamepad fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://blog.0xfaner.site/" title="https:&#x2F;&#x2F;blog.0xfaner.site" rel="noopener" target="_blank">0xfaner</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://coswindy.cn/" title="https:&#x2F;&#x2F;coswindy.cn&#x2F;" rel="noopener" target="_blank">coswindy</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.cfzhao.com/" title="http:&#x2F;&#x2F;www.cfzhao.com&#x2F;" rel="noopener" target="_blank">CFZhao</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.kimiye.xyz/" title="https:&#x2F;&#x2F;www.kimiye.xyz" rel="noopener" target="_blank">Kehuaiiiiii</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2022/09/29/%E6%9D%BE%E6%9D%BE%E7%9A%84%E9%A2%98%E7%9B%AE%E9%9B%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="之伊丶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+      <meta itemprop="description" content="每从细笔惊新悟，重向高山愧旧琴。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="松松的题目集 | MoonChasing">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          松松的题目集
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-29 21:40:14" itemprop="dateCreated datePublished" datetime="2022-09-29T21:40:14+00:00">2022-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-05 14:23:10" itemprop="dateModified" datetime="2025-03-05T14:23:10+00:00">2025-03-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ACM/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>松松的题目集中有 $n$ 道题目 $a_1, a_2, \dots, a_n$，每道题目都只考查一个知识点。松松要按顺序做完其中的所有题目，他有两种做题方法：</p>
+<ul>
+<li>无论当前题目考查什么知识点，都可以在 $c_0$ 时间内做完该道题目。</li>
+<li>使用含有 $k$ 种知识点的小抄，可以在总共 $c_k$ 的时间内完成所有接下来可做的题目。即当遇到小抄中不包含的知识点题目或已经做完所有题目时，认为当前方法停止，此次做题方法用时 $c_k$ 。每次使用小抄都可以使用与之前不同的小抄，每份小抄最多有 $m$ 个知识点，即 $1 \le k \le m$ 。</li>
+</ul>
+<p>聪明的您需要编写一个算法，使得松松能在最短时间内按顺序完成所有的练习题。同时，您还需要计算出在最短时间内做完练习题的方案数。如果做完题目的使用上面两种方法的次数不同，或存在某一个整数 $i$ 满足两种做题方案中的第 $i$ 次做题使用了不同的做题方法或不同的小抄，则称两种做题方案是不同的。如果两份小抄的大小不同，或含有不同的知识点，则称两份小抄是不同的。<span id="more"></span></p>
+<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>有多组测试数据。第一行输入一个整数 $T$ 表示测试数据的组数，对于每组测试数据：</p>
+<p>第一行输入一个整数 $n (1 \le n \le 6 \times 10^5)$ 表示题目数。</p>
+<p>第二行输入 $n$ 个整数 $a_1, a_2, \dots, a_n$ ，表示每个题目考察的知识点。</p>
+<p>第三行输入一个整数 $m (1\le m \le 30)$ 表示小抄的知识点上限。</p>
+<p>第四行输入 $(m+1)$ 个整数 $c_0,c_1, \dots, c_m (1 \le c_0 \lt c_1 \lt \dots \lt c_m \le 10^9)$ ，其中 $c_0$ 表示使用做题方法一使用的时间 ，$c_i$ 表示使用大小为 $i$ 的小抄需要的时间。</p>
+<p>保证所有数据 $n$ 之各不超过 $6 \times 10^5$。</p>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>每组数据输出一行由单个空格分隔的两个整数，分别是完成所有题目需要的最短时间以及方案数。由于方案数可能很大，请将方案数对 $998244353$ 取模后输出。</p>
+<h4 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">5</span><br><span class="line">1 2 1 3 1</span><br><span class="line">3</span><br><span class="line">4 5 6 100</span><br><span class="line">5</span><br><span class="line">1 2 1 3 1</span><br><span class="line">3</span><br><span class="line">1 2 3 100</span><br><span class="line">7</span><br><span class="line">1 2 3 4 1 1 1</span><br><span class="line">3</span><br><span class="line">4 5 6 7</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">12 1</span><br><span class="line">5 3</span><br><span class="line">13 2</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h3><p>对于第一组样例数据，可以首先使用小抄 $\{1,2\}$ 做完前三道题目，然后使用小抄 $\{1,3\}$ 做完最后两道题目。</p>
+<p>对于第二组样例数据，以下方案均可以在最短时间内完成所有题目：</p>
+<ul>
+<li>使用 $5$ 次方法一</li>
+<li>使用小抄 $\{1,2\}$ 做完前三道题目，再使用 $2$ 次方法一</li>
+<li>先使用 $2$ 次方法一，再使用小抄 $\{1,3\}$ 除做完 $3$ 个题目</li>
+</ul>
+<p>对于第三组样例数据，以下方案均可以在最短时间内完成所有题目：</p>
+<ul>
+<li>使用小抄 $\{1,2,3 \}$ 做完前 $3$ 道题目，再用小抄 $\{1, 4\}$ 完成最后两首题目</li>
+<li>使用小抄 $\{1,2\}$ 做完前 $2$ 题题目，再使用小抄 $\{1,3,4\}$ 做完最后 $5$ 道题目。</li>
+</ul>
+<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><h3 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h3><ul>
+<li>$1 \le c_0 \lt c_1 \lt \dots \lt c_m \le 10^9$<br>当我们使用小抄时，小抄中的知识点越多，则使用小抄花费的时间就严格越多。</li>
+</ul>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>题目做多后，我们可以较为容易的发现如下两个 $dp$ 。</p>
+<p>我们使用 $cost [i]$ 表示完成第 $i$ 个任务花费的最少时间，使用 $f (i, j) = l$ 表示 $a [l \dots i]$ 中有 $j$ 个不同知识点的题目，（ $l$ 为满足条件的最小值）。<br>$$<br>cost[i] = min<br>\begin{cases}<br>cost[i-1]+c_0,\\<br>cost[f(i, j)]+c[j], &amp; 1 \le j \le  m \  and \  f(i,j)&gt;=1<br>\end{cases}<br>$$<br>方案数也易知，我们使用 $cnt [i]$ 表示完成第 $i$ 个题目花费最少时的方案数，当我们由 $cost [k]$ 推导 $cost [f (i,j)]$ 时，则<br>$$<br>cnt[i] =<br>\begin{cases}<br>cnt[f(i,j)], &amp; if \ cost[i] &gt; cost[f(i,j)]+c[j] \\<br>cnt[i]+cnt[f(i,j)], &amp; if \ cost[i] ==cost[f(i,j)]+c[j]<br>\end{cases}<br>$$<br>这段 dp 用代码写来就是</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">{</span><br><span class="line">    <span class="comment">// 方法一</span></span><br><span class="line">    cost[i] = cost[i<span class="number">-1</span>]+c[<span class="number">0</span>];</span><br><span class="line">    cnt[i] = cnt[i<span class="number">-1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>; j&lt;=<span class="built_in">min</span>(m, i); j++)</span><br><span class="line">    {</span><br><span class="line">        <span class="type">int</span> l = f[i][j];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(cost[i] &gt; cost[l]+c[j])</span><br><span class="line">        {</span><br><span class="line">            cost[i] = cost[l]+c[j];</span><br><span class="line">            cnt[i] = cnt[l];</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(cost[i] == cost[l]+c[j])</span><br><span class="line">        {</span><br><span class="line">        	cnt[i] = (cnt[i]+cnt[l])%MOD;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(l == <span class="number">0</span>)</span><br><span class="line">        	<span class="keyword">break</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>我们还要解决另一个问题，就是如何快速地求取 $f (i,j)$ 。如果我们暴力的话，每次都暴力地向前寻找， 由于 $n \le 6 \times 10^5$，这里在用例设计上会被出题者卡。这里引出这题的第三个 dp。</p>
+<p>我们用 $f [i][j] = x$ 表示区间 $[x+1, j]$ 有 $j$ 个不同的知识点，$x$ 为满足该条件的最小值 。转移方程为<br>$$<br>f[i, j] =<br>\begin{cases}<br>f [i-1][j-1], &amp; 如果知识点 a [i] 没有出现在 a [f [i-1][j], \dots, i-1] 中 \\<br>f [i-1][j], &amp; 如果知识点 a [i] 出现在 a [f [i-1][j], \dots, i-1] 中<br>\end{cases}<br>$$</p>
+<p>于是问题转换为，我们如何确定 $a [i]$ 有没有在指定指定区域中出现。这个问题比较简单，我们记录一个数组 $bck [i]$ 表示当我们遍历到 $i$ 时，$a [i]$ 上次出现的位置 。只要判断 $bck [i]$ 与 $f [i-1][j]$ 的关系就好了。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXN 600010</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXM 32</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXV 1000010</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MOD 998244353</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> T;</span><br><span class="line"><span class="type">int</span> n, m, k;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> num;</span><br><span class="line">LL a[MAXN];</span><br><span class="line">LL c[MAXN];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">LL cost[MAXN];</span><br><span class="line">LL cnt[MAXN];</span><br><span class="line"><span class="type">int</span> f[MAXN][MAXM];</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> last[MAXV];</span><br><span class="line"><span class="type">int</span> bck[MAXN];      <span class="comment">// bck[i] 表示 a[i] 病毒上次出现的下标</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)</span><br><span class="line">    {</span><br><span class="line"></span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">        {</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, a+i);</span><br><span class="line">            last[a[i]] = <span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n ;i++)</span><br><span class="line">        {</span><br><span class="line">            bck[i] = last[a[i]];</span><br><span class="line">            last[a[i]] = i;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%lld"</span>, &amp;m, &amp;c[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=m; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, c+i);</span><br><span class="line"></span><br><span class="line">        f[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        f[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>; i&lt;=n; i++)</span><br><span class="line">        {</span><br><span class="line">            f[i][<span class="number">0</span>] = i;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">1</span>; k&lt;=m; k++)</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span>(bck[i] &lt;= f[i<span class="number">-1</span>][k])</span><br><span class="line">                    f[i][k] = f[i<span class="number">-1</span>][k<span class="number">-1</span>];</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    f[i][k] = f[i<span class="number">-1</span>][k];</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        cost[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        cnt[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">        {</span><br><span class="line">            <span class="comment">// 通用</span></span><br><span class="line">            cost[i] = cost[i<span class="number">-1</span>]+c[<span class="number">0</span>];</span><br><span class="line">            cnt[i] = cnt[i<span class="number">-1</span>];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>; j&lt;=<span class="built_in">min</span>(m, i); j++)</span><br><span class="line">            {</span><br><span class="line">                <span class="type">int</span> l = f[i][j];</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(cost[i] &gt; cost[l]+c[j])</span><br><span class="line">                {</span><br><span class="line">                    cost[i] = cost[l]+c[j];</span><br><span class="line">                    cnt[i] = cnt[l];</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(cost[i] == cost[l]+c[j])</span><br><span class="line">                {</span><br><span class="line">                    cnt[i] = (cnt[i]+cnt[l])%MOD;</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(l == <span class="number">0</span>)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld %lld\n"</span>,cost[n], cnt[n]);</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">❤采之欲遗谁，所思在远道。❤</div>
+    
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/dp/" rel="tag"><i class="fa fa-tag"></i> dp</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/09/22/CodeForces-1728D-Letter-Picking/" rel="prev" title="CodeForces 1728D Letter Picking 题解">
+                  <i class="fa fa-angle-left"></i> CodeForces 1728D Letter Picking 题解
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/01/26/24%E5%B2%81%E5%86%99%E7%BB%99%E5%AD%A9%E5%AD%90%E7%9A%84%E4%BF%A1/" rel="next" title="24 岁写给孩子的信">
+                  24 岁写给孩子的信 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-brands fa-optin-monster"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">之伊丶</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">578k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">17:32</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.31/dist/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","cdn":"//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"MoonChasing","repo":"BlogComment","client_id":"945099f6f7642f8f9aa1","client_secret":"1bc2f1034e1f214eb596fabb02c71260b3400640","admin_user":"MoonChasing","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"bdc2938c0c7a074658a14cf741fb5a5b"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

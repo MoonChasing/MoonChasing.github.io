@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="xSALNCd7e6-d6OjbNKdpk8bUbfMKnJYB4eNG232fwvc">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.31/dist/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhiyi.live","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Hello Ubuntu安装 Ubuntu 18.04这个网上教程有很多，我就不详述了。我来说下我遇到的一些坑（Win7 + Ubuntu），双显卡（Nvidia + Inter）。大一的时候未能成功，就是因为 Nvidia 的驱动问题。一开始遇到了安装时卡在 logo 界面的问题，Ubuntu 18.04 与前面不同的好像是选择 Try Ubuntu without install  Insta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hello Ubuntu">
+<meta property="og:url" content="http://zhiyi.live/2019/05/26/Hello-Ubuntu/index.html">
+<meta property="og:site_name" content="MoonChasing">
+<meta property="og:description" content="Hello Ubuntu安装 Ubuntu 18.04这个网上教程有很多，我就不详述了。我来说下我遇到的一些坑（Win7 + Ubuntu），双显卡（Nvidia + Inter）。大一的时候未能成功，就是因为 Nvidia 的驱动问题。一开始遇到了安装时卡在 logo 界面的问题，Ubuntu 18.04 与前面不同的好像是选择 Try Ubuntu without install  Insta">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blogphoto-1300662669.cos.ap-nanjing.myqcloud.com/2019-05-25%2018-54-14%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="https://blogphoto-1300662669.cos.ap-nanjing.myqcloud.com/2019-05-25%2019-49-08%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:image" content="https://blogphoto-1300662669.cos.ap-nanjing.myqcloud.com/2019-05-25%2019-49-11%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="article:published_time" content="2019-05-26T16:12:27.000Z">
+<meta property="article:modified_time" content="2025-03-05T14:23:10.342Z">
+<meta property="article:author" content="之伊丶">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blogphoto-1300662669.cos.ap-nanjing.myqcloud.com/2019-05-25%2018-54-14%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+
+
+<link rel="canonical" href="http://zhiyi.live/2019/05/26/Hello-Ubuntu/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://zhiyi.live/2019/05/26/Hello-Ubuntu/","path":"2019/05/26/Hello-Ubuntu/","title":"Hello Ubuntu"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hello Ubuntu | MoonChasing</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118447996-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-118447996-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MoonChasing</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hello-Ubuntu"><span class="nav-number">1.</span> <span class="nav-text">Hello Ubuntu</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Ubuntu-18-04"><span class="nav-number">1.1.</span> <span class="nav-text">安装 Ubuntu 18.04</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2%E9%98%BF%E9%87%8C%E6%BA%90"><span class="nav-number">1.2.</span> <span class="nav-text">更换阿里源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%81%E7%94%A8nouveau%E9%A9%B1%E5%8A%A8"><span class="nav-number">1.3.</span> <span class="nav-text">禁用 nouveau 驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Nvidia-%E9%A9%B1%E5%8A%A8"><span class="nav-number">1.4.</span> <span class="nav-text">安装 Nvidia 驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4nomodeset"><span class="nav-number">1.5.</span> <span class="nav-text">删除 nomodeset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D%E5%90%8Esudo%E5%91%BD%E4%BB%A4%E4%BC%9A%E5%BE%88%E6%85%A2"><span class="nav-number">1.6.</span> <span class="nav-text">更改主机名后 sudo 命令会很慢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.7.</span> <span class="nav-text">软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Rime"><span class="nav-number">1.7.1.</span> <span class="nav-text">Rime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Albert"><span class="nav-number">1.7.2.</span> <span class="nav-text">Albert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chrome"><span class="nav-number">1.7.3.</span> <span class="nav-text">Chrome</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QQ%E3%80%81%E5%BE%AE%E4%BF%A1"><span class="nav-number">1.7.4.</span> <span class="nav-text">QQ、微信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Visual-Studio-Code"><span class="nav-number">1.7.5.</span> <span class="nav-text">Visual Studio Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo%E5%A4%9A%E7%AB%AF%E7%BB%B4%E6%8A%A4%E5%8D%9A%E5%AE%A2"><span class="nav-number">1.7.6.</span> <span class="nav-text">Hexo 多端维护博客</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ShadowSocks"><span class="nav-number">1.7.7.</span> <span class="nav-text">ShadowSocks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%BA%8A%E5%B7%A5%E5%85%B7"><span class="nav-number">1.7.8.</span> <span class="nav-text">图床工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%8E%E5%8C%96"><span class="nav-number">1.8.</span> <span class="nav-text">美化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Note"><span class="nav-number">2.</span> <span class="nav-text">Note</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="之伊丶"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">之伊丶</p>
+  <div class="site-description" itemprop="description">每从细笔惊新悟，重向高山愧旧琴。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=825910928&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;825910928&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener me" target="_blank"><i class="fa-brands fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/cui-ming-hao-61" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;cui-ming-hao-61" rel="noopener me" target="_blank"><i class="fas fa-puzzle-piece fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/MoonChasing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MoonChasing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/7679023/moonchasing" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;7679023&#x2F;moonchasing" rel="noopener me" target="_blank"><i class="fa-brands fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-gamepad fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://blog.0xfaner.site/" title="https:&#x2F;&#x2F;blog.0xfaner.site" rel="noopener" target="_blank">0xfaner</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://coswindy.cn/" title="https:&#x2F;&#x2F;coswindy.cn&#x2F;" rel="noopener" target="_blank">coswindy</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.cfzhao.com/" title="http:&#x2F;&#x2F;www.cfzhao.com&#x2F;" rel="noopener" target="_blank">CFZhao</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.kimiye.xyz/" title="https:&#x2F;&#x2F;www.kimiye.xyz" rel="noopener" target="_blank">Kehuaiiiiii</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/05/26/Hello-Ubuntu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="之伊丶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+      <meta itemprop="description" content="每从细笔惊新悟，重向高山愧旧琴。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hello Ubuntu | MoonChasing">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hello Ubuntu
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-05-26 16:12:27" itemprop="dateCreated datePublished" datetime="2019-05-26T16:12:27+00:00">2019-05-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-05 14:23:10" itemprop="dateModified" datetime="2025-03-05T14:23:10+00:00">2025-03-05</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Hello-Ubuntu"><a href="#Hello-Ubuntu" class="headerlink" title="Hello Ubuntu"></a>Hello Ubuntu</h1><h2 id="安装Ubuntu-18-04"><a href="#安装Ubuntu-18-04" class="headerlink" title="安装Ubuntu 18.04"></a>安装 Ubuntu 18.04</h2><p>这个网上教程有很多，我就不详述了。我来说下我遇到的一些坑（Win7 + Ubuntu），双显卡（Nvidia + Inter）。大一的时候未能成功，就是因为 Nvidia 的驱动问题。一开始遇到了安装时卡在 logo 界面的问题，Ubuntu 18.04 与前面不同的好像是选择 <code>Try Ubuntu without install </code> <code>Install Ubuntu</code> 时有了界面。这一下把我搞懵了，因为原来选择的时候按 <code>e</code> 可以编辑 <code>grub</code> 参数，这次不知道去哪里编辑了，尴尬。后面摸索了下发现 <code>F6</code> 有个其他选项，里面有个 <code>nomodeset</code>，勾选后便解决了这个问题。<span id="more"></span></p>
+<h2 id="更换阿里源"><a href="#更换阿里源" class="headerlink" title="更换阿里源"></a>更换阿里源</h2><p>这个是我每次安好 Ubuntu 必做的，网上教程一堆，复制粘贴下镜像地址就好了。</p>
+<h2 id="禁用nouveau驱动"><a href="#禁用nouveau驱动" class="headerlink" title="禁用nouveau驱动"></a>禁用 nouveau 驱动</h2><p>先解释下 <code>nouveau</code> 是什么，我的理解（猜测）是个显卡驱动，但性能不高。（我估计刚刚安装好的时候用的就是这东西，卡得一比，差点让我放弃 Ubuntu），我电脑有 Nvidia 显卡，所以要先禁用下 <code>nouveau</code>，然后安装 <code>Nvidia</code> 驱动。</p>
+<p>这个教程网上也一堆，大概就是将它加入黑名单，之后重新生成<code> kernel initramfs</code>。</p>
+<h2 id="安装-Nvidia-驱动"><a href="#安装-Nvidia-驱动" class="headerlink" title="安装 Nvidia 驱动"></a>安装 Nvidia 驱动</h2><p>参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/linhai1028/article/details/79445722"> Ubuntu 下安装 nvidia 显卡驱动（安装方式简单）</a></p>
+<p>不过看别人的一开始要删除下之前的 <code>Nvidia</code> 驱动残余，（这一点我不清楚新机需不需要，加上吧，反应加上没问题）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove --purge nvidia*</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="删除nomodeset"><a href="#删除nomodeset" class="headerlink" title="删除nomodeset"></a>删除 nomodeset</h2><p>这是我这次遇到的最大的困难。在我安装好 <code>Nvidia</code> 驱动后重启，却一直报错！定眼看一下是什么 <code>pcieport</code>balabala 之类的，我是慌了。在网上搜索也没找到能解决的办法，就在这一直不停地重启、玄学测试、报错…… 为些还删掉系统重装了一次，然后又搞一遍，依旧报错。在我用恢复模式删除 <code>Nvidia</code> 驱动、重启 <code>nouveau</code> 后，又可以打开。于是猜测是显卡驱动的问题。</p>
+<p>看网上的方法没有用，于是只好靠自己意淫了。。我尝试着删去了 <code>nomodeset</code>，启动成功！而且系统变得流畅极速！整个人一下振奋了起来。一个多年的夙愿终于在今天完成了！</p>
+<p>后来我查了下 <code>nomodeset</code> 的意义，看了 <a href="%5Bhttps://medium.com/caesars-study-review-on-web-development/acpi-osi-linux-nomodeset%E6%98%AF%E4%BB%80%E9%BA%BC%E6%84%8F%E6%80%9D-%E5%8A%9F%E8%83%BD-42d8e2c444c3%5D(https://medium.com/caesars-study-review-on-web-development/acpi-osi-linux-nomodeset%E6%98%AF%E4%BB%80%E9%BA%BC%E6%84%8F%E6%80%9D-%E5%8A%9F%E8%83%BD-42d8e2c444c3)">acpi_osi=linux、 nomodeset 是什麼意思？功能？</a> 这篇文章，下面复制些其中的内容：</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">nomodeset</span><br><span class="line">不載入所有關於顯示卡的驅動</span><br><span class="line">nouveau.modeset=0</span><br><span class="line">關閉nvidia顯卡的驅動，反之 =1為開啟</span><br><span class="line">i915.modeset=0</span><br><span class="line">關閉Intel顯卡的驅動，挺好奇對於Intel內顯會有什麼影響</span><br><span class="line">xforcevesa 或 radeon.modeset=0 xforcevesa</span><br><span class="line">跟AMD顯卡(ATI)有關的設定，我猜也是關閉吧，反正我不會買A牌顯卡...</span><br><span class="line">acpi=off</span><br><span class="line">回歸舊時代，電源相關設定，OS無法控管，交給bios處理</span><br><span class="line">acpi功能失效，有不少硬體上奇怪的問題，可以用這參數解決</span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<p>这样就理解些了吧。一开始，我们没有安装 <code>Nvidia</code> 驱动，所以要加上 <code>nomodeset</code>，后面我们禁用了 <code>nouveau</code>，只剩下了 <code>Nvidia</code> 驱动，所以要删去它。</p>
+<h2 id="更改主机名后sudo命令会很慢"><a href="#更改主机名后sudo命令会很慢" class="headerlink" title="更改主机名后sudo命令会很慢"></a>更改主机名后 sudo 命令会很慢</h2><p>因为觉得默认计算机名很难看，于是我换成了 <code>lover</code>，快乐。后面发现使用 <code>sudo</code> 命令时特别慢，要延迟好一会，而且用 <code>Ctrl + C</code> 好像还不能终止。网上查了下，原来是 因为没有将本机的名字加到 <code>etc/hosts</code> 中，导致执行 <code>sudo</code> 命令的时候，会读 <code>/etc/sudoers</code> 文件，向 DNS 服务器发起了请求并等待响应，耽误了时间。 </p>
+<p>参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/caiqiiqi/article/details/81069639">linux 为什么 sudo 命令执行变慢</a></p>
+<p>于是在 <code>/etc/hosts</code> 中将原来的默认名字改过来，ok！</p>
+<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><h3 id="Rime"><a href="#Rime" class="headerlink" title="Rime"></a>Rime</h3><p>我在 <code>windows</code> 上面的输入法。叭说了，被 <code>Byvoid</code> 称为神级的输入法。谁用谁知道，我是离不开它了。</p>
+<h3 id="Albert"><a href="#Albert" class="headerlink" title="Albert"></a>Albert</h3><p>从 <code>windows</code> 转向 <code>ubuntu</code> 最难受的是要离开自己喜欢的 <code>wox</code> 吧。在 <code>Ubuntu</code> 上找了些类似的快速启动器，试了 <code>gnome-pie</code>,<code>gnome-do</code>,<code>ELaunch</code>，都差强人意。后面遇到了 <code>Albert</code>，果断卸载了前面的。虽然比 <code>wox</code> 还差一些，但整体还是 ok 的。</p>
+<p>参考了 <a target="_blank" rel="noopener" href="https://blog.csdn.net/jankin6/article/details/80430223">Ubuntu 安装 Albert (替代 Mac Spotlight)</a></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:noobslab/macbuntu</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install albert</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h3><p>不述</p>
+<h3 id="QQ、微信"><a href="#QQ、微信" class="headerlink" title="QQ、微信"></a>QQ、微信</h3><p>QQ 的话用了 <code>Wine</code> 大法，整体还可以。教程网上一堆。</p>
+<p>微信的话我用的 <code>electronic-wechat</code>，<a target="_blank" rel="noopener" href="https://github.com/geeeeeeeeek/electronic-wechat">electronic-wechat</a>，附一篇教程 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/dotnetcrazy/p/9124658.html">Ubuntu 18.04 安装微信（Linux 通用）</a>。</p>
+<h3 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h3><p>不述</p>
+<h3 id="Hexo多端维护博客"><a href="#Hexo多端维护博客" class="headerlink" title="Hexo多端维护博客"></a>Hexo 多端维护博客</h3><p>尝试了下，失败了。。后来发现双系统的话可以访问另一个系统的文件，那我干嘛还要找麻烦呢（手动狗头</p>
+<h3 id="ShadowSocks"><a href="#ShadowSocks" class="headerlink" title="ShadowSocks"></a>ShadowSocks</h3><p>连接是能连接上，但不能上网，也不知道为啥，弄清楚后再更。</p>
+<h3 id="图床工具"><a href="#图床工具" class="headerlink" title="图床工具"></a>图床工具</h3><p>暂时没有发现啥比较好的图床工具，于是自己用七牛云的 <code>qshell</code> 写了个，能用是能用，不知道为啥上传速度慢。除了这点还是蛮棒的！</p>
+<h2 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h2><p><code>Ubuntu 18.04 LTS</code> 好像使用的 GNOME，感觉棒棒呀，加入了扩展。于是像我这种人，怎么能不美化呢。暂时美化了一些东东：</p>
+<ul>
+<li>首先要下载个 Gnome-tweak-tool</li>
+<li> 主题：Arc</li>
+<li> 图标：Ultra-Flat</li>
+<li>bash：Oh-my-zsh</li>
+<li> 登录界面背景</li>
+<li>一些扩展：Dash to dock、system monitor、Openweather</li>
+</ul>
+<p>美化后效果：</p>
+<p><img src="https://blogphoto-1300662669.cos.ap-nanjing.myqcloud.com/2019-05-25%2018-54-14%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png"></p>
+<p><img src="https://blogphoto-1300662669.cos.ap-nanjing.myqcloud.com/2019-05-25%2019-49-08%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png"><img src="https://blogphoto-1300662669.cos.ap-nanjing.myqcloud.com/2019-05-25%2019-49-11%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png"></p>
+<p>太爽了！爱上了，我的天呐，这也太美了。</p>
+<h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><p>非常开心终于搞好了 Ubuntu 的环境，快捷、流畅，直接就爱上了。好久的愿望终于在今天实现了，以后要多用鸭。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">❤采之欲遗谁，所思在远道。❤</div>
+    
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/05/19/BZOJ-5486-Fine-Dining/" rel="prev" title="BZOJ 5486 Fine Dining">
+                  <i class="fa fa-angle-left"></i> BZOJ 5486 Fine Dining
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/05/29/YouCompleteMe%E8%B8%A9%E5%9D%91%E8%AE%B0/" rel="next" title="YouCompleteMe 踩坑记">
+                  YouCompleteMe 踩坑记 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-brands fa-optin-monster"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">之伊丶</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">578k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">17:32</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.31/dist/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","cdn":"//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"MoonChasing","repo":"BlogComment","client_id":"945099f6f7642f8f9aa1","client_secret":"1bc2f1034e1f214eb596fabb02c71260b3400640","admin_user":"MoonChasing","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"46ae30c248348b972d9231096c9d668a"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

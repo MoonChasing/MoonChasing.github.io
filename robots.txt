@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /tags/
+Allow: /categories/
+Allow: /photo/
+
+Disallow: /Shuoshuo/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+
+Sitemap: http://zhiyi.live/sitemap.xml
+Sitemap: http://zhiyi.live/baidusitemap.xml

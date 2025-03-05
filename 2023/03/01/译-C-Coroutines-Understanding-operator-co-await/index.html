@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="xSALNCd7e6-d6OjbNKdpk8bUbfMKnJYB4eNG232fwvc">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.31/dist/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhiyi.live","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="这是 Lewis Baker C++ 协程介绍的第一篇文章（从 0 开始计数）。现在因为看不太懂第二篇，所以打算将第一篇翻译出来，以便后续回来反复学习。第 0 篇文章讲的通用的协程理论，比较容易理解，不涉及 C++20 协程内容，暂时没有翻译计划。翻译错误及不太好的地方，欢迎大家指正。 原文链接 C++ 协程：理解 co_await 操作符在上一篇协程理论文章中，我描述了函数和协程之间的高层区别，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(译) C++ Coroutines: Understanding operator co_await">
+<meta property="og:url" content="http://zhiyi.live/2023/03/01/%E8%AF%91-C-Coroutines-Understanding-operator-co-await/index.html">
+<meta property="og:site_name" content="MoonChasing">
+<meta property="og:description" content="这是 Lewis Baker C++ 协程介绍的第一篇文章（从 0 开始计数）。现在因为看不太懂第二篇，所以打算将第一篇翻译出来，以便后续回来反复学习。第 0 篇文章讲的通用的协程理论，比较容易理解，不涉及 C++20 协程内容，暂时没有翻译计划。翻译错误及不太好的地方，欢迎大家指正。 原文链接 C++ 协程：理解 co_await 操作符在上一篇协程理论文章中，我描述了函数和协程之间的高层区别，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-01T23:33:15.000Z">
+<meta property="article:modified_time" content="2025-03-05T14:23:10.349Z">
+<meta property="article:author" content="之伊丶">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="协程">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://zhiyi.live/2023/03/01/%E8%AF%91-C-Coroutines-Understanding-operator-co-await/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://zhiyi.live/2023/03/01/%E8%AF%91-C-Coroutines-Understanding-operator-co-await/","path":"2023/03/01/译-C-Coroutines-Understanding-operator-co-await/","title":"(译) C++ Coroutines: Understanding operator co_await"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>(译) C++ Coroutines: Understanding operator co_await | MoonChasing</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118447996-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-118447996-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MoonChasing</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-%E5%8D%8F%E7%A8%8B%EF%BC%9A%E7%90%86%E8%A7%A3-co-await-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-number">1.</span> <span class="nav-text">C++ 协程：理解 co_await 操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Coroutines-%E5%B8%A6%E7%BB%99%E6%88%91%E4%BB%AC%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">Coroutines 带给我们了什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8-lt-gt-%E5%BA%93-%E4%BA%A4%E4%BA%92"><span class="nav-number">1.2.</span> <span class="nav-text">编译器 &lt;-&gt; 库 交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Awaiters-%E5%92%8C-Awaitable%EF%BC%9A%E7%90%86%E8%A7%A3-operator-co-await"><span class="nav-number">1.3.</span> <span class="nav-text">Awaiters 和 Awaitable：理解 operator co_await</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-Awaiter"><span class="nav-number">1.3.1.</span> <span class="nav-text">获取 Awaiter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Awaiting-the-Awaiter"><span class="nav-number">1.3.2.</span> <span class="nav-text">Awaiting the Awaiter</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Coroutine-Handles"><span class="nav-number">1.4.</span> <span class="nav-text">Coroutine Handles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E5%90%8C%E6%AD%A5%E7%9A%84%E5%BC%82%E6%AD%A5%E4%BB%A3%E7%A0%81"><span class="nav-number">1.5.</span> <span class="nav-text">无同步的异步代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8E%E6%9C%89%E6%A0%88%E5%8D%8F%E7%A8%8B%E6%AF%94%E8%BE%83"><span class="nav-number">1.5.1.</span> <span class="nav-text">与有栈协程比较</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%BF%E5%85%8D%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98"><span class="nav-number">1.6.</span> <span class="nav-text">避免分配内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E6%A0%97%E5%AD%90%EF%BC%9A%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E5%8E%9F%E8%AF%AD"><span class="nav-number">1.7.</span> <span class="nav-text">一个栗子：实现一个简单的线程同步原语</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-Awaiter"><span class="nav-number">1.7.1.</span> <span class="nav-text">定义 Awaiter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%E4%BA%8B%E4%BB%B6%E7%B1%BB%E7%9A%84%E5%85%B6%E4%BB%96%E9%83%A8%E5%88%86"><span class="nav-number">1.7.2.</span> <span class="nav-text">补充事件类的其他部分</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9D%9F%E8%AF%AD"><span class="nav-number">1.8.</span> <span class="nav-text">结束语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%B4%E8%B0%A2"><span class="nav-number">1.9.</span> <span class="nav-text">致谢</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%95%99%E8%A8%80"><span class="nav-number">1.9.0.1.</span> <span class="nav-text">留言</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="之伊丶"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">之伊丶</p>
+  <div class="site-description" itemprop="description">每从细笔惊新悟，重向高山愧旧琴。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=825910928&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;825910928&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener me" target="_blank"><i class="fa-brands fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/cui-ming-hao-61" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;cui-ming-hao-61" rel="noopener me" target="_blank"><i class="fas fa-puzzle-piece fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/MoonChasing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MoonChasing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/7679023/moonchasing" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;7679023&#x2F;moonchasing" rel="noopener me" target="_blank"><i class="fa-brands fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-gamepad fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://blog.0xfaner.site/" title="https:&#x2F;&#x2F;blog.0xfaner.site" rel="noopener" target="_blank">0xfaner</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://coswindy.cn/" title="https:&#x2F;&#x2F;coswindy.cn&#x2F;" rel="noopener" target="_blank">coswindy</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.cfzhao.com/" title="http:&#x2F;&#x2F;www.cfzhao.com&#x2F;" rel="noopener" target="_blank">CFZhao</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.kimiye.xyz/" title="https:&#x2F;&#x2F;www.kimiye.xyz" rel="noopener" target="_blank">Kehuaiiiiii</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2023/03/01/%E8%AF%91-C-Coroutines-Understanding-operator-co-await/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="之伊丶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+      <meta itemprop="description" content="每从细笔惊新悟，重向高山愧旧琴。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="(译) C++ Coroutines: Understanding operator co_await | MoonChasing">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          (译) C++ Coroutines: Understanding operator co_await
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-03-01 23:33:15" itemprop="dateCreated datePublished" datetime="2023-03-01T23:33:15+00:00">2023-03-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-05 14:23:10" itemprop="dateModified" datetime="2025-03-05T14:23:10+00:00">2025-03-05</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>16k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>29 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>这是 Lewis Baker C++ 协程介绍的第一篇文章（从 0 开始计数）。现在因为看不太懂第二篇，所以打算将第一篇翻译出来，以便后续回来反复学习。第 0 篇文章讲的通用的协程理论，比较容易理解，不涉及 C++20 协程内容，暂时没有翻译计划。翻译错误及不太好的地方，欢迎大家指正。</p>
+<p><a target="_blank" rel="noopener" href="https://lewissbaker.github.io/2017/11/17/understanding-operator-co-await">原文链接</a></p>
+<h1 id="C-协程：理解-co-await-操作符"><a href="#C-协程：理解-co-await-操作符" class="headerlink" title="C++ 协程：理解 co_await 操作符"></a>C++ 协程：理解 co_await 操作符</h1><p>在上一篇<a target="_blank" rel="noopener" href="https://lewissbaker.github.io/2017/09/25/coroutine-theory">协程理论</a>文章中，我描述了函数和协程之间的高层区别，但并没有详细介绍 C++ Coroutines TS (<a target="_blank" rel="noopener" href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4680.pdf">N4680</a>) 所描述的协程的语法和语义。</p>
+<p>Coroutines TS 向 C++ 语言添加了暂停一个协程，并允许它稍后恢复这个重要的新功能。TS 通过新的 <code>co_await</code> 操作符来提供该机制。</p>
+<p>理解 <code>co_await</code> 是如何工作的，可以帮助我们揭开协程神秘的面纱，让我们理解它们是如何挂起和恢复的。在这篇文章中，我将解释 <code>co_await</code> 操作符的机制，并介绍与之相关的 <strong>Awaitable</strong> 和 <strong>Awaiter</strong> 这两个类型的概念。<span id="more"></span></p>
+<p>在我们深入 <code>co_await</code> 操作符之前，我想提供一个 Coroutines TS 所提供内容的概览。</p>
+<h2 id="Coroutines-带给我们了什么？"><a href="#Coroutines-带给我们了什么？" class="headerlink" title="Coroutines 带给我们了什么？"></a>Coroutines 带给我们了什么？</h2><ul>
+<li>三个语言关键字：<code>co_await</code>, <code>co_yield</code> 和 <code>co_return</code></li>
+<li><code>std::experimental</code> 名字空间的几个新类型：（译注：原作者文章写于 2017 年，因此位于 <code>std::experimental</code> 名字空间内）<ul>
+<li><code>corotine_handle&lt;P&gt;</code></li>
+<li><code>corotine_traits&lt;Ts...&gt;</code></li>
+<li><code>suspend_always</code></li>
+<li><code>suspend_never</code></li>
+</ul>
+</li>
+<li>一套通用的机制，协程库作者可以使用它们来与协程进行交互并自定义他们协程的行为。</li>
+<li>一种使编写异步代码更加容易的语言基础设施！</li>
+</ul>
+<p>C++ Coroutines TS 在语言中提供的设施可以被认为是用于协程的底层汇编语言。这些设施可以通过安全的方式被不同地使用，并主要是面向协程库开发者，让他们构建更高层的抽象，来使应用开发者们可以安全地使用、工作。</p>
+<p>我们的计划是将这些新的底层工具交付到即将到来的语言标准（希望是 C++20）中，以及标准库中一些附带的高级类型，这些类型包装了这些底层的构建块，并使应用程序开发者以一种安全的方式更容易地使用协程。</p>
+<h2 id="编译器-lt-gt-库-交互"><a href="#编译器-lt-gt-库-交互" class="headerlink" title="编译器 <-> 库 交互"></a>编译器 &lt;-&gt; 库 交互</h2><p>有趣的是，Coroutines TS 实际上并没有定义协程的语义。他没有定义如何产生返回给调用者的值。它没有定义返回值如何被传递给 <code>co_return</code> 语句，或者如何处理从协程传播出去的异常。它没有定义协程在哪个线程上恢复运行。</p>
+<p>与之代替的是，它为库代码指定了一种通用机制，通过实现符合特定接口类型来定制协程的行为。然后，编译器生成代码，在库提供的类型实例上调用方法。这种方法与库开发者可以通过定义 <code>begin()</code> / <code>end()</code> 方法和一个 <code>iterator</code> 类型来自定义基于范围的 <code>for</code> 循环行为相似。</p>
+<p>Coroutines TS 没有为协程机制规定任何特定的语义，这使得它成为一个强大的工具。它允许库开发者定义许多不同种类的协程，用于各种不同的目的。</p>
+<p>举例来说，你可以定义一个协程来异步生产一个有符号的数值，或者定义一个协程来惰性产生一系列地值，或者定义一个协程来简化用于消费 <code>optional&lt;T&gt;</code> ，如果遇到 <code>nullopt</code> 值则提前退出的控制流。</p>
+<p>Coroutines TS 定义了两类接口：<strong>Promise</strong> 接口和 <strong>Awaitable</strong> 接口。</p>
+<p><strong>Promise</strong> 接口指定了定制协程本身行为的方法。协程库开发者可以定制当调用协程时会发生什么，协程返回时发生什么（要么通过正常方式，要么通过未处理的异常），并定制协程中任何 <code>co_await</code> 或 <code>co_yield</code> 表达式的行为。</p>
+<p><strong>Awaitable</strong> 接口指定了控制 <code>co_await</code> 表达式语义的方法。当一个值被 <code>await</code> 时，代码被转换为对 awaitable 对象上方法的一系列调用，这些方法允许它进行指定：是否挂起当前协程，在挂起后执行一些用于后续恢复的逻辑，以及在协程恢复后执行一些逻辑来产生 <code>co_await</code> 表达式的结果。</p>
+<p>我将在后续的文章中介绍 <strong>Promise</strong> 接口的细节，现在让我们看向 <strong>Awaitable</strong> 接口。</p>
+<h2 id="Awaiters-和-Awaitable：理解-operator-co-await"><a href="#Awaiters-和-Awaitable：理解-operator-co-await" class="headerlink" title="Awaiters 和 Awaitable：理解 operator co_await"></a>Awaiters 和 Awaitable：理解 <code>operator co_await</code></h2><p><code>co_await</code> 是一个新的可以用于一个值的一元操作符，如 <code>co_await someValue</code>。</p>
+<p><code>co_await</code> 操作符只可以在协程上下文中使用。这有点像一个重复，因为在定义上，任何函数体中使用了 <code>co_await</code> 操作符，他将被编译成为一个协程。</p>
+<p>一个支持 <code>co_await</code> 操作符的类型被称作 <strong>Awaitable</strong> 类型。</p>
+<p>注意，是否可以将 <code>co_await</code> 操作符应用于一个类型依赖于 <code>co_await</code> 表达式出现的上下文。用于协程的 promise 类型可以通过它的 <code>await_transform</code> 方法（后续详细介绍）在协程内部改变 <code>co_await</code> 表达式的含义。</p>
+<p>更具体地说，我喜欢使用 <strong>Normally Awaitable</strong> 来描述在协程上下文中支持 <code>co_await</code> 操作符的类型，该类型的 promise 类型中不含有 <code>await_transform</code> 成员。我喜欢使用术语 <strong>Contextually Awaitable</strong> 来描述仅在特定类型的协程的上下文中支持 <code>co_await</code> 操作符的类型，（因这种类型协程具有 <code>await_transform</code> 方法才支持）。（我期待对这两个名字更好的建议）</p>
+<p><code>Awaiter</code> 类型实现了三个特定的方法，<code>await_ready</code>, <code>await_suspend</code> 和 <code>await_resume</code>，这些方法作为 <code>co_await</code> 表达式的一部分被调用。</p>
+<p>注意，我在这里 “毫不羞耻” 地从 C# <code>async</code> 关键字的机制中借用了术语 ‘Awaiter’，该机制是通过 <code>GetAwaiter()</code> 方法实现的，该方法返回一个具有接口的对象，该接口与 C++ <code>Awaiter</code> 概念惊人似的对象。有关 C# awaiters 的更多细节，请参阅<a target="_blank" rel="noopener" href="https://weblogs.asp.net/dixin/understanding-c-sharp-async-await-2-awaitable-awaiter-pattern">这篇文章</a>。</p>
+<p>注意，一个类型，可以既是 <code>Awaitable</code> 类型，又是 <code>Awaiter</code> 类型。</p>
+<p>当编译器遇到一个 <code>co_await &lt;expr&gt;</code> 表达式时，根据所涉及到的类型，实际上可以将其转换为许多可能的内容。</p>
+<h3 id="获取-Awaiter"><a href="#获取-Awaiter" class="headerlink" title="获取 Awaiter"></a>获取 Awaiter</h3><p>编译器做的第一件事是生成代码以获取被 await 值的 <strong>Awaiter</strong> 对象。在 N4680 中的第 5.3.8 (3) 节中介绍了获取 await 对象的许多步骤。</p>
+<p>让我们假设正在异步等待的协程的 promise 对象类型为 P，并且这个 promise 是对当前协程 promise 对象的左值引用。</p>
+<p>如果 promise 类型 P 有 <code>await_transform</code> 成员，那么 <code>&lt;expr&gt;</code> 会首先被传到 <code>promise.await_transform(&lt;expr&gt;)</code> 调用中来获取 <strong>Awaitable</strong> 值，（我们称其名字为）awaitable。否则，如果 promise 类型没有 <code>await_transform</code> 成员，我们会使用求值后的 <code>&lt;expr&gt;</code> 直接作为 <strong>Awaitable</strong> 对象，awaitable。</p>
+<p>然后，如果这个 <strong>Awaitable</strong> 对象，awaitable，有一个合适的 <code>operaor co_await()</code> 重载，那么它将会被调用来获取 <strong>Awaiter</strong> 对象。否则，这个 awaitable 对象，会被作为 awaiter 对象来使用。</p>
+<p>如果我们将这些规则编码到函数 <code>get_awaitable()</code> 和 <code>get_awaiter()</code> 中，它们看上去像这样：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> P, <span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">decltype</span>(<span class="keyword">auto</span>) <span class="title">get_awaitable</span><span class="params">(P&amp; promise, T&amp;&amp; expr)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="function"><span class="keyword">if</span> <span class="title">constexpr</span> <span class="params">(has_any_await_transform_member_v&lt;P&gt;)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">return</span> promise.<span class="title">await_transform</span><span class="params">(<span class="keyword">static_cast</span>&lt;T&amp;&amp;&gt;(expr))</span></span>;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">static_cast</span>&lt;T&amp;&amp;&gt;(expr);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Awaitable&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">decltype</span>(<span class="keyword">auto</span>) <span class="title">get_awaiter</span><span class="params">(Awaitable&amp;&amp; awaitable)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="function"><span class="keyword">if</span> <span class="title">constexpr</span> <span class="params">(has_member_operator_co_await_v&lt;Awaitable&gt;)</span></span></span><br><span class="line"><span class="function">    <span class="keyword">return</span> <span class="keyword">static_cast</span>&lt;Awaitable&amp;&amp;&gt;<span class="params">(awaitable)</span>.<span class="keyword">operator</span> <span class="title">co_await</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> <span class="built_in">constexpr</span> (has_non_member_operator_co_await_v&lt;Awaitable&amp;&amp;&gt;)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">operator</span> <span class="built_in">co_await</span>(<span class="built_in">static_cast</span>&lt;Awaitable&amp;&amp;&gt;(awaitable));</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">static_cast</span>&lt;Awaitable&amp;&amp;&gt;(awaitable);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="Awaiting-the-Awaiter"><a href="#Awaiting-the-Awaiter" class="headerlink" title="Awaiting the Awaiter"></a>Awaiting the Awaiter</h3><p>因此，假设我们已经将 <code>&lt;expr&gt;</code> 结果转换为一个 <strong>Awaiter</strong> 对象的逻辑封装进了上述函数中，那么，<code>co_await &lt;expr&gt;</code> 的语义将会被（大概）翻译成以下：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="keyword">auto</span>&amp;&amp; value = &lt;expr&gt;;</span><br><span class="line">  <span class="keyword">auto</span>&amp;&amp; awaitable = <span class="built_in">get_awaitable</span>(promise, <span class="built_in">static_cast</span>&lt;<span class="keyword">decltype</span>(value)&gt;(value));</span><br><span class="line">  <span class="keyword">auto</span>&amp;&amp; awaiter = <span class="built_in">get_awaiter</span>(<span class="built_in">static_cast</span>&lt;<span class="keyword">decltype</span>(awaitable)&gt;(awaitable));</span><br><span class="line">  <span class="keyword">if</span> (!awaiter.<span class="built_in">await_ready</span>())</span><br><span class="line">  {</span><br><span class="line">    <span class="keyword">using</span> <span class="type">handle_t</span> = std::experimental::coroutine_handle&lt;P&gt;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">using</span> <span class="type">await_suspend_result_t</span> =</span><br><span class="line">      <span class="keyword">decltype</span>(awaiter.<span class="built_in">await_suspend</span>(<span class="type">handle_t</span>::<span class="built_in">from_promise</span>(p)));</span><br><span class="line"></span><br><span class="line">    &lt;suspend-coroutine&gt;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">if</span> <span class="title">constexpr</span> <span class="params">(std::is_void_v&lt;<span class="type">await_suspend_result_t</span>&gt;)</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">      awaiter.<span class="built_in">await_suspend</span>(<span class="type">handle_t</span>::<span class="built_in">from_promise</span>(p));</span><br><span class="line">      &lt;<span class="keyword">return</span>-to-caller-<span class="keyword">or</span>-resumer&gt;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    {</span><br><span class="line">      <span class="built_in">static_assert</span>(</span><br><span class="line">         std::is_same_v&lt;<span class="type">await_suspend_result_t</span>, <span class="type">bool</span>&gt;,</span><br><span class="line">         <span class="string">"await_suspend() must return 'void' or 'bool'."</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (awaiter.<span class="built_in">await_suspend</span>(<span class="type">handle_t</span>::<span class="built_in">from_promise</span>(p)))</span><br><span class="line">      {</span><br><span class="line">        &lt;<span class="keyword">return</span>-to-caller-<span class="keyword">or</span>-resumer&gt;</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    &lt;resume-point&gt;</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> awaiter.<span class="built_in">await_resume</span>();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>当调用  <code>await_supsend() </code> 返回时， 返回 <code>void</code> 版本的 <code>await_suspend()</code> 会无条件地将执行转移回调用者 / 恢复者，而返回 <code>bool</code> 版本的会允许 awaiter 对象在满足一定条件下立即恢复协程而不返回调用者 / 恢复者。</p>
+<p>当 <code>awaiter</code> 启动异步操作而该异步操作可以同步完成而不需要等待时，<code>await_suspend()</code> 返回 <code>bool</code> 的 版本会非常有用。在这种情况下，它可以同步完成， <code>await_suspend()</code> 方法可以返回 <code>false</code> 来指定协程应该立即恢复并继续执行。</p>
+<p>在 <code>&lt;suspend-coroutine&gt;</code> 点，编译器生成一些代码来保存当前协程的状态，并为恢复做准备。这包括储存 <code>&lt;resume-point&gt;</code> 点位置，以及将当前保存在寄存器中的任何值保存到协程帧内存中。</p>
+<p><code>&lt;suspend-coroutine&gt;</code> 操作完成后，当前协程会被认为挂起。你可以观察到挂起协程的第一个点是在 <code>await_suspend()</code> 调用的内部。一旦协程被挂起，就可以恢复或销毁它。</p>
+<p><code>await_ready()</code> 方法的目的是，如果了解操作可以被同步地完成而不需要挂起，在这种情况下，你可以避免 <code>&lt;suspend_coroutine&gt;</code> 操作的消耗。</p>
+<p>在 <code>&lt;return-to-caller-or-resumer&gt;</code> 点，执行权将被转移回调用者或者恢复者，弹出本地栈帧，但要保持协程帧存活。</p>
+<p>当（或者如果）被挂起的协程最终被恢复时，执行会在 <code>&lt;resume-point&gt;</code> 恢复，即在调用 <code>await_resume()</code> 方法以获取操作结果之前。</p>
+<p><code>await_resume</code> 方法调用的返回值会成为 <code>co_await</code> 表达式的结果。<code>await_resume()</code> 方法也可以抛出异常，在这种情况下，异常从 <code>co_await</code> 表达式传播出去。</p>
+<p>注意，如果异常在 <code>await_suspend()</code> 调用中传播出去，那么会自动恢复协程，并且在 <code>co_await</code> 表达式中传播而无需调用 <code>await_resume()</code>。</p>
+<h2 id="Coroutine-Handles"><a href="#Coroutine-Handles" class="headerlink" title="Coroutine Handles"></a>Coroutine Handles</h2><p>或许你已经注意到了 <code>coroutine_handle&lt;P&gt;</code> 类型的使用，该类型传递给了 <code>co_await</code> 表达式的 <code>await_suspend()</code> 调用。</p>
+<p>这个类型表示一个非拥有权的协程帧的句柄，并且可以被用于恢复协程的运行或者销毁协程帧。它也可以被用于访问协程的 promise 对象。</p>
+<p><code>coroutine_handle</code> 类型具有以下（缩写）接口：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> std::experimental</span><br><span class="line">{</span><br><span class="line">  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Promise&gt;</span><br><span class="line">  <span class="keyword">struct</span> <span class="title class_">coroutine_handle</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">template</span>&lt;&gt;</span><br><span class="line">  <span class="keyword">struct</span> <span class="title class_">coroutine_handle</span>&lt;<span class="type">void</span>&gt;</span><br><span class="line">  {</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">done</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">resume</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">destroy</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span>* <span class="title">address</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">    <span class="function"><span class="type">static</span> coroutine_handle <span class="title">from_address</span><span class="params">(<span class="type">void</span>* address)</span></span>;</span><br><span class="line">  };</span><br><span class="line"></span><br><span class="line">  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Promise&gt;</span><br><span class="line">  <span class="keyword">struct</span> <span class="title class_">coroutine_handle</span> : coroutine_handle&lt;<span class="type">void</span>&gt;</span><br><span class="line">  {</span><br><span class="line">    <span class="function">Promise&amp; <span class="title">promise</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">    <span class="function"><span class="type">static</span> coroutine_handle <span class="title">from_promise</span><span class="params">(Promise&amp; promise)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">static</span> coroutine_handle <span class="title">from_address</span><span class="params">(<span class="type">void</span>* address)</span></span>;</span><br><span class="line">  };</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>当实现 Awaitable 类型时，你将在 <code>coroutine_handle</code> 上使用的关键的方法是 <code>.resume()</code>，当操作完成并且你想恢复一个正在等待中的协程的执行时，应该调用它。在一个 <code>coroutine_handle</code> 上调用 <code>.resume()</code> 将会在 <code>&lt;resume-point&gt;</code> 激活一个被挂起的协程。当协程遇到下一个 <code>&lt;return-to-caller-or-resumer&gt;</code> 时，对 <code>.resume()</code> 的调用将会返回。</p>
+<p><code>.destory()</code> 方法将会销毁协程帧，调用所有作用域内变量（in-scope variables）的析构函数，并且释放协程帧使用的内存。你一般不需要（实际上应该避免）调用 <code>.destroy()</code> 除非你是一个在实现协程 promise 类型的库作者。通常，协程帧将由调用协程返回的某种 RAII 类型所拥有。因此，在不与 RAII 对象合作的情况下调用 <code>.destory()</code> 可能会导致 double free bug。</p>
+<p><code>.promise()</code> 方法的返回一个协程 promise 对象的引用。然后，像 <code>.destory()</code> 方法，它通常只在你正编写协程 promise 类型时才有用。你应该将协程的 promise 对象视为协程的内部实现细节。对于大多数 <strong>Normally Awaitable</strong> 类型，你应该使用 <code>coroutine_handle&lt;void&gt;</code> 作为 <code>await_suspend()</code> 方法的参数类型，而不是 <code>coroutine_handle&lt;Promise&gt;</code>。</p>
+<p><code>coroutine_handle&lt;P&gt;::from_promise(P&amp; promise)</code> 函数允许从一个协程 promise 对象的引用重建它的协程句柄。注意，你必须要保证类型 P 精确地匹配协程帧使用的 promise 类型。尝试从 <code>Derived</code> 的 promise 类型创建 <code>coroutine_handle&lt;Base&gt;</code> 会导致未定义行为。</p>
+<p><code>.address()</code>/<code>from_address</code> 函数允许协程句柄与 <code>void *</code> 指针间的相互转换。这主要是为了传递一个上下文参数到现有的 C 风格的 API 中，因此你会发现这在一些实现 <code>Awaitable</code> 类型的场景中是有用的。然而，在大多数情况下，我发现有必要将附加信息传递给这个上下文参数中回调函数，因此，我一般将协程句柄存储在结构体里，并在上下文参数中传递指向该结构体的指针，而不是使用 <code>.address()</code> 的返回值。</p>
+<h2 id="无同步的异步代码"><a href="#无同步的异步代码" class="headerlink" title="无同步的异步代码"></a>无同步的异步代码</h2><p><code>co_await</code> 操作符一上强大的设计特性就是可以在暂停协程之后、在返回调用者 / 恢复者之前执行代码。</p>
+<p>这允许一个 Awaitable 对象在协程挂起后初始化一个异步操作，将挂起的协程的 <code>coroutine_handle</code> 传递给这个操作，当操作完成（可能在另一个线程上）时，它可以安全的恢复协程，而不需要额外的同步。</p>
+<p>例如，当协程已经挂起时，在 <code>await_suspend()</code> 中启动异步读操作，意味着我们可以在操作完成时恢复协程，而不需要任何线程同步来协调启动该操作的线程和完成该操作的线程。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Time     Thread 1                           Thread 2</span><br><span class="line">  |      --------                           --------</span><br><span class="line">  |      ....                               Call OS - Wait for I/O event</span><br><span class="line">  |      Call await_ready()                    |</span><br><span class="line">  |      &lt;supend-point&gt;                        |</span><br><span class="line">  |      Call await_suspend(handle)            |</span><br><span class="line">  |        Store handle in operation           |</span><br><span class="line">  V        Start AsyncFileRead ---+            V</span><br><span class="line">                                  +-----&gt;   &lt;AsyncFileRead Completion Event&gt;</span><br><span class="line">                                            Load coroutine_handle from operation</span><br><span class="line">                                            Call handle.resume()</span><br><span class="line">                                              &lt;resume-point&gt;</span><br><span class="line">                                              Call to await_resume()</span><br><span class="line">                                              execution continues....</span><br><span class="line">           Call to AsyncFileRead returns</span><br><span class="line">         Call to await_suspend() returns</span><br><span class="line">         &lt;return-to-caller/resumer&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在利用这种方法时需要非常小心的一件事是，一旦你启动了将协程句柄发布到其他线程的操作，那么可能会在 <code>await_suspend()</code> 返回之前在另一个线程上恢复协程，并可能继续与 <code>await_suspend()</code> 方法的其余部分并发执行。</p>
+<p>协程在恢复时做的第一件事就是调用 <code>await_resume</code> 来获取结果，然后它一般会立即析构 <strong>Awaiter</strong> 对象（如，<code>await_suspend()</code> 调用中的 <code>this</code> 指针）。之后，协程可能运行到完成，销毁协程和 promise 对象，这些都在 <code>await_suspend()</code> 返回之前完成。</p>
+<p>因此，在 <code>await_suspend()</code> 方法中，一旦协程可以在另一个线程上并发地恢复，您需要确保避免访问 <code>this</code> 或协程的 <code>.promise()</code> 对象，因为这两个对象都可能已经被销毁。一般来说，在启动操作和调度恢复协程之后，唯一可以安全访问的对象是 <code>await suspend()</code> 中的本地变量。</p>
+<h3 id="与有栈协程比较"><a href="#与有栈协程比较" class="headerlink" title="与有栈协程比较"></a>与有栈协程比较</h3><p>我想简单地比较一下 Coroutines TS 无栈协程在协程挂起后执行逻辑的能力，以及一些现有的常用的有栈协程设施，如 Win32 纤程或 boost::context。</p>
+<p>在许多有栈协程框架中，一个协程的挂起操作与另一个协程的恢复结合在一起，形成上下文切换操作。使用这种上下文切换操作，通常没有机会在挂起当前协程后，恢复执行另一个协程之前执行逻辑。</p>
+<p>这意味着如果我们想在有栈协程之上实现类似的异步文件读取操作，那么我们必须在挂起协程之前启动该操作。因此，在协程挂起并有资格恢复之前，操作可能在另一个线程上完成。在另一个线程上完成的操作和协程挂起之间的潜在竞争需要某种线程同步来仲裁和决定赢家。</p>
+<p>通过使用蹦床上下文，可以在初始上下文挂起之后启动操作来代表初始上下文。（不太理解这，原文为 There are probably ways around this by using a trampoline context that can start the operation on behalf of the initiating context after the initiating context has been suspended. ）然而，这将需要额外的基础设施和额外的上下文切换来使其工作，这可能带来的开销将大于它试图避免的同步成本。</p>
+<h2 id="避免分配内存"><a href="#避免分配内存" class="headerlink" title="避免分配内存"></a>避免分配内存</h2><p>异步操作通常需要存储一些每个操作的状态，以跟踪操作的进度。这个状态通常需要在操作期间持续，并且只应在操作完成后立即释放。</p>
+<p>例如，调用异步 Win32 I/O 函数需要您分配并将指针传递给 <code>OVERLAPPED</code> 结构。调用者负责确保此指针在操作完成前保持有效。</p>
+<p>对于传统的基于回调的 api，这种状态通常需要在堆上分配，以确保它具有合适的生命周期。如果您正在执行许多操作，则可能需要为每个操作分配和释放此状态。如果性能是一个问题，那么可以使用自定义分配器从池中分配这些状态对象。</p>
+<p>然而，当我们使用协程时，我们可以利用协程帧内的局部变量在协程挂起时保持活跃的事实，从而避免为操作状态分配堆上存储。</p>
+<p>通过将每个操作状态放在 <strong>Awaiter</strong> 对象中，我们可以高效地从协程帧中借用内存，用于存储 <code>co_await</code> 表达式期间的每个操作状态。一旦操作完成，协程将恢复，<strong>Awaiter</strong> 对象将被销毁，释放协程帧中的内存供其他局部变量使用。</p>
+<p>最终，协程帧仍可能被分配到堆上。然而，一旦分配了，这个协程帧就可以使用这个单一的堆分配来执行许多异步操作。</p>
+<p>如果你仔细想想，协程帧就像一种真正高性能的 arena 内存分配器。编译器在编译时计算出所有局部变量所需的总 arena 大小，然后能够根据需要将这些内存分配给局部变量，zero overhead！尝试使用自定义分配器来击败它；)</p>
+<h2 id="一个栗子：实现一个简单的线程同步原语"><a href="#一个栗子：实现一个简单的线程同步原语" class="headerlink" title="一个栗子：实现一个简单的线程同步原语"></a>一个栗子：实现一个简单的线程同步原语</h2><p>现在我们已经介绍了 <code>co_await</code> 操作符的许多机制，我想通过实现一个基本的 awaitable 同步原语（异步手动重置事件）来展示如何将这些知识应用到实践中。</p>
+<p>此事件的基本需求是它需要被多个并发执行的协程可等待（<strong>Awaitable</strong>），当等待时需要挂起等待的协程，直到一些线程调用 <code>.set()</code> 方法，此时任何等待的协程都将恢复。如果某个线程已经调用了 <code>.set()</code>，那么协程应该继续而不挂起。</p>
+<p>理想情况下，我们还希望使它成为 <code>noexcept</code>，不需要堆分配，并有一个无锁的实现。</p>
+<p><strong>2017./11/23 修改：添加 <code>async_manual_reset_event</code> 使用示例</strong></p>
+<p>使用示例类似这样：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">T value;</span><br><span class="line">async_manual_reset_event event;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 单个产生值</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">producer</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  value = <span class="built_in">some_long_running_computation</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 通过 set 事件来发布值</span></span><br><span class="line">  event.<span class="built_in">set</span>();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 支持多个并发消费</span></span><br><span class="line">task&lt;&gt; <span class="built_in">consumer</span>()</span><br><span class="line">{</span><br><span class="line">  <span class="comment">// 等待，直到 producer() 函数通过 event.set() 来设定事件</span></span><br><span class="line">  <span class="keyword">co_await</span> event;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 现在，可以安全地消费 'value'</span></span><br><span class="line">  <span class="comment">// 这个保证在 `value` 赋值后发生</span></span><br><span class="line">  std::cout &lt;&lt; value &lt;&lt; std::endl;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>让我们首先考虑下事件可能的状态：<code>未设置</code> 和 <code>已设置</code>。</p>
+<p>当它处于未设置状态时，会有一个 (可能为空的) 等待中的协程列表等待它被设置。</p>
+<p>当它处于设置状态时，将不会有任何等待协程，因为在此状态下等待事件的协程可以继续而不暂停。</p>
+<p>这个状态实际上可以用一个 <code>std::atomic&lt;void *&gt;</code> 来表示。</p>
+<ul>
+<li>为 <code>已设置</code> 状态的指针保留一个特殊的指针值。在这种情况下，我们使用事件的 <code>this</code> 指针，因为我们知道它不能与任何列表项的地址相同。</li>
+<li>否则，事件处于未设置状态，值是指向等待状态中的协程结构的单链表头部的指针。</li>
+</ul>
+<p>通过将节点存储在协程帧上的 ‘awaiter’ 对象内，我们可以避免为堆上的链表分配节点的额外调用。</p>
+<p>让我们从一个类接口开始，它看起来像这样：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">async_manual_reset_event</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">  <span class="built_in">async_manual_reset_event</span>(<span class="type">bool</span> initiallySet = <span class="literal">false</span>) <span class="keyword">noexcept</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 没有拷贝/移动构造函数</span></span><br><span class="line">  <span class="built_in">async_manual_reset_event</span>(<span class="type">const</span> async_manual_reset_event&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">  <span class="built_in">async_manual_reset_event</span>(async_manual_reset_event&amp;&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">  async_manual_reset_event&amp; <span class="keyword">operator</span>=(<span class="type">const</span> async_manual_reset_event&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">  async_manual_reset_event&amp; <span class="keyword">operator</span>=(async_manual_reset_event&amp;&amp;) = <span class="keyword">delete</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">bool</span> <span class="title">is_set</span><span class="params">()</span> <span class="type">const</span> <span class="keyword">noexcept</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">struct</span> <span class="title class_">awaiter</span>;</span><br><span class="line">  <span class="function">awaiter <span class="keyword">operator</span> <span class="title">co_await</span><span class="params">()</span> <span class="type">const</span> <span class="keyword">noexcept</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">set</span><span class="params">()</span> <span class="keyword">noexcept</span></span>;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">reset</span><span class="params">()</span> <span class="keyword">noexcept</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"></span><br><span class="line">  <span class="keyword">friend</span> <span class="keyword">struct</span> <span class="title class_">awaiter</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// - 'this' =&gt; 已设置状态</span></span><br><span class="line">  <span class="comment">// - otherwise =&gt; 未设置状态, awaiter * 的链表头节点</span></span><br><span class="line">  <span class="keyword">mutable</span> std::atomic&lt;<span class="type">void</span>*&gt; m_state;</span><br><span class="line"></span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这里我们有一个相当直接和简单的接口。此时需要注意的主要事情是，它有一个操作符  <code>co_await()</code> 方法，该方法返回一个尚未定义的类型 <code>awaiter</code>。</p>
+<p>让我们现在来定义 <code>awaiter</code> 类型。</p>
+<h3 id="定义-Awaiter"><a href="#定义-Awaiter" class="headerlink" title="定义 Awaiter"></a>定义 Awaiter</h3><p>首选，我们需要知道它将等待哪一个 <code>async_manual_reset_event</code>，因此它需要一个对事件的引用和一个构造函数来初始化它。</p>
+<p>它还需要充当一个由 <code>awaiter</code> 值组成的链表的节点，因此它需要保存一个指向列表中下一个 <code>awaiter</code> 对象的指针。</p>
+<p>它还需要存储正在执行 <code>co_await</code> 表达式的等待中协程的 <code>coroutine_handle</code>，以便事件可以在被设置时恢复协程。我们不关心协程的 promise 类型是什么，因此我们使用 <code> coroutine_handle</code> 就好，（<code>coroutine_handle&lt;void&gt;</code> 的编写）。</p>
+<p>最终， 它需要实现 <strong>Awaiter</strong> 接口，因此，它需要三个特定的方法 <code>await_spend</code>，<code>await_ready</code> 和 <code>await_resume</code>。我们不需要从 <code>co_await</code> 表达式中返回值，因此 <code>await_resume</code> 可以返回 <code>void</code>。</p>
+<p>一旦我们把所有这些放在一起，一个服务生的基本类接口看起来像这样。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">async_manual_reset_event</span>::awaiter</span><br><span class="line">{</span><br><span class="line">  <span class="built_in">awaiter</span>(<span class="type">const</span> async_manual_reset_event&amp; event) <span class="keyword">noexcept</span></span><br><span class="line">  : <span class="built_in">m_event</span>(event)</span><br><span class="line">  {}</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">bool</span> <span class="title">await_ready</span><span class="params">()</span> <span class="type">const</span> <span class="keyword">noexcept</span></span>;</span><br><span class="line">  <span class="function"><span class="type">bool</span> <span class="title">await_suspend</span><span class="params">(std::experimental::coroutine_handle&lt;&gt; awaitingCoroutine)</span> <span class="keyword">noexcept</span></span>;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">await_resume</span><span class="params">()</span> <span class="keyword">noexcept</span> </span>{}</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"></span><br><span class="line">  <span class="type">const</span> async_manual_reset_event&amp; m_event;</span><br><span class="line">  std::experimental::coroutine_handle&lt;&gt; m_awaitingCoroutine;</span><br><span class="line">  awaiter* m_next;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<p>现在，当我们 <code>co_await</code> 一个事件时，如果事件已经被设置，我们不想挂起让协程挂起。所以，如果事件已经被设置，我们可以将 <code>await_ready()</code> 返回为 <code>true</code>。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> async_manual_reset_event::awaiter::<span class="built_in">await_ready</span>() <span class="type">const</span> <span class="keyword">noexcept</span></span><br><span class="line">{</span><br><span class="line">  <span class="keyword">return</span> m_event.<span class="built_in">is_set</span>();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>接下来，让我们看看 <code>await_suspend()</code> 方法。这通常是 awaitable 类型中最神奇的事情发生的地方。</p>
+<p>首先，它需要将等待中协程的协程句柄存储到 <code>m_awaitingCoroutine</code> 成员中，以便事件稍后可以对其调用 <code>.resume()</code>。</p>
+<p>完成这些之后，我们需要尝试将 <code>awaiter</code> 原子地入队到等待者的链表中。如果我们成功地将其入队，那么我们返回 <code>true</code>，表示我们不想立即恢复协程，否则，如果我们发现事件同时被更改为已设置状态，那么我们返回 <code>false</code>，表示应该立即恢复协程。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> async_manual_reset_event::awaiter::<span class="built_in">await_suspend</span>(</span><br><span class="line">  std::experimental::coroutine_handle&lt;&gt; awaitingCoroutine) <span class="keyword">noexcept</span></span><br><span class="line">{</span><br><span class="line">  <span class="comment">// 特定的 m_state 值用于表示事件牌 ‘已设置’ 状态</span></span><br><span class="line">  <span class="type">const</span> <span class="type">void</span>* <span class="type">const</span> setState = &amp;m_event;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 存储等待中协程的句柄</span></span><br><span class="line">  m_awaitingCoroutine = awaitingCoroutine;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 尝试原子性地将 awaiter 放到链表头</span></span><br><span class="line">  <span class="type">void</span>* oldValue = m_event.m_state.<span class="built_in">load</span>(std::memory_order_acquire);</span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">  {</span><br><span class="line">    <span class="comment">// 如果已经在 ‘已设置’ 状态，立即恢复</span></span><br><span class="line">    <span class="keyword">if</span> (oldValue == setState) <span class="keyword">return</span> <span class="literal">false</span>; </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 更新 next 指针，指向当前头部</span></span><br><span class="line">    m_next = <span class="built_in">static_cast</span>&lt;awaiter*&gt;(oldValue);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Finally, try to swap the old list head, inserting this awaiter</span></span><br><span class="line">    <span class="comment">// as the new list head.</span></span><br><span class="line">    <span class="comment">// 最后，尝试交换旧的列表头节点，将这个 awaiter 作为新的链表头节点</span></span><br><span class="line">  } <span class="keyword">while</span> (!m_event.m_state.<span class="built_in">compare_exchange_weak</span>(</span><br><span class="line">             oldValue,</span><br><span class="line">             <span class="keyword">this</span>,</span><br><span class="line">             std::memory_order_release,</span><br><span class="line">             std::memory_order_acquire));</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 成功入队，保持挂起。</span></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>注意，当我们加载旧的状态时，我们使用 <code>acquire</code> 内存顺序，因此，如果我们读到了特定的 ‘已设置’  值，我们可以看到调用 <code>set()</code> 之前发生的写操作。</p>
+<p>如果比较 - 替换成功，我们需要 <code>release</code> 语义，因此后续调用 <code>set()</code> 将看到我们写入 m_awaitingCoroutine 和写入之前协程状态。</p>
+<h3 id="补充事件类的其他部分"><a href="#补充事件类的其他部分" class="headerlink" title="补充事件类的其他部分"></a>补充事件类的其他部分</h3><p>现在我们已经定义了 <code>awaiter</code> 类型，让我们回过头来看看 <code>async_manual_reset_evnet</code> 方法的实现。</p>
+<p>首先，构造函数。它需要初始化到未设置状态，并使用空的等待者列表（如 <code>nullptr</code>）或初始化到 ‘已设置’ 状态（即 <code>this</code>）。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">async_manual_reset_event::<span class="built_in">async_manual_reset_event</span>(</span><br><span class="line">  <span class="type">bool</span> initiallySet) <span class="keyword">noexcept</span></span><br><span class="line">: <span class="built_in">m_state</span>(initiallySet ? <span class="keyword">this</span> : <span class="literal">nullptr</span>)</span><br><span class="line">{}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>然后，<code>is_set()</code> 方法非常直接 —— 通过判断它是否有特殊的 <code>this</code> 值表示它是否被设置。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">async_manual_reset_event::is_set</span><span class="params">()</span> <span class="type">const</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">return</span> m_state.<span class="built_in">load</span>(std::memory_order_acquire) == <span class="keyword">this</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>接下来，<code>reset()</code> 方法。如果它处于 ‘已设置’ 状态，我们希望转换回未设置时空链表的状态，而不是维持原样。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">async_manual_reset_event::reset</span><span class="params">()</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="type">void</span>* oldValue = <span class="keyword">this</span>;</span><br><span class="line">  m_state.<span class="built_in">compare_exchange_strong</span>(oldValue, <span class="literal">nullptr</span>, std::memory_order_acquire);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在 <code>set</code> 方法中，我们希望通过将当头状态与特殊设定值 <code> this</code> 交换来转换到 ‘已设置’ 状态。然后检查原来的值是什么。如果有任务等待中的协程，那么我们希望在返回之前依次恢复每个协程。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">async_manual_reset_event::set</span><span class="params">()</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="comment">// Needs to be 'release' so that subsequent 'co_await' has</span></span><br><span class="line">  <span class="comment">// visibility of our prior writes.</span></span><br><span class="line">  <span class="comment">// Needs to be 'acquire' so that we have visibility of prior</span></span><br><span class="line">  <span class="comment">// writes by awaiting coroutines.</span></span><br><span class="line">  <span class="type">void</span>* oldValue = m_state.<span class="built_in">exchange</span>(<span class="keyword">this</span>, std::memory_order_acq_rel);</span><br><span class="line">  <span class="keyword">if</span> (oldValue != <span class="keyword">this</span>)</span><br><span class="line">  {</span><br><span class="line">    <span class="comment">// Wasn't already in 'set' state.</span></span><br><span class="line">    <span class="comment">// Treat old value as head of a linked-list of waiters</span></span><br><span class="line">    <span class="comment">// which we have now acquired and need to resume.</span></span><br><span class="line">    <span class="keyword">auto</span>* waiters = <span class="built_in">static_cast</span>&lt;awaiter*&gt;(oldValue);</span><br><span class="line">    <span class="keyword">while</span> (waiters != <span class="literal">nullptr</span>)</span><br><span class="line">    {</span><br><span class="line">      <span class="comment">// Read m_next before resuming the coroutine as resuming</span></span><br><span class="line">      <span class="comment">// the coroutine will likely destroy the awaiter object.</span></span><br><span class="line">      <span class="keyword">auto</span>* next = waiters-&gt;m_next;</span><br><span class="line">      waiters-&gt;m_awaitingCoroutine.<span class="built_in">resume</span>();</span><br><span class="line">      waiters = next;</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>最后，我们需要实现 <code>operator co_await()</code> 方法。这只需要构造一个 <code>awaiter</code> 对象。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">async_manual_reset_event::awaiter</span></span><br><span class="line"><span class="function">async_manual_reset_event::<span class="keyword">operator</span> <span class="title">co_await</span><span class="params">()</span> <span class="type">const</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">  <span class="keyword">return</span> awaiter{ *<span class="keyword">this</span> };</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>我们创造了它。一个可异步等待的手动重置事件，它具有无锁、无内存分配、<code>noexcept</code> 的实现。</p>
+<p>如果您想使用代码玩耍，或查看其在 MSVC 和 Clang 上的编译，可以在 <a target="_blank" rel="noopener" href="https://godbolt.org/g/Ad47tH">godbolt</a> 上查看源代码。</p>
+<p>你也可以在 <a target="_blank" rel="noopener" href="https://github.com/lewissbaker/cppcoro">cppcoro</a> 库中找到该类的实现，以及其他一些有用的 awaitable 类型，如 <code>async_mutex</code> 和 <code>async_auto_reset_event</code>。</p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>本文介绍了 <code>operator co_await</code> 是如何实现的，以及如何根据 <strong>Awaitable</strong> 和 <strong>Awaiter</strong> 概念定义的。</p>
+<p>本文还介绍了如何实现一个可等待的异步线程同步原语，该原语利用了在协程帧上分配等待对象以避免额外堆分配的事实。</p>
+<p>我希望这篇文章可以帮助你揭开新 <code>co_await</code> 操作符的神秘面纱。</p>
+<p>在下一篇文章中，我将探讨 <code>Promise</code> 概念，以及协程类型作者如何定制他们协程的行为。</p>
+<h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><p>我想特别感谢 Gor Nishanov 在过去几年中耐心和热情地回答了我关于协程的许多问题。</p>
+<p>并向 Eric Niebler 审查并提供有关本文早期草案的反馈。</p>
+<hr>
+
+
+<h4 id="留言"><a href="#留言" class="headerlink" title="留言"></a>留言</h4><p>非常欢迎在 <a target="_blank" rel="noopener" href="https://github.com/lewissbaker/lewissbaker.github.io/issues/2">这个 Github issue</a> 上进行留言。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">❤采之欲遗谁，所思在远道。❤</div>
+    
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+              <a href="/tags/%E5%8D%8F%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 协程</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/01/26/24%E5%B2%81%E5%86%99%E7%BB%99%E5%AD%A9%E5%AD%90%E7%9A%84%E4%BF%A1/" rel="prev" title="24 岁写给孩子的信">
+                  <i class="fa fa-angle-left"></i> 24 岁写给孩子的信
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/05/21/%E3%80%8C%E5%B0%8F%E6%BB%A1%E3%80%8DC-chrono-%E5%BA%93%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0/" rel="next" title="「小满」C++ chrono 库使用学习笔记">
+                  「小满」C++ chrono 库使用学习笔记 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-brands fa-optin-monster"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">之伊丶</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">578k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">17:32</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.31/dist/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","cdn":"//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"MoonChasing","repo":"BlogComment","client_id":"945099f6f7642f8f9aa1","client_secret":"1bc2f1034e1f214eb596fabb02c71260b3400640","admin_user":"MoonChasing","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"5c969b5a8cb7c084b980a71af8ca703a"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

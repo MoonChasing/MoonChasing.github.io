@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="xSALNCd7e6-d6OjbNKdpk8bUbfMKnJYB4eNG232fwvc">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.31/dist/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhiyi.live","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="我发现勇气根本靠不住，只有完全的疯狂才有意义。 写这篇文章时，九月画下句号，十月刚刚起笔。回忆这一个月，无数的片段涌上心头，诉说着它们的故事，有焦虑、有等待、有充实、有恐惧、有喜悦，但没有迷茫。从初中刚开始学编程的那一刻起，对大厂的渴望或许便铭刻在了我的心上。上大学以来，我越发觉得我接受不了小厂，剑指BAT，从没改变，（梦想当然是 Google），这个九月，我终于如愿了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="黄沙百战穿金甲 —— 腾讯秋招记录">
+<meta property="og:url" content="http://zhiyi.live/2019/09/30/%E9%BB%84%E6%B2%99%E7%99%BE%E6%88%98%E7%A9%BF%E9%87%91%E7%94%B2%E2%80%94%E2%80%94%E8%85%BE%E8%AE%AF%E7%A7%8B%E6%8B%9B%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="MoonChasing">
+<meta property="og:description" content="我发现勇气根本靠不住，只有完全的疯狂才有意义。 写这篇文章时，九月画下句号，十月刚刚起笔。回忆这一个月，无数的片段涌上心头，诉说着它们的故事，有焦虑、有等待、有充实、有恐惧、有喜悦，但没有迷茫。从初中刚开始学编程的那一刻起，对大厂的渴望或许便铭刻在了我的心上。上大学以来，我越发觉得我接受不了小厂，剑指BAT，从没改变，（梦想当然是 Google），这个九月，我终于如愿了。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blogphoto-1300662669.cos.ap-nanjing.myqcloud.com/blog/20191001/J4lOPe8xBNgx.jpg">
+<meta property="og:image" content="https://blogphoto-1300662669.cos.ap-nanjing.myqcloud.com/blog/20191001/vf4wLcl8bKa2.jpg">
+<meta property="og:image" content="https://blogphoto-1300662669.cos.ap-nanjing.myqcloud.com/blog/20191001/8ftoS9GRvB1a.jpg">
+<meta property="article:published_time" content="2019-09-30T23:55:50.000Z">
+<meta property="article:modified_time" content="2025-03-05T14:23:10.349Z">
+<meta property="article:author" content="之伊丶">
+<meta property="article:tag" content="记录">
+<meta property="article:tag" content="腾讯">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blogphoto-1300662669.cos.ap-nanjing.myqcloud.com/blog/20191001/J4lOPe8xBNgx.jpg">
+
+
+<link rel="canonical" href="http://zhiyi.live/2019/09/30/%E9%BB%84%E6%B2%99%E7%99%BE%E6%88%98%E7%A9%BF%E9%87%91%E7%94%B2%E2%80%94%E2%80%94%E8%85%BE%E8%AE%AF%E7%A7%8B%E6%8B%9B%E8%AE%B0%E5%BD%95/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://zhiyi.live/2019/09/30/%E9%BB%84%E6%B2%99%E7%99%BE%E6%88%98%E7%A9%BF%E9%87%91%E7%94%B2%E2%80%94%E2%80%94%E8%85%BE%E8%AE%AF%E7%A7%8B%E6%8B%9B%E8%AE%B0%E5%BD%95/","path":"2019/09/30/黄沙百战穿金甲——腾讯秋招记录/","title":"黄沙百战穿金甲 —— 腾讯秋招记录"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>黄沙百战穿金甲 —— 腾讯秋招记录 | MoonChasing</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118447996-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-118447996-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MoonChasing</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="之伊丶"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">之伊丶</p>
+  <div class="site-description" itemprop="description">每从细笔惊新悟，重向高山愧旧琴。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=825910928&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;825910928&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener me" target="_blank"><i class="fa-brands fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/cui-ming-hao-61" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;cui-ming-hao-61" rel="noopener me" target="_blank"><i class="fas fa-puzzle-piece fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/MoonChasing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MoonChasing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/7679023/moonchasing" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;7679023&#x2F;moonchasing" rel="noopener me" target="_blank"><i class="fa-brands fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-gamepad fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://blog.0xfaner.site/" title="https:&#x2F;&#x2F;blog.0xfaner.site" rel="noopener" target="_blank">0xfaner</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://coswindy.cn/" title="https:&#x2F;&#x2F;coswindy.cn&#x2F;" rel="noopener" target="_blank">coswindy</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.cfzhao.com/" title="http:&#x2F;&#x2F;www.cfzhao.com&#x2F;" rel="noopener" target="_blank">CFZhao</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.kimiye.xyz/" title="https:&#x2F;&#x2F;www.kimiye.xyz" rel="noopener" target="_blank">Kehuaiiiiii</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2019/09/30/%E9%BB%84%E6%B2%99%E7%99%BE%E6%88%98%E7%A9%BF%E9%87%91%E7%94%B2%E2%80%94%E2%80%94%E8%85%BE%E8%AE%AF%E7%A7%8B%E6%8B%9B%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="之伊丶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+      <meta itemprop="description" content="每从细笔惊新悟，重向高山愧旧琴。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="黄沙百战穿金甲 —— 腾讯秋招记录 | MoonChasing">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          黄沙百战穿金甲 —— 腾讯秋招记录
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-30 23:55:50" itemprop="dateCreated datePublished" datetime="2019-09-30T23:55:50+00:00">2019-09-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-05 14:23:10" itemprop="dateModified" datetime="2025-03-05T14:23:10+00:00">2025-03-05</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>10 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote class="blockquote-center"> 我发现勇气根本靠不住，只有完全的疯狂才有意义。</blockquote>
+写这篇文章时，九月画下句号，十月刚刚起笔。回忆这一个月，无数的片段涌上心头，诉说着它们的故事，有焦虑、有等待、有充实、有恐惧、有喜悦，但没有迷茫。从初中刚开始学编程的那一刻起，对大厂的渴望或许便铭刻在了我的心上。上大学以来，我越发觉得我接受不了小厂，剑指BAT，从没改变，（梦想当然是 Google），这个九月，我终于如愿了。<span id="more"></span>
+
+<p>春招的时候笔试后收到了性格测试的邮件，但由于无法说清的原因错过了性格测试，不知道是不是这个没能收到后面的面试，错失了进腾讯的机会。秋招是在 8 月 21 号晚上投递的简历，简历较春招添加了很多东西，不再像春招那般牛逼哄哄地只写上 ACM 和简要的技能，而是学会了列条。如春招时掌握技能写个数据结构，秋招时改成了掌握栈、队列、链表、树、图等…. 虽然高傲的我极不喜欢如此，但在效果上看来还是蛮有效的。8 月份的时候我还在华为实习，没有准备秋招，也便没有复习一些面试常问知识点等等，我寻思着我投个简历怎么也得冷漠我一两周，给我个笔试啥的再面试，可谁知投递简历的第二天中午就收到了腾讯的电话。（或许是简历比较优秀吧）电话并不算是面试，而是聊了下我的情况，比如能不能来深圳，接不接受学习 go 语言（我当然一顿舔，可以，接受！干啥都行！），然后说后面会面试。我从未想过会有如此迅速。从投递简历到接到电话不过十七八个小时吧。当时心里喜忧参半吧，又是开心又是焦虑，虽然不用笔试就直接面试了，可自己并没有开始复习面试知识。于是接下来便开始了复习，过了一两天收到了一面（周四），但结果并不是很理想，或者说非常不理想。有着很多很基础的知识都没有答好，比如三次握手，四次挥手，引用和指针区别，<code>select, poll, epoll</code> 区别。这些都不是因为不会，而是没有背标准答案吧～面试官小哥哥很 nice，在面试中告诉我对我的感觉是似懂非懂，知识只了解到一半，没有过多地说什么。当时以为凉了吧，半夜做梦都是没通过直接被刷，忍不住地不停去官网查看状态。没想到在下一周周一收到了二面的电话（那天头疼吧，迷糊着听到电话突然起来接），自我感觉比一面好了些，但仍有很多不足吧，一些经典的知识没有说好。也没有问这两位小哥哥部门，所以对部门不太清楚，但感觉偏技术吧。</p>
+<p>后面又接到了一通电话，告诉我是 IEG，问了我一些情况和比较基础的知识点，这时候准备已经有些时间了，所以回答还算是可以。过后去官网查了状态，由原来的复试变成了初试，感觉应该是之前面的部门凉了吧，被 IEG 捞了起来。小哥哥问我玩不玩游戏啥的，这也便开始了我面试的吹逼之旅。后面二面是视频面，约好了时间却一直没收到面试链接，快到面试时间才知道要在微信上视频，原因是面试系统有 bug 还不能使用（笑）。二面有两个面试官，感觉有一个像是压力面的样子（也可能是我太菜了），就是我不会什么他问什么，我简历上写了熟悉栈、队列….. 唯独没有写哈希表，然后他让我设计一个哈希表。简历上写了专业课程有 balabala，没有写数据库（因为数据库实在太菜了），然后他问我数据库的知识。他问我时我一直磕磕绊绊，另一个面试官问我就投缘一些，他问的我差不多都会，秒回的那种。</p>
+<p>二面后第二天（周三）在地铁上收到了约周六现场面的电话，询问了下必须现场，不能远程。我深知我自己是肯定会去的。说实话感觉腾讯现场面的准备有些仓促，只告诉你周六有现场面，问你来不来，你回短信说去之后了无因信，不给你具体的时间地点，询问也没人回答。这让我内心想很多，我有没有听错时间，是不是这个周六，要不要买票，万一听错时间怎么办，过去了人家根本没举办面试，面试地点在哪，一点信息都没我到底要不要去…… 我终于还是去了，在过去的高铁上收到了面试的时间地址信息，那时已经是面试前一天下午的四五点。。。不得不说做得的确不够好，我从南京去深圳，不仅要操心面试题目，还是操心面试本身。</p>
+<p>面试在周六，我买的周五的高铁，早上 6 点多到晚上 8 点半，大概 14 个多小时。在南京站的时候拍了张车票的照片，那时候便想好了结束后要发的说说：</p>
+<blockquote class="blockquote-center"> 何当金络脑，快走踏清秋。</blockquote>
+![mark](https://blogphoto-1300662669.cos.ap-nanjing.myqcloud.com/blog/20191001/D9qTkRDoGMuh.jpg)
+
+<p>我带了几本 C++ 的书在高铁上看，但最终也只看了一本《More Effective C++》，其他的几本翻都没翻。学习永远都不晚的，没想到我在高铁上看的知识，刚好第二天面试用到。一路上时而看看书籍，时而看看窗外的青山，感觉自己又是在故事中。（当然，下午就几乎全靠手机了）那天刚好是 LPL 夏季总决赛，RNG 对 FPX，皇杂的我似乎知道了结果，并没有抱很大的希望，高铁上网也不是很好，也便偶尔看些片段。最后 FPX 3 ： 1 RNG，Doinb 拿到了冠军，自己其实也挺高兴的。</p>
+<p>9.1 时候头条二面凉，RNG 赢了 TES 拿下 S9 门票，心里想着血赚不亏。<br>9.6 坐动车去深圳面试 RNG 没能拿到夏冠，心里想着这下该轮到我了吧。</p>
+<p>8 点半的时候到了深圳，天已经黑了。这算是我坐过时间最长的一次动车了吧。途经了很多地方，上海、杭州、台州、林少的家乡莆田、洪少家乡泉州、厦门，也算是开了下眼界吧。路上遇到的青山碧水也因为此时的心境有了不同的意义。到了深圳后便开始去美团上定的一家民宿。其实定住宿时还有点小插曲，一开始不知道面试地点，盲猜了一波滨海大厦，也就定了那旁边的一家，后来收到面试地点的短信发现并不是在那… 结果定的那家宾馆告诉我那个房间水管炸了， 不能住宿。。。笑嘻嘻，于是退全款换了一家较一点的民宿。民宿整体还不错，客厅装修蛮好的，就是人很多…… 估计有很多常住民吧，我住的是一个八人间，那晚有四五个人的样子，其他房间也住着人。我有一个毛病，就是心里有事的时候是吃不下去饭的，（由于春招）吃下去也会不舒服吐出来。找到住宿后想出去觅点食，结果发现附近吃的并不多，有一家热干面也刚好关门，只好去了一家麦当劳买了份套餐。这算是一整天除了面包外全部吃的了。在一家杂货店买了一瓶可乐，在南京时候可乐瓶图案一般是南京上海北京杭州几座城市，没想到在这边遇到了新的城市图案。在深圳当然选了一瓶多元深圳图案的可乐。拿到可乐后突然觉得这会是我的幸运瓶，能够给我以勇气和安慰，便拍了张照片，把它放在书包的侧边。<img src="https://blogphoto-1300662669.cos.ap-nanjing.myqcloud.com/blog/20191001/J4lOPe8xBNgx.jpg" alt="mark"></p>
+<p>第二天面试在 10 ： 30 ，我也早早地去了科兴大厦，没有吃早餐。到了那发现了一些手办，蛮好看的，惊喜的是居然有 QQ 华夏的手办，和面试联系人不时撒娇卖萌联系了下。也很幸运之前有在 QQ 找到一个一起面试的小伙伴，在腾讯食堂面了下基，聊了些天。不时也会有些紧张，那时候我就会用手摸可乐瓶，它会带给我力量。腾讯现场面做的挺好的，约的是 10:30，面试的时间也刚好是 10:30，一分不耽误，不像某些公司给你说了 1 点半，3 点多才排到你。我很喜欢这样的安排。现场面应该算是三面（我也不太清楚），好像是总监面？现场面意外得顺利，面试官炒鸡 nice，我真的感觉是在和面试官聊天（谈笑风声），而不是你问我答的面试，比如问一个问题，我说一些知识点，面试官也会说些知识点，在某些情况下怎么做，像是彼此之间的一次技术交流（当然，我不配跟大佬交流的，只是感觉上像）。中间还有个小插曲，我们聊得正欢的时候下一位面试者敲门，本来预定的面试时长是 30 分钟，不知不觉已经 40 多分钟。看了下时间我们也便愉快地结束了面试。面试官还担心楼层门是关着的，要刷卡才能开，特意带我去刷卡。（真的炒鸡 nice 啊啊啊！！！）</p>
+<p>等了下一起面试的小伙伴，我们一起去次饭。途中收到了面试联系官的电话，下午 HR 面，没想到一轮现场技术面后直接就 HR 面了，有点欣喜。小伙伴也收到了技术面的通知。我们去了一家烤鹅店，一打开菜单吓一跳，三年老鹅，2888，五年老鹅，5888。当年，我们点的 39 的那种。和往常一样，没有胃口，也不敢吃太多，大概半碗都没能吃下。回科兴的路上突然很想小姐姐，这时候才意识到我已经到了离开一两天就会很想的地步，很想回家缠她下。</p>
+<p>没想到下午 HR 面的主要面试官就是我之前卖萌撒娇的小姐姐，我……. HR 面还算是顺利，就是在问我阿里和腾讯之间如何选择犹豫了一会，在人家地盘当然是说选人家了。问了下小姐姐什么时候出结果通知，小姐姐说下周五前。感觉蛮快的样子，就有很强的期待感。HR 小姐姐超温柔，不时会笑一下，声音也软软的<del>面试好后 HR 小姐姐给我来开门，我也趁机卖萌说了下 “谢谢小姐姐，小姐姐再见</del>”。</p>
+<p>幸运瓶给了我很大的鼓励，于是想把它带回南京陪着我。</p>
+<p>面试流程结束后并没有直接走，因为一直听说咖啡机很好玩，就去熟悉的 11 层试了下，没想到刚好遇到小伙伴。喝完咖啡后去了滨海大厦那边玩，路上又吃了麦当劳，也算是一天的食物了。见到滨海大厦的一刻还是有些欣喜的，心中有些朝拜的感觉吧。但感觉周围有些压抑，都是高楼大厦，抬头看见的天空被大楼割裂开来。不知道有没有什么哲学家提出一种理论：“人类生活的幸福感和抬头看到的天空面积成正相关”。</p>
+<p>其间爸爸问我面试如何，我就直接说 “如果他不要我那说明他压根不招人”，哈哈哈哈，当时还不知道后面要经历多么煎熬地等待。又拿起幸运瓶和滨海大厦合了张影。<img src="https://blogphoto-1300662669.cos.ap-nanjing.myqcloud.com/blog/20191001/vf4wLcl8bKa2.jpg" alt="mark"></p>
+<p>在滨海大厦玩到傍晚，才去找订的青旅。其实挺近的，也就两三分钟的路程吧，哈哈哈。后面又来了一个小姐姐我一脸懵比，心想我们这屋四个男生满了呀，后来才知道隔壁还一间屋子。后面又去了人才花园（？是叫这名字吗？记不太清楚了）路上遇到一群黄牛拦着我卖票，后来才知道原来这边在办篮球世界杯。后面有一段感觉是小资区？一堆十八线网红的感觉。不过建筑、装饰的确要有些精致。在人才湾（？）看到了海的一角，对面是高楼林立，给我一种很强的压迫感和快节奏感。回来后去找吃的，又没有找到，有家面馆也恰好关门。在旅馆里和老板聊了很多，问了下旅馆的经营模式、她的经历之类的。同宿的三个哥们看球回来了（从内蒙古过来看球也是真爱），发现旅店有蟑螂，一个直接站在床头不敢下来（笑 cry）。</p>
+<p>熊猫老哥给我预约了周日下午去滨海大厦，感激。滨海大厦里面也超气派，在里面各种闲逛，各种喝咖啡（喝到难受，笑 cry）。22 楼是休闲娱乐区，有图书阅读、篮球馆、室内攀岩、健身房一类的东西，还算蛮棒的。刚好遇到有售卖周边产品的，可惜是周一卖，于是拜托熊猫老哥帮我买些寄过来，超开心，再次感激。在滨海大厦闲鱼到五六点的样子就出来吃饭返程了，在一家面馆吃了面，因为要去飞机站，对时间不太了解，有点紧张吧，又有些难受，吃完后在路边又吐了出来，感觉好多了。走着去了地铁站，发现到机场不过三四站的样子，很快的。地铁上坐我旁边的是对父子，儿子可能有些疾病，会不停地打自己，很用力的那种，声音也会很响，父亲一直想控制他。那时候有些感慨人生百味吧。到南京已是凌晨，绕着雨花台回到了家中，还是有点点害怕的。途中恰巧闻到了桂花，这才突然感受到秋天来了，又想起我对桂花的第一印象也是当年在雨花台吧。途中一直自己吓自己又来自己鼓励自己。回到家中吵醒了时光，抱了下时光。</p>
+<p>等待通知的日子很煎熬，很多次做梦都会梦到通知相关的事情，每天也总提心吊胆地一直带着手机，生怕错过。可是腾讯的通知却是迟迟不来，别的电话到是一个赛过一个。在谱哥群里找了两个同是等 oc 的哥们，于是抱团取暖，一起等待。通知并没有像 HR 说的那般在周五前如期到来，又是重新等一周，其间的煎熬不知如何诉说，反正做什么事情都生怕错过电话，无数次想象如果我在面试其他公司时来了电话怎么办，就是如此这般忧心忡忡。每天无聊又紧张地翻着牛客帖子，总想着能把握住一丝一毫的信息。每次刷牛客都会看到很多的许愿帖，期望着能够收到 offer。听说牛客许愿很灵，我总在想自己要不要发一个求下好运。可我终是没有发，因为想要凭借自己的实力得到 offer，发了许愿帖得到 offer 的话总觉得依靠了些什么，得到 offer 的时候不会像单凭自己拿到那样开心，所以最终也没有发许愿帖，我就是如此固执的一个人。一起抱团取暖的两个哥们在下周的同一天里都收到了 oc，而我的却还是迟迟不来，心里祈祷着 ieg 效率可以高一些。又是新的一周，已是接近九月末了，在我等待海康威视综合面的时候来了短信，一时间的激动亦是难与诉说，一直以来的梦想在一瞬间终于成真，在群里发了红包，也给谱哥发了个大红包。综合面表现就有点随意吧，面试官问我别人感觉我如何时，我想了半天说有点逗比吧，直接给面试官整笑了。面试结束回家的心情亦是格外的放松，回家买了瓶可乐庆祝。</p>
+<p>后面就是等正式的 oc 吧，虽然也有点煎熬，但心情总是没有之前紧张了。等 oc 还有点小插曲，HR 把我的 oc 打给了别人，之前一直笑谑孙 lei，没想到我也有成为孙 lei 的一天。HR 给我来了波出队操作，又来了波入队操作。导致我到了队尾，这一批的 oc 打完了，大家收到了意向书，而我还没有。离国庆假期越来越近了，我没有忍住，在 9.29 打了个电话问了下 HR 面的小姐姐，小姐姐的声音还是一样的温柔，一样的爱笑（感觉她全程憋笑），这才知道在系统里的我电话少了最后一位，补全了又短信问了下小姐姐，麻烦她提醒下同事，HR 小姐姐回复了我已通知，炒感激。</p>
+<p>室友在四川回来，我去接他，在返校的地铁上收到了 oc 电话，薪水比期望还要高，做梦都能笑醒了，没想到自己走运拿到了腾讯的 sp offer，好事多磨吧。瞎猫碰上死耗子，我是死耗子。只可惜接电话时没能在时光身边，没能和她一起分享这份快乐。接电话时对方把我学校不小心念错成了北邮，我的反应并未像往常听到北邮那样意难平了吧，那时候才感觉自己终于从没能考上北邮中走了出来。大一的时候看到学校周围的路牌总是会把南邮不小心看成北邮，大二的时候不小心看到北邮的校徽心中五味杂陈，大三 ACM 南京站看到自己排名在一些北邮队伍前面感到很欣慰，努力没有白费，大四收到了腾讯的 offer 终于能不再依靠当年想考北邮来自我介绍了。</p>
+<p>暂时先记载这么多吧，分享下在南京的幸运瓶。<img src="https://blogphoto-1300662669.cos.ap-nanjing.myqcloud.com/blog/20191001/8ftoS9GRvB1a.jpg" alt="mark"></p>
+<hr>
+
+<p>PS：说下好完的，在写这篇文章回忆面试场景时，突然感觉敲门的那个面试者和在群里认识的一个小姐姐微信头像有些像，问了下没想到真的是她。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">❤采之欲遗谁，所思在远道。❤</div>
+    
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%B0%E5%BD%95/" rel="tag"><i class="fa fa-tag"></i> 记录</a>
+              <a href="/tags/%E8%85%BE%E8%AE%AF/" rel="tag"><i class="fa fa-tag"></i> 腾讯</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/09/14/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%9B%AE%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BA%BF%E7%A8%8B%E5%88%87%E6%8D%A2%E8%A6%81%E6%AF%94%E8%BF%9B%E7%A8%8B%E5%88%87%E6%8D%A2%E5%BF%AB/" rel="prev" title="面试题目：为什么线程切换要比进程切换快">
+                  <i class="fa fa-angle-left"></i> 面试题目：为什么线程切换要比进程切换快
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/10/13/%E4%B8%8D%E7%A0%B4%E6%A5%BC%E5%85%B0%E5%85%B0%E7%BB%88%E4%B8%8D%E8%BF%98%E2%80%94%E2%80%94%E7%A7%8B%E6%8B%9B%E7%9A%84%E4%B8%80%E4%BA%9B%E7%BB%8F%E9%AA%8C/" rel="next" title="不破楼兰兰终不还 —— 秋招的一些经验">
+                  不破楼兰兰终不还 —— 秋招的一些经验 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-brands fa-optin-monster"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">之伊丶</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">578k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">17:32</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.31/dist/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","cdn":"//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"MoonChasing","repo":"BlogComment","client_id":"945099f6f7642f8f9aa1","client_secret":"1bc2f1034e1f214eb596fabb02c71260b3400640","admin_user":"MoonChasing","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"f4941fe223a120e7caa2ae0cdce61b68"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>

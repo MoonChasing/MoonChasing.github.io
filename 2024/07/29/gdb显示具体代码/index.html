@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="xSALNCd7e6-d6OjbNKdpk8bUbfMKnJYB4eNG232fwvc">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.31/dist/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhiyi.live","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="若想 gdb 调试时可以显示代码，需满足以下两个条件：  二进制文件中带有调试信息 机器上有源代码  1. 二进制文件带有调试信息编译代码时，使用 -g 或 -gz  标志，用于生成调试信息。 注：-gz 表示压缩调试信息。 查看一个二进制文件是否带有调试信息： 1objdump -S &#x2F;path&#x2F;to&#x2F;bin  若输出中含有 .debug_xxx 段或 .zdebug_xxx 段，则表示该二进制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gdb 显示具体代码">
+<meta property="og:url" content="http://zhiyi.live/2024/07/29/gdb%E6%98%BE%E7%A4%BA%E5%85%B7%E4%BD%93%E4%BB%A3%E7%A0%81/index.html">
+<meta property="og:site_name" content="MoonChasing">
+<meta property="og:description" content="若想 gdb 调试时可以显示代码，需满足以下两个条件：  二进制文件中带有调试信息 机器上有源代码  1. 二进制文件带有调试信息编译代码时，使用 -g 或 -gz  标志，用于生成调试信息。 注：-gz 表示压缩调试信息。 查看一个二进制文件是否带有调试信息： 1objdump -S &#x2F;path&#x2F;to&#x2F;bin  若输出中含有 .debug_xxx 段或 .zdebug_xxx 段，则表示该二进制">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-29T22:21:30.000Z">
+<meta property="article:modified_time" content="2025-03-05T14:23:10.345Z">
+<meta property="article:author" content="之伊丶">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://zhiyi.live/2024/07/29/gdb%E6%98%BE%E7%A4%BA%E5%85%B7%E4%BD%93%E4%BB%A3%E7%A0%81/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://zhiyi.live/2024/07/29/gdb%E6%98%BE%E7%A4%BA%E5%85%B7%E4%BD%93%E4%BB%A3%E7%A0%81/","path":"2024/07/29/gdb显示具体代码/","title":"gdb 显示具体代码"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>gdb 显示具体代码 | MoonChasing</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118447996-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-118447996-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MoonChasing</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E5%B8%A6%E6%9C%89%E8%B0%83%E8%AF%95%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">1. 二进制文件带有调试信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%9C%BA%E5%99%A8%E4%B8%8A%E6%9C%89%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">2. 机器上有源代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number"></span> <span class="nav-text">调试的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DWARF-%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="nav-number">0.1.</span> <span class="nav-text">DWARF 基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84-DWARF-%E4%BE%8B%E5%AD%90"><span class="nav-number">0.2.</span> <span class="nav-text">简单的 DWARF 例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A"><span class="nav-number">0.3.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%8F%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">0.4.</span> <span class="nav-text">行号信息</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%A9%E5%B1%95"><span class="nav-number"></span> <span class="nav-text">扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GNU-binutils-GNU-%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%B7%A5%E5%85%B7%E9%9B%86"><span class="nav-number">1.</span> <span class="nav-text">GNU binutils (GNU 二进制工具集)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E4%B8%8A%E7%9A%84C-%E6%9C%8D%E5%8A%A1-coredump-%E4%BA%86%EF%BC%8C%E5%85%B6%E4%BD%BF%E7%94%A8%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%B2%A1%E6%9C%89%E5%B8%A6debug%E8%B0%83%E8%AF%95%E4%BF%A1%E6%81%AF%EF%BC%8C%E6%88%91%E5%8F%AF%E4%BB%A5%E7%94%A8%E6%9C%AC%E5%9C%B0%E7%9B%B8%E5%90%8C%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E5%87%BA%E6%9D%A5%E7%9A%84%E5%B8%A6debug%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%E6%9D%A5%E8%B0%83%E8%AF%95%E5%90%97%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">线上的 C++ 服务 coredump 了，其使用的二进制没有带 debug 调试信息，我可以用本地相同代码编译出来的带 debug 信息的二进制文件来调试吗？</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="之伊丶"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">之伊丶</p>
+  <div class="site-description" itemprop="description">每从细笔惊新悟，重向高山愧旧琴。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">89</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=825910928&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;825910928&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener me" target="_blank"><i class="fa-brands fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/cui-ming-hao-61" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;cui-ming-hao-61" rel="noopener me" target="_blank"><i class="fas fa-puzzle-piece fa-fw"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/MoonChasing" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MoonChasing" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/7679023/moonchasing" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;7679023&#x2F;moonchasing" rel="noopener me" target="_blank"><i class="fa-brands fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-gamepad fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://blog.0xfaner.site/" title="https:&#x2F;&#x2F;blog.0xfaner.site" rel="noopener" target="_blank">0xfaner</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://coswindy.cn/" title="https:&#x2F;&#x2F;coswindy.cn&#x2F;" rel="noopener" target="_blank">coswindy</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.cfzhao.com/" title="http:&#x2F;&#x2F;www.cfzhao.com&#x2F;" rel="noopener" target="_blank">CFZhao</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.kimiye.xyz/" title="https:&#x2F;&#x2F;www.kimiye.xyz" rel="noopener" target="_blank">Kehuaiiiiii</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zhiyi.live/2024/07/29/gdb%E6%98%BE%E7%A4%BA%E5%85%B7%E4%BD%93%E4%BB%A3%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="之伊丶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MoonChasing">
+      <meta itemprop="description" content="每从细笔惊新悟，重向高山愧旧琴。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="gdb 显示具体代码 | MoonChasing">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          gdb 显示具体代码
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-29 22:21:30" itemprop="dateCreated datePublished" datetime="2024-07-29T22:21:30+00:00">2024-07-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-05 14:23:10" itemprop="dateModified" datetime="2025-03-05T14:23:10+00:00">2025-03-05</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>若想 gdb 调试时可以显示代码，需满足以下两个条件：</p>
+<ol>
+<li>二进制文件中带有调试信息</li>
+<li>机器上有源代码</li>
+</ol>
+<h2 id="1-二进制文件带有调试信息"><a href="#1-二进制文件带有调试信息" class="headerlink" title="1. 二进制文件带有调试信息"></a>1. 二进制文件带有调试信息</h2><p>编译代码时，使用 <code>-g</code> 或 <code>-gz</code>  标志，用于生成调试信息。</p>
+<p>注：<code>-gz</code> 表示压缩调试信息。</p>
+<p><strong>查看一个二进制文件是否带有调试信息：</strong></p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objdump -S /path/to/bin</span><br></pre></td></tr></tbody></table></figure>
+
+<p>若输出中含有 <code>.debug_xxx</code> 段或 <code>.zdebug_xxx</code> 段，则表示该二进制文件含调试信息。</p>
+<h2 id="2-机器上有源代码"><a href="#2-机器上有源代码" class="headerlink" title="2. 机器上有源代码"></a>2. 机器上有源代码</h2><p>二进制文件中有调试信息后，gdb 就知道了 xxx 地址的代码对应于 <code>/path/of/code/xxx</code> 文件中的 yy 行，然后 gdb 就会根据路径去机器上查看这里的代码。<strong>这也就意味着，使用 gdb 调试的机器上必须要有源代码！</strong></p>
+<p>一般情况下，将代码上传线上服务肯定是不现实的，因此我们一般是将 core 文件下载到开发机上进行调试。<strong>请注意，要保证本地使用的二进制程序的源代码和 core 文件使用的二进制的源代码是相同的版本！</strong></p>
+<p>我们可以使用在 gdb 中使用 dir 设置代码查找路径（当调试信息中的文件路径为相对地址时）。比如 gdb 显示代码路径为 <code>cika/cika_server/logic/xxx.cc</code> ，我们源代码的根路径为 <code>/data/code/main</code>，使用 <code>dir /data/code/main</code> 就可以为 gdb 搜索代码时指明去该路径下查找代码。<span id="more"></span></p>
+<h1 id="调试的原理"><a href="#调试的原理" class="headerlink" title="调试的原理"></a>调试的原理</h1><p>使用 <code>-g</code>  标志进行编译后，编译器 / 链接器会在生成的二进制文件上加入 <code>.debug_xxx</code> 段，这里面便存在着相关的调试信息。</p>
+<p>调试信息一般以 <code>DWARF（Debugging With Attributed Record Formats）</code> 格式存储。</p>
+<h3 id="DWARF-基本结构"><a href="#DWARF-基本结构" class="headerlink" title="DWARF 基本结构"></a>DWARF 基本结构</h3><p>DWARF 调试信息通常包含以下几部分：</p>
+<ol>
+<li><strong>编译单元（Compilation Unit, CU）</strong>：每个编译单元对应一个源文件及其包含的所有调试信息。</li>
+<li><strong>调试信息条目（Debugging Information Entry, DIE）</strong>：每个 DIE 描述一个调试信息实体，如变量、函数、类型等。</li>
+<li><strong>属性（Attributes）</strong>：每个 DIE 包含若干属性，描述该实体的详细信息，如名称、类型、地址等。</li>
+<li><strong>行号信息（Line Number Information）</strong>：记录源代码行号与机器代码地址的对应关系。</li>
+</ol>
+<h3 id="简单的-DWARF-例子"><a href="#简单的-DWARF-例子" class="headerlink" title="简单的 DWARF 例子"></a>简单的 DWARF 例子</h3><p>假设我们有一个简单的 C++ 程序 example.cpp：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">()</span> </span>{</span><br><span class="line">    std::cout &lt;&lt; <span class="string">"Inside foo"</span> &lt;&lt; std::endl;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="built_in">foo</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>编译这个程序并生成调试信息：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ -g -o example example.cpp</span><br></pre></td></tr></tbody></table></figure>
+
+<p>我们可以使用 readelf 工具查看生成的 DWARF 调试信息：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">readelf --debug-dump=info example</span><br></pre></td></tr></tbody></table></figure>
+
+<p>输出可能会非常详细，但我们可以简化并解释其中的一部分。假设输出的一部分如下：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;1&gt;&lt;0x0000000b&gt;    DW_TAG_compile_unit</span><br><span class="line">                     DW_AT_producer    ("GNU C++14 9.3.0 -mtune=generic -march=x86-64 -g")</span><br><span class="line">                     DW_AT_language    (DW_LANG_C_plus_plus)</span><br><span class="line">                     DW_AT_name        ("example.cpp")</span><br><span class="line">                     DW_AT_stmt_list   (0x00000000)</span><br><span class="line">                     DW_AT_comp_dir    ("/path/to/directory")</span><br><span class="line">                     DW_AT_low_pc      (0x00000000004004a0)</span><br><span class="line">                     DW_AT_high_pc     (0x00000000004004d0)</span><br><span class="line"></span><br><span class="line"> &lt;2&gt;&lt;0x0000001b&gt;    DW_TAG_subprogram</span><br><span class="line">                     DW_AT_name        ("foo")</span><br><span class="line">                     DW_AT_decl_file   (0x00000001)</span><br><span class="line">                     DW_AT_decl_line   (0x00000003)</span><br><span class="line">                     DW_AT_prototyped  (true)</span><br><span class="line">                     DW_AT_low_pc      (0x00000000004004b0)</span><br><span class="line">                     DW_AT_high_pc     (0x00000000004004c0)</span><br><span class="line"></span><br><span class="line"> &lt;2&gt;&lt;0x0000002b&gt;    DW_TAG_subprogram</span><br><span class="line">                     DW_AT_name        ("main")</span><br><span class="line">                     DW_AT_decl_file   (0x00000001)</span><br><span class="line">                     DW_AT_decl_line   (0x00000007)</span><br><span class="line">                     DW_AT_prototyped  (true)</span><br><span class="line">                     DW_AT_low_pc      (0x00000000004004c0)</span><br><span class="line">                     DW_AT_high_pc     (0x00000000004004d0)</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><ol>
+<li><strong>编译单元（CU）</strong>：<ul>
+<li>&lt;1&gt;&lt;0x0000000b&gt; DW_TAG_compile_unit：表示一个编译单元。</li>
+<li>DW_AT_producer：编译器信息。</li>
+<li>DW_AT_language：编程语言。</li>
+<li>DW_AT_name：源文件名。</li>
+<li>DW_AT_stmt_list：行号信息的偏移。</li>
+<li>DW_AT_comp_dir：编译目录。</li>
+<li>DW_AT_low_pc 和 DW_AT_high_pc：该编译单元的代码地址范围。</li>
+</ul>
+</li>
+<li><strong>子程序（Subprogram）</strong>：<ul>
+<li>&lt;2&gt;&lt;0x0000001b&gt; DW_TAG_subprogram：表示一个子程序（函数）。</li>
+<li>DW_AT_name：函数名。</li>
+<li>DW_AT_decl_file：声明该函数的源文件索引。</li>
+<li>DW_AT_decl_line：声明该函数的源代码行号。</li>
+<li>DW_AT_prototyped：是否有原型。</li>
+<li>DW_AT_low_pc 和 DW_AT_high_pc：该函数的代码地址范围。</li>
+</ul>
+</li>
+</ol>
+<h3 id="行号信息"><a href="#行号信息" class="headerlink" title="行号信息"></a>行号信息</h3><p>行号信息记录了源代码行号与机器代码地址的对应关系。可以使用 readelf –debug-dump=decodedline example 查看行号信息：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">readelf --debug-dump=decodedline example</span><br></pre></td></tr></tbody></table></figure>
+
+<p>输出可能如下：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CU: example.cpp:</span><br><span class="line">File name                            Line number    Starting address</span><br><span class="line">example.cpp                          3              0x00000000004004b0</span><br><span class="line">example.cpp                          4              0x00000000004004b5</span><br><span class="line">example.cpp                          5              0x00000000004004ba</span><br><span class="line">example.cpp                          7              0x00000000004004c0</span><br><span class="line">example.cpp                          8              0x00000000004004c5</span><br><span class="line">example.cpp                          9              0x00000000004004ca</span><br></pre></td></tr></tbody></table></figure>
+
+<h1 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h1><h2 id="GNU-binutils-GNU-二进制工具集"><a href="#GNU-binutils-GNU-二进制工具集" class="headerlink" title="GNU binutils (GNU 二进制工具集)"></a>GNU binutils (GNU 二进制工具集)</h2><p>GNU binutilds：<a target="_blank" rel="noopener" href="https://www.gnu.org/software/binutils/">https://www.gnu.org/software/binutils/</a></p>
+<p>常用的：</p>
+<ul>
+<li>ld</li>
+<li>as</li>
+<li>gold</li>
+<li>c++filt</li>
+<li>nm</li>
+<li>addr2line</li>
+<li>objdump</li>
+<li>objcopy</li>
+<li>size</li>
+<li>strings</li>
+<li>strip</li>
+<li>gprof</li>
+</ul>
+<h2 id="线上的C-服务-coredump-了，其使用的二进制没有带debug调试信息，我可以用本地相同代码编译出来的带debug信息的二进制文件来调试吗？"><a href="#线上的C-服务-coredump-了，其使用的二进制没有带debug调试信息，我可以用本地相同代码编译出来的带debug信息的二进制文件来调试吗？" class="headerlink" title="线上的C++服务 coredump 了，其使用的二进制没有带debug调试信息，我可以用本地相同代码编译出来的带debug信息的二进制文件来调试吗？"></a>线上的 C++ 服务 coredump 了，其使用的二进制没有带 debug 调试信息，我可以用本地相同代码编译出来的带 debug 信息的二进制文件来调试吗？</h2><p>可以。</p>
+<p><strong>注意事项：</strong></p>
+<ol>
+<li><p><strong>确保代码一致性</strong>：确保本地编译的代码与线上运行的代码完全一致，包括源代码、编译选项、依赖库等。</p>
+</li>
+<li><p><strong>地址空间布局随机化（ASLR）</strong>：ASLR 可能会影响调试过程。如果遇到问题，可以在调试时临时禁用 ASLR：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo 0 | sudo tee /proc/sys/kernel/randomize_va_space</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><strong>确保 core dump 文件和本地二进制文件的内存地址匹配。</strong> 如果不匹配，可能需要使用 <code>set solib-absolute-prefix</code> 或 <code>set solib-search-path</code> 等 gdb 命令来调整。</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer"><div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">❤采之欲遗谁，所思在远道。❤</div>
+    
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/07/21/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E7%9A%84%E7%9C%BC%E9%87%8C%E5%B8%B8%E5%90%AB%E6%B3%AA%E6%B0%B4/" rel="prev" title="为什么我的眼里常含泪水">
+                  <i class="fa fa-angle-left"></i> 为什么我的眼里常含泪水
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/03/05/%E5%B0%8F%E7%BB%93/" rel="next" title="小结">
+                  小结 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa-brands fa-optin-monster"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">之伊丶</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">578k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">17:32</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.31/dist/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","cdn":"//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"MoonChasing","repo":"BlogComment","client_id":"945099f6f7642f8f9aa1","client_secret":"1bc2f1034e1f214eb596fabb02c71260b3400640","admin_user":"MoonChasing","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"4659736029dd37fc54e3cc361cd9e5e0"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
